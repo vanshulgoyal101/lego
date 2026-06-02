@@ -1,0 +1,27 @@
+{
+  "name": "debounce",
+  "category": "utils",
+  "description": "Creates a debounced version of a function to delay invocation until after wait milliseconds.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when handling rapid, repetitive events such as search input keystrokes, window resizing, or scroll events to avoid calling heavy handlers too frequently.",
+  "parameters": [
+    {
+      "name": "func",
+      "type": "Function",
+      "required": true,
+      "description": "The function to debounce."
+    },
+    {
+      "name": "wait",
+      "type": "number",
+      "required": true,
+      "description": "The delay in milliseconds."
+    },
+    {
+      "name": "options.immediate",
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger the function on the leading edge."
+    }
+  ]
+}

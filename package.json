@@ -1,0 +1,21 @@
+{
+  "name": "lego-library",
+  "version": "0.1.0",
+  "description": "An AI-optimized reusable code library prototype",
+  "type": "module",
+  "main": "bin/cli.js",
+  "bin": {
+    "lego-cli": "./bin/cli.js"
+  },
+  "scripts": {
+    "build-registry": "node tools/build-registry.js"
+  },
+  "keywords": [
+    "ai",
+    "reusable",
+    "modular",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT"
+}

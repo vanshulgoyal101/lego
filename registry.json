@@ -1,0 +1,72 @@
+{
+  "blocks": {
+    "utils/debounce": {
+      "name": "debounce",
+      "category": "utils",
+      "description": "Creates a debounced version of a function to delay invocation until after wait milliseconds.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when handling rapid, repetitive events such as search input keystrokes, window resizing, or scroll events to avoid calling heavy handlers too frequently.",
+      "parameters": [
+        {
+          "name": "func",
+          "type": "Function",
+          "required": true,
+          "description": "The function to debounce."
+        },
+        {
+          "name": "wait",
+          "type": "number",
+          "required": true,
+          "description": "The delay in milliseconds."
+        },
+        {
+          "name": "options.immediate",
+          "type": "boolean",
+          "default": false,
+          "description": "Trigger the function on the leading edge."
+        }
+      ],
+      "path": "blocks/utils/debounce",
+      "files": [
+        "index.js"
+      ]
+    },
+    "web/fetch-retry": {
+      "name": "fetch-retry",
+      "category": "web",
+      "description": "A resilient fetch wrapper supporting retries, delay backoff, and request timeouts.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to make HTTP requests that are resilient to temporary network failures or rate limits (returns 5xx status codes). Avoid writing raw fetch loops manually. Import using: import { fetchRetry } from './utils/fetchRetry.js';",
+      "parameters": [
+        {
+          "name": "url",
+          "type": "string | URL",
+          "required": true,
+          "description": "The destination URL for the HTTP request."
+        },
+        {
+          "name": "options.retries",
+          "type": "number",
+          "default": 3,
+          "description": "Maximum number of retries before failing."
+        },
+        {
+          "name": "options.delay",
+          "type": "number",
+          "default": 1000,
+          "description": "Base delay for backoff in milliseconds."
+        },
+        {
+          "name": "options.timeout",
+          "type": "number",
+          "default": 8000,
+          "description": "Abort request after this timeout in milliseconds."
+        }
+      ],
+      "path": "blocks/web/fetch-retry",
+      "files": [
+        "index.js"
+      ]
+    }
+  }
+}
