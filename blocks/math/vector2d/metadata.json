@@ -1,0 +1,21 @@
+{
+  "name": "vector2d",
+  "category": "math",
+  "description": "A comprehensive 2D mathematical vector physics and geometry class.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when implementing vector calculation logic, movement physics, boundary collision calculations, interactive UI animations, or spatial layout models. Import using: import { Vector2D } from './math/vector2d.js';",
+  "parameters": [
+    {
+      "name": "x",
+      "type": "number",
+      "default": 0,
+      "description": "X-axis value coordinate."
+    },
+    {
+      "name": "y",
+      "type": "number",
+      "default": 0,
+      "description": "Y-axis value coordinate."
+    }
+  ]
+}

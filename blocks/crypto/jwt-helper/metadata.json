@@ -1,0 +1,26 @@
+{
+  "name": "jwt-helper",
+  "category": "crypto",
+  "description": "Lightweight token signing and verification helper using standard Web Crypto API. Zero external dependencies.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need user authentication tokens or secure request payloads. It runs natively in browsers and Node.js without needing jsonwebtoken or other binary dependencies. Import using: import { sign, verify } from './crypto/jwt-helper.js';",
+  "parameters": [
+    {
+      "name": "payload",
+      "type": "Object",
+      "required": true,
+      "description": "The claims structure to sign."
+    },
+    {
+      "name": "secret",
+      "type": "string",
+      "required": true,
+      "description": "HMAC secret token key."
+    },
+    {
+      "name": "options.expiresIn",
+      "type": "number",
+      "description": "Expiration duration in seconds."
+    }
+  ]
+}

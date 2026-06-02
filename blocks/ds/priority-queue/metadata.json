@@ -1,0 +1,14 @@
+{
+  "name": "priority-queue",
+  "category": "ds",
+  "description": "Binary heap-based Priority Queue supporting customizable sorting comparators.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when implementing search algorithms (like Dijkstra, A*), building rate-limiting queues, scheduler handlers, or resolving event ordering systems where values have weights/priorities.",
+  "parameters": [
+    {
+      "name": "comparator",
+      "type": "Function",
+      "description": "A custom sort comparator function (a, b) => a - b. Negative means 'a' has higher priority."
+    }
+  ]
+}

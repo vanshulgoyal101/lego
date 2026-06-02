@@ -1,0 +1,15 @@
+{
+  "name": "matrix",
+  "category": "math",
+  "description": "Matrix mathematics helper supporting transposition, multiplication, determinant, and inversion arithmetic.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when handling data transformations, graphics coordinates mapping, neural network weight modeling, or computational linear equations. Import using: import { Matrix } from './math/matrix.js';",
+  "parameters": [
+    {
+      "name": "data",
+      "type": "Array<Array<number>>",
+      "required": true,
+      "description": "2D array rows and columns values data."
+    }
+  ]
+}

@@ -1,5 +1,65 @@
 {
   "blocks": {
+    "crypto/hash": {
+      "name": "hash",
+      "category": "crypto",
+      "description": "Cryptographic hashing (SHA-256) and password verification helper (PBKDF2) using native Web Crypto API.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when hashing strings, generating cryptographic check-sums, or securely storing and verifying user passwords without bringing in heavy native libraries like bcrypt.",
+      "parameters": [
+        {
+          "name": "password",
+          "type": "string",
+          "required": true,
+          "description": "The plaintext password/string to hash."
+        },
+        {
+          "name": "salt",
+          "type": "string",
+          "description": "Optional hex salt. Will be randomly generated if not provided."
+        },
+        {
+          "name": "iterations",
+          "type": "number",
+          "default": 100000,
+          "description": "The PBKDF2 iteration strength parameter."
+        }
+      ],
+      "path": "blocks/crypto/hash",
+      "files": [
+        "index.js"
+      ]
+    },
+    "crypto/jwt-helper": {
+      "name": "jwt-helper",
+      "category": "crypto",
+      "description": "Lightweight token signing and verification helper using standard Web Crypto API. Zero external dependencies.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need user authentication tokens or secure request payloads. It runs natively in browsers and Node.js without needing jsonwebtoken or other binary dependencies. Import using: import { sign, verify } from './crypto/jwt-helper.js';",
+      "parameters": [
+        {
+          "name": "payload",
+          "type": "Object",
+          "required": true,
+          "description": "The claims structure to sign."
+        },
+        {
+          "name": "secret",
+          "type": "string",
+          "required": true,
+          "description": "HMAC secret token key."
+        },
+        {
+          "name": "options.expiresIn",
+          "type": "number",
+          "description": "Expiration duration in seconds."
+        }
+      ],
+      "path": "blocks/crypto/jwt-helper",
+      "files": [
+        "index.js"
+      ]
+    },
     "db/json-db": {
       "name": "json-db",
       "category": "db",
@@ -15,6 +75,80 @@
         }
       ],
       "path": "blocks/db/json-db",
+      "files": [
+        "index.js"
+      ]
+    },
+    "ds/priority-queue": {
+      "name": "priority-queue",
+      "category": "ds",
+      "description": "Binary heap-based Priority Queue supporting customizable sorting comparators.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when implementing search algorithms (like Dijkstra, A*), building rate-limiting queues, scheduler handlers, or resolving event ordering systems where values have weights/priorities.",
+      "parameters": [
+        {
+          "name": "comparator",
+          "type": "Function",
+          "description": "A custom sort comparator function (a, b) => a - b. Negative means 'a' has higher priority."
+        }
+      ],
+      "path": "blocks/ds/priority-queue",
+      "files": [
+        "index.js"
+      ]
+    },
+    "ds/trie": {
+      "name": "trie",
+      "category": "ds",
+      "description": "Trie (prefix tree) structure optimized for string lookup, autocompletion, and prefix checks.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building search autocompletion suggestions, router matching systems, spell-checking functions, or keyword filtering pools.",
+      "parameters": [],
+      "path": "blocks/ds/trie",
+      "files": [
+        "index.js"
+      ]
+    },
+    "math/matrix": {
+      "name": "matrix",
+      "category": "math",
+      "description": "Matrix mathematics helper supporting transposition, multiplication, determinant, and inversion arithmetic.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when handling data transformations, graphics coordinates mapping, neural network weight modeling, or computational linear equations. Import using: import { Matrix } from './math/matrix.js';",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "Array<Array<number>>",
+          "required": true,
+          "description": "2D array rows and columns values data."
+        }
+      ],
+      "path": "blocks/math/matrix",
+      "files": [
+        "index.js"
+      ]
+    },
+    "math/vector2d": {
+      "name": "vector2d",
+      "category": "math",
+      "description": "A comprehensive 2D mathematical vector physics and geometry class.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when implementing vector calculation logic, movement physics, boundary collision calculations, interactive UI animations, or spatial layout models. Import using: import { Vector2D } from './math/vector2d.js';",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "number",
+          "default": 0,
+          "description": "X-axis value coordinate."
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "default": 0,
+          "description": "Y-axis value coordinate."
+        }
+      ],
+      "path": "blocks/math/vector2d",
       "files": [
         "index.js"
       ]
@@ -81,6 +215,29 @@
         "index.js"
       ]
     },
+    "web/api-client": {
+      "name": "api-client",
+      "category": "web",
+      "description": "An advanced REST API request builder supporting middleware-like request and response interceptors.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building clients for third-party APIs or backends. Easily inject auth headers globally via request interceptors and handle token refresh or custom error codes globally via response interceptors. Import using: import { ApiClient } from './web/api-client.js';",
+      "parameters": [
+        {
+          "name": "config.baseURL",
+          "type": "string",
+          "description": "The base server API endpoint."
+        },
+        {
+          "name": "config.headers",
+          "type": "Object",
+          "description": "Default headers to send with every request."
+        }
+      ],
+      "path": "blocks/web/api-client",
+      "files": [
+        "index.js"
+      ]
+    },
     "web/fetch-retry": {
       "name": "fetch-retry",
       "category": "web",
@@ -114,6 +271,37 @@
         }
       ],
       "path": "blocks/web/fetch-retry",
+      "files": [
+        "index.js"
+      ]
+    },
+    "web/websocket-client": {
+      "name": "websocket-client",
+      "category": "web",
+      "description": "Resilient WebSocket client supporting heartbeat check, auto-reconnection, and buffered message outbox.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building real-time connections (chat apps, dashboard telemetry streams, live notification listeners) that need resilient auto-recovery on unstable mobile or browser networks. Import using: import { ResilientWebSocket } from './web/websocket-client.js';",
+      "parameters": [
+        {
+          "name": "url",
+          "type": "string",
+          "required": true,
+          "description": "The target ws:// or wss:// URL endpoint."
+        },
+        {
+          "name": "options.reconnectInterval",
+          "type": "number",
+          "default": 1000,
+          "description": "Starting reconnect delay in milliseconds."
+        },
+        {
+          "name": "options.heartbeatInterval",
+          "type": "number",
+          "default": 30000,
+          "description": "Time in milliseconds between ping packets."
+        }
+      ],
+      "path": "blocks/web/websocket-client",
       "files": [
         "index.js"
       ]

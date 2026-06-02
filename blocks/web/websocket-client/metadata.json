@@ -1,0 +1,27 @@
+{
+  "name": "websocket-client",
+  "category": "web",
+  "description": "Resilient WebSocket client supporting heartbeat check, auto-reconnection, and buffered message outbox.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building real-time connections (chat apps, dashboard telemetry streams, live notification listeners) that need resilient auto-recovery on unstable mobile or browser networks. Import using: import { ResilientWebSocket } from './web/websocket-client.js';",
+  "parameters": [
+    {
+      "name": "url",
+      "type": "string",
+      "required": true,
+      "description": "The target ws:// or wss:// URL endpoint."
+    },
+    {
+      "name": "options.reconnectInterval",
+      "type": "number",
+      "default": 1000,
+      "description": "Starting reconnect delay in milliseconds."
+    },
+    {
+      "name": "options.heartbeatInterval",
+      "type": "number",
+      "default": 30000,
+      "description": "Time in milliseconds between ping packets."
+    }
+  ]
+}

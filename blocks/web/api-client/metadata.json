@@ -1,0 +1,19 @@
+{
+  "name": "api-client",
+  "category": "web",
+  "description": "An advanced REST API request builder supporting middleware-like request and response interceptors.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building clients for third-party APIs or backends. Easily inject auth headers globally via request interceptors and handle token refresh or custom error codes globally via response interceptors. Import using: import { ApiClient } from './web/api-client.js';",
+  "parameters": [
+    {
+      "name": "config.baseURL",
+      "type": "string",
+      "description": "The base server API endpoint."
+    },
+    {
+      "name": "config.headers",
+      "type": "Object",
+      "description": "Default headers to send with every request."
+    }
+  ]
+}
