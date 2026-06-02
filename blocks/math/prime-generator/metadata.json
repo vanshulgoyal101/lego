@@ -1,0 +1,8 @@
+{
+  "name": "prime-generator",
+  "category": "math",
+  "description": "A fast prime number toolkit. Generates primes up to N using the Sieve of Eratosthenes, generates the next prime after a given number, performs primality testing with Miller-Rabin (deterministic for small numbers, probabilistic for large), and factorizes integers into prime factors.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block for cryptographic key generation, number theory problems, competitive programming, or educational tools requiring prime number operations.",
+  "parameters": []
+}

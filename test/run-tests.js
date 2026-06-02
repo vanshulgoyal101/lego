@@ -67,6 +67,16 @@ function expect(actual) {
         throw new Error(`Expected ${actual} to be < ${expected}`);
       }
     },
+    toBeTruthy() {
+      if (!actual) {
+        throw new Error(`Expected ${JSON.stringify(actual)} to be truthy`);
+      }
+    },
+    toBeFalsy() {
+      if (actual) {
+        throw new Error(`Expected ${JSON.stringify(actual)} to be falsy`);
+      }
+    },
     toBeCloseTo(expected, precision = 5) {
       const delta = Math.pow(10, -precision) / 2;
       if (Math.abs(actual - expected) >= delta) {
@@ -2054,6 +2064,240 @@ async function runAllTests() {
       const result = sanitize(input);
       expect(result.includes('iframe')).toBe(false);
       expect(result.includes('embed')).toBe(false);
+    });
+  });
+
+  // 72. YAML Parser Test
+  const { parseYaml, stringifyYaml } = await import('../blocks/text/yaml-parser/index.js');
+  await describe('text/yaml-parser', async () => {
+    await it('should parse simple key-value mappings', () => {
+      const yaml = `name: Alice\nage: 30\nactive: true`;
+      const result = parseYaml(yaml);
+      expect(result.name).toBe('Alice');
+      expect(result.age).toBe(30);
+      expect(result.active).toBe(true);
+    });
+
+    await it('should parse nested mappings', () => {
+      const yaml = `user:\n  name: Bob\n  address:\n    city: London\n    zip: SW1`;
+      const result = parseYaml(yaml);
+      expect(result.user.name).toBe('Bob');
+      expect(result.user.address.city).toBe('London');
+    });
+
+    await it('should parse sequences (arrays)', () => {
+      const yaml = `fruits:\n  - apple\n  - banana\n  - cherry`;
+      const result = parseYaml(yaml);
+      expect(result.fruits.length).toBe(3);
+      expect(result.fruits[0]).toBe('apple');
+      expect(result.fruits[2]).toBe('cherry');
+    });
+
+    await it('should parse scalars: null, booleans, numbers', () => {
+      const yaml = `nul: null\nbool1: true\nbool2: false\nint: 42\nfloat: 3.14`;
+      const result = parseYaml(yaml);
+      expect(result.nul).toBe(null);
+      expect(result.bool1).toBe(true);
+      expect(result.bool2).toBe(false);
+      expect(result.int).toBe(42);
+      expect(result.float).toBe(3.14);
+    });
+
+    await it('should handle inline flow arrays', () => {
+      const yaml = `colors: [red, green, blue]`;
+      const result = parseYaml(yaml);
+      expect(result.colors.length).toBe(3);
+      expect(result.colors[1]).toBe('green');
+    });
+
+    await it('should skip comments and empty lines', () => {
+      const yaml = `# top comment\nname: Test\n# another comment\nvalue: 99`;
+      const result = parseYaml(yaml);
+      expect(result.name).toBe('Test');
+      expect(result.value).toBe(99);
+    });
+
+    await it('should serialize to YAML and parse back round-trip', () => {
+      const obj = { name: 'John', scores: [10, 20, 30], active: true };
+      const yaml = stringifyYaml(obj);
+      expect(yaml.includes('name')).toBe(true);
+      expect(yaml.includes('scores')).toBe(true);
+    });
+  });
+
+  // 73. Topological Sort Test
+  const { topologicalSort, topologicalSortDFS, buildGraph } = await import('../blocks/algo/topological-sort/index.js');
+  await describe('algo/topological-sort', async () => {
+    await it('should sort simple dependency chain', () => {
+      // A depends on B, B depends on C => order: C, B, A
+      const graph = buildGraph([['A', ['B']], ['B', ['C']], ['C', []]]);
+      const order = topologicalSort(graph);
+      expect(order.indexOf('C')).toBeLessThan(order.indexOf('B'));
+      expect(order.indexOf('B')).toBeLessThan(order.indexOf('A'));
+    });
+
+    await it('should handle multiple independent nodes', () => {
+      const graph = buildGraph([['A', []], ['B', []], ['C', ['A', 'B']]]);
+      const order = topologicalSort(graph);
+      expect(order.indexOf('A')).toBeLessThan(order.indexOf('C'));
+      expect(order.indexOf('B')).toBeLessThan(order.indexOf('C'));
+    });
+
+    await it('should detect cycles', () => {
+      const graph = buildGraph([['A', ['B']], ['B', ['C']], ['C', ['A']]]); // Cycle!
+      expect(() => topologicalSort(graph)).toThrow('Cycle');
+    });
+
+    await it('should sort using DFS approach', () => {
+      const graph = buildGraph([['compile', ['lint']], ['lint', []], ['test', ['compile']]]);
+      const order = topologicalSortDFS(graph);
+      expect(order.indexOf('lint')).toBeLessThan(order.indexOf('compile'));
+      expect(order.indexOf('compile')).toBeLessThan(order.indexOf('test'));
+    });
+
+    await it('should handle a single node', () => {
+      const graph = buildGraph([['solo', []]]);
+      const order = topologicalSort(graph);
+      expect(order).toEqual(['solo']);
+    });
+  });
+
+  // 74. Email Validator (RFC 5322) Test
+  const { validateEmail, isValidEmail, parseEmail } = await import('../blocks/validation/email-rfc5322/index.js');
+  await describe('validation/email-rfc5322', async () => {
+    await it('should accept standard valid emails', () => {
+      expect(isValidEmail('user@example.com')).toBe(true);
+      expect(isValidEmail('user.name+tag@subdomain.example.co.uk')).toBe(true);
+      expect(isValidEmail('test123@domain.io')).toBe(true);
+    });
+
+    await it('should reject common invalid emails', () => {
+      expect(isValidEmail('not-an-email')).toBe(false);
+      expect(isValidEmail('@nodomain.com')).toBe(false);
+      expect(isValidEmail('user@')).toBe(false);
+      expect(isValidEmail('')).toBe(false);
+    });
+
+    await it('should reject emails with invalid domains', () => {
+      expect(isValidEmail('user@.com')).toBe(false);
+      expect(isValidEmail('user@domain.')).toBe(false);
+      expect(isValidEmail('user@domain.c')).toBe(false); // TLD too short
+    });
+
+    await it('should reject emails with double dots in local part', () => {
+      expect(isValidEmail('user..name@example.com')).toBe(false);
+    });
+
+    await it('should accept IP address literal domains', () => {
+      expect(isValidEmail('user@[192.168.1.1]')).toBe(true);
+    });
+
+    await it('should parse email into parts', () => {
+      const parsed = parseEmail('john.doe@example.com');
+      expect(parsed.local).toBe('john.doe');
+      expect(parsed.domain).toBe('example.com');
+      expect(parsed.tld).toBe('com');
+    });
+
+    await it('should return validation errors with details', () => {
+      const result = validateEmail('bademail');
+      expect(result.valid).toBe(false);
+      expect(typeof result.error).toBe('string');
+    });
+  });
+
+  // 75. Object Diff Test
+  const { diff, applyPatch, reversePatch, deepEqual } = await import('../blocks/utils/object-diff/index.js');
+  await describe('utils/object-diff', async () => {
+    await it('should detect added keys', () => {
+      const changes = diff({ a: 1 }, { a: 1, b: 2 });
+      const added = changes.find(c => c.type === 'added' && c.path === 'b');
+      expect(added).toBeTruthy();
+      expect(added.value).toBe(2);
+    });
+
+    await it('should detect removed keys', () => {
+      const changes = diff({ a: 1, b: 2 }, { a: 1 });
+      const removed = changes.find(c => c.type === 'removed' && c.path === 'b');
+      expect(removed).toBeTruthy();
+    });
+
+    await it('should detect modified values', () => {
+      const changes = diff({ x: 'old' }, { x: 'new' });
+      const mod = changes.find(c => c.type === 'modified' && c.path === 'x');
+      expect(mod.from).toBe('old');
+      expect(mod.to).toBe('new');
+    });
+
+    await it('should detect nested changes with dot paths', () => {
+      const changes = diff({ user: { name: 'Alice', age: 30 } }, { user: { name: 'Bob', age: 30 } });
+      const mod = changes.find(c => c.path === 'user.name');
+      expect(mod.from).toBe('Alice');
+      expect(mod.to).toBe('Bob');
+    });
+
+    await it('should apply a patch to produce the after state', () => {
+      const before = { a: 1, b: 'old' };
+      const after = { a: 1, b: 'new', c: 3 };
+      const changes = diff(before, after);
+      const patched = applyPatch(before, changes);
+      expect(patched.b).toBe('new');
+      expect(patched.c).toBe(3);
+    });
+
+    await it('should reverse a patch to undo changes', () => {
+      const before = { x: 1 };
+      const after = { x: 2 };
+      const changes = diff(before, after);
+      const reversed = reversePatch(changes);
+      const undone = applyPatch(after, reversed);
+      expect(undone.x).toBe(1);
+    });
+
+    await it('should return empty array for identical objects', () => {
+      const changes = diff({ a: 1, b: [1, 2] }, { a: 1, b: [1, 2] });
+      expect(changes.length).toBe(0);
+    });
+  });
+
+  // 76. Prime Generator Test
+  const { sieve, isPrime, nextPrime, prevPrime, factorize, nthPrime, generatePrimes } = await import('../blocks/math/prime-generator/index.js');
+  await describe('math/prime-generator', async () => {
+    await it('should generate primes via sieve', () => {
+      const primes = sieve(20);
+      expect(primes).toEqual([2, 3, 5, 7, 11, 13, 17, 19]);
+    });
+
+    await it('should correctly identify prime numbers', () => {
+      expect(isPrime(2)).toBe(true);
+      expect(isPrime(17)).toBe(true);
+      expect(isPrime(97)).toBe(true);
+      expect(isPrime(1)).toBe(false);
+      expect(isPrime(4)).toBe(false);
+      expect(isPrime(100)).toBe(false);
+    });
+
+    await it('should find next and previous primes', () => {
+      expect(nextPrime(10)).toBe(11);
+      expect(nextPrime(11)).toBe(11);
+      expect(prevPrime(10)).toBe(7);
+    });
+
+    await it('should factorize integers correctly', () => {
+      expect(factorize(12)).toEqual([2, 2, 3]);
+      expect(factorize(60)).toEqual([2, 2, 3, 5]);
+      expect(factorize(97)).toEqual([97]);
+    });
+
+    await it('should compute the nth prime', () => {
+      expect(nthPrime(1)).toBe(2);
+      expect(nthPrime(5)).toBe(11);
+      expect(nthPrime(10)).toBe(29);
+    });
+
+    await it('should generate k primes from a starting point', () => {
+      const primes = generatePrimes(5, 10);
+      expect(primes).toEqual([11, 13, 17, 19, 23]);
     });
   });
 

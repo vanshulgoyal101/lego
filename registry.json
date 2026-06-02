@@ -163,6 +163,19 @@
         "index.js"
       ]
     },
+    "algo/topological-sort": {
+      "name": "topological-sort",
+      "category": "algo",
+      "description": "Topological sort for Directed Acyclic Graphs (DAGs). Implements both Kahn's BFS algorithm and DFS-based approaches. Detects cycles and throws a descriptive error. Used for dependency resolution, task scheduling, and build systems.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to resolve dependency order for tasks, packages, build steps, or class hierarchies represented as directed acyclic graphs.",
+      "parameters": [],
+      "path": "blocks/algo/topological-sort",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "async/event-emitter": {
       "name": "event-emitter",
       "category": "async",
@@ -767,6 +780,19 @@
         "index.js"
       ]
     },
+    "math/prime-generator": {
+      "name": "prime-generator",
+      "category": "math",
+      "description": "A fast prime number toolkit. Generates primes up to N using the Sieve of Eratosthenes, generates the next prime after a given number, performs primality testing with Miller-Rabin (deterministic for small numbers, probabilistic for large), and factorizes integers into prime factors.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for cryptographic key generation, number theory problems, competitive programming, or educational tools requiring prime number operations.",
+      "parameters": [],
+      "path": "blocks/math/prime-generator",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "math/random": {
       "name": "random",
       "category": "math",
@@ -1122,6 +1148,19 @@
         "index.js"
       ]
     },
+    "text/yaml-parser": {
+      "name": "yaml-parser",
+      "category": "text",
+      "description": "A lightweight YAML 1.2 subset parser supporting scalar strings, booleans, integers, floats, null, multiline strings (literal | and folded >), nested mappings (objects), sequences (arrays), and inline flow syntax. Serializes JavaScript values back to YAML format.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse YAML configuration files (like docker-compose.yml, CI configs, ansible playbooks) into JavaScript objects without installing the 'js-yaml' npm package.",
+      "parameters": [],
+      "path": "blocks/text/yaml-parser",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "ui/color-converter": {
       "name": "color-converter",
       "category": "ui",
@@ -1271,6 +1310,19 @@
         "index.js"
       ]
     },
+    "utils/object-diff": {
+      "name": "object-diff",
+      "category": "utils",
+      "description": "Computes a structural diff between two nested JavaScript objects. Returns a patch object describing changes: added keys, removed keys, modified values (with from/to), and nested deep changes. Supports applying patches and computing reverse patches.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compare state snapshots, detect configuration changes, implement undo history, or audit changes between two JSON objects.",
+      "parameters": [],
+      "path": "blocks/utils/object-diff",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "utils/retry": {
       "name": "retry",
       "category": "utils",
@@ -1337,6 +1389,26 @@
       "aiPromptContext": "Use this block when you need to generate universally unique identifiers for records, session tokens, or temporary IDs in both browser and server environments without importing the 'uuid' npm package.",
       "parameters": [],
       "path": "blocks/utils/uuid-v4",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "validation/email-rfc5322": {
+      "name": "email-rfc5322",
+      "category": "validation",
+      "description": "A comprehensive RFC 5321/5322 email address validator. Validates local-part (before @), domain, and sub-domain syntax including quoted strings, IP address literals, international domain names (IDN), and checks for length constraints and prohibited characters.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to validate email addresses in forms and APIs. More standards-compliant than simple regex solutions, supporting all valid RFC 5322 email edge cases like quoted local parts.",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "required": true,
+          "description": "The email address to validate."
+        }
+      ],
+      "path": "blocks/validation/email-rfc5322",
       "files": [
         "README.md",
         "index.js"

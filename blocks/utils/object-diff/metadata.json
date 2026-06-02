@@ -1,0 +1,8 @@
+{
+  "name": "object-diff",
+  "category": "utils",
+  "description": "Computes a structural diff between two nested JavaScript objects. Returns a patch object describing changes: added keys, removed keys, modified values (with from/to), and nested deep changes. Supports applying patches and computing reverse patches.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compare state snapshots, detect configuration changes, implement undo history, or audit changes between two JSON objects.",
+  "parameters": []
+}

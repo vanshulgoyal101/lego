@@ -1,0 +1,15 @@
+{
+  "name": "email-rfc5322",
+  "category": "validation",
+  "description": "A comprehensive RFC 5321/5322 email address validator. Validates local-part (before @), domain, and sub-domain syntax including quoted strings, IP address literals, international domain names (IDN), and checks for length constraints and prohibited characters.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to validate email addresses in forms and APIs. More standards-compliant than simple regex solutions, supporting all valid RFC 5322 email edge cases like quoted local parts.",
+  "parameters": [
+    {
+      "name": "email",
+      "type": "string",
+      "required": true,
+      "description": "The email address to validate."
+    }
+  ]
+}
