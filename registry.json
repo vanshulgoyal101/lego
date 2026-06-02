@@ -975,6 +975,19 @@
         "index.js"
       ]
     },
+    "ui/virtual-dom": {
+      "name": "virtual-dom",
+      "category": "ui",
+      "description": "A lightweight Virtual DOM and reconciliation engine in pure JavaScript. Features virtual node creation (h/createElement), tree diffing & patch reconciliation, functional components with state and effect hooks (useState, useEffect), and server-side rendering (SSR) to HTML.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a micro-frontend rendering frame or custom Virtual DOM engine with component states/hooks and server-side rendering capabilities in environments with zero dependencies.",
+      "parameters": [],
+      "path": "blocks/ui/virtual-dom",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "utils/date-formatter": {
       "name": "date-formatter",
       "category": "utils",
