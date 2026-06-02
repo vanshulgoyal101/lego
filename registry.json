@@ -241,6 +241,19 @@
         "index.js"
       ]
     },
+    "compiler/regex-engine": {
+      "name": "regex-engine",
+      "category": "compiler",
+      "description": "A zero-dependency Regular Expression parser and compiler engine in pure JavaScript. Translates patterns into Abstract Syntax Trees, compiles them to Thompson Nondeterministic Finite Automata (NFA), and executes input matching.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a custom regular expression evaluator with full AST access, or when running in restricted sandboxes without access to native JS RegExp capabilities.",
+      "parameters": [],
+      "path": "blocks/compiler/regex-engine",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "compiler/sql-query-parser": {
       "name": "sql-query-parser",
       "category": "compiler",
