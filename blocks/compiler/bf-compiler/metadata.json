@@ -1,0 +1,8 @@
+{
+  "name": "bf-compiler",
+  "category": "compiler",
+  "description": "Brainfuck compiler and virtual machine execution environment featuring jump-map precomputation and custom input stream processing.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compile or execute Brainfuck esoteric programs within a virtual machine context.",
+  "parameters": []
+}

@@ -112,6 +112,9 @@ function getComplexity(name) {
       return { time: 'O(1) promise race execution', space: 'O(1)' };
     case 'worker-pool':
       return { time: 'O(1) per submit', space: 'O(W + Q) workers and queues' };
+    case 'cron-scheduler':
+      return { time: 'O(1) register; recursive O(D) next run checks', space: 'O(J) scheduled jobs handles' };
+
 
     // ===== compiler =====
     case 'json-schema-validator':
@@ -124,6 +127,9 @@ function getComplexity(name) {
       return { time: 'O(N × R) input length × rules match checks', space: 'O(R) rules definition length' };
     case 'ast-walker':
       return { time: 'O(N) node structures traversal depth', space: 'O(D) max recursion stack depth' };
+    case 'bf-compiler':
+      return { time: 'O(N) source transpile / VM operations', space: 'O(M) memory array size (30,000 bytes)' };
+
 
     // ===== crypto =====
     case 'aes':
@@ -138,6 +144,11 @@ function getComplexity(name) {
       return { time: 'O(1) base conversion arithmetic', space: 'O(1)' };
     case 'hmac':
       return { time: 'O(N) message bytes digested (N = input length)', space: 'O(1)' };
+    case 'rsa-light':
+      return { time: 'O(log E) modular exponentiation', space: 'O(1)' };
+    case 'poly1305':
+      return { time: 'O(N) message bytes processed', space: 'O(1)' };
+
     case 'diffie-hellman':
       return { time: 'O(log E) modular exponentiation', space: 'O(1)' };
     case 'chacha20':
@@ -160,6 +171,11 @@ function getComplexity(name) {
       return { time: 'O(log N) insert (sorted); O(N) range scan', space: 'O(N) metric records' };
     case 'vector-db':
       return { time: 'O(N × D) K-NN brute scan (N = vectors, D = dimensions)', space: 'O(N × D)' };
+    case 'sql-builder':
+      return { time: 'O(N) SQL segments assembly', space: 'O(N) query components string buffer' };
+    case 'page-cache':
+      return { time: 'O(1) read/write hit; O(P) page eviction flush worst case', space: 'O(C × P) page buffers in memory' };
+
     case 'lsm-tree':
       return { time: 'O(1) put/delete; O(L log S) search from newest to oldest SSTable', space: 'O(N) keys storage space' };
     case 'wal':
@@ -233,6 +249,9 @@ function getComplexity(name) {
       return { time: 'O(N) linear scan', space: 'O(N) output' };
     case 'varint':
       return { time: 'O(1) encoding/decoding byte operations', space: 'O(1)' };
+    case 'protobuf-decoder':
+      return { time: 'O(N) binary stream parse passes', space: 'O(N) parsed fields array' };
+
 
     // ===== math =====
     case 'complex':
@@ -261,6 +280,11 @@ function getComplexity(name) {
       return { time: 'O(N) points evaluation', space: 'O(1)' };
     case 'polynomial':
       return { time: 'O(N × M) coefficients multiplication', space: 'O(N + M)' };
+    case 'linear-equations':
+      return { time: 'O(N³) elimination iterations', space: 'O(N²) augmented matrix buffer' };
+    case 'numerical-integration':
+      return { time: 'O(N) intervals function evaluations', space: 'O(1)' };
+
     case 'bezier':
       return { time: 'O(N) curve points generation (N = sample resolution)', space: 'O(N) output coordinates array' };
     case 'fft':
@@ -422,6 +446,9 @@ function getComplexity(name) {
       return { time: 'O(D) cron intervals validation search steps', space: 'O(1)' };
     case 'isbn':
       return { time: 'O(1) fixed check digit iteration scans', space: 'O(1)' };
+    case 'mime-detector':
+      return { time: 'O(1) signature comparison matches; O(T) text parsing heuristic', space: 'O(1)' };
+
 
 
     // ===== web =====

@@ -1,0 +1,8 @@
+{
+  "name": "protobuf-decoder",
+  "category": "encoding",
+  "description": "Schema-less Protocol Buffers binary stream introspector / decoder, recursively resolving nested fields and wire types (0, 1, 2, 5).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to decode raw Protobuf binary packages into structured trees without needing a .proto schema file.",
+  "parameters": []
+}

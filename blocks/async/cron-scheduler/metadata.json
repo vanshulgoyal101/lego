@@ -1,0 +1,10 @@
+{
+  "name": "cron-scheduler",
+  "category": "async",
+  "description": "Asynchronous task scheduler that executes callbacks on recursive timeouts mapped from parsed cron intervals.",
+  "dependencies": [
+    "validation/cron-parser"
+  ],
+  "aiPromptContext": "Use this block to register background callbacks to run periodically using standard cron patterns.",
+  "parameters": []
+}

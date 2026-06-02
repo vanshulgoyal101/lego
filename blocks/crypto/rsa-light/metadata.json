@@ -1,0 +1,8 @@
+{
+  "name": "rsa-light",
+  "category": "crypto",
+  "description": "Simple RSA cryptographic key pair generator, encrypt/decrypt and message signer helper using basic BigInt modular arithmetic.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to demonstrate RSA asymmetric encryption, key derivation mathematical properties, or basic message signature validation.",
+  "parameters": []
+}

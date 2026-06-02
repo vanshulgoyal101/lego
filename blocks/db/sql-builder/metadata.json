@@ -1,0 +1,8 @@
+{
+  "name": "sql-builder",
+  "category": "db",
+  "description": "SQL query builder offering chainable SELECT, JOIN, WHERE (with safe string value escaping), INSERT, UPDATE, and DELETE query constructions.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to dynamically build safe SQL query strings using a chainable programmatic API.",
+  "parameters": []
+}

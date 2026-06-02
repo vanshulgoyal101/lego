@@ -1,0 +1,21 @@
+{
+  "name": "page-cache",
+  "category": "db",
+  "description": "Least Recently Used (LRU) page cache manager simulating dirty page flushing, page storage adapters, and block-based disk operations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to manage in-memory caches for file blocks/pages in custom database storage engines.",
+  "parameters": [
+    {
+      "name": "capacity",
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of pages held in memory cache (default: 3)."
+    },
+    {
+      "name": "pageSize",
+      "type": "number",
+      "required": false,
+      "description": "Fixed size of each page in bytes (default: 4096)."
+    }
+  ]
+}

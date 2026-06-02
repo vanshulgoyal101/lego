@@ -1,0 +1,8 @@
+{
+  "name": "poly1305",
+  "category": "crypto",
+  "description": "Pure JavaScript implementation of the Poly1305 one-time authenticator algorithm utilizing 130-bit BigInt finite field arithmetic.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to generate cryptographic message authentication tags using a 32-byte key.",
+  "parameters": []
+}

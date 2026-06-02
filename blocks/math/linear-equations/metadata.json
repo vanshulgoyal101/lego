@@ -1,0 +1,8 @@
+{
+  "name": "linear-equations",
+  "category": "math",
+  "description": "Linear systems solver using Gaussian Elimination with partial pivoting to compute unique solutions for NxN equations matrices.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to solve systems of linear equations (Ax = B) using Gaussian Elimination.",
+  "parameters": []
+}

@@ -601,6 +601,22 @@
         "test.js"
       ]
     },
+    "async/cron-scheduler": {
+      "name": "cron-scheduler",
+      "category": "async",
+      "description": "Asynchronous task scheduler that executes callbacks on recursive timeouts mapped from parsed cron intervals.",
+      "dependencies": [
+        "validation/cron-parser"
+      ],
+      "aiPromptContext": "Use this block to register background callbacks to run periodically using standard cron patterns.",
+      "parameters": [],
+      "path": "blocks/async/cron-scheduler",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "async/event-emitter": {
       "name": "event-emitter",
       "category": "async",
@@ -773,6 +789,20 @@
         }
       ],
       "path": "blocks/compiler/ast-walker",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "compiler/bf-compiler": {
+      "name": "bf-compiler",
+      "category": "compiler",
+      "description": "Brainfuck compiler and virtual machine execution environment featuring jump-map precomputation and custom input stream processing.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compile or execute Brainfuck esoteric programs within a virtual machine context.",
+      "parameters": [],
+      "path": "blocks/compiler/bf-compiler",
       "files": [
         "README.md",
         "index.js",
@@ -1023,6 +1053,34 @@
         "test.js"
       ]
     },
+    "crypto/poly1305": {
+      "name": "poly1305",
+      "category": "crypto",
+      "description": "Pure JavaScript implementation of the Poly1305 one-time authenticator algorithm utilizing 130-bit BigInt finite field arithmetic.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to generate cryptographic message authentication tags using a 32-byte key.",
+      "parameters": [],
+      "path": "blocks/crypto/poly1305",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "crypto/rsa-light": {
+      "name": "rsa-light",
+      "category": "crypto",
+      "description": "Simple RSA cryptographic key pair generator, encrypt/decrypt and message signer helper using basic BigInt modular arithmetic.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to demonstrate RSA asymmetric encryption, key derivation mathematical properties, or basic message signature validation.",
+      "parameters": [],
+      "path": "blocks/crypto/rsa-light",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "crypto/totp": {
       "name": "totp",
       "category": "crypto",
@@ -1162,6 +1220,33 @@
         "test.js"
       ]
     },
+    "db/page-cache": {
+      "name": "page-cache",
+      "category": "db",
+      "description": "Least Recently Used (LRU) page cache manager simulating dirty page flushing, page storage adapters, and block-based disk operations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to manage in-memory caches for file blocks/pages in custom database storage engines.",
+      "parameters": [
+        {
+          "name": "capacity",
+          "type": "number",
+          "required": false,
+          "description": "Maximum number of pages held in memory cache (default: 3)."
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "required": false,
+          "description": "Fixed size of each page in bytes (default: 4096)."
+        }
+      ],
+      "path": "blocks/db/page-cache",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "db/relational-db": {
       "name": "relational-db",
       "category": "db",
@@ -1184,6 +1269,20 @@
       "aiPromptContext": "Use this block to parse incoming socket buffers from Redis clients/servers or encode database command requests.",
       "parameters": [],
       "path": "blocks/db/resp-parser",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "db/sql-builder": {
+      "name": "sql-builder",
+      "category": "db",
+      "description": "SQL query builder offering chainable SELECT, JOIN, WHERE (with safe string value escaping), INSERT, UPDATE, and DELETE query constructions.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to dynamically build safe SQL query strings using a chainable programmatic API.",
+      "parameters": [],
+      "path": "blocks/db/sql-builder",
       "files": [
         "README.md",
         "index.js",
@@ -1837,6 +1936,20 @@
         "test.js"
       ]
     },
+    "encoding/protobuf-decoder": {
+      "name": "protobuf-decoder",
+      "category": "encoding",
+      "description": "Schema-less Protocol Buffers binary stream introspector / decoder, recursively resolving nested fields and wire types (0, 1, 2, 5).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to decode raw Protobuf binary packages into structured trees without needing a .proto schema file.",
+      "parameters": [],
+      "path": "blocks/encoding/protobuf-decoder",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "encoding/run-length": {
       "name": "run-length",
       "category": "encoding",
@@ -2088,6 +2201,20 @@
         "test.js"
       ]
     },
+    "math/linear-equations": {
+      "name": "linear-equations",
+      "category": "math",
+      "description": "Linear systems solver using Gaussian Elimination with partial pivoting to compute unique solutions for NxN equations matrices.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to solve systems of linear equations (Ax = B) using Gaussian Elimination.",
+      "parameters": [],
+      "path": "blocks/math/linear-equations",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "math/matrix": {
       "name": "matrix",
       "category": "math",
@@ -2103,6 +2230,20 @@
         }
       ],
       "path": "blocks/math/matrix",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/numerical-integration": {
+      "name": "numerical-integration",
+      "category": "math",
+      "description": "Definite integrals solver supporting both the Trapezoidal rule and Simpson's 1/3 rule for arbitrary mathematical functions.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to approximate the definite integral of a function over a given interval [a, b].",
+      "parameters": [],
+      "path": "blocks/math/numerical-integration",
       "files": [
         "README.md",
         "index.js",
@@ -3694,6 +3835,27 @@
         }
       ],
       "path": "blocks/validation/jwt-validator",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "validation/mime-detector": {
+      "name": "mime-detector",
+      "category": "validation",
+      "description": "Magic bytes file signature MIME type detector resolving common image, audio, document, archive, and text structured formats.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to guess the MIME type content classification of raw byte arrays/buffers using magic bytes.",
+      "parameters": [
+        {
+          "name": "buffer",
+          "type": "Uint8Array",
+          "required": true,
+          "description": "The raw bytes buffer of the file."
+        }
+      ],
+      "path": "blocks/validation/mime-detector",
       "files": [
         "README.md",
         "index.js",
