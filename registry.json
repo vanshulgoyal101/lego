@@ -734,6 +734,19 @@
         "index.js"
       ]
     },
+    "ml/neural-network": {
+      "name": "neural-network",
+      "category": "ml",
+      "description": "A zero-dependency deep learning / backpropagation neural network engine in pure JavaScript. Supports arbitrary layers, dense layers, diverse activations (ReLU, Sigmoid, Tanh, Softmax), optimizers (SGD, Adam), and standard losses (MSE, Cross-entropy).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to construct, train, fit, evaluate, and save/load custom feedforward neural network models in environments with zero access to external npm modules (e.g. tensorflow, onnx).",
+      "parameters": [],
+      "path": "blocks/ml/neural-network",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "state/fsm": {
       "name": "fsm",
       "category": "state",
