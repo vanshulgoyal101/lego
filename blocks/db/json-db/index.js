@@ -26,7 +26,7 @@ export class JsonDatabase {
   }
 
   /**
-   * Internal read without lock queueing.
+   * Internal read with error tolerance for corruption recovery.
    * @private
    */
   async _readRaw() {
@@ -38,6 +38,18 @@ export class JsonDatabase {
         // Return blank database structure if file doesn't exist
         return { tables: {} };
       }
+      
+      // Corruption resilience: Auto-create backup and restore fresh state on SyntaxError
+      if (err instanceof SyntaxError) {
+        console.warn(`JSON Database file corrupted: ${this.filepath}. Gracefully repairing...`);
+        try {
+          const backupFile = `${this.filepath}.${Date.now()}.bak`;
+          await fs.copyFile(this.filepath, backupFile);
+          console.warn(`Corrupted backup saved to: ${backupFile}`);
+        } catch (_) {}
+        return { tables: {} };
+      }
+      
       throw err;
     }
   }
@@ -96,7 +108,6 @@ export class JsonDatabase {
         db.tables[tableName] = [];
       }
 
-      // Calculate next incrementing ID
       const records = db.tables[tableName];
       const maxId = records.reduce((max, r) => (r.id > max ? r.id : max), 0);
       const newRecord = { id: maxId + 1, ...record };
@@ -124,7 +135,6 @@ export class JsonDatabase {
         const matches = Object.entries(query).every(([k, v]) => record[k] === v);
         if (matches) {
           updatedCount++;
-          // Prevent overwriting the ID
           const cleanUpdates = { ...updates };
           delete cleanUpdates.id;
           return { ...record, ...cleanUpdates };

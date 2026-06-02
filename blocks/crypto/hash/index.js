@@ -2,6 +2,25 @@ import { webcrypto } from 'crypto';
 
 const crypto = webcrypto || globalThis.crypto;
 
+// Helper to convert Uint8Array bytes to hex string
+function bytesToHex(bytes) {
+  return Array.from(bytes)
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+}
+
+// Helper to convert hex string to Uint8Array bytes
+function hexToBytes(hex) {
+  if (hex.length % 2 !== 0) {
+    throw new Error('Invalid hex string length');
+  }
+  const bytes = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < bytes.length; i++) {
+    bytes[i] = parseInt(hex.substring(i * 2, i * 2 + 2), 16);
+  }
+  return bytes;
+}
+
 /**
  * Generate a SHA-256 hash of a string.
  * @param {string} text - The input text.
@@ -11,14 +30,13 @@ export async function sha256(text) {
   const encoder = new TextEncoder();
   const data = encoder.encode(text);
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return bytesToHex(new Uint8Array(hashBuffer));
 }
 
 /**
  * Derive a secure key or hash using PBKDF2 (similar to bcrypt for password storage).
  * @param {string} password - The plain-text password.
- * @param {string} [salt] - The salt string. If omitted, a random 16-byte salt is generated.
+ * @param {string} [salt] - The salt string (hex formatted). If omitted, a random 16-byte salt is generated.
  * @param {number} [iterations=100000] - Hardness factor.
  * @returns {Promise<{ hash: string, salt: string }>} Hex encoded hash and salt.
  */
@@ -28,7 +46,7 @@ export async function hashPassword(password, salt = null, iterations = 100000) {
   
   let saltBytes;
   if (salt) {
-    saltBytes = Buffer.from(salt, 'hex');
+    saltBytes = hexToBytes(salt);
   } else {
     saltBytes = crypto.getRandomValues(new Uint8Array(16));
   }
@@ -52,13 +70,9 @@ export async function hashPassword(password, salt = null, iterations = 100000) {
     256 // length in bits
   );
 
-  const derivedHex = Array.from(new Uint8Array(derivedBits))
-    .map(b => b.toString(16).padStart(2, '0'))
-    .join('');
-
   return {
-    hash: derivedHex,
-    salt: Buffer.from(saltBytes).toString('hex')
+    hash: bytesToHex(new Uint8Array(derivedBits)),
+    salt: bytesToHex(saltBytes)
   };
 }
 

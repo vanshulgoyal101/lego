@@ -22,6 +22,7 @@
       ],
       "path": "blocks/algo/binary-search",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -41,6 +42,7 @@
       ],
       "path": "blocks/algo/graph",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -53,6 +55,7 @@
       "parameters": [],
       "path": "blocks/async/event-emitter",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -72,6 +75,7 @@
       ],
       "path": "blocks/async/semaphore",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -102,6 +106,7 @@
       ],
       "path": "blocks/crypto/hash",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -132,6 +137,7 @@
       ],
       "path": "blocks/crypto/jwt-helper",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -151,6 +157,7 @@
       ],
       "path": "blocks/db/json-db",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -176,6 +183,7 @@
       ],
       "path": "blocks/ds/bloom-filter",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -201,6 +209,7 @@
       ],
       "path": "blocks/ds/lru-cache",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -219,6 +228,7 @@
       ],
       "path": "blocks/ds/priority-queue",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -231,6 +241,7 @@
       "parameters": [],
       "path": "blocks/ds/trie",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -243,6 +254,7 @@
       "parameters": [],
       "path": "blocks/encoding/base64",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -262,6 +274,7 @@
       ],
       "path": "blocks/math/matrix",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -274,6 +287,7 @@
       "parameters": [],
       "path": "blocks/math/random",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -286,6 +300,7 @@
       "parameters": [],
       "path": "blocks/math/stats",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -311,6 +326,7 @@
       ],
       "path": "blocks/math/vector2d",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -342,6 +358,7 @@
       ],
       "path": "blocks/state/fsm",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -367,6 +384,7 @@
       ],
       "path": "blocks/text/csv-parser",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -386,6 +404,7 @@
       ],
       "path": "blocks/text/markdown-parser",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -398,6 +417,7 @@
       "parameters": [],
       "path": "blocks/ui/color-converter",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -417,6 +437,7 @@
       ],
       "path": "blocks/ui/query-builder",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -448,6 +469,7 @@
       ],
       "path": "blocks/utils/debounce",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -460,6 +482,7 @@
       "parameters": [],
       "path": "blocks/validation/schema-validator",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -483,6 +506,7 @@
       ],
       "path": "blocks/web/api-client",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -495,6 +519,7 @@
       "parameters": [],
       "path": "blocks/web/cookie-helper",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -532,6 +557,7 @@
       ],
       "path": "blocks/web/fetch-retry",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -544,6 +570,7 @@
       "parameters": [],
       "path": "blocks/web/router",
       "files": [
+        "README.md",
         "index.js"
       ]
     },
@@ -575,6 +602,7 @@
       ],
       "path": "blocks/web/websocket-client",
       "files": [
+        "README.md",
         "index.js"
       ]
     }

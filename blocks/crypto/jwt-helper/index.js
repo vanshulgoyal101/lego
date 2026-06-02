@@ -2,22 +2,86 @@ import { webcrypto } from 'crypto';
 
 const crypto = webcrypto || globalThis.crypto;
 
-// Helper to base64url encode
-function base64urlEncode(str) {
-  const buf = typeof str === 'string' ? Buffer.from(str, 'utf8') : Buffer.from(str);
-  return buf.toString('base64')
-    .replace(/=/g, '')
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_');
+// Standard base64 characters mapping
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+const LOOKUP = new Uint8Array(256);
+for (let i = 0; i < CHARS.length; i++) {
+  LOOKUP[CHARS.charCodeAt(i)] = i;
 }
 
-// Helper to base64url decode
-function base64urlDecode(str) {
-  let base64 = str.replace(/-/g, '+').replace(/_/g, '/');
-  while (base64.length % 4) {
-    base64 += '=';
+// Convert bytes array to base64url string
+function bytesToBase64Url(bytes) {
+  let result = '';
+  const len = bytes.length;
+
+  for (let i = 0; i < len; i += 3) {
+    const b1 = bytes[i];
+    const b2 = i + 1 < len ? bytes[i + 1] : 0;
+    const b3 = i + 2 < len ? bytes[i + 2] : 0;
+
+    const enc1 = b1 >> 2;
+    const enc2 = ((b1 & 3) << 4) | (b2 >> 4);
+    const enc3 = i + 1 < len ? (((b2 & 15) << 2) | (b3 >> 6)) : 64;
+    const enc4 = i + 2 < len ? (b3 & 63) : 64;
+
+    result += CHARS[enc1] + CHARS[enc2] + 
+              (enc3 === 64 ? '' : CHARS[enc3]) + 
+              (enc4 === 64 ? '' : CHARS[enc4]);
   }
-  return Buffer.from(base64, 'base64').toString('utf8');
+
+  return result.replace(/\+/g, '-').replace(/\//g, '_');
+}
+
+// Convert base64url string to bytes array
+function base64UrlToBytes(str) {
+  let cleanStr = str.replace(/-/g, '+').replace(/_/g, '/');
+  // Add padding
+  while (cleanStr.length % 4) {
+    cleanStr += '=';
+  }
+
+  const len = cleanStr.length;
+  let bufferLength = Math.floor(len * 0.75);
+  if (cleanStr[cleanStr.length - 1] === '=') {
+    bufferLength--;
+    if (cleanStr[cleanStr.length - 2] === '=') {
+      bufferLength--;
+    }
+  }
+
+  const bytes = new Uint8Array(bufferLength);
+  let p = 0;
+
+  for (let i = 0; i < len; i += 4) {
+    const enc1 = LOOKUP[cleanStr.charCodeAt(i)];
+    const enc2 = LOOKUP[cleanStr.charCodeAt(i + 1)];
+    const enc3 = i + 2 < len ? LOOKUP[cleanStr.charCodeAt(i + 2)] : 64;
+    const enc4 = i + 3 < len ? LOOKUP[cleanStr.charCodeAt(i + 3)] : 64;
+
+    const b1 = (enc1 << 2) | (enc2 >> 4);
+    const b2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+    const b3 = ((enc3 & 3) << 6) | enc4;
+
+    bytes[p++] = b1;
+    if (enc3 !== 64 && p < bufferLength) {
+      bytes[p++] = b2;
+    }
+    if (enc4 !== 64 && p < bufferLength) {
+      bytes[p++] = b3;
+    }
+  }
+
+  return bytes;
+}
+
+function base64urlEncode(str) {
+  const bytes = new TextEncoder().encode(str);
+  return bytesToBase64Url(bytes);
+}
+
+function base64urlDecode(str) {
+  const bytes = base64UrlToBytes(str);
+  return new TextDecoder().decode(bytes);
 }
 
 /**
@@ -53,7 +117,7 @@ export async function sign(payload, secret, options = {}) {
   );
 
   const signature = await crypto.subtle.sign('HMAC', key, data);
-  const encodedSignature = base64urlEncode(new Uint8Array(signature));
+  const encodedSignature = bytesToBase64Url(new Uint8Array(signature));
 
   return `${signatureInput}.${encodedSignature}`;
 }
@@ -85,8 +149,7 @@ export async function verify(token, secret) {
     ['verify']
   );
 
-  // Decode the signature part back to binary buffer
-  const signatureBytes = Buffer.from(encodedSignature.replace(/-/g, '+').replace(/_/g, '/'), 'base64');
+  const signatureBytes = base64UrlToBytes(encodedSignature);
   
   const isValid = await crypto.subtle.verify(
     'HMAC',
