@@ -1,0 +1,8 @@
+{
+  "name": "graphql-client",
+  "category": "web",
+  "description": "Zero-dependency, Promise-based GraphQL client utilizing native fetch to execute queries and mutations with variable binding support.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to send queries/mutations to GraphQL API endpoints with variables and custom authentication headers.",
+  "parameters": []
+}

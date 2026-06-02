@@ -847,6 +847,34 @@
         "test.js"
       ]
     },
+    "crypto/chacha20": {
+      "name": "chacha20",
+      "category": "crypto",
+      "description": "Pure JavaScript implementation of the ChaCha20 symmetric stream cipher (IETF RFC 7539 format) for high-performance encryption and decryption.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for high-speed symmetric encryption/decryption of buffers or byte arrays using a 256-bit key and a 96-bit nonce.",
+      "parameters": [],
+      "path": "blocks/crypto/chacha20",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "crypto/diffie-hellman": {
+      "name": "diffie-hellman",
+      "category": "crypto",
+      "description": "Diffie-Hellman Key Exchange algorithm implementation using BigInt modular exponentiation and standard/custom prime groups.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to establish a shared secret key between two parties over an insecure channel.",
+      "parameters": [],
+      "path": "blocks/crypto/diffie-hellman",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "crypto/hash": {
       "name": "hash",
       "category": "crypto",
@@ -933,6 +961,20 @@
         }
       ],
       "path": "blocks/crypto/jwt-helper",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "crypto/pbkdf2": {
+      "name": "pbkdf2",
+      "category": "crypto",
+      "description": "Password-Based Key Derivation Function 2 (PBKDF2) supporting both synchronous and asynchronous modes with configurable iterations, digest algorithms, and key lengths.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to securely derive a cryptographic key from a password using salt and iterations.",
+      "parameters": [],
+      "path": "blocks/crypto/pbkdf2",
       "files": [
         "README.md",
         "index.js",
@@ -1057,6 +1099,27 @@
         "test.js"
       ]
     },
+    "db/lsm-tree": {
+      "name": "lsm-tree",
+      "category": "db",
+      "description": "Log-Structured Merge-tree (LSM-Tree) storage engine structure featuring MemTable, flushed Sorted String Tables (SSTables), tombstones, and compaction.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to build write-optimized key-value store backends or understand modern database storage compaction internals.",
+      "parameters": [
+        {
+          "name": "memTableThreshold",
+          "type": "number",
+          "required": false,
+          "description": "Maximum number of keys in the MemTable before flushing to SSTable (default: 3)."
+        }
+      ],
+      "path": "blocks/db/lsm-tree",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "db/relational-db": {
       "name": "relational-db",
       "category": "db",
@@ -1065,6 +1128,20 @@
       "aiPromptContext": "Use this block when you need a fully queryable, standard SQL-compliant relational database engine inside sandboxed browser client runs or mock local environments.",
       "parameters": [],
       "path": "blocks/db/relational-db",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "db/resp-parser": {
+      "name": "resp-parser",
+      "category": "db",
+      "description": "Redis Serialization Protocol (RESP v2) parser and encoder supporting integers, simple strings, bulk strings, errors, and arrays.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse incoming socket buffers from Redis clients/servers or encode database command requests.",
+      "parameters": [],
+      "path": "blocks/db/resp-parser",
       "files": [
         "README.md",
         "index.js",
@@ -1093,6 +1170,27 @@
       "aiPromptContext": "Use this block when building AI semantic searches, retrieval-augmented generation (RAG) contexts, recommender systems, or matching vector embeddings in pure JS.",
       "parameters": [],
       "path": "blocks/db/vector-db",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "db/wal": {
+      "name": "wal",
+      "category": "db",
+      "description": "Write-Ahead Log (WAL) manager supporting append-only logging, recovery replay, and log clearing to ensure data durability.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to implement WAL logging in custom database engines to guarantee crash-resiliency and atomic durability.",
+      "parameters": [
+        {
+          "name": "logPath",
+          "type": "string",
+          "required": true,
+          "description": "Path to the append-only log file on disk."
+        }
+      ],
+      "path": "blocks/db/wal",
       "files": [
         "README.md",
         "index.js",
@@ -3383,6 +3481,27 @@
         "test.js"
       ]
     },
+    "validation/cron-parser": {
+      "name": "cron-parser",
+      "category": "validation",
+      "description": "Standard 5-field crontab pattern parser to validate schedules and resolve subsequent matching execution timestamps.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse standard crontab patterns ('* * * * *') and compute the next scheduled execution times.",
+      "parameters": [
+        {
+          "name": "cronString",
+          "type": "string",
+          "required": true,
+          "description": "The crontab configuration pattern (5 fields: minute hour dayOfMonth month dayOfWeek)."
+        }
+      ],
+      "path": "blocks/validation/cron-parser",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "validation/date-validator": {
       "name": "date-validator",
       "category": "validation",
@@ -3769,6 +3888,20 @@
         "test.js"
       ]
     },
+    "web/graphql-client": {
+      "name": "graphql-client",
+      "category": "web",
+      "description": "Zero-dependency, Promise-based GraphQL client utilizing native fetch to execute queries and mutations with variable binding support.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to send queries/mutations to GraphQL API endpoints with variables and custom authentication headers.",
+      "parameters": [],
+      "path": "blocks/web/graphql-client",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "web/http-client-resilient": {
       "name": "http-client-resilient",
       "category": "web",
@@ -3831,6 +3964,33 @@
       "aiPromptContext": "Use this block when integrating user social authentication logins (Google, GitHub, Auth0) inside frontend client runtimes or backend endpoint servers requiring secure PKCE.",
       "parameters": [],
       "path": "blocks/web/oauth2-client",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "web/rate-limiter-token-bucket": {
+      "name": "rate-limiter-token-bucket",
+      "category": "web",
+      "description": "Token Bucket algorithm rate limiter for web request throttling, supporting custom capacities, refill rates, and multi-token consumption.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to implement key-based endpoint rate limiting or API throttling using the Token Bucket algorithm.",
+      "parameters": [
+        {
+          "name": "capacity",
+          "type": "number",
+          "required": true,
+          "description": "Maximum number of tokens the bucket can hold."
+        },
+        {
+          "name": "refillRate",
+          "type": "number",
+          "required": true,
+          "description": "Number of tokens added to the bucket per second."
+        }
+      ],
+      "path": "blocks/web/rate-limiter-token-bucket",
       "files": [
         "README.md",
         "index.js",
@@ -3920,6 +4080,20 @@
         }
       ],
       "path": "blocks/web/static-server",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "web/tcp-client-server": {
+      "name": "tcp-client-server",
+      "category": "web",
+      "description": "Clean Promise-based wrappers for Node.js raw TCP clients and servers using the native 'net' module, ideal for building custom protocol pipelines.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to quickly spin up low-level raw TCP socket server listen frameworks or socket client connections.",
+      "parameters": [],
+      "path": "blocks/web/tcp-client-server",
       "files": [
         "README.md",
         "index.js",

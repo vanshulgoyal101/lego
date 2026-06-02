@@ -1,0 +1,8 @@
+{
+  "name": "pbkdf2",
+  "category": "crypto",
+  "description": "Password-Based Key Derivation Function 2 (PBKDF2) supporting both synchronous and asynchronous modes with configurable iterations, digest algorithms, and key lengths.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to securely derive a cryptographic key from a password using salt and iterations.",
+  "parameters": []
+}

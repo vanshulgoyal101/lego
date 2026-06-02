@@ -1,0 +1,8 @@
+{
+  "name": "tcp-client-server",
+  "category": "web",
+  "description": "Clean Promise-based wrappers for Node.js raw TCP clients and servers using the native 'net' module, ideal for building custom protocol pipelines.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to quickly spin up low-level raw TCP socket server listen frameworks or socket client connections.",
+  "parameters": []
+}

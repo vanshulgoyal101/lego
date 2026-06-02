@@ -1,0 +1,21 @@
+{
+  "name": "rate-limiter-token-bucket",
+  "category": "web",
+  "description": "Token Bucket algorithm rate limiter for web request throttling, supporting custom capacities, refill rates, and multi-token consumption.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to implement key-based endpoint rate limiting or API throttling using the Token Bucket algorithm.",
+  "parameters": [
+    {
+      "name": "capacity",
+      "type": "number",
+      "required": true,
+      "description": "Maximum number of tokens the bucket can hold."
+    },
+    {
+      "name": "refillRate",
+      "type": "number",
+      "required": true,
+      "description": "Number of tokens added to the bucket per second."
+    }
+  ]
+}

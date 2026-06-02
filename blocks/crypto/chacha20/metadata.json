@@ -1,0 +1,8 @@
+{
+  "name": "chacha20",
+  "category": "crypto",
+  "description": "Pure JavaScript implementation of the ChaCha20 symmetric stream cipher (IETF RFC 7539 format) for high-performance encryption and decryption.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block for high-speed symmetric encryption/decryption of buffers or byte arrays using a 256-bit key and a 96-bit nonce.",
+  "parameters": []
+}

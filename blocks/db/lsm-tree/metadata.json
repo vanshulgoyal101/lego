@@ -1,0 +1,15 @@
+{
+  "name": "lsm-tree",
+  "category": "db",
+  "description": "Log-Structured Merge-tree (LSM-Tree) storage engine structure featuring MemTable, flushed Sorted String Tables (SSTables), tombstones, and compaction.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to build write-optimized key-value store backends or understand modern database storage compaction internals.",
+  "parameters": [
+    {
+      "name": "memTableThreshold",
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of keys in the MemTable before flushing to SSTable (default: 3)."
+    }
+  ]
+}

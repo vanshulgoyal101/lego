@@ -1,0 +1,8 @@
+{
+  "name": "resp-parser",
+  "category": "db",
+  "description": "Redis Serialization Protocol (RESP v2) parser and encoder supporting integers, simple strings, bulk strings, errors, and arrays.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to parse incoming socket buffers from Redis clients/servers or encode database command requests.",
+  "parameters": []
+}

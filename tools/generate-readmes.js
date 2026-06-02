@@ -132,6 +132,12 @@ function getComplexity(name) {
       return { time: 'O(1) base conversion arithmetic', space: 'O(1)' };
     case 'hmac':
       return { time: 'O(N) message bytes digested (N = input length)', space: 'O(1)' };
+    case 'diffie-hellman':
+      return { time: 'O(log E) modular exponentiation', space: 'O(1)' };
+    case 'chacha20':
+      return { time: 'O(N) data block XOR streams', space: 'O(1) in-place buffer' };
+    case 'pbkdf2':
+      return { time: 'O(I × N) iterations × key derivation passes', space: 'O(1)' };
 
     // ===== db =====
     case 'document-db':
@@ -148,6 +154,12 @@ function getComplexity(name) {
       return { time: 'O(log N) insert (sorted); O(N) range scan', space: 'O(N) metric records' };
     case 'vector-db':
       return { time: 'O(N × D) K-NN brute scan (N = vectors, D = dimensions)', space: 'O(N × D)' };
+    case 'lsm-tree':
+      return { time: 'O(1) put/delete; O(L log S) search from newest to oldest SSTable', space: 'O(N) keys storage space' };
+    case 'wal':
+      return { time: 'O(1) append; O(N) recovery parsing', space: 'O(1) append buffer' };
+    case 'resp-parser':
+      return { time: 'O(N) serialization/deserialization linear scans', space: 'O(N) protocol streams buffer' };
 
     // ===== ds =====
     case 'binary-search-tree':
@@ -392,6 +404,8 @@ function getComplexity(name) {
       return { time: 'O(N) patterns match check phone validations', space: 'O(1)' };
     case 'url-validator':
       return { time: 'O(N) components url length checks', space: 'O(1)' };
+    case 'cron-parser':
+      return { time: 'O(D) cron intervals validation search steps', space: 'O(1)' };
 
     // ===== web =====
     case 'api-client':
@@ -424,6 +438,12 @@ function getComplexity(name) {
       return { time: 'O(1) network fetch delay', space: 'O(1)' };
     case 'session-manager':
       return { time: 'O(N) digest sign/unsign validation signature bytes', space: 'O(1)' };
+    case 'tcp-client-server':
+      return { time: 'O(1) network event loops', space: 'O(C) active client socket connections' };
+    case 'graphql-client':
+      return { time: 'O(1) fetch response delay', space: 'O(1)' };
+    case 'rate-limiter-token-bucket':
+      return { time: 'O(1) token consumption verify checks', space: 'O(U) active user keys capacity map' };
 
     default:
       // Prevent silent errors when new blocks are added to the repo

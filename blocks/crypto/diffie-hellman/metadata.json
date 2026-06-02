@@ -1,0 +1,8 @@
+{
+  "name": "diffie-hellman",
+  "category": "crypto",
+  "description": "Diffie-Hellman Key Exchange algorithm implementation using BigInt modular exponentiation and standard/custom prime groups.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to establish a shared secret key between two parties over an insecure channel.",
+  "parameters": []
+}

@@ -1,0 +1,15 @@
+{
+  "name": "wal",
+  "category": "db",
+  "description": "Write-Ahead Log (WAL) manager supporting append-only logging, recovery replay, and log clearing to ensure data durability.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to implement WAL logging in custom database engines to guarantee crash-resiliency and atomic durability.",
+  "parameters": [
+    {
+      "name": "logPath",
+      "type": "string",
+      "required": true,
+      "description": "Path to the append-only log file on disk."
+    }
+  ]
+}
