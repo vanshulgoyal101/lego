@@ -34,6 +34,10 @@ function getIndent(line) {
   return i;
 }
 
+function isUnsafeKey(key) {
+  return key === '__proto__' || key === 'prototype' || key === 'constructor';
+}
+
 // =================== PARSER ====================
 
 class YamlParser {
@@ -124,7 +128,7 @@ class YamlParser {
   }
 
   parseMapping(baseIndent) {
-    const obj = {};
+    const obj = Object.create(null);
     while (true) {
       const line = this.peek();
       if (line === null) break;
@@ -139,6 +143,9 @@ class YamlParser {
 
       const colonIdx = trimmed.indexOf(':');
       const key = trimmed.slice(0, colonIdx).trim();
+      if (isUnsafeKey(key)) {
+        throw new Error(`Unsafe YAML key: ${key}`);
+      }
       const rest = trimmed.slice(colonIdx + 1).trim();
 
       // Handle block scalar indicators | and >
@@ -191,11 +198,17 @@ function parseInlineArray(src) {
 
 function parseInlineMapping(src) {
   const inner = src.slice(1, src.lastIndexOf('}')).trim();
-  if (!inner) return {};
-  const obj = {};
+  if (!inner) return Object.create(null);
+  const obj = Object.create(null);
   for (const pair of inner.split(',')) {
     const [k, v] = pair.split(':');
-    if (k) obj[k.trim()] = parseScalar((v || '').trim());
+    if (k) {
+      const key = k.trim();
+      if (isUnsafeKey(key)) {
+        throw new Error(`Unsafe YAML key: ${key}`);
+      }
+      obj[key] = parseScalar((v || '').trim());
+    }
   }
   return obj;
 }

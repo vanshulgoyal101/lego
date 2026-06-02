@@ -17,4 +17,11 @@ import {encode, decode} from './index.js';
       const output = decode(binary);
       expect(output).toEqual(source);
     });
+
+    await it('should reject unsafe map keys during decode', () => {
+      const payload = JSON.parse('{"__proto__":{"polluted":"yes"}}');
+      const binary = encode(payload);
+      expect(() => decode(binary)).toThrow('Unsafe MsgPack map key');
+      expect({}.polluted).toBe(undefined);
+    });
   });

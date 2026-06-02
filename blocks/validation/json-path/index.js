@@ -171,20 +171,23 @@ export function get(obj, path) {
 export function set(obj, path, value) {
   const segments = tokenize(path);
   if (segments.length === 0) return false;
+  const isUnsafeKey = (key) => key === '__proto__' || key === 'prototype' || key === 'constructor';
 
   let current = obj;
   for (let i = 0; i < segments.length - 1; i++) {
     const seg = segments[i];
+    if (isUnsafeKey(seg)) return false;
     if (current == null || typeof current !== 'object') return false;
     const key = /^\d+$/.test(seg) ? parseInt(seg, 10) : seg;
     if (!(key in current)) {
       // Auto-create intermediate objects
-      current[key] = /^\d+$/.test(String(segments[i + 1])) ? [] : {};
+      current[key] = /^\d+$/.test(String(segments[i + 1])) ? [] : Object.create(null);
     }
     current = current[key];
   }
 
   const last = segments[segments.length - 1];
+  if (isUnsafeKey(last)) return false;
   if (current == null || typeof current !== 'object') return false;
   const lastKey = /^\d+$/.test(last) ? parseInt(last, 10) : last;
   current[lastKey] = value;
