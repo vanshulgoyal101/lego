@@ -1,0 +1,8 @@
+{
+  "name": "ini-parser",
+  "category": "text",
+  "description": "A parser and serializer for INI configuration file format. Parses sections ([section]), key-value pairs, comments (# and ;), inline comments, multi-value keys, and quoted string values. Serializes JavaScript objects back into INI format.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to read .ini, .cfg, or .properties configuration files commonly used in Linux daemons, Python tools, PHP apps, and legacy Windows configuration.",
+  "parameters": []
+}

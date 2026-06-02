@@ -1,0 +1,8 @@
+{
+  "name": "pubsub",
+  "category": "utils",
+  "description": "A lightweight topic-based Publish-Subscribe (PubSub) message bus. Supports wildcard topic matching (*, **), synchronous and asynchronous delivery, message history replay for late subscribers, one-time subscribers, and unsubscription.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to decouple components using events across modules, implement cross-component communication in frontend apps, or build lightweight service bus messaging without external dependencies.",
+  "parameters": []
+}

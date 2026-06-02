@@ -2301,6 +2301,198 @@ async function runAllTests() {
     });
   });
 
+  // 77. Segment Tree Test
+  const { SegmentTree, FenwickTree } = await import('../blocks/algo/segment-tree/index.js');
+  await describe('algo/segment-tree', async () => {
+    await it('should compute range sum correctly', () => {
+      const st = new SegmentTree([1, 3, 5, 7, 9, 11]);
+      expect(st.query(0, 2)).toBe(9);  // 1+3+5
+      expect(st.query(1, 4)).toBe(24); // 3+5+7+9
+      expect(st.query(0, 5)).toBe(36); // total
+    });
+
+    await it('should update a value and recompute', () => {
+      const st = new SegmentTree([1, 2, 3, 4]);
+      st.update(1, 10); // [1, 10, 3, 4]
+      expect(st.query(0, 3)).toBe(18);
+      expect(st.query(1, 2)).toBe(13);
+    });
+
+    await it('should compute range min', () => {
+      const st = new SegmentTree([5, 3, 8, 1, 4], 'min');
+      expect(st.query(0, 4)).toBe(1);
+      expect(st.query(0, 2)).toBe(3);
+      st.update(3, 10);
+      expect(st.query(0, 4)).toBe(3);
+    });
+
+    await it('should compute range max', () => {
+      const st = new SegmentTree([5, 3, 8, 1, 4], 'max');
+      expect(st.query(0, 4)).toBe(8);
+      expect(st.query(0, 1)).toBe(5);
+    });
+
+    await it('should support Fenwick Tree prefix sums', () => {
+      const ft = new FenwickTree(6);
+      ft.update(1, 3); ft.update(2, 2); ft.update(3, -1); ft.update(4, 6); ft.update(5, 1);
+      expect(ft.prefixSum(3)).toBe(4); // 3+2-1
+      expect(ft.rangeSum(2, 4)).toBe(7); // 2+(-1)+6
+    });
+  });
+
+  // 78. INI Parser Test
+  const { parseIni, stringifyIni } = await import('../blocks/text/ini-parser/index.js');
+  await describe('text/ini-parser', async () => {
+    await it('should parse global key-value pairs', () => {
+      const result = parseIni('name=Alice\nversion=1.0');
+      expect(result.name).toBe('Alice');
+      expect(result.version).toBe(1.0);
+    });
+
+    await it('should parse sections', () => {
+      const ini = '[database]\nhost=localhost\nport=5432\n[app]\nname=MyApp';
+      const result = parseIni(ini);
+      expect(result.database.host).toBe('localhost');
+      expect(result.database.port).toBe(5432);
+      expect(result.app.name).toBe('MyApp');
+    });
+
+    await it('should skip comments', () => {
+      const ini = '# This is a comment\nkey=value ; inline comment\n; another comment';
+      const result = parseIni(ini);
+      expect(result.key).toBe('value');
+      expect(Object.keys(result).length).toBe(1);
+    });
+
+    await it('should handle booleans and numbers', () => {
+      const ini = 'enabled=true\ncount=42\nratio=3.14';
+      const result = parseIni(ini);
+      expect(result.enabled).toBe(true);
+      expect(result.count).toBe(42);
+      expect(result.ratio).toBe(3.14);
+    });
+
+    await it('should serialize back to INI format', () => {
+      const obj = { host: 'localhost', database: { name: 'mydb', port: 5432 } };
+      const ini = stringifyIni(obj);
+      expect(ini.includes('[database]')).toBe(true);
+      expect(ini.includes('host = localhost')).toBe(true);
+    });
+  });
+
+  // 79. SemVer Test
+  const semver = await import('../blocks/validation/semver/index.js');
+  await describe('validation/semver', async () => {
+    await it('should parse valid semver strings', () => {
+      const v = semver.parse('1.2.3-alpha.1+build.42');
+      expect(v.major).toBe(1);
+      expect(v.minor).toBe(2);
+      expect(v.patch).toBe(3);
+      expect(v.prerelease[0]).toBe('alpha');
+    });
+
+    await it('should compare versions correctly', () => {
+      expect(semver.compare('1.0.0', '2.0.0')).toBe(-1);
+      expect(semver.compare('2.0.0', '1.9.9')).toBe(1);
+      expect(semver.compare('1.0.0', '1.0.0')).toBe(0);
+      expect(semver.gt('2.0.0', '1.9.9')).toBe(true);
+      expect(semver.lt('1.0.0', '1.0.1')).toBe(true);
+    });
+
+    await it('should handle prerelease comparison', () => {
+      // 1.0.0 > 1.0.0-alpha (release > prerelease)
+      expect(semver.compare('1.0.0', '1.0.0-alpha')).toBe(1);
+      expect(semver.compare('1.0.0-beta', '1.0.0-alpha')).toBe(1);
+    });
+
+    await it('should satisfy caret (^) ranges', () => {
+      expect(semver.satisfies('1.2.3', '^1.0.0')).toBe(true);
+      expect(semver.satisfies('2.0.0', '^1.0.0')).toBe(false);
+      expect(semver.satisfies('1.0.1', '^1.0.0')).toBe(true);
+    });
+
+    await it('should satisfy tilde (~) ranges', () => {
+      expect(semver.satisfies('1.2.5', '~1.2.0')).toBe(true);
+      expect(semver.satisfies('1.3.0', '~1.2.0')).toBe(false);
+    });
+
+    await it('should sort versions', () => {
+      const versions = ['2.1.0', '1.0.0', '1.5.3', '2.0.0'];
+      const sorted = semver.sort(versions);
+      expect(sorted[0]).toBe('1.0.0');
+      expect(sorted[3]).toBe('2.1.0');
+    });
+
+    await it('should increment versions', () => {
+      expect(semver.increment('1.2.3', 'major')).toBe('2.0.0');
+      expect(semver.increment('1.2.3', 'minor')).toBe('1.3.0');
+      expect(semver.increment('1.2.3', 'patch')).toBe('1.2.4');
+    });
+  });
+
+  // 80. PubSub Test
+  const { PubSub } = await import('../blocks/utils/pubsub/index.js');
+  await describe('utils/pubsub', async () => {
+    await it('should publish and receive messages', () => {
+      const bus = new PubSub();
+      const received = [];
+      bus.subscribe('test', msg => received.push(msg));
+      bus.publish('test', 'hello');
+      bus.publish('test', 'world');
+      expect(received).toEqual(['hello', 'world']);
+    });
+
+    await it('should support wildcard * pattern (single segment)', () => {
+      const bus = new PubSub();
+      const received = [];
+      bus.subscribe('user.*', (msg, topic) => received.push(topic));
+      bus.publish('user.created', {});
+      bus.publish('user.deleted', {});
+      bus.publish('order.created', {}); // Should NOT match
+      expect(received.length).toBe(2);
+      expect(received.includes('user.created')).toBe(true);
+    });
+
+    await it('should support ** wildcard (any depth)', () => {
+      const bus = new PubSub();
+      const received = [];
+      bus.subscribe('app.**', (_, topic) => received.push(topic));
+      bus.publish('app.user.created', {});
+      bus.publish('app.order.updated', {});
+      bus.publish('other.topic', {});
+      expect(received.length).toBe(2);
+    });
+
+    await it('should unsubscribe correctly', () => {
+      const bus = new PubSub();
+      const received = [];
+      const unsub = bus.subscribe('msg', m => received.push(m));
+      bus.publish('msg', 1);
+      unsub();
+      bus.publish('msg', 2);
+      expect(received).toEqual([1]);
+    });
+
+    await it('should support once subscriptions', () => {
+      const bus = new PubSub();
+      const received = [];
+      bus.once('event', m => received.push(m));
+      bus.publish('event', 'first');
+      bus.publish('event', 'second');
+      expect(received).toEqual(['first']);
+      expect(bus.subscriberCount).toBe(0);
+    });
+
+    await it('should replay history to late subscribers', () => {
+      const bus = new PubSub({ maxHistory: 5 });
+      bus.publish('news', 'Article 1');
+      bus.publish('news', 'Article 2');
+      const received = [];
+      bus.subscribe('news', m => received.push(m), { replay: true });
+      expect(received).toEqual(['Article 1', 'Article 2']);
+    });
+  });
+
   console.log(`\n${Colors.bright}${Colors.yellow}========================================`);
   console.log(`             TESTING COMPLETE            `);
   console.log(`========================================${Colors.reset}`);

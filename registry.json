@@ -138,6 +138,19 @@
         "index.js"
       ]
     },
+    "algo/segment-tree": {
+      "name": "segment-tree",
+      "category": "algo",
+      "description": "A range-query data structure (Segment Tree) supporting point updates and range queries (sum, min, max) in O(log n) time. Supports lazy propagation for range updates. Useful for interval queries, competitive programming, and database range aggregation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to answer repeated range queries (sum of elements in [l, r]) or update individual elements efficiently without full re-traversal.",
+      "parameters": [],
+      "path": "blocks/algo/segment-tree",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "algo/sorting": {
       "name": "sorting",
       "category": "algo",
@@ -1069,6 +1082,19 @@
         "index.js"
       ]
     },
+    "text/ini-parser": {
+      "name": "ini-parser",
+      "category": "text",
+      "description": "A parser and serializer for INI configuration file format. Parses sections ([section]), key-value pairs, comments (# and ;), inline comments, multi-value keys, and quoted string values. Serializes JavaScript objects back into INI format.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to read .ini, .cfg, or .properties configuration files commonly used in Linux daemons, Python tools, PHP apps, and legacy Windows configuration.",
+      "parameters": [],
+      "path": "blocks/text/ini-parser",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "text/json-serializer": {
       "name": "json-serializer",
       "category": "text",
@@ -1323,6 +1349,19 @@
         "index.js"
       ]
     },
+    "utils/pubsub": {
+      "name": "pubsub",
+      "category": "utils",
+      "description": "A lightweight topic-based Publish-Subscribe (PubSub) message bus. Supports wildcard topic matching (*, **), synchronous and asynchronous delivery, message history replay for late subscribers, one-time subscribers, and unsubscription.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to decouple components using events across modules, implement cross-component communication in frontend apps, or build lightweight service bus messaging without external dependencies.",
+      "parameters": [],
+      "path": "blocks/utils/pubsub",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "utils/retry": {
       "name": "retry",
       "category": "utils",
@@ -1496,6 +1535,19 @@
       "aiPromptContext": "Use this block when checking incoming request bodies, form submissions, or API payloads for typesafety and custom constraints (like email format or lengths) without importing Zod or Yup. Import using: import { schema } from './validation/schema-validator.js';",
       "parameters": [],
       "path": "blocks/validation/schema-validator",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "validation/semver": {
+      "name": "semver",
+      "category": "validation",
+      "description": "Semantic Versioning (SemVer 2.0.0) validator, parser, comparator, and range matcher. Parses version strings into { major, minor, patch, prerelease, build } components, compares versions correctly, checks compatibility ranges (^, ~, >=, <, =, ||, -), and sorts version arrays.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for dependency version management, CLI tool version checks, automated release pipelines, or any logic requiring semantic version comparison and range matching.",
+      "parameters": [],
+      "path": "blocks/validation/semver",
       "files": [
         "README.md",
         "index.js"

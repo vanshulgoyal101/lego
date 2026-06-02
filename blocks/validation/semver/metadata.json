@@ -1,0 +1,8 @@
+{
+  "name": "semver",
+  "category": "validation",
+  "description": "Semantic Versioning (SemVer 2.0.0) validator, parser, comparator, and range matcher. Parses version strings into { major, minor, patch, prerelease, build } components, compares versions correctly, checks compatibility ranges (^, ~, >=, <, =, ||, -), and sorts version arrays.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block for dependency version management, CLI tool version checks, automated release pipelines, or any logic requiring semantic version comparison and range matching.",
+  "parameters": []
+}

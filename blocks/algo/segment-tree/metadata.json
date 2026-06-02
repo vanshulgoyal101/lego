@@ -1,0 +1,8 @@
+{
+  "name": "segment-tree",
+  "category": "algo",
+  "description": "A range-query data structure (Segment Tree) supporting point updates and range queries (sum, min, max) in O(log n) time. Supports lazy propagation for range updates. Useful for interval queries, competitive programming, and database range aggregation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to answer repeated range queries (sum of elements in [l, r]) or update individual elements efficiently without full re-traversal.",
+  "parameters": []
+}
