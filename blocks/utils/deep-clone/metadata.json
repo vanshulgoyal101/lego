@@ -1,0 +1,15 @@
+{
+  "name": "deep-clone",
+  "category": "utils",
+  "description": "Performs a deep, structural clone of JavaScript values including nested objects, arrays, Maps, Sets, Dates, RegExp, ArrayBuffers, TypedArrays, and handles circular references gracefully using a WeakMap reference tracker.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need a reliable, complete deep-copy that handles edge cases like circular references, Dates, Maps, Sets, and TypedArrays without using JSON.parse(JSON.stringify()) which loses type information.",
+  "parameters": [
+    {
+      "name": "value",
+      "type": "any",
+      "required": true,
+      "description": "The value to deeply clone."
+    }
+  ]
+}

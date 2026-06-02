@@ -1,0 +1,8 @@
+{
+  "name": "huffman-coding",
+  "category": "algo",
+  "description": "A complete Huffman coding compression and decompression engine. Builds a frequency-based binary tree from input symbols, generates prefix-free variable-length binary codes, encodes input byte sequences into compact bitstrings, and decodes them back to the original data.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when implementing lossless data compression, file compression utilities, or teaching coding theory. Huffman coding is the foundational algorithm in ZIP, gzip, and JPEG compression.",
+  "parameters": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "json5-parser",
+  "category": "text",
+  "description": "A complete JSON5 parser and serializer. Parses JSON5 superset strings supporting single-quoted strings, unquoted keys, trailing commas, block and line comments, hexadecimal literals, Infinity, NaN, and multiline strings. Serializes values back to valid JSON5 format.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when reading configuration files or user-authored JSON with comments, trailing commas, or ES5-style syntax. More permissive than strict JSON.parse().",
+  "parameters": []
+}

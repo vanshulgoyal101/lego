@@ -62,6 +62,17 @@ function expect(actual) {
         throw new Error(`Expected ${actual} to be > ${expected}`);
       }
     },
+    toBeLessThan(expected) {
+      if (actual >= expected) {
+        throw new Error(`Expected ${actual} to be < ${expected}`);
+      }
+    },
+    toBeCloseTo(expected, precision = 5) {
+      const delta = Math.pow(10, -precision) / 2;
+      if (Math.abs(actual - expected) >= delta) {
+        throw new Error(`Expected ${actual} to be close to ${expected} (precision: ${precision})`);
+      }
+    },
     toThrow(expectedErrorPattern = null) {
       let threw = false;
       let error = null;
@@ -1681,6 +1692,368 @@ async function runAllTests() {
       const result = g.astar('A', 'D', heuristic);
       expect(result.distance).toBe(2); // A->B->D cost=2
       expect(result.path).toEqual(['A', 'B', 'D']);
+    });
+  });
+
+  // 65. Deep Clone Test
+  const { deepClone } = await import('../blocks/utils/deep-clone/index.js');
+  await describe('utils/deep-clone', async () => {
+    await it('should deep clone nested objects without reference sharing', () => {
+      const original = { a: 1, b: { c: 2, d: [3, 4] } };
+      const cloned = deepClone(original);
+      expect(cloned).toEqual(original);
+      cloned.b.c = 99;
+      expect(original.b.c).toBe(2); // Must be independent
+    });
+
+    await it('should clone Dates, Maps, and Sets correctly', () => {
+      const original = {
+        date: new Date('2026-01-01'),
+        map: new Map([['key', 'val']]),
+        set: new Set([1, 2, 3])
+      };
+      const cloned = deepClone(original);
+      expect(cloned.date.getTime()).toBe(original.date.getTime());
+      expect(cloned.map.get('key')).toBe('val');
+      expect(cloned.set.has(2)).toBe(true);
+      // Verify independence
+      cloned.map.set('key', 'changed');
+      expect(original.map.get('key')).toBe('val');
+    });
+
+    await it('should handle circular references without infinite loop', () => {
+      const obj = { name: 'root' };
+      obj.self = obj;
+      const cloned = deepClone(obj);
+      expect(cloned.name).toBe('root');
+      expect(cloned.self === cloned).toBe(true); // Circular preserved
+      expect(cloned === obj).toBe(false); // But different object
+    });
+
+    await it('should clone TypedArrays correctly', () => {
+      const arr = new Uint8Array([10, 20, 30]);
+      const cloned = deepClone(arr);
+      expect(cloned[0]).toBe(10);
+      cloned[0] = 99;
+      expect(arr[0]).toBe(10); // Original unchanged
+    });
+
+    await it('should clone arrays with nested objects', () => {
+      const arr = [{ x: 1 }, { x: 2 }];
+      const cloned = deepClone(arr);
+      cloned[0].x = 99;
+      expect(arr[0].x).toBe(1);
+    });
+  });
+
+  // 66. UUID v4 Test
+  const { uuidv4, isValidUuid, nanoid, uuidToBytes, bytesToUuid } = await import('../blocks/utils/uuid-v4/index.js');
+  await describe('utils/uuid-v4', async () => {
+    await it('should generate valid RFC 4122 UUID v4 strings', () => {
+      const id = uuidv4();
+      expect(typeof id).toBe('string');
+      expect(id.length).toBe(36);
+      expect(isValidUuid(id)).toBe(true);
+      expect(id[14]).toBe('4'); // version 4
+      expect('89ab'.includes(id[19])).toBe(true); // variant bits
+    });
+
+    await it('should generate unique IDs', () => {
+      const ids = new Set(Array.from({ length: 100 }, () => uuidv4()));
+      expect(ids.size).toBe(100);
+    });
+
+    await it('should validate UUID format correctly', () => {
+      expect(isValidUuid('4742b89d-4820-48d1-93a6-12e71d4a81ba')).toBe(true);
+      expect(isValidUuid('not-a-uuid')).toBe(false);
+      expect(isValidUuid('')).toBe(false);
+      expect(isValidUuid('00000000-0000-4000-8000-000000000000')).toBe(true); // valid v4 format
+      expect(isValidUuid('00000000-0000-0000-0000-000000000000')).toBe(false); // version 0, not v4
+    });
+
+    await it('should generate nanoid style short strings', () => {
+      const id = nanoid(21);
+      expect(id.length).toBe(21);
+      expect(nanoid(8).length).toBe(8);
+    });
+
+    await it('should convert UUID to bytes and back', () => {
+      const uuid = '4742b89d-4820-48d1-93a6-12e71d4a81ba';
+      const bytes = uuidToBytes(uuid);
+      expect(bytes.length).toBe(16);
+      expect(bytesToUuid(bytes)).toBe(uuid);
+    });
+  });
+
+  // 67. JSON5 Parser Test
+  const { parseJSON5, stringifyJSON5 } = await import('../blocks/text/json5-parser/index.js');
+  await describe('text/json5-parser', async () => {
+    await it('should parse standard JSON', () => {
+      const result = parseJSON5('{"name": "Alice", "age": 30}');
+      expect(result.name).toBe('Alice');
+      expect(result.age).toBe(30);
+    });
+
+    await it('should parse single-quoted strings', () => {
+      const result = parseJSON5("{ key: 'single-quoted' }");
+      expect(result.key).toBe('single-quoted');
+    });
+
+    await it('should parse unquoted keys', () => {
+      const result = parseJSON5('{ foo: 1, bar: 2 }');
+      expect(result.foo).toBe(1);
+      expect(result.bar).toBe(2);
+    });
+
+    await it('should handle line and block comments', () => {
+      const src = `{
+        // line comment
+        name: "test", /* block comment */
+        value: 42,
+      }`;
+      const result = parseJSON5(src);
+      expect(result.name).toBe('test');
+      expect(result.value).toBe(42);
+    });
+
+    await it('should handle trailing commas in objects and arrays', () => {
+      const obj = parseJSON5('{ a: 1, b: 2, }');
+      expect(obj.a).toBe(1);
+      const arr = parseJSON5('[1, 2, 3,]');
+      expect(arr.length).toBe(3);
+    });
+
+    await it('should handle Infinity, -Infinity, NaN and hex numbers', () => {
+      const result = parseJSON5('{ inf: Infinity, neg: -Infinity, nan: NaN, hex: 0xFF }');
+      expect(result.inf).toBe(Infinity);
+      expect(result.neg).toBe(-Infinity);
+      expect(isNaN(result.nan)).toBe(true);
+      expect(result.hex).toBe(255);
+    });
+
+    await it('should serialize objects back to JSON5', () => {
+      const obj = { name: 'test', list: [1, 2, 3] };
+      const json5 = stringifyJSON5(obj);
+      expect(json5.includes('name')).toBe(true);
+      expect(json5.includes('list')).toBe(true);
+    });
+  });
+
+  // 68. Huffman Coding Test
+  const { buildFrequencyMap, buildCodes, encode: huffEncode, decode: huffDecode, compressionStats } = await import('../blocks/algo/huffman-coding/index.js');
+  await describe('algo/huffman-coding', async () => {
+    await it('should build frequency map correctly', () => {
+      const freqMap = buildFrequencyMap('aabbc');
+      expect(freqMap.get('a')).toBe(2);
+      expect(freqMap.get('b')).toBe(2);
+      expect(freqMap.get('c')).toBe(1);
+    });
+
+    await it('should build a valid prefix-free code table', () => {
+      const freqMap = buildFrequencyMap('aaabbc');
+      const codes = buildCodes(freqMap);
+      // No code should be a prefix of another
+      const codeList = [...codes.values()];
+      for (let i = 0; i < codeList.length; i++) {
+        for (let j = 0; j < codeList.length; j++) {
+          if (i !== j) {
+            expect(codeList[j].startsWith(codeList[i])).toBe(false);
+          }
+        }
+      }
+    });
+
+    await it('should encode and decode to exact original string', () => {
+      const input = 'hello huffman world';
+      const freqMap = buildFrequencyMap(input);
+      const codes = buildCodes(freqMap);
+      const encoded = huffEncode(input, codes);
+      const decoded = huffDecode(encoded, codes);
+      expect(decoded).toBe(input);
+    });
+
+    await it('should achieve compression on repetitive strings', () => {
+      const input = 'aaaaaabbbbcccd';
+      const freqMap = buildFrequencyMap(input);
+      const codes = buildCodes(freqMap);
+      const encoded = huffEncode(input, codes);
+      const stats = compressionStats(input, encoded);
+      expect(stats.ratio).toBeLessThan(1); // Compressed
+    });
+
+    await it('should handle single unique character', () => {
+      const freqMap = buildFrequencyMap('aaa');
+      const codes = buildCodes(freqMap);
+      const encoded = huffEncode('aaa', codes);
+      const decoded = huffDecode(encoded, codes);
+      expect(decoded).toBe('aaa');
+    });
+  });
+
+  // 69. Complex Numbers Test
+  const { Complex } = await import('../blocks/math/complex/index.js');
+  await describe('math/complex', async () => {
+    await it('should perform basic arithmetic', () => {
+      const a = new Complex(3, 4);
+      const b = new Complex(1, -2);
+      expect(a.add(b).re).toBe(4);
+      expect(a.add(b).im).toBe(2);
+      expect(a.sub(b).re).toBe(2);
+      expect(a.sub(b).im).toBe(6);
+    });
+
+    await it('should multiply complex numbers using FOIL', () => {
+      const a = new Complex(1, 2);
+      const b = new Complex(3, 4);
+      // (1+2i)(3+4i) = 3+4i+6i+8i² = 3+10i-8 = -5+10i
+      const result = a.mul(b);
+      expect(result.re).toBe(-5);
+      expect(result.im).toBe(10);
+    });
+
+    await it('should divide complex numbers', () => {
+      const a = new Complex(4, 2);
+      const b = new Complex(2, 0);
+      const result = a.div(b);
+      expect(result.re).toBe(2);
+      expect(result.im).toBe(1);
+    });
+
+    await it('should compute abs (modulus) and arg (angle)', () => {
+      const z = new Complex(3, 4);
+      expect(z.abs()).toBe(5);
+      expect(z.arg()).toBeCloseTo(Math.atan2(4, 3));
+    });
+
+    await it('should compute conjugate', () => {
+      const z = new Complex(3, -4);
+      const conj = z.conjugate();
+      expect(conj.re).toBe(3);
+      expect(conj.im).toBe(4);
+    });
+
+    await it('should compute exp of imaginary number (Eulers formula: e^(i*pi) = -1)', () => {
+      const z = new Complex(0, Math.PI);
+      const result = z.exp();
+      expect(Math.abs(result.re + 1)).toBeLessThan(1e-10);
+      expect(Math.abs(result.im)).toBeLessThan(1e-10);
+    });
+
+    await it('should compute sqrt of complex number', () => {
+      const z = new Complex(-4, 0); // sqrt(-4) = 2i
+      const result = z.sqrt();
+      expect(Math.abs(result.re)).toBeLessThan(1e-10);
+      expect(Math.abs(result.im - 2)).toBeLessThan(1e-10);
+    });
+
+    await it('should convert to and from polar form', () => {
+      const z = new Complex(1, 1);
+      const { r, theta } = z.toPolar();
+      expect(Math.abs(r - Math.sqrt(2))).toBeLessThan(1e-10);
+      const back = Complex.fromPolar(r, theta);
+      expect(back.equals(z)).toBe(true);
+    });
+  });
+
+  // 70. Union-Find / DSU Test
+  const { UnionFind, createNumericUnionFind } = await import('../blocks/ds/union-find/index.js');
+  await describe('ds/union-find', async () => {
+    await it('should merge and query connected components', () => {
+      const uf = new UnionFind();
+      uf.add('A'); uf.add('B'); uf.add('C'); uf.add('D');
+      expect(uf.connected('A', 'B')).toBe(false);
+      uf.union('A', 'B');
+      uf.union('B', 'C');
+      expect(uf.connected('A', 'C')).toBe(true);
+      expect(uf.connected('A', 'D')).toBe(false);
+    });
+
+    await it('should track component count', () => {
+      const uf = new UnionFind();
+      uf.add('X'); uf.add('Y'); uf.add('Z');
+      expect(uf.componentCount).toBe(3);
+      uf.union('X', 'Y');
+      expect(uf.componentCount).toBe(2);
+      uf.union('Y', 'Z');
+      expect(uf.componentCount).toBe(1);
+    });
+
+    await it('should track component sizes correctly', () => {
+      const uf = new UnionFind();
+      uf.add(1); uf.add(2); uf.add(3);
+      uf.union(1, 2);
+      expect(uf.componentSize(1)).toBe(2);
+      expect(uf.componentSize(3)).toBe(1);
+    });
+
+    await it('should enumerate all components', () => {
+      const uf = createNumericUnionFind(4);
+      uf.union(0, 1);
+      uf.union(2, 3);
+      const components = uf.getComponents();
+      expect(components.length).toBe(2);
+      const sizes = components.map(c => c.size).sort((a,b) => a-b);
+      expect(sizes).toEqual([2, 2]);
+    });
+
+    await it('should handle idempotent unions (no double-counting)', () => {
+      const uf = new UnionFind();
+      uf.add('A'); uf.add('B');
+      uf.union('A', 'B');
+      uf.union('A', 'B'); // Already same set
+      expect(uf.componentCount).toBe(1);
+    });
+  });
+
+  // 71. XSS Filter Test
+  const { sanitize, escapeHtml, stripTags } = await import('../blocks/validation/xss-filter/index.js');
+  await describe('validation/xss-filter', async () => {
+    await it('should remove script tags', () => {
+      const input = '<p>Hello</p><script>alert("xss")</script>';
+      const result = sanitize(input);
+      expect(result.includes('<script>')).toBe(false);
+      expect(result.includes('<p>Hello</p>')).toBe(true);
+    });
+
+    await it('should remove on* event handler attributes', () => {
+      const input = '<a href="#" onclick="steal()">Click</a>';
+      const result = sanitize(input);
+      expect(result.includes('onclick')).toBe(false);
+      expect(result.includes('<a')).toBe(true);
+    });
+
+    await it('should block javascript: protocol in href', () => {
+      const input = '<a href="javascript:alert(1)">Link</a>';
+      const result = sanitize(input);
+      expect(result.includes('javascript:')).toBe(false);
+    });
+
+    await it('should allow safe tags and attributes', () => {
+      const input = '<div class="box"><p>Safe content</p><strong>Bold</strong></div>';
+      const result = sanitize(input);
+      expect(result.includes('<div')).toBe(true);
+      expect(result.includes('<p>Safe content</p>')).toBe(true);
+      expect(result.includes('<strong>Bold</strong>')).toBe(true);
+    });
+
+    await it('should escape HTML entities with escapeHtml', () => {
+      const escaped = escapeHtml('<script>alert("xss")</script>');
+      expect(escaped.includes('<script>')).toBe(false);
+      expect(escaped.includes('&lt;script&gt;')).toBe(true);
+    });
+
+    await it('should strip all tags with stripTags', () => {
+      const result = stripTags('<b>Hello</b> <i>World</i>');
+      expect(result.includes('<b>')).toBe(false);
+      expect(result.includes('Hello')).toBe(true);
+      expect(result.includes('World')).toBe(true);
+    });
+
+    await it('should remove iframe and embed tags', () => {
+      const input = '<iframe src="evil.com"></iframe><embed src="x.swf">';
+      const result = sanitize(input);
+      expect(result.includes('iframe')).toBe(false);
+      expect(result.includes('embed')).toBe(false);
     });
   });
 

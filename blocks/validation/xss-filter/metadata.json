@@ -1,0 +1,8 @@
+{
+  "name": "xss-filter",
+  "category": "validation",
+  "description": "An HTML XSS sanitizer that removes dangerous script elements, event handler attributes, javascript: protocol links, and data: URI injections from HTML strings. Supports allowlists for safe tags and attributes. Returns sanitized HTML safe for rendering in the browser.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when displaying user-generated HTML content in a browser to prevent Cross-Site Scripting (XSS) attacks. Strips script tags, on* event attributes, and unsafe href/src values.",
+  "parameters": []
+}

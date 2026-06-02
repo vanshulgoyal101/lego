@@ -1,0 +1,8 @@
+{
+  "name": "uuid-v4",
+  "category": "utils",
+  "description": "Generates cryptographically random UUID v4 strings (xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx format). Works in Node.js, Deno, Bun, and browsers via the Web Crypto API. Also validates UUID format strings and generates short 8-character nanoid-style IDs.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to generate universally unique identifiers for records, session tokens, or temporary IDs in both browser and server environments without importing the 'uuid' npm package.",
+  "parameters": []
+}

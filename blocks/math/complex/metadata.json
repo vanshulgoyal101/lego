@@ -1,0 +1,8 @@
+{
+  "name": "complex",
+  "category": "math",
+  "description": "A complete complex number arithmetic library. Provides a Complex class with operations: add, subtract, multiply, divide, modulus (abs), argument (angle), conjugate, power (integer and complex), square root, exponential, natural log, and trigonometric functions (sin, cos, tan) all working on complex numbers.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when performing signal processing math, solving differential equations, working with Fourier transforms, or doing any computation requiring numbers with real and imaginary components.",
+  "parameters": []
+}

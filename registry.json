@@ -46,6 +46,19 @@
         "index.js"
       ]
     },
+    "algo/huffman-coding": {
+      "name": "huffman-coding",
+      "category": "algo",
+      "description": "A complete Huffman coding compression and decompression engine. Builds a frequency-based binary tree from input symbols, generates prefix-free variable-length binary codes, encodes input byte sequences into compact bitstrings, and decodes them back to the original data.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when implementing lossless data compression, file compression utilities, or teaching coding theory. Huffman coding is the foundational algorithm in ZIP, gzip, and JPEG compression.",
+      "parameters": [],
+      "path": "blocks/algo/huffman-coding",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "algo/kmeans": {
       "name": "kmeans",
       "category": "algo",
@@ -642,6 +655,26 @@
         "index.js"
       ]
     },
+    "ds/union-find": {
+      "name": "union-find",
+      "category": "ds",
+      "description": "A Disjoint Set Union (DSU) / Union-Find data structure with path compression and union by rank. Efficiently tracks which elements belong to the same partition, merges partitions, and checks connectivity. Used in Kruskal's MST, cycle detection, and dynamic graph connectivity.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for efficiently managing and querying disjoint sets. Critical for Kruskal's minimum spanning tree, Percolation theory, offline dynamic connectivity, and network clustering problems.",
+      "parameters": [
+        {
+          "name": "n",
+          "type": "number",
+          "required": false,
+          "description": "Optional initial capacity for integer-indexed elements."
+        }
+      ],
+      "path": "blocks/ds/union-find",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "encoding/base64": {
       "name": "base64",
       "category": "encoding",
@@ -696,6 +729,19 @@
       "aiPromptContext": "Use this block in frontend routing parameters serialization, browser search link updates, or server query string parsers. Import using: import { parseQuery, stringifyQuery } from './encoding/url-codec.js';",
       "parameters": [],
       "path": "blocks/encoding/url-codec",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "math/complex": {
+      "name": "complex",
+      "category": "math",
+      "description": "A complete complex number arithmetic library. Provides a Complex class with operations: add, subtract, multiply, divide, modulus (abs), argument (angle), conjugate, power (integer and complex), square root, exponential, natural log, and trigonometric functions (sin, cos, tan) all working on complex numbers.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when performing signal processing math, solving differential equations, working with Fourier transforms, or doing any computation requiring numbers with real and imaginary components.",
+      "parameters": [],
+      "path": "blocks/math/complex",
       "files": [
         "README.md",
         "index.js"
@@ -1010,6 +1056,19 @@
         "index.js"
       ]
     },
+    "text/json5-parser": {
+      "name": "json5-parser",
+      "category": "text",
+      "description": "A complete JSON5 parser and serializer. Parses JSON5 superset strings supporting single-quoted strings, unquoted keys, trailing commas, block and line comments, hexadecimal literals, Infinity, NaN, and multiline strings. Serializes values back to valid JSON5 format.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when reading configuration files or user-authored JSON with comments, trailing commas, or ES5-style syntax. More permissive than strict JSON.parse().",
+      "parameters": [],
+      "path": "blocks/text/json5-parser",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "text/markdown-compiler": {
       "name": "markdown-compiler",
       "category": "text",
@@ -1167,6 +1226,26 @@
         "index.js"
       ]
     },
+    "utils/deep-clone": {
+      "name": "deep-clone",
+      "category": "utils",
+      "description": "Performs a deep, structural clone of JavaScript values including nested objects, arrays, Maps, Sets, Dates, RegExp, ArrayBuffers, TypedArrays, and handles circular references gracefully using a WeakMap reference tracker.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a reliable, complete deep-copy that handles edge cases like circular references, Dates, Maps, Sets, and TypedArrays without using JSON.parse(JSON.stringify()) which loses type information.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "any",
+          "required": true,
+          "description": "The value to deeply clone."
+        }
+      ],
+      "path": "blocks/utils/deep-clone",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "utils/memoize": {
       "name": "memoize",
       "category": "utils",
@@ -1245,6 +1324,19 @@
         }
       ],
       "path": "blocks/utils/throttle",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "utils/uuid-v4": {
+      "name": "uuid-v4",
+      "category": "utils",
+      "description": "Generates cryptographically random UUID v4 strings (xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx format). Works in Node.js, Deno, Bun, and browsers via the Web Crypto API. Also validates UUID format strings and generates short 8-character nanoid-style IDs.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to generate universally unique identifiers for records, session tokens, or temporary IDs in both browser and server environments without importing the 'uuid' npm package.",
+      "parameters": [],
+      "path": "blocks/utils/uuid-v4",
       "files": [
         "README.md",
         "index.js"
@@ -1332,6 +1424,19 @@
       "aiPromptContext": "Use this block when checking incoming request bodies, form submissions, or API payloads for typesafety and custom constraints (like email format or lengths) without importing Zod or Yup. Import using: import { schema } from './validation/schema-validator.js';",
       "parameters": [],
       "path": "blocks/validation/schema-validator",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "validation/xss-filter": {
+      "name": "xss-filter",
+      "category": "validation",
+      "description": "An HTML XSS sanitizer that removes dangerous script elements, event handler attributes, javascript: protocol links, and data: URI injections from HTML strings. Supports allowlists for safe tags and attributes. Returns sanitized HTML safe for rendering in the browser.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when displaying user-generated HTML content in a browser to prevent Cross-Site Scripting (XSS) attacks. Strips script tags, on* event attributes, and unsafe href/src values.",
+      "parameters": [],
+      "path": "blocks/validation/xss-filter",
       "files": [
         "README.md",
         "index.js"
