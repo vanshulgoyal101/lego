@@ -1,0 +1,15 @@
+{
+  "name": "fenwick-tree",
+  "category": "ds",
+  "description": "Binary Indexed Tree (BIT) supporting O(log N) prefix sum queries and point updates on an array.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to efficiently perform prefix sums and range sum queries on mutable datasets where numbers change dynamically.",
+  "parameters": [
+    {
+      "name": "size",
+      "type": "number",
+      "required": true,
+      "description": "The size/length of the underlying array buffer."
+    }
+  ]
+}

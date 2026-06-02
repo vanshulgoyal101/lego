@@ -1,0 +1,15 @@
+{
+  "name": "hyperloglog",
+  "category": "ds",
+  "description": "A space-efficient probabilistic data structure for estimating the cardinality (number of distinct elements) of large datasets.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to count unique items in a stream or dataset under highly constrained memory limits, tolerating small estimation errors.",
+  "parameters": [
+    {
+      "name": "b",
+      "type": "number",
+      "required": false,
+      "description": "Number of precision bits (typically 4 to 16). Higher values reduce error rates but consume more registers memory."
+    }
+  ]
+}

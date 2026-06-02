@@ -1,0 +1,21 @@
+{
+  "name": "prim-mst",
+  "category": "algo",
+  "description": "Finds a Minimum Spanning Tree of an undirected weighted graph starting from a node using Prim's algorithm.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compute the Minimum Spanning Tree (MST) of a weighted undirected graph starting from an arbitrary root vertex.",
+  "parameters": [
+    {
+      "name": "graph",
+      "type": "Object",
+      "required": true,
+      "description": "Adjacency list where keys are node IDs and values are arrays of { node, weight } objects."
+    },
+    {
+      "name": "startNode",
+      "type": "string",
+      "required": false,
+      "description": "Optional starting node ID. If omitted, the first key of the graph object is used."
+    }
+  ]
+}

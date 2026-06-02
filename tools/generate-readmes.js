@@ -72,6 +72,16 @@ function getComplexity(name) {
       return { time: 'O(N × W) number of items × capacity', space: 'O(N × W) DP table' };
     case 'lcs':
       return { time: 'O(N × M) string lengths', space: 'O(N × M) matrix buffer' };
+    case 'bellman-ford':
+      return { time: 'O(V × E) relaxation cycles', space: 'O(V + E) edges store' };
+    case 'floyd-warshall':
+      return { time: 'O(V^3) triple loops iteration', space: 'O(V^2) distance matrices' };
+    case 'tarjan-scc':
+      return { time: 'O(V + E) linear depth search', space: 'O(V) recursion stack' };
+    case 'kruskal-mst':
+      return { time: 'O(E log E) sorting edges + O(E α(V)) DSU unions', space: 'O(V + E)' };
+    case 'prim-mst':
+      return { time: 'O(E log V) adjacent paths search', space: 'O(V + E)' };
 
     // ===== async =====
     case 'event-emitter':
@@ -98,6 +108,10 @@ function getComplexity(name) {
       return { time: 'O(N × M) input × pattern states (NFA simulation)', space: 'O(M) NFA state set' };
     case 'sql-query-parser':
       return { time: 'O(N) characters tokenized linearly', space: 'O(T) token array length' };
+    case 'lexer-generator':
+      return { time: 'O(N × R) input length × rules match checks', space: 'O(R) rules definition length' };
+    case 'ast-walker':
+      return { time: 'O(N) node structures traversal depth', space: 'O(D) max recursion stack depth' };
 
     // ===== crypto =====
     case 'aes':
@@ -160,6 +174,12 @@ function getComplexity(name) {
       return { time: 'O(log N) probabilistic lookup/insertion/deletion', space: 'O(N) pointers' };
     case 'sparse-table':
       return { time: 'O(1) range queries after O(N log N) preprocessing', space: 'O(N log N) table size' };
+    case 'fenwick-tree':
+      return { time: 'O(log N) operations updates/queries', space: 'O(N)' };
+    case 'quadtree':
+      return { time: 'O(log N) regional queries', space: 'O(N) structures space' };
+    case 'hyperloglog':
+      return { time: 'O(1) add element checks', space: 'O(m) registers size' };
 
     // ===== encoding =====
     case 'base64':

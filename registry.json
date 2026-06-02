@@ -39,6 +39,33 @@
         "test.js"
       ]
     },
+    "algo/bellman-ford": {
+      "name": "bellman-ford",
+      "category": "algo",
+      "description": "Calculates shortest paths from a single source vertex to all other vertices in a weighted graph, supporting negative edge weights and detecting negative cycles.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to find single-source shortest paths when the graph may contain negative edge weights, or when you need to detect the presence of negative cycles.",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Object",
+          "required": true,
+          "description": "Adjacency list where keys are node IDs and values are arrays of { node, weight } objects."
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "required": true,
+          "description": "The starting node ID."
+        }
+      ],
+      "path": "blocks/algo/bellman-ford",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "algo/binary-search": {
       "name": "binary-search",
       "category": "algo",
@@ -125,6 +152,27 @@
         }
       ],
       "path": "blocks/algo/flood-fill",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "algo/floyd-warshall": {
+      "name": "floyd-warshall",
+      "category": "algo",
+      "description": "Calculates shortest paths between all pairs of vertices in a weighted graph, supporting negative edge weights.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to calculate the shortest path distances between all pairs of nodes in a weighted graph (dense graphs or graphs with negative edge weights).",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Object",
+          "required": true,
+          "description": "Adjacency list where keys are node IDs and values are arrays of { node, weight } objects."
+        }
+      ],
+      "path": "blocks/algo/floyd-warshall",
       "files": [
         "README.md",
         "index.js",
@@ -226,6 +274,33 @@
         "test.js"
       ]
     },
+    "algo/kruskal-mst": {
+      "name": "kruskal-mst",
+      "category": "algo",
+      "description": "Finds a Minimum Spanning Tree of an undirected weighted graph using Kruskal's algorithm and a Disjoint Set Union (DSU) helper.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compute the Minimum Spanning Tree (MST) of a weighted undirected graph, represented as a collection of edges.",
+      "parameters": [
+        {
+          "name": "vertices",
+          "type": "Array",
+          "required": true,
+          "description": "Array of vertex IDs (strings/numbers)."
+        },
+        {
+          "name": "edges",
+          "type": "Array",
+          "required": true,
+          "description": "Array of objects containing { u, v, weight } representing undirected edges."
+        }
+      ],
+      "path": "blocks/algo/kruskal-mst",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "algo/lcs": {
       "name": "lcs",
       "category": "algo",
@@ -301,6 +376,33 @@
         "test.js"
       ]
     },
+    "algo/prim-mst": {
+      "name": "prim-mst",
+      "category": "algo",
+      "description": "Finds a Minimum Spanning Tree of an undirected weighted graph starting from a node using Prim's algorithm.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compute the Minimum Spanning Tree (MST) of a weighted undirected graph starting from an arbitrary root vertex.",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Object",
+          "required": true,
+          "description": "Adjacency list where keys are node IDs and values are arrays of { node, weight } objects."
+        },
+        {
+          "name": "startNode",
+          "type": "string",
+          "required": false,
+          "description": "Optional starting node ID. If omitted, the first key of the graph object is used."
+        }
+      ],
+      "path": "blocks/algo/prim-mst",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "algo/segment-tree": {
       "name": "segment-tree",
       "category": "algo",
@@ -335,6 +437,27 @@
         }
       ],
       "path": "blocks/algo/sorting",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "algo/tarjan-scc": {
+      "name": "tarjan-scc",
+      "category": "algo",
+      "description": "Finds strongly connected components in a directed graph using Tarjan's single-pass DFS algorithm.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to partition a directed graph into subsets of vertices that are strongly connected (i.e. every vertex in the subset is reachable from any other vertex in the same subset).",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Object",
+          "required": true,
+          "description": "Adjacency list where keys are node IDs and values are arrays of node IDs."
+        }
+      ],
+      "path": "blocks/algo/tarjan-scc",
       "files": [
         "README.md",
         "index.js",
@@ -512,6 +635,27 @@
         "test.js"
       ]
     },
+    "compiler/ast-walker": {
+      "name": "ast-walker",
+      "category": "compiler",
+      "description": "An AST traversal utility applying the Visitor pattern to clean walk node structures recursively.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to traverse, transform, or evaluate parsed AST syntax structures recursively using discrete visit callbacks.",
+      "parameters": [
+        {
+          "name": "visitors",
+          "type": "Object",
+          "required": true,
+          "description": "Callback mapping dictionary for discrete AST nodes: { [nodeType]: (node, walk) => void }."
+        }
+      ],
+      "path": "blocks/compiler/ast-walker",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "compiler/json-schema-validator": {
       "name": "json-schema-validator",
       "category": "compiler",
@@ -533,6 +677,27 @@
         }
       ],
       "path": "blocks/compiler/json-schema-validator",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "compiler/lexer-generator": {
+      "name": "lexer-generator",
+      "category": "compiler",
+      "description": "Generates a dynamic lexical analyzer/tokenizer matching input streams against a defined set of token rules and regular expressions.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to easily build compiler frontends, configuration parsers, or DSL interpreters by defining token names and regex rules.",
+      "parameters": [
+        {
+          "name": "rules",
+          "type": "Array",
+          "required": true,
+          "description": "Array of objects containing { type: string, regex: RegExp } token specification guidelines."
+        }
+      ],
+      "path": "blocks/compiler/lexer-generator",
       "files": [
         "README.md",
         "index.js",
@@ -942,6 +1107,27 @@
         "test.js"
       ]
     },
+    "ds/fenwick-tree": {
+      "name": "fenwick-tree",
+      "category": "ds",
+      "description": "Binary Indexed Tree (BIT) supporting O(log N) prefix sum queries and point updates on an array.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to efficiently perform prefix sums and range sum queries on mutable datasets where numbers change dynamically.",
+      "parameters": [
+        {
+          "name": "size",
+          "type": "number",
+          "required": true,
+          "description": "The size/length of the underlying array buffer."
+        }
+      ],
+      "path": "blocks/ds/fenwick-tree",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "ds/graph-network": {
       "name": "graph-network",
       "category": "ds",
@@ -950,6 +1136,27 @@
       "aiPromptContext": "Use this block when you need pathfinding (Dijkstra, A*), spanning tree layouts (Kruskal), or cycle and strongly connected component detections (Tarjan) in directed/undirected graphs.",
       "parameters": [],
       "path": "blocks/ds/graph-network",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/hyperloglog": {
+      "name": "hyperloglog",
+      "category": "ds",
+      "description": "A space-efficient probabilistic data structure for estimating the cardinality (number of distinct elements) of large datasets.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to count unique items in a stream or dataset under highly constrained memory limits, tolerating small estimation errors.",
+      "parameters": [
+        {
+          "name": "b",
+          "type": "number",
+          "required": false,
+          "description": "Number of precision bits (typically 4 to 16). Higher values reduce error rates but consume more registers memory."
+        }
+      ],
+      "path": "blocks/ds/hyperloglog",
       "files": [
         "README.md",
         "index.js",
@@ -1057,6 +1264,33 @@
         }
       ],
       "path": "blocks/ds/priority-queue",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/quadtree": {
+      "name": "quadtree",
+      "category": "ds",
+      "description": "A 2D spatial partitioning structure used to index points and perform fast regional range queries.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to partition a 2D space recursively and query subsets of points falling inside rectangular boundary dimensions.",
+      "parameters": [
+        {
+          "name": "boundary",
+          "type": "Object",
+          "required": true,
+          "description": "Rectangle configuration mapping standard { x, y, w, h } properties."
+        },
+        {
+          "name": "capacity",
+          "type": "number",
+          "required": false,
+          "description": "Maximum points allowable per node before splitting."
+        }
+      ],
+      "path": "blocks/ds/quadtree",
       "files": [
         "README.md",
         "index.js",

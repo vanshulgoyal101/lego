@@ -1,0 +1,15 @@
+{
+  "name": "ast-walker",
+  "category": "compiler",
+  "description": "An AST traversal utility applying the Visitor pattern to clean walk node structures recursively.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to traverse, transform, or evaluate parsed AST syntax structures recursively using discrete visit callbacks.",
+  "parameters": [
+    {
+      "name": "visitors",
+      "type": "Object",
+      "required": true,
+      "description": "Callback mapping dictionary for discrete AST nodes: { [nodeType]: (node, walk) => void }."
+    }
+  ]
+}

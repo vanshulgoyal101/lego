@@ -1,0 +1,15 @@
+{
+  "name": "tarjan-scc",
+  "category": "algo",
+  "description": "Finds strongly connected components in a directed graph using Tarjan's single-pass DFS algorithm.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to partition a directed graph into subsets of vertices that are strongly connected (i.e. every vertex in the subset is reachable from any other vertex in the same subset).",
+  "parameters": [
+    {
+      "name": "graph",
+      "type": "Object",
+      "required": true,
+      "description": "Adjacency list where keys are node IDs and values are arrays of node IDs."
+    }
+  ]
+}

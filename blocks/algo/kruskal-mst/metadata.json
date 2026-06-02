@@ -1,0 +1,21 @@
+{
+  "name": "kruskal-mst",
+  "category": "algo",
+  "description": "Finds a Minimum Spanning Tree of an undirected weighted graph using Kruskal's algorithm and a Disjoint Set Union (DSU) helper.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compute the Minimum Spanning Tree (MST) of a weighted undirected graph, represented as a collection of edges.",
+  "parameters": [
+    {
+      "name": "vertices",
+      "type": "Array",
+      "required": true,
+      "description": "Array of vertex IDs (strings/numbers)."
+    },
+    {
+      "name": "edges",
+      "type": "Array",
+      "required": true,
+      "description": "Array of objects containing { u, v, weight } representing undirected edges."
+    }
+  ]
+}

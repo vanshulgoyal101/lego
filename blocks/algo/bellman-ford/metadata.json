@@ -1,0 +1,21 @@
+{
+  "name": "bellman-ford",
+  "category": "algo",
+  "description": "Calculates shortest paths from a single source vertex to all other vertices in a weighted graph, supporting negative edge weights and detecting negative cycles.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to find single-source shortest paths when the graph may contain negative edge weights, or when you need to detect the presence of negative cycles.",
+  "parameters": [
+    {
+      "name": "graph",
+      "type": "Object",
+      "required": true,
+      "description": "Adjacency list where keys are node IDs and values are arrays of { node, weight } objects."
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "required": true,
+      "description": "The starting node ID."
+    }
+  ]
+}

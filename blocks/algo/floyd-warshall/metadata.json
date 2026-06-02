@@ -1,0 +1,15 @@
+{
+  "name": "floyd-warshall",
+  "category": "algo",
+  "description": "Calculates shortest paths between all pairs of vertices in a weighted graph, supporting negative edge weights.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to calculate the shortest path distances between all pairs of nodes in a weighted graph (dense graphs or graphs with negative edge weights).",
+  "parameters": [
+    {
+      "name": "graph",
+      "type": "Object",
+      "required": true,
+      "description": "Adjacency list where keys are node IDs and values are arrays of { node, weight } objects."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "lexer-generator",
+  "category": "compiler",
+  "description": "Generates a dynamic lexical analyzer/tokenizer matching input streams against a defined set of token rules and regular expressions.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to easily build compiler frontends, configuration parsers, or DSL interpreters by defining token names and regex rules.",
+  "parameters": [
+    {
+      "name": "rules",
+      "type": "Array",
+      "required": true,
+      "description": "Array of objects containing { type: string, regex: RegExp } token specification guidelines."
+    }
+  ]
+}
