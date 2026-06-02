@@ -1386,6 +1386,84 @@ async function runAllTests() {
     });
   });
 
+  // 59. Decision-Tree ML Test
+  const { DecisionTree } = await import('../blocks/ml/decision-tree/index.js');
+  await describe('ml/decision-tree', async () => {
+    await it('should train a classifier tree, make correct splits, evaluate regression variance, and support JSON serialization', () => {
+      // 1. Classification test
+      const X_cls = [[1.0], [2.0], [10.0], [11.0]];
+      const y_cls = [0, 0, 1, 1];
+
+      const tree = new DecisionTree({ criterion: 'gini', maxDepth: 3 });
+      tree.fit(X_cls, y_cls);
+
+      const predictions = tree.predict([[1.5], [10.5]]);
+      expect(predictions).toEqual([0, 1]);
+
+      // Verify serialization
+      const json = tree.toJSON();
+      const loadedTree = DecisionTree.fromJSON(json);
+      expect(loadedTree.predict([[1.5], [10.5]])).toEqual([0, 1]);
+
+      // 2. Regression MSE test
+      const X_reg = [[1], [2], [3]];
+      const y_reg = [10.0, 20.0, 30.0];
+      const regTree = new DecisionTree({ criterion: 'mse' });
+      regTree.fit(X_reg, y_reg);
+      const regPred = regTree.predict([[1.5]]);
+      expect(regPred[0]).toBe(10.0); // Split average of left leaf (samples <= 1.5)
+    });
+  });
+
+  // 60. DNS-Resolver Protocol Test
+  const { buildQuery, parseResponse } = await import('../blocks/protocol/dns-resolver/index.js');
+  await describe('protocol/dns-resolver', async () => {
+    await it('should pack DNS queries binary packets and unpack standard responses correctly', () => {
+      // 1. Pack test
+      const queryBuf = buildQuery('google.com', 'A');
+      expect(queryBuf instanceof Buffer).toBe(true);
+      expect(queryBuf.length > 12).toBe(true);
+
+      // 2. Unpack test using a mock raw response packet
+      const responseBuf = Buffer.alloc(64);
+      responseBuf.writeUInt16BE(0x1234, 0); // Transaction ID
+      responseBuf.writeUInt16BE(0x8180, 2); // Flags: standard response
+      responseBuf.writeUInt16BE(1, 4);      // QDCOUNT
+      responseBuf.writeUInt16BE(1, 6);      // ANCOUNT
+      
+      // Question section: "google.com" echo
+      let offset = 12;
+      responseBuf.writeUInt8(6, offset);
+      responseBuf.write('google', offset + 1, 'ascii');
+      offset += 7;
+      responseBuf.writeUInt8(3, offset);
+      responseBuf.write('com', offset + 1, 'ascii');
+      offset += 4;
+      responseBuf.writeUInt8(0, offset); // Null terminator
+      offset += 1;
+      responseBuf.writeUInt16BE(1, offset); // QTYPE: A
+      responseBuf.writeUInt16BE(1, offset + 2); // QCLASS: IN
+      offset += 4;
+
+      // Answer section: compression pointer to name at offset 12 (0xC00C)
+      responseBuf.writeUInt16BE(0xC00C, offset);
+      responseBuf.writeUInt16BE(1, offset + 2); // TYPE: A
+      responseBuf.writeUInt16BE(1, offset + 4); // CLASS: IN
+      responseBuf.writeUInt32BE(300, offset + 6); // TTL
+      responseBuf.writeUInt16BE(4, offset + 10); // RDLENGTH: 4 bytes IP
+      responseBuf.writeUInt8(142, offset + 12);
+      responseBuf.writeUInt8(250, offset + 13);
+      responseBuf.writeUInt8(190, offset + 14);
+      responseBuf.writeUInt8(46, offset + 15);
+
+      const parsed = parseResponse(responseBuf);
+      expect(parsed.answers.length).toBe(1);
+      expect(parsed.answers[0].name).toBe('google.com');
+      expect(parsed.answers[0].type).toBe('A');
+      expect(parsed.answers[0].data).toBe('142.250.190.46');
+    });
+  });
+
   console.log(`\n${Colors.bright}${Colors.yellow}========================================`);
   console.log(`             TESTING COMPLETE            `);
   console.log(`========================================${Colors.reset}`);

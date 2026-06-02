@@ -1,0 +1,8 @@
+{
+  "name": "decision-tree",
+  "category": "ml",
+  "description": "A zero-dependency Decision Tree Classifier and Regressor engine in pure JavaScript. Calculates split nodes recursively using Gini Impurity, entropy, or variance reduction, and supports max depth, min samples split constraints, and feature importance scores.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need a fast, non-linear classification or regression model (such as a decision tree) without importing scikit-learn or external JS ML libraries.",
+  "parameters": []
+}

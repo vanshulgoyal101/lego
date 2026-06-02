@@ -747,6 +747,19 @@
         "index.js"
       ]
     },
+    "ml/decision-tree": {
+      "name": "decision-tree",
+      "category": "ml",
+      "description": "A zero-dependency Decision Tree Classifier and Regressor engine in pure JavaScript. Calculates split nodes recursively using Gini Impurity, entropy, or variance reduction, and supports max depth, min samples split constraints, and feature importance scores.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a fast, non-linear classification or regression model (such as a decision tree) without importing scikit-learn or external JS ML libraries.",
+      "parameters": [],
+      "path": "blocks/ml/decision-tree",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "ml/neural-network": {
       "name": "neural-network",
       "category": "ml",
@@ -755,6 +768,19 @@
       "aiPromptContext": "Use this block when you need to construct, train, fit, evaluate, and save/load custom feedforward neural network models in environments with zero access to external npm modules (e.g. tensorflow, onnx).",
       "parameters": [],
       "path": "blocks/ml/neural-network",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "protocol/dns-resolver": {
+      "name": "dns-resolver",
+      "category": "protocol",
+      "description": "A zero-dependency DNS client and resolver built from scratch in Node.js. Packs binary DNS query structures (Headers, Question flags, label-length domain encoding) and decodes DNS response packets (decoding headers, question echoes, records A, AAAA, CNAME, MX, TXT, and domain name compression pointers) using UDP sockets.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to perform DNS queries directly via UDP socket buffers to nameservers (like 8.8.8.8) in restricted runtimes without relying on Node's native dns module.",
+      "parameters": [],
+      "path": "blocks/protocol/dns-resolver",
       "files": [
         "README.md",
         "index.js"
