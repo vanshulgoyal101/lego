@@ -1,0 +1,21 @@
+{
+  "name": "size-formatter",
+  "category": "utils",
+  "description": "Converts byte counts to human-readable strings (B, KB, MB, GB, TB) and parses them back to byte counts.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to display file sizes or data transfer amounts in a human-friendly format, or when parsing user-provided size strings into numeric byte values.",
+  "parameters": [
+    {
+      "name": "bytes",
+      "type": "number",
+      "required": true,
+      "description": "The number of bytes to format."
+    },
+    {
+      "name": "decimals",
+      "type": "number",
+      "required": false,
+      "description": "Number of decimal places in the output (default: 2)."
+    }
+  ]
+}

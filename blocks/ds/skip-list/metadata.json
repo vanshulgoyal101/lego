@@ -1,0 +1,21 @@
+{
+  "name": "skip-list",
+  "category": "ds",
+  "description": "Probabilistic ordered linked list providing O(log N) average-case search, insert, and delete without tree rotations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need a sorted dynamic set with O(log N) operations and a simpler implementation than balanced BSTs. Ideal for in-memory ordered indexes, leaderboards, and range queries.",
+  "parameters": [
+    {
+      "name": "maxLevel",
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of levels in the skip list (default 16). Higher values improve performance for very large datasets."
+    },
+    {
+      "name": "probability",
+      "type": "number",
+      "required": false,
+      "description": "Probability factor for level promotion (default 0.5). Controls the trade-off between space and speed."
+    }
+  ]
+}

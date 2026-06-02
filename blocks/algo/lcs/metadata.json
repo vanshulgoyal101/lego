@@ -1,0 +1,21 @@
+{
+  "name": "lcs",
+  "category": "algo",
+  "description": "Longest Common Subsequence algorithm returning the subsequence, its length, and a 0–1 similarity ratio between two sequences.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compare two strings or arrays for similarity, find their longest common subsequence, or compute a diff-like similarity score. Useful for plagiarism detection, diff tools, and fuzzy matching.",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "string|Array",
+      "required": true,
+      "description": "First sequence (string or array) to compare."
+    },
+    {
+      "name": "b",
+      "type": "string|Array",
+      "required": true,
+      "description": "Second sequence (string or array) to compare."
+    }
+  ]
+}

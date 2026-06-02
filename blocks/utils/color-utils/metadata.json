@@ -1,0 +1,15 @@
+{
+  "name": "color-utils",
+  "category": "utils",
+  "description": "Color manipulation utilities for converting between HEX, RGB, and HSL formats, and for lightening or darkening colors.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to programmatically manipulate CSS colors, generate color palettes, validate hex color inputs, or convert between color representations without a graphics library.",
+  "parameters": [
+    {
+      "name": "hex",
+      "type": "string",
+      "required": true,
+      "description": "A CSS hex color string (e.g. '#ff0000' or '#f00')."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "tokenizer",
+  "category": "text",
+  "description": "Simple whitespace and punctuation tokenizer producing clean token arrays, with support for word tokenization, sentence splitting, and n-gram generation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block for basic NLP preprocessing tasks such as splitting text into words or sentences, generating n-grams for language models, or cleaning text before further processing.",
+  "parameters": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The input text to tokenize"
+    },
+    {
+      "name": "options",
+      "type": "object",
+      "required": false,
+      "description": "Options: lowercase (bool), removePunctuation (bool), removeStopWords (string[])"
+    }
+  ]
+}

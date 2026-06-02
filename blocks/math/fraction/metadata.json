@@ -1,0 +1,21 @@
+{
+  "name": "fraction",
+  "category": "math",
+  "description": "Exact fraction arithmetic with automatic simplification using GCD, supporting add, subtract, multiply, divide, comparison, and decimal conversion.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need precise rational number arithmetic without floating-point errors, such as in financial calculations, unit conversions, or anywhere exact ratios matter.",
+  "parameters": [
+    {
+      "name": "numerator",
+      "type": "number",
+      "required": true,
+      "description": "The numerator of the fraction (integer)"
+    },
+    {
+      "name": "denominator",
+      "type": "number",
+      "required": true,
+      "description": "The denominator of the fraction (non-zero integer)"
+    }
+  ]
+}

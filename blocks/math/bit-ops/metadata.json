@@ -1,0 +1,27 @@
+{
+  "name": "bit-ops",
+  "category": "math",
+  "description": "Bit manipulation utilities including power-of-two checks, population count, bit set/clear/toggle/get, bit reversal, and Gray code encoding/decoding.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block for low-level bit manipulation tasks such as flags/masks, hardware register operations, encoding schemes, or performance-critical algorithms that rely on binary representations.",
+  "parameters": [
+    {
+      "name": "n",
+      "type": "number",
+      "required": true,
+      "description": "The integer value to perform bit operations on"
+    },
+    {
+      "name": "pos",
+      "type": "number",
+      "required": false,
+      "description": "Bit position (0 = LSB) for set/clear/toggle/get operations"
+    },
+    {
+      "name": "bits",
+      "type": "number",
+      "required": false,
+      "description": "Total bit-width for reverseBits (defaults to 32)"
+    }
+  ]
+}

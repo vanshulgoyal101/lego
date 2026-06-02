@@ -1,0 +1,15 @@
+{
+  "name": "string-utils",
+  "category": "utils",
+  "description": "Common string manipulation helpers including case conversion (camelCase, PascalCase, snake_case, kebab-case), truncation, and padding.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need reliable string case transformations for code generation, API field mapping, or display formatting, as well as safe truncation and padding without pulling in a utility library.",
+  "parameters": [
+    {
+      "name": "str",
+      "type": "string",
+      "required": true,
+      "description": "The input string to transform."
+    }
+  ]
+}

@@ -50,8 +50,19 @@ export function expect(actual) {
       }
     },
     toEqual(expected) {
-      const a = JSON.stringify(actual);
-      const b = JSON.stringify(expected);
+      function safeStringify(obj) {
+        if (obj === null) return 'null';
+        if (Array.isArray(obj)) {
+          return '[' + obj.map(safeStringify).join(',') + ']';
+        }
+        if (typeof obj === 'object') {
+          const keys = Object.keys(obj).sort();
+          return '{' + keys.map(k => `${JSON.stringify(k)}:${safeStringify(obj[k])}`).join(',') + '}';
+        }
+        return JSON.stringify(obj);
+      }
+      const a = safeStringify(actual);
+      const b = safeStringify(expected);
       if (a !== b) {
         throw new Error(`Expected ${b}, got ${a}`);
       }
@@ -61,9 +72,19 @@ export function expect(actual) {
         throw new Error(`Expected ${actual} to be > ${expected}`);
       }
     },
+    toBeGreaterThanOrEqual(expected) {
+      if (actual < expected) {
+        throw new Error(`Expected ${actual} to be >= ${expected}`);
+      }
+    },
     toBeLessThan(expected) {
       if (actual >= expected) {
         throw new Error(`Expected ${actual} to be < ${expected}`);
+      }
+    },
+    toBeLessThanOrEqual(expected) {
+      if (actual > expected) {
+        throw new Error(`Expected ${actual} to be <= ${expected}`);
       }
     },
     toBeTruthy() {
@@ -80,6 +101,22 @@ export function expect(actual) {
       const delta = Math.pow(10, -precision) / 2;
       if (Math.abs(actual - expected) >= delta) {
         throw new Error(`Expected ${actual} to be close to ${expected} (precision: ${precision})`);
+      }
+    },
+    toContain(item) {
+      if (!Array.isArray(actual) && typeof actual !== 'string') {
+        throw new Error(`Expected array or string, got ${typeof actual}`);
+      }
+      if (!actual.includes(item)) {
+        throw new Error(`Expected ${JSON.stringify(actual)} to contain ${JSON.stringify(item)}`);
+      }
+    },
+    toHaveLength(expectedLength) {
+      if (actual == null || typeof actual.length !== 'number') {
+        throw new Error(`Expected value with a length property, got ${typeof actual}`);
+      }
+      if (actual.length !== expectedLength) {
+        throw new Error(`Expected length ${expectedLength}, got ${actual.length}`);
       }
     },
     toThrow(expectedErrorPattern = null) {

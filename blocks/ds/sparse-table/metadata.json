@@ -1,0 +1,21 @@
+{
+  "name": "sparse-table",
+  "category": "ds",
+  "description": "Static range minimum/maximum query structure with O(N log N) build time and O(1) query time.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block for read-only arrays where you need repeated range min/max queries at O(1) each, such as RMQ problems, range GCD, or static histogram analysis.",
+  "parameters": [
+    {
+      "name": "array",
+      "type": "number[]",
+      "required": true,
+      "description": "The static input array of numbers to build the sparse table over."
+    },
+    {
+      "name": "mode",
+      "type": "string",
+      "required": true,
+      "description": "Either 'min' or 'max', determines whether queries return the minimum or maximum over a range."
+    }
+  ]
+}

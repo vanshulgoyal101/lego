@@ -1,0 +1,21 @@
+{
+  "name": "pick-omit",
+  "category": "utils",
+  "description": "Selects or excludes keys from objects using key lists or predicate functions.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to create subset views of objects for API responses, strip sensitive fields, or filter object properties based on dynamic conditions.",
+  "parameters": [
+    {
+      "name": "obj",
+      "type": "object",
+      "required": true,
+      "description": "The source object to pick from or omit keys from."
+    },
+    {
+      "name": "keys",
+      "type": "string[]",
+      "required": true,
+      "description": "Array of property keys to select (pick) or exclude (omit)."
+    }
+  ]
+}

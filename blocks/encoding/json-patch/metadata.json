@@ -1,0 +1,33 @@
+{
+  "name": "json-patch",
+  "category": "encoding",
+  "description": "RFC 6902 JSON Patch implementation supporting apply, diff generation, and patch validation for add, remove, replace, copy, move, and test operations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to efficiently transmit document changes (only the diff, not full document), implement optimistic UI updates, or apply structured changes to JSON data according to the RFC 6902 standard. Suitable for collaborative editing, API PATCH requests, and change tracking.",
+  "parameters": [
+    {
+      "name": "doc",
+      "type": "Object",
+      "required": true,
+      "description": "The JSON document to apply a patch to."
+    },
+    {
+      "name": "patch",
+      "type": "Array",
+      "required": true,
+      "description": "Array of RFC 6902 patch operation objects (each with op, path, and optionally value/from)."
+    },
+    {
+      "name": "original",
+      "type": "Object",
+      "required": false,
+      "description": "The original document used to generate a diff (used by diff())."
+    },
+    {
+      "name": "modified",
+      "type": "Object",
+      "required": false,
+      "description": "The modified document to compare against original (used by diff())."
+    }
+  ]
+}

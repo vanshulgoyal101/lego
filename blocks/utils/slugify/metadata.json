@@ -1,0 +1,21 @@
+{
+  "name": "slugify",
+  "category": "utils",
+  "description": "Converts arbitrary strings to URL-safe slugs, handling unicode, special characters, custom separators, and case normalization.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to generate URL-safe identifiers from arbitrary human-readable strings, such as generating blog post slugs, file names, or URL path segments from titles.",
+  "parameters": [
+    {
+      "name": "str",
+      "type": "string",
+      "required": true,
+      "description": "The input string to convert to a slug."
+    },
+    {
+      "name": "options",
+      "type": "object",
+      "required": false,
+      "description": "Optional configuration: { separator: string, lowercase: boolean, strict: boolean }."
+    }
+  ]
+}

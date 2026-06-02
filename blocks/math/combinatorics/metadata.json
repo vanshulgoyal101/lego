@@ -1,0 +1,27 @@
+{
+  "name": "combinatorics",
+  "category": "math",
+  "description": "Combinatorial math utilities including factorial, binomial coefficients, permutations, combinations, Cartesian product, and power set generation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block for combinatorics problems such as counting arrangements, generating all subsets, computing probabilities, or enumerating combinations in algorithms and puzzles.",
+  "parameters": [
+    {
+      "name": "n",
+      "type": "number",
+      "required": false,
+      "description": "Non-negative integer for factorial or choose(n, k)"
+    },
+    {
+      "name": "k",
+      "type": "number",
+      "required": false,
+      "description": "Selection size for choose(n, k) or combinations(arr, k)"
+    },
+    {
+      "name": "arr",
+      "type": "Array",
+      "required": false,
+      "description": "Input array for permutations, combinations, or powerSet"
+    }
+  ]
+}

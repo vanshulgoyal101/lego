@@ -1,0 +1,21 @@
+{
+  "name": "phone-validator",
+  "category": "validation",
+  "description": "International phone number validation, formatting, and extraction supporting E.164 format.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to validate international phone numbers in forms or APIs. Supports E.164 format validation, country-code aware validation, formatting to standardized formats, and extracting phone numbers from freeform text.",
+  "parameters": [
+    {
+      "name": "number",
+      "type": "string",
+      "required": true,
+      "description": "The phone number string to validate or format."
+    },
+    {
+      "name": "countryCode",
+      "type": "string",
+      "required": false,
+      "description": "ISO 3166-1 alpha-2 country code (e.g. 'US', 'GB') used as a hint for local numbers."
+    }
+  ]
+}

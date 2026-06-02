@@ -1,0 +1,21 @@
+{
+  "name": "date-validator",
+  "category": "validation",
+  "description": "Date string validation, range checking, leap year detection, and weekday/weekend classification.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to validate date strings in forms or data pipelines, check if dates fall in a valid range, determine leap years, and classify dates as weekdays or weekends. Supports ISO 8601 and common date format patterns.",
+  "parameters": [
+    {
+      "name": "str",
+      "type": "string",
+      "required": true,
+      "description": "The date string to validate (e.g. '2024-01-15' or '15/01/2024')."
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": false,
+      "description": "Optional date format string (e.g. 'YYYY-MM-DD', 'DD/MM/YYYY', 'MM-DD-YYYY')."
+    }
+  ]
+}

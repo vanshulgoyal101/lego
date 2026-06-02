@@ -1,0 +1,8 @@
+{
+  "name": "observable",
+  "category": "async",
+  "description": "Minimal reactive Observable implementation with subscribe, map, filter, take, merge, and static factory methods.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block for reactive programming patterns — stream processing, event streams, and data pipelines. Provides a lightweight Observable class with map, filter, take, and merge operators, plus Observable.from() and Observable.of() factory methods. Suitable when RxJS is too heavy.",
+  "parameters": []
+}

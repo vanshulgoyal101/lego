@@ -1,0 +1,21 @@
+{
+  "name": "flatten",
+  "category": "utils",
+  "description": "Flattens nested arrays to any depth, with helpers for shallow, deep, and infinite flattening.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to reduce nested array structures into a single-level array, such as when combining results from nested map operations or normalizing tree-shaped data.",
+  "parameters": [
+    {
+      "name": "array",
+      "type": "any[]",
+      "required": true,
+      "description": "The nested array to flatten."
+    },
+    {
+      "name": "depth",
+      "type": "number",
+      "required": false,
+      "description": "How many levels deep to flatten (default: 1). Use Infinity for full depth."
+    }
+  ]
+}

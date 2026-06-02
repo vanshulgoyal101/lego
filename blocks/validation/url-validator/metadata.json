@@ -1,0 +1,21 @@
+{
+  "name": "url-validator",
+  "category": "validation",
+  "description": "Validates URLs with fine-grained options including protocol, TLD, and localhost requirements.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to validate URLs in forms, APIs, or configuration parsing. Supports fine-grained options like requireHttps, allowLocalhost, allowedProtocols, and requireTLD for strict or lenient validation.",
+  "parameters": [
+    {
+      "name": "str",
+      "type": "string",
+      "required": true,
+      "description": "The URL string to validate."
+    },
+    {
+      "name": "options",
+      "type": "object",
+      "required": false,
+      "description": "Validation options: requireHttps (bool), allowLocalhost (bool), allowedProtocols (string[]), requireTLD (bool)."
+    }
+  ]
+}

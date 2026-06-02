@@ -1,0 +1,21 @@
+{
+  "name": "history-manager",
+  "category": "state",
+  "description": "Browser-history-like navigation stack for SPAs — push, replace, and navigate entries with listener notifications, mirroring the History API semantics.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building single-page application routers or wizard-style navigation flows that need a history stack without relying on the browser's window.history API. Supports push, replace, back, forward, and go(n) navigation with change listeners.",
+  "parameters": [
+    {
+      "name": "initialState",
+      "type": "any",
+      "required": false,
+      "description": "Optional initial state object for the first history entry."
+    },
+    {
+      "name": "initialUrl",
+      "type": "string",
+      "required": false,
+      "description": "Optional URL string for the initial history entry."
+    }
+  ]
+}

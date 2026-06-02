@@ -1,0 +1,21 @@
+{
+  "name": "knapsack",
+  "category": "algo",
+  "description": "0/1 Knapsack dynamic programming solver that selects items to maximise total value within a weight capacity.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to select a subset of items with weights and values to maximise value without exceeding a weight budget, such as resource allocation, budget optimisation, or cargo loading.",
+  "parameters": [
+    {
+      "name": "capacity",
+      "type": "number",
+      "required": true,
+      "description": "Maximum total weight the knapsack can carry."
+    },
+    {
+      "name": "items",
+      "type": "Array",
+      "required": true,
+      "description": "Array of items, each with {weight: number, value: number, name?: string}."
+    }
+  ]
+}

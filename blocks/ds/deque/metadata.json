@@ -1,0 +1,8 @@
+{
+  "name": "deque",
+  "category": "ds",
+  "description": "Double-ended queue with O(1) push and pop at both ends implemented via a doubly linked list.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need a queue that supports efficient insertion and removal from both ends, such as sliding window problems, BFS with priorities, or undo/redo stacks.",
+  "parameters": []
+}

@@ -1,0 +1,21 @@
+{
+  "name": "chunk",
+  "category": "utils",
+  "description": "Splits arrays into chunks of a given size, or groups elements by a predicate function.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to split a large array into batches for pagination, API rate-limiting, parallel processing, or grouping elements by a shared property or condition.",
+  "parameters": [
+    {
+      "name": "array",
+      "type": "any[]",
+      "required": true,
+      "description": "The array to split into chunks."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": true,
+      "description": "The maximum number of elements per chunk."
+    }
+  ]
+}

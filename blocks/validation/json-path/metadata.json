@@ -1,0 +1,21 @@
+{
+  "name": "json-path",
+  "category": "validation",
+  "description": "JSONPath expression evaluator supporting dot notation, bracket notation, wildcards, array indices, and recursive descent.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to query, read, write, or check existence of values in nested JSON objects using JSONPath syntax (e.g. '$.store.books[0].title', '$..author'). Useful for data transformation pipelines, API response parsing, and schema-driven processing.",
+  "parameters": [
+    {
+      "name": "obj",
+      "type": "object",
+      "required": true,
+      "description": "The root JSON object to query."
+    },
+    {
+      "name": "path",
+      "type": "string",
+      "required": true,
+      "description": "JSONPath expression string (e.g. '$.store.books[0].title', '$..author', '$.items[*].price')."
+    }
+  ]
+}

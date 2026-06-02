@@ -1,0 +1,21 @@
+{
+  "name": "interpolation",
+  "category": "math",
+  "description": "Numerical interpolation methods including linear (lerp), bilinear, Lagrange polynomial, and natural cubic spline interpolation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to estimate values between known data points, such as in animation easing, image scaling, signal processing, or data smoothing tasks.",
+  "parameters": [
+    {
+      "name": "points",
+      "type": "Array<{x: number, y: number}>",
+      "required": false,
+      "description": "Array of {x, y} data points used in polynomial and spline methods"
+    },
+    {
+      "name": "x",
+      "type": "number",
+      "required": false,
+      "description": "The x-value at which to interpolate"
+    }
+  ]
+}

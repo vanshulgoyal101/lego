@@ -1,5 +1,44 @@
 {
   "blocks": {
+    "algo/a-star": {
+      "name": "a-star",
+      "category": "algo",
+      "description": "A* pathfinding algorithm on a 2D grid that finds the shortest path using heuristic-guided search.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to find the optimal path between two points on a 2D grid with obstacles, such as game maps, robot navigation, or maze solving. Faster than Dijkstra when a good heuristic is available.",
+      "parameters": [
+        {
+          "name": "grid",
+          "type": "number[][]",
+          "required": true,
+          "description": "2D array where 0 = passable cell and 1 = obstacle."
+        },
+        {
+          "name": "start",
+          "type": "{x: number, y: number}",
+          "required": true,
+          "description": "Starting cell coordinates {x, y} (column, row)."
+        },
+        {
+          "name": "goal",
+          "type": "{x: number, y: number}",
+          "required": true,
+          "description": "Goal cell coordinates {x, y} (column, row)."
+        },
+        {
+          "name": "heuristic",
+          "type": "Function",
+          "required": false,
+          "description": "Optional heuristic function (a, b) => number. Defaults to Manhattan distance."
+        }
+      ],
+      "path": "blocks/algo/a-star",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "algo/binary-search": {
       "name": "binary-search",
       "category": "algo",
@@ -24,6 +63,72 @@
       "files": [
         "README.md",
         "index.js"
+      ]
+    },
+    "algo/dijkstra": {
+      "name": "dijkstra",
+      "category": "algo",
+      "description": "Dijkstra's shortest-path algorithm on a weighted adjacency list graph returning distances and predecessors from a source node.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compute the shortest path from a single source to all other nodes in a non-negative-weight graph, such as network routing, GPS navigation, or dependency resolution.",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Object",
+          "required": true,
+          "description": "Adjacency list as {node: [{node, weight}]} mapping each node to its neighbours with edge weights."
+        },
+        {
+          "name": "source",
+          "type": "string|number",
+          "required": true,
+          "description": "The starting node key from which all shortest paths are computed."
+        }
+      ],
+      "path": "blocks/algo/dijkstra",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "algo/flood-fill": {
+      "name": "flood-fill",
+      "category": "algo",
+      "description": "Flood fill and boundary fill algorithms for 2D grids, similar to a paint-bucket tool, returning a modified grid copy.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to fill a contiguous region of a 2D grid with a new value, such as image paint-bucket operations, cave/room detection in tilemaps, or connected-component labelling.",
+      "parameters": [
+        {
+          "name": "grid",
+          "type": "Array[]",
+          "required": true,
+          "description": "2D array (grid) whose cells contain comparable values."
+        },
+        {
+          "name": "startRow",
+          "type": "number",
+          "required": true,
+          "description": "Row index of the seed cell to begin filling from."
+        },
+        {
+          "name": "startCol",
+          "type": "number",
+          "required": true,
+          "description": "Column index of the seed cell to begin filling from."
+        },
+        {
+          "name": "newValue",
+          "type": "any",
+          "required": true,
+          "description": "The value to fill the connected region with."
+        }
+      ],
+      "path": "blocks/algo/flood-fill",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "algo/graph": {
@@ -56,7 +161,8 @@
       "path": "blocks/algo/huffman-coding",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "algo/kmeans": {
@@ -89,7 +195,62 @@
       "path": "blocks/algo/kmeans",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "algo/knapsack": {
+      "name": "knapsack",
+      "category": "algo",
+      "description": "0/1 Knapsack dynamic programming solver that selects items to maximise total value within a weight capacity.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to select a subset of items with weights and values to maximise value without exceeding a weight budget, such as resource allocation, budget optimisation, or cargo loading.",
+      "parameters": [
+        {
+          "name": "capacity",
+          "type": "number",
+          "required": true,
+          "description": "Maximum total weight the knapsack can carry."
+        },
+        {
+          "name": "items",
+          "type": "Array",
+          "required": true,
+          "description": "Array of items, each with {weight: number, value: number, name?: string}."
+        }
+      ],
+      "path": "blocks/algo/knapsack",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "algo/lcs": {
+      "name": "lcs",
+      "category": "algo",
+      "description": "Longest Common Subsequence algorithm returning the subsequence, its length, and a 0–1 similarity ratio between two sequences.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compare two strings or arrays for similarity, find their longest common subsequence, or compute a diff-like similarity score. Useful for plagiarism detection, diff tools, and fuzzy matching.",
+      "parameters": [
+        {
+          "name": "a",
+          "type": "string|Array",
+          "required": true,
+          "description": "First sequence (string or array) to compare."
+        },
+        {
+          "name": "b",
+          "type": "string|Array",
+          "required": true,
+          "description": "Second sequence (string or array) to compare."
+        }
+      ],
+      "path": "blocks/algo/lcs",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "algo/levenshtein": {
@@ -115,7 +276,8 @@
       "path": "blocks/algo/levenshtein",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "algo/luhn": {
@@ -135,7 +297,8 @@
       "path": "blocks/algo/luhn",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "algo/segment-tree": {
@@ -148,7 +311,8 @@
       "path": "blocks/algo/segment-tree",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "algo/sorting": {
@@ -173,7 +337,8 @@
       "path": "blocks/algo/sorting",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "algo/topological-sort": {
@@ -186,7 +351,8 @@
       "path": "blocks/algo/topological-sort",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "async/event-emitter": {
@@ -199,7 +365,22 @@
       "path": "blocks/async/event-emitter",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "async/observable": {
+      "name": "observable",
+      "category": "async",
+      "description": "Minimal reactive Observable implementation with subscribe, map, filter, take, merge, and static factory methods.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for reactive programming patterns — stream processing, event streams, and data pipelines. Provides a lightweight Observable class with map, filter, take, and merge operators, plus Observable.from() and Observable.of() factory methods. Suitable when RxJS is too heavy.",
+      "parameters": [],
+      "path": "blocks/async/observable",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "async/promise-pool": {
@@ -231,7 +412,35 @@
       "path": "blocks/async/promise-pool",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "async/rate-limiter": {
+      "name": "async-rate-limiter",
+      "category": "async",
+      "description": "Rate limits async function calls using a token bucket algorithm with sliding window support.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to throttle async function calls to a maximum number of calls per time interval (e.g. 10 requests per second). Implements a token bucket algorithm. Wrap any async function with rateLimit() or use the RateLimiter class for shared rate limiting across multiple callers.",
+      "parameters": [
+        {
+          "name": "n",
+          "type": "number",
+          "required": true,
+          "description": "Maximum number of calls allowed per interval."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "required": true,
+          "description": "Time window in milliseconds."
+        }
+      ],
+      "path": "blocks/async/rate-limiter",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "async/semaphore": {
@@ -251,7 +460,56 @@
       "path": "blocks/async/semaphore",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "async/task-queue": {
+      "name": "task-queue",
+      "category": "async",
+      "description": "Async task queue with concurrency control, priority ordering, pause/resume, and completion callbacks.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to run async tasks with a concurrency limit (e.g. limit parallel API calls to 3 at a time). Supports priority-based ordering, pause/resume for flow control, clearing pending tasks, and an onDone callback for when the queue is empty.",
+      "parameters": [
+        {
+          "name": "concurrency",
+          "type": "number",
+          "required": false,
+          "description": "Maximum number of tasks to run in parallel at once. Defaults to 1."
+        }
+      ],
+      "path": "blocks/async/task-queue",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "async/timeout-promise": {
+      "name": "timeout-promise",
+      "category": "async",
+      "description": "Promise utilities for timeouts, sleep, retry with backoff, settled-with-timeout, and first-fulfilled race.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for promise orchestration: add timeouts to any promise, sleep between operations, retry failing async functions with exponential backoff, wait for all promises with a global timeout, or get the first promise that fulfills (ignoring rejections). Zero dependencies.",
+      "parameters": [
+        {
+          "name": "promise",
+          "type": "Promise",
+          "required": true,
+          "description": "The promise to wrap with a timeout or race."
+        },
+        {
+          "name": "ms",
+          "type": "number",
+          "required": true,
+          "description": "Timeout duration in milliseconds."
+        }
+      ],
+      "path": "blocks/async/timeout-promise",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "compiler/json-schema-validator": {
@@ -277,7 +535,8 @@
       "path": "blocks/compiler/json-schema-validator",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "compiler/regex-engine": {
@@ -290,7 +549,8 @@
       "path": "blocks/compiler/regex-engine",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "compiler/sql-query-parser": {
@@ -310,7 +570,8 @@
       "path": "blocks/compiler/sql-query-parser",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "crypto/aes": {
@@ -336,7 +597,8 @@
       "path": "blocks/crypto/aes",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "crypto/hash": {
@@ -367,7 +629,8 @@
       "path": "blocks/crypto/hash",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "crypto/hmac": {
@@ -394,7 +657,8 @@
       "path": "blocks/crypto/hmac",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "crypto/jwt-helper": {
@@ -425,7 +689,8 @@
       "path": "blocks/crypto/jwt-helper",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "crypto/totp": {
@@ -451,7 +716,8 @@
       "path": "blocks/crypto/totp",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "crypto/uuid-shortener": {
@@ -471,7 +737,8 @@
       "path": "blocks/crypto/uuid-shortener",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "db/document-db": {
@@ -484,7 +751,8 @@
       "path": "blocks/db/document-db",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "db/graph-db": {
@@ -497,7 +765,8 @@
       "path": "blocks/db/graph-db",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "db/json-db": {
@@ -517,7 +786,8 @@
       "path": "blocks/db/json-db",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "db/key-value": {
@@ -537,7 +807,8 @@
       "path": "blocks/db/key-value",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "db/relational-db": {
@@ -550,7 +821,8 @@
       "path": "blocks/db/relational-db",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "db/timeseries-db": {
@@ -563,7 +835,8 @@
       "path": "blocks/db/timeseries-db",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "db/vector-db": {
@@ -576,7 +849,8 @@
       "path": "blocks/db/vector-db",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ds/avl-tree": {
@@ -589,7 +863,8 @@
       "path": "blocks/ds/avl-tree",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ds/binary-search-tree": {
@@ -602,7 +877,8 @@
       "path": "blocks/ds/binary-search-tree",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ds/bloom-filter": {
@@ -628,7 +904,8 @@
       "path": "blocks/ds/bloom-filter",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ds/circular-buffer": {
@@ -647,7 +924,22 @@
       "path": "blocks/ds/circular-buffer",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/deque": {
+      "name": "deque",
+      "category": "ds",
+      "description": "Double-ended queue with O(1) push and pop at both ends implemented via a doubly linked list.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a queue that supports efficient insertion and removal from both ends, such as sliding window problems, BFS with priorities, or undo/redo stacks.",
+      "parameters": [],
+      "path": "blocks/ds/deque",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "ds/graph-network": {
@@ -660,7 +952,41 @@
       "path": "blocks/ds/graph-network",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/interval-tree": {
+      "name": "interval-tree",
+      "category": "ds",
+      "description": "Augmented BST that stores intervals and supports efficient overlap and point-stab queries.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to find all intervals that overlap a given point or range, such as calendar conflict detection, genomics annotation overlap, or network packet scheduling.",
+      "parameters": [
+        {
+          "name": "start",
+          "type": "number",
+          "required": true,
+          "description": "The start (left endpoint) of an interval to insert."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "required": true,
+          "description": "The end (right endpoint) of an interval to insert."
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "required": false,
+          "description": "Optional arbitrary payload to associate with the interval."
+        }
+      ],
+      "path": "blocks/ds/interval-tree",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "ds/kd-tree": {
@@ -686,7 +1012,8 @@
       "path": "blocks/ds/kd-tree",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ds/lru-cache": {
@@ -712,7 +1039,8 @@
       "path": "blocks/ds/lru-cache",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ds/priority-queue": {
@@ -731,7 +1059,83 @@
       "path": "blocks/ds/priority-queue",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/rope": {
+      "name": "rope",
+      "category": "ds",
+      "description": "Binary-tree rope structure for O(log N) concatenation, split, and character access on large immutable strings.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when working with very large strings that need frequent concatenation or splitting, such as text editors, diff engines, or document processing pipelines, where standard string operations would be O(N).",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": false,
+          "description": "Initial string content to store in the rope (default empty string)."
+        }
+      ],
+      "path": "blocks/ds/rope",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/skip-list": {
+      "name": "skip-list",
+      "category": "ds",
+      "description": "Probabilistic ordered linked list providing O(log N) average-case search, insert, and delete without tree rotations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a sorted dynamic set with O(log N) operations and a simpler implementation than balanced BSTs. Ideal for in-memory ordered indexes, leaderboards, and range queries.",
+      "parameters": [
+        {
+          "name": "maxLevel",
+          "type": "number",
+          "required": false,
+          "description": "Maximum number of levels in the skip list (default 16). Higher values improve performance for very large datasets."
+        },
+        {
+          "name": "probability",
+          "type": "number",
+          "required": false,
+          "description": "Probability factor for level promotion (default 0.5). Controls the trade-off between space and speed."
+        }
+      ],
+      "path": "blocks/ds/skip-list",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/sparse-table": {
+      "name": "sparse-table",
+      "category": "ds",
+      "description": "Static range minimum/maximum query structure with O(N log N) build time and O(1) query time.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for read-only arrays where you need repeated range min/max queries at O(1) each, such as RMQ problems, range GCD, or static histogram analysis.",
+      "parameters": [
+        {
+          "name": "array",
+          "type": "number[]",
+          "required": true,
+          "description": "The static input array of numbers to build the sparse table over."
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "required": true,
+          "description": "Either 'min' or 'max', determines whether queries return the minimum or maximum over a range."
+        }
+      ],
+      "path": "blocks/ds/sparse-table",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "ds/trie": {
@@ -744,7 +1148,8 @@
       "path": "blocks/ds/trie",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ds/union-find": {
@@ -764,7 +1169,8 @@
       "path": "blocks/ds/union-find",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "encoding/base64": {
@@ -778,6 +1184,111 @@
       "files": [
         "README.md",
         "index.js"
+      ]
+    },
+    "encoding/bencode": {
+      "name": "bencode",
+      "category": "encoding",
+      "description": "BitTorrent bencode format encoder and decoder supporting strings, integers, lists, and dictionaries as used in .torrent files.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when working with BitTorrent .torrent files, DHT (distributed hash table) protocols, or any system that uses the bencode serialization format. encode() converts JS values to bencode byte strings; decode() parses bencode back to JS values.",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "string | number | Array | Object",
+          "required": true,
+          "description": "The JavaScript value to encode to bencode format."
+        },
+        {
+          "name": "buffer",
+          "type": "string | Uint8Array",
+          "required": true,
+          "description": "The bencode string or byte buffer to decode into a JavaScript value."
+        }
+      ],
+      "path": "blocks/encoding/bencode",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "encoding/binary-codec": {
+      "name": "binary-codec",
+      "category": "encoding",
+      "description": "Binary data encoding/decoding utilities for converting numbers and buffers to binary strings, hex strings, and big/little-endian byte arrays.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need low-level binary data manipulation: converting numbers to binary/hex representations, encoding integers in specific byte orders (big-endian or little-endian), or parsing raw binary protocol data. Ideal for network protocols, file format parsers, and binary serialization tasks.",
+      "parameters": [
+        {
+          "name": "n",
+          "type": "number",
+          "required": false,
+          "description": "An integer value to encode (used by toBinary, toHex, toBigEndian, toLittleEndian)."
+        },
+        {
+          "name": "str",
+          "type": "string",
+          "required": false,
+          "description": "A binary string ('0'/'1') or hex string to decode (used by fromBinary, fromHex)."
+        },
+        {
+          "name": "buf",
+          "type": "Uint8Array",
+          "required": false,
+          "description": "A byte buffer to decode (used by fromBigEndian, fromLittleEndian, toHex)."
+        },
+        {
+          "name": "bytes",
+          "type": "number",
+          "required": false,
+          "description": "Number of bytes to use when encoding an integer (used by toBigEndian, toLittleEndian)."
+        }
+      ],
+      "path": "blocks/encoding/binary-codec",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "encoding/json-patch": {
+      "name": "json-patch",
+      "category": "encoding",
+      "description": "RFC 6902 JSON Patch implementation supporting apply, diff generation, and patch validation for add, remove, replace, copy, move, and test operations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to efficiently transmit document changes (only the diff, not full document), implement optimistic UI updates, or apply structured changes to JSON data according to the RFC 6902 standard. Suitable for collaborative editing, API PATCH requests, and change tracking.",
+      "parameters": [
+        {
+          "name": "doc",
+          "type": "Object",
+          "required": true,
+          "description": "The JSON document to apply a patch to."
+        },
+        {
+          "name": "patch",
+          "type": "Array",
+          "required": true,
+          "description": "Array of RFC 6902 patch operation objects (each with op, path, and optionally value/from)."
+        },
+        {
+          "name": "original",
+          "type": "Object",
+          "required": false,
+          "description": "The original document used to generate a diff (used by diff())."
+        },
+        {
+          "name": "modified",
+          "type": "Object",
+          "required": false,
+          "description": "The modified document to compare against original (used by diff())."
+        }
+      ],
+      "path": "blocks/encoding/json-patch",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "encoding/msgpack": {
@@ -797,7 +1308,41 @@
       "path": "blocks/encoding/msgpack",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "encoding/run-length": {
+      "name": "run-length",
+      "category": "encoding",
+      "description": "Run-length encoding (RLE) for compressing repetitive sequences in strings and arrays, with string-specific convenience functions.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when compressing data with long runs of repeated values, such as simple bitmap images, sparse arrays, or repeated-character text strings. Provides both generic array/string RLE and a text-specific variant.",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "string | Array",
+          "required": true,
+          "description": "The string or array to encode using run-length encoding."
+        },
+        {
+          "name": "encoded",
+          "type": "Array",
+          "required": true,
+          "description": "The run-length encoded output to decode back to the original format."
+        },
+        {
+          "name": "str",
+          "type": "string",
+          "required": false,
+          "description": "A plain string for text-specific encode/decode variants."
+        }
+      ],
+      "path": "blocks/encoding/run-length",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "encoding/tar-archiver": {
@@ -810,7 +1355,8 @@
       "path": "blocks/encoding/tar-archiver",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "encoding/url-codec": {
@@ -823,7 +1369,107 @@
       "path": "blocks/encoding/url-codec",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "encoding/varint": {
+      "name": "varint",
+      "category": "encoding",
+      "description": "Variable-length integer encoding and decoding in protobuf-style, supporting both unsigned and signed (ZigZag) varints.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when implementing protocol buffers, custom binary protocols, or any scenario where you want to compactly encode integers of varying magnitude. Small integers take fewer bytes. Supports ZigZag encoding for efficiently encoding negative signed integers.",
+      "parameters": [
+        {
+          "name": "n",
+          "type": "number",
+          "required": true,
+          "description": "The integer value to encode."
+        },
+        {
+          "name": "buf",
+          "type": "Uint8Array",
+          "required": true,
+          "description": "The byte buffer to decode a varint from."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "required": false,
+          "description": "Byte offset into the buffer to start decoding from. Defaults to 0."
+        }
+      ],
+      "path": "blocks/encoding/varint",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/bit-ops": {
+      "name": "bit-ops",
+      "category": "math",
+      "description": "Bit manipulation utilities including power-of-two checks, population count, bit set/clear/toggle/get, bit reversal, and Gray code encoding/decoding.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for low-level bit manipulation tasks such as flags/masks, hardware register operations, encoding schemes, or performance-critical algorithms that rely on binary representations.",
+      "parameters": [
+        {
+          "name": "n",
+          "type": "number",
+          "required": true,
+          "description": "The integer value to perform bit operations on"
+        },
+        {
+          "name": "pos",
+          "type": "number",
+          "required": false,
+          "description": "Bit position (0 = LSB) for set/clear/toggle/get operations"
+        },
+        {
+          "name": "bits",
+          "type": "number",
+          "required": false,
+          "description": "Total bit-width for reverseBits (defaults to 32)"
+        }
+      ],
+      "path": "blocks/math/bit-ops",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/combinatorics": {
+      "name": "combinatorics",
+      "category": "math",
+      "description": "Combinatorial math utilities including factorial, binomial coefficients, permutations, combinations, Cartesian product, and power set generation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for combinatorics problems such as counting arrangements, generating all subsets, computing probabilities, or enumerating combinations in algorithms and puzzles.",
+      "parameters": [
+        {
+          "name": "n",
+          "type": "number",
+          "required": false,
+          "description": "Non-negative integer for factorial or choose(n, k)"
+        },
+        {
+          "name": "k",
+          "type": "number",
+          "required": false,
+          "description": "Selection size for choose(n, k) or combinations(arr, k)"
+        },
+        {
+          "name": "arr",
+          "type": "Array",
+          "required": false,
+          "description": "Input array for permutations, combinations, or powerSet"
+        }
+      ],
+      "path": "blocks/math/combinatorics",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "math/complex": {
@@ -836,7 +1482,35 @@
       "path": "blocks/math/complex",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/fraction": {
+      "name": "fraction",
+      "category": "math",
+      "description": "Exact fraction arithmetic with automatic simplification using GCD, supporting add, subtract, multiply, divide, comparison, and decimal conversion.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need precise rational number arithmetic without floating-point errors, such as in financial calculations, unit conversions, or anywhere exact ratios matter.",
+      "parameters": [
+        {
+          "name": "numerator",
+          "type": "number",
+          "required": true,
+          "description": "The numerator of the fraction (integer)"
+        },
+        {
+          "name": "denominator",
+          "type": "number",
+          "required": true,
+          "description": "The denominator of the fraction (non-zero integer)"
+        }
+      ],
+      "path": "blocks/math/fraction",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "math/geometry-2d": {
@@ -849,7 +1523,35 @@
       "path": "blocks/math/geometry-2d",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/interpolation": {
+      "name": "interpolation",
+      "category": "math",
+      "description": "Numerical interpolation methods including linear (lerp), bilinear, Lagrange polynomial, and natural cubic spline interpolation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to estimate values between known data points, such as in animation easing, image scaling, signal processing, or data smoothing tasks.",
+      "parameters": [
+        {
+          "name": "points",
+          "type": "Array<{x: number, y: number}>",
+          "required": false,
+          "description": "Array of {x, y} data points used in polynomial and spline methods"
+        },
+        {
+          "name": "x",
+          "type": "number",
+          "required": false,
+          "description": "The x-value at which to interpolate"
+        }
+      ],
+      "path": "blocks/math/interpolation",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "math/matrix": {
@@ -869,7 +1571,29 @@
       "path": "blocks/math/matrix",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/polynomial": {
+      "name": "polynomial",
+      "category": "math",
+      "description": "Polynomial arithmetic class supporting addition, subtraction, multiplication, evaluation via Horner's method, symbolic differentiation, and string representation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when working with algebraic polynomials, curve fitting, numerical methods (root finding, integration), or symbolic math involving polynomial expressions.",
+      "parameters": [
+        {
+          "name": "coefficients",
+          "type": "number[]",
+          "required": true,
+          "description": "Array of coefficients where index corresponds to degree (coefficients[0] is constant term, coefficients[1] is x^1, etc.)"
+        }
+      ],
+      "path": "blocks/math/polynomial",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "math/prime-generator": {
@@ -882,7 +1606,8 @@
       "path": "blocks/math/prime-generator",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "math/random": {
@@ -935,7 +1660,8 @@
       "path": "blocks/math/symbolic-diff",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "math/vector2d": {
@@ -961,7 +1687,8 @@
       "path": "blocks/math/vector2d",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ml/decision-tree": {
@@ -974,7 +1701,8 @@
       "path": "blocks/ml/decision-tree",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ml/knn": {
@@ -1016,7 +1744,8 @@
       "path": "blocks/ml/knn",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ml/neural-network": {
@@ -1029,7 +1758,8 @@
       "path": "blocks/ml/neural-network",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "protocol/dns-resolver": {
@@ -1042,7 +1772,49 @@
       "path": "blocks/protocol/dns-resolver",
       "files": [
         "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "state/atom": {
+      "name": "atom",
+      "category": "state",
+      "description": "Jotai-style atomic state primitives with get, set, subscribe, derive, reset, and peek — composable independent units of reactive state.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you want simple, composable atomic state units without a centralized store. Each Atom is independent; derived atoms recalculate when their source atom changes. Use peek() to read a value without triggering reactivity. Suitable for lightweight state management in UI components or services.",
+      "parameters": [
+        {
+          "name": "initialValue",
+          "type": "any",
+          "required": true,
+          "description": "The initial value of the atom."
+        }
+      ],
+      "path": "blocks/state/atom",
+      "files": [
+        "README.md",
         "index.js"
+      ]
+    },
+    "state/command-pattern": {
+      "name": "command-pattern",
+      "category": "state",
+      "description": "Command pattern implementation with an undo/redo history stack for executing, reversing, and replaying discrete operations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need undo/redo functionality in editors, drawing apps, form wizards, or any workflow where user actions must be reversible. Commands are plain objects with execute() and undo() methods, making it easy to wrap any operation.",
+      "parameters": [
+        {
+          "name": "command",
+          "type": "Object",
+          "required": true,
+          "description": "A command object with execute() and undo() methods, and an optional description string."
+        }
+      ],
+      "path": "blocks/state/command-pattern",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "state/fsm": {
@@ -1074,7 +1846,56 @@
       "path": "blocks/state/fsm",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "state/history-manager": {
+      "name": "history-manager",
+      "category": "state",
+      "description": "Browser-history-like navigation stack for SPAs — push, replace, and navigate entries with listener notifications, mirroring the History API semantics.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building single-page application routers or wizard-style navigation flows that need a history stack without relying on the browser's window.history API. Supports push, replace, back, forward, and go(n) navigation with change listeners.",
+      "parameters": [
+        {
+          "name": "initialState",
+          "type": "any",
+          "required": false,
+          "description": "Optional initial state object for the first history entry."
+        },
+        {
+          "name": "initialUrl",
+          "type": "string",
+          "required": false,
+          "description": "Optional URL string for the initial history entry."
+        }
+      ],
+      "path": "blocks/state/history-manager",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "state/observable-store": {
+      "name": "observable-store",
+      "category": "state",
+      "description": "Observable key-value state store with per-key change subscriptions, batched transactions, and JSON serialization — a lightweight MobX-style reactive store.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need reactive state management without a full framework. Observers are notified only when the specific key they watch changes. Use transaction() to batch multiple mutations into one notification cycle, preventing intermediate renders or effects.",
+      "parameters": [
+        {
+          "name": "initialState",
+          "type": "Object",
+          "required": false,
+          "description": "Optional initial key-value state to seed the store on construction."
+        }
+      ],
+      "path": "blocks/state/observable-store",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "state/redux-lite": {
@@ -1106,7 +1927,55 @@
       "path": "blocks/state/redux-lite",
       "files": [
         "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "state/signal": {
+      "name": "signal",
+      "category": "state",
+      "description": "Fine-grained reactive signals inspired by SolidJS — signal(), computed(), and effect() primitives with automatic dependency tracking.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need fine-grained reactivity without a full framework. signal() creates reactive values, computed() builds derived state that updates automatically, and effect() runs side effects whenever their tracked signals change. Ideal for lightweight UI state or reactive data pipelines.",
+      "parameters": [
+        {
+          "name": "initialValue",
+          "type": "any",
+          "required": true,
+          "description": "The initial value for a signal."
+        },
+        {
+          "name": "fn",
+          "type": "Function",
+          "required": true,
+          "description": "A computation or effect function that reads signals and is automatically re-run when dependencies change."
+        }
+      ],
+      "path": "blocks/state/signal",
+      "files": [
+        "README.md",
         "index.js"
+      ]
+    },
+    "text/ansi": {
+      "name": "ansi",
+      "category": "text",
+      "description": "ANSI escape code utilities for colorful terminal output with text colors, background colors, styles, ANSI stripping, and terminal support detection.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building CLI tools that need colorized or styled terminal output, for logging with visual emphasis, or for building interactive terminal UIs.",
+      "parameters": [
+        {
+          "name": "str",
+          "type": "string",
+          "required": true,
+          "description": "The string to apply ANSI styling to"
+        }
+      ],
+      "path": "blocks/text/ansi",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "text/csv-parser": {
@@ -1132,7 +2001,8 @@
       "path": "blocks/text/csv-parser",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "text/diff-match": {
@@ -1158,7 +2028,35 @@
       "path": "blocks/text/diff-match",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "text/edit-distance": {
+      "name": "edit-distance",
+      "category": "text",
+      "description": "Multiple string distance algorithms including Levenshtein, Hamming, Jaro, Jaro-Winkler, and Damerau-Levenshtein for measuring string similarity.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compare strings for similarity, spell-checking, fuzzy matching, DNA sequence alignment, or de-duplication tasks where edit distance metrics are needed.",
+      "parameters": [
+        {
+          "name": "a",
+          "type": "string",
+          "required": true,
+          "description": "First string for comparison"
+        },
+        {
+          "name": "b",
+          "type": "string",
+          "required": true,
+          "description": "Second string for comparison"
+        }
+      ],
+      "path": "blocks/text/edit-distance",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "text/ini-parser": {
@@ -1171,7 +2069,8 @@
       "path": "blocks/text/ini-parser",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "text/json-serializer": {
@@ -1184,7 +2083,8 @@
       "path": "blocks/text/json-serializer",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "text/json5-parser": {
@@ -1197,7 +2097,8 @@
       "path": "blocks/text/json5-parser",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "text/markdown-compiler": {
@@ -1217,7 +2118,8 @@
       "path": "blocks/text/markdown-compiler",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "text/markdown-parser": {
@@ -1237,7 +2139,8 @@
       "path": "blocks/text/markdown-parser",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "text/parser-combinator": {
@@ -1250,27 +2153,95 @@
       "path": "blocks/text/parser-combinator",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
-    "text/slugify": {
-      "name": "slugify",
-      "description": "Unicode-friendly slug generator converting raw string titles to clean, URL-safe path strings.",
+    "text/string-search": {
+      "name": "string-search",
       "category": "text",
+      "description": "Efficient string pattern search algorithms: Knuth-Morris-Pratt, Boyer-Moore, and Rabin-Karp, all returning arrays of match start indices.",
       "dependencies": [],
-      "aiPromptContext": "Use this block to sanitize dynamic titles, labels, or document headers into path slugs.",
+      "aiPromptContext": "Use this block when you need fast substring search within large texts, multiple pattern occurrence finding, or need a specific search algorithm for performance or educational purposes.",
       "parameters": [
         {
           "name": "text",
           "type": "string",
           "required": true,
-          "description": "The input text string to convert."
+          "description": "The text to search within"
+        },
+        {
+          "name": "pattern",
+          "type": "string",
+          "required": true,
+          "description": "The pattern string to search for"
         }
       ],
-      "path": "blocks/text/slugify",
+      "path": "blocks/text/string-search",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "text/tokenizer": {
+      "name": "tokenizer",
+      "category": "text",
+      "description": "Simple whitespace and punctuation tokenizer producing clean token arrays, with support for word tokenization, sentence splitting, and n-gram generation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block for basic NLP preprocessing tasks such as splitting text into words or sentences, generating n-grams for language models, or cleaning text before further processing.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "The input text to tokenize"
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "required": false,
+          "description": "Options: lowercase (bool), removePunctuation (bool), removeStopWords (string[])"
+        }
+      ],
+      "path": "blocks/text/tokenizer",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "text/word-wrap": {
+      "name": "word-wrap",
+      "category": "text",
+      "description": "Intelligent text wrapping with configurable width, indentation, hard-cut mode, newline preservation, plus word-wrap and center-text utilities.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when formatting text for terminal output, README files, email bodies, or any fixed-width text display where words should not be broken across lines unless necessary.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "The text to wrap"
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "required": true,
+          "description": "Maximum line width in characters"
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "required": false,
+          "description": "Options: indent (string), cut (bool), preserveNewlines (bool)"
+        }
+      ],
+      "path": "blocks/text/word-wrap",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "text/yaml-parser": {
@@ -1283,7 +2254,8 @@
       "path": "blocks/text/yaml-parser",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ui/color-converter": {
@@ -1296,7 +2268,8 @@
       "path": "blocks/ui/color-converter",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ui/query-builder": {
@@ -1316,7 +2289,8 @@
       "path": "blocks/ui/query-builder",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "ui/virtual-dom": {
@@ -1329,7 +2303,56 @@
       "path": "blocks/ui/virtual-dom",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/chunk": {
+      "name": "chunk",
+      "category": "utils",
+      "description": "Splits arrays into chunks of a given size, or groups elements by a predicate function.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to split a large array into batches for pagination, API rate-limiting, parallel processing, or grouping elements by a shared property or condition.",
+      "parameters": [
+        {
+          "name": "array",
+          "type": "any[]",
+          "required": true,
+          "description": "The array to split into chunks."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "required": true,
+          "description": "The maximum number of elements per chunk."
+        }
+      ],
+      "path": "blocks/utils/chunk",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/color-utils": {
+      "name": "color-utils",
+      "category": "utils",
+      "description": "Color manipulation utilities for converting between HEX, RGB, and HSL formats, and for lightening or darkening colors.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to programmatically manipulate CSS colors, generate color palettes, validate hex color inputs, or convert between color representations without a graphics library.",
+      "parameters": [
+        {
+          "name": "hex",
+          "type": "string",
+          "required": true,
+          "description": "A CSS hex color string (e.g. '#ff0000' or '#f00')."
+        }
+      ],
+      "path": "blocks/utils/color-utils",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "utils/date-formatter": {
@@ -1355,7 +2378,8 @@
       "path": "blocks/utils/date-formatter",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "utils/debounce": {
@@ -1387,7 +2411,8 @@
       "path": "blocks/utils/debounce",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "utils/deep-clone": {
@@ -1407,7 +2432,89 @@
       "path": "blocks/utils/deep-clone",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/deep-merge": {
+      "name": "deep-merge",
+      "category": "utils",
+      "description": "Deep merges multiple plain objects together, with configurable array merging strategy (concatenate or replace).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to recursively merge configuration objects, default settings with user overrides, or combine multiple data sources where nested objects should be merged rather than replaced.",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "object[]",
+          "required": true,
+          "description": "Two or more plain objects to deeply merge together (left to right)."
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "required": false,
+          "description": "Optional configuration: { arrayMerge: 'concat' | 'replace' } (default: 'replace')."
+        }
+      ],
+      "path": "blocks/utils/deep-merge",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/event-bus": {
+      "name": "event-bus",
+      "category": "utils",
+      "description": "Typed global event bus singleton supporting on, off, emit, once, and clear operations for decoupled component communication.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a lightweight publish-subscribe mechanism to decouple modules without a full state management library. Useful for cross-component communication in UI apps, plugin systems, or service-to-service notifications.",
+      "parameters": [
+        {
+          "name": "event",
+          "type": "string",
+          "required": true,
+          "description": "The event name to subscribe to, publish, or clear."
+        },
+        {
+          "name": "handler",
+          "type": "function",
+          "required": false,
+          "description": "The callback function to invoke when the event is emitted."
+        }
+      ],
+      "path": "blocks/utils/event-bus",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/flatten": {
+      "name": "flatten",
+      "category": "utils",
+      "description": "Flattens nested arrays to any depth, with helpers for shallow, deep, and infinite flattening.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to reduce nested array structures into a single-level array, such as when combining results from nested map operations or normalizing tree-shaped data.",
+      "parameters": [
+        {
+          "name": "array",
+          "type": "any[]",
+          "required": true,
+          "description": "The nested array to flatten."
+        },
+        {
+          "name": "depth",
+          "type": "number",
+          "required": false,
+          "description": "How many levels deep to flatten (default: 1). Use Infinity for full depth."
+        }
+      ],
+      "path": "blocks/utils/flatten",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "utils/memoize": {
@@ -1432,7 +2539,8 @@
       "path": "blocks/utils/memoize",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "utils/object-diff": {
@@ -1445,7 +2553,35 @@
       "path": "blocks/utils/object-diff",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/pick-omit": {
+      "name": "pick-omit",
+      "category": "utils",
+      "description": "Selects or excludes keys from objects using key lists or predicate functions.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to create subset views of objects for API responses, strip sensitive fields, or filter object properties based on dynamic conditions.",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "object",
+          "required": true,
+          "description": "The source object to pick from or omit keys from."
+        },
+        {
+          "name": "keys",
+          "type": "string[]",
+          "required": true,
+          "description": "Array of property keys to select (pick) or exclude (omit)."
+        }
+      ],
+      "path": "blocks/utils/pick-omit",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "utils/pubsub": {
@@ -1458,7 +2594,8 @@
       "path": "blocks/utils/pubsub",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "utils/retry": {
@@ -1490,7 +2627,110 @@
       "path": "blocks/utils/retry",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/size-formatter": {
+      "name": "size-formatter",
+      "category": "utils",
+      "description": "Converts byte counts to human-readable strings (B, KB, MB, GB, TB) and parses them back to byte counts.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to display file sizes or data transfer amounts in a human-friendly format, or when parsing user-provided size strings into numeric byte values.",
+      "parameters": [
+        {
+          "name": "bytes",
+          "type": "number",
+          "required": true,
+          "description": "The number of bytes to format."
+        },
+        {
+          "name": "decimals",
+          "type": "number",
+          "required": false,
+          "description": "Number of decimal places in the output (default: 2)."
+        }
+      ],
+      "path": "blocks/utils/size-formatter",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/slugify": {
+      "name": "slugify",
+      "category": "utils",
+      "description": "Converts arbitrary strings to URL-safe slugs, handling unicode, special characters, custom separators, and case normalization.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to generate URL-safe identifiers from arbitrary human-readable strings, such as generating blog post slugs, file names, or URL path segments from titles.",
+      "parameters": [
+        {
+          "name": "str",
+          "type": "string",
+          "required": true,
+          "description": "The input string to convert to a slug."
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "required": false,
+          "description": "Optional configuration: { separator: string, lowercase: boolean, strict: boolean }."
+        }
+      ],
+      "path": "blocks/utils/slugify",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/string-utils": {
+      "name": "string-utils",
+      "category": "utils",
+      "description": "Common string manipulation helpers including case conversion (camelCase, PascalCase, snake_case, kebab-case), truncation, and padding.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need reliable string case transformations for code generation, API field mapping, or display formatting, as well as safe truncation and padding without pulling in a utility library.",
+      "parameters": [
+        {
+          "name": "str",
+          "type": "string",
+          "required": true,
+          "description": "The input string to transform."
+        }
+      ],
+      "path": "blocks/utils/string-utils",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/template-engine": {
+      "name": "template-engine",
+      "category": "utils",
+      "description": "Minimal zero-dependency string template engine supporting variable interpolation, conditionals ({{#if}}), and loops ({{#each}}).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need simple Mustache/Handlebars-style template rendering without pulling in a full templating library. Suitable for generating HTML snippets, email bodies, configuration files, or any text with dynamic placeholders.",
+      "parameters": [
+        {
+          "name": "template",
+          "type": "string",
+          "required": true,
+          "description": "The template string containing {{variable}}, {{#if key}}, and {{#each array}} tags."
+        },
+        {
+          "name": "data",
+          "type": "object",
+          "required": true,
+          "description": "The data context object whose properties are used to resolve template variables."
+        }
+      ],
+      "path": "blocks/utils/template-engine",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "utils/throttle": {
@@ -1516,7 +2756,8 @@
       "path": "blocks/utils/throttle",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "utils/uuid-v4": {
@@ -1529,7 +2770,56 @@
       "path": "blocks/utils/uuid-v4",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "validation/credit-card": {
+      "name": "credit-card",
+      "category": "validation",
+      "description": "Credit card number validation using the Luhn algorithm with card type detection and formatting.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to validate credit card numbers in payment forms. It detects card types (Visa, Mastercard, Amex, Discover, etc.), validates using the Luhn algorithm, and formats the number for display.",
+      "parameters": [
+        {
+          "name": "number",
+          "type": "string",
+          "required": true,
+          "description": "The credit card number to validate or format (may include spaces or dashes)."
+        }
+      ],
+      "path": "blocks/validation/credit-card",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "validation/date-validator": {
+      "name": "date-validator",
+      "category": "validation",
+      "description": "Date string validation, range checking, leap year detection, and weekday/weekend classification.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to validate date strings in forms or data pipelines, check if dates fall in a valid range, determine leap years, and classify dates as weekdays or weekends. Supports ISO 8601 and common date format patterns.",
+      "parameters": [
+        {
+          "name": "str",
+          "type": "string",
+          "required": true,
+          "description": "The date string to validate (e.g. '2024-01-15' or '15/01/2024')."
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "required": false,
+          "description": "Optional date format string (e.g. 'YYYY-MM-DD', 'DD/MM/YYYY', 'MM-DD-YYYY')."
+        }
+      ],
+      "path": "blocks/validation/date-validator",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "validation/email-rfc5322": {
@@ -1549,7 +2839,8 @@
       "path": "blocks/validation/email-rfc5322",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "validation/ip-validator": {
@@ -1569,7 +2860,35 @@
       "path": "blocks/validation/ip-validator",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "validation/json-path": {
+      "name": "json-path",
+      "category": "validation",
+      "description": "JSONPath expression evaluator supporting dot notation, bracket notation, wildcards, array indices, and recursive descent.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to query, read, write, or check existence of values in nested JSON objects using JSONPath syntax (e.g. '$.store.books[0].title', '$..author'). Useful for data transformation pipelines, API response parsing, and schema-driven processing.",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "object",
+          "required": true,
+          "description": "The root JSON object to query."
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "required": true,
+          "description": "JSONPath expression string (e.g. '$.store.books[0].title', '$..author', '$.items[*].price')."
+        }
+      ],
+      "path": "blocks/validation/json-path",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "validation/jwt-validator": {
@@ -1597,7 +2916,8 @@
       "path": "blocks/validation/jwt-validator",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "validation/password-strength": {
@@ -1610,7 +2930,35 @@
       "path": "blocks/validation/password-strength",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "validation/phone-validator": {
+      "name": "phone-validator",
+      "category": "validation",
+      "description": "International phone number validation, formatting, and extraction supporting E.164 format.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to validate international phone numbers in forms or APIs. Supports E.164 format validation, country-code aware validation, formatting to standardized formats, and extracting phone numbers from freeform text.",
+      "parameters": [
+        {
+          "name": "number",
+          "type": "string",
+          "required": true,
+          "description": "The phone number string to validate or format."
+        },
+        {
+          "name": "countryCode",
+          "type": "string",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 country code (e.g. 'US', 'GB') used as a hint for local numbers."
+        }
+      ],
+      "path": "blocks/validation/phone-validator",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "validation/rate-limiter": {
@@ -1636,7 +2984,8 @@
       "path": "blocks/validation/rate-limiter",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "validation/schema-validator": {
@@ -1662,7 +3011,35 @@
       "path": "blocks/validation/semver",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
+      ]
+    },
+    "validation/url-validator": {
+      "name": "url-validator",
+      "category": "validation",
+      "description": "Validates URLs with fine-grained options including protocol, TLD, and localhost requirements.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to validate URLs in forms, APIs, or configuration parsing. Supports fine-grained options like requireHttps, allowLocalhost, allowedProtocols, and requireTLD for strict or lenient validation.",
+      "parameters": [
+        {
+          "name": "str",
+          "type": "string",
+          "required": true,
+          "description": "The URL string to validate."
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "required": false,
+          "description": "Validation options: requireHttps (bool), allowLocalhost (bool), allowedProtocols (string[]), requireTLD (bool)."
+        }
+      ],
+      "path": "blocks/validation/url-validator",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "validation/xss-filter": {
@@ -1675,7 +3052,8 @@
       "path": "blocks/validation/xss-filter",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "web/api-client": {
@@ -1699,7 +3077,8 @@
       "path": "blocks/web/api-client",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "web/cookie-helper": {
@@ -1732,7 +3111,8 @@
       "path": "blocks/web/cors-middleware",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "web/fetch-retry": {
@@ -1770,7 +3150,8 @@
       "path": "blocks/web/fetch-retry",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "web/http-client-resilient": {
@@ -1783,7 +3164,8 @@
       "path": "blocks/web/http-client-resilient",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "web/http-server": {
@@ -1809,7 +3191,8 @@
       "path": "blocks/web/oauth2-client",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "web/router": {
@@ -1848,7 +3231,8 @@
       "path": "blocks/web/sse-client",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "web/static-server": {
@@ -1875,7 +3259,8 @@
       "path": "blocks/web/static-server",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     },
     "web/websocket-client": {
@@ -1907,7 +3292,8 @@
       "path": "blocks/web/websocket-client",
       "files": [
         "README.md",
-        "index.js"
+        "index.js",
+        "test.js"
       ]
     }
   }

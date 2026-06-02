@@ -1,0 +1,15 @@
+{
+  "name": "polynomial",
+  "category": "math",
+  "description": "Polynomial arithmetic class supporting addition, subtraction, multiplication, evaluation via Horner's method, symbolic differentiation, and string representation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when working with algebraic polynomials, curve fitting, numerical methods (root finding, integration), or symbolic math involving polynomial expressions.",
+  "parameters": [
+    {
+      "name": "coefficients",
+      "type": "number[]",
+      "required": true,
+      "description": "Array of coefficients where index corresponds to degree (coefficients[0] is constant term, coefficients[1] is x^1, etc.)"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "credit-card",
+  "category": "validation",
+  "description": "Credit card number validation using the Luhn algorithm with card type detection and formatting.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to validate credit card numbers in payment forms. It detects card types (Visa, Mastercard, Amex, Discover, etc.), validates using the Luhn algorithm, and formats the number for display.",
+  "parameters": [
+    {
+      "name": "number",
+      "type": "string",
+      "required": true,
+      "description": "The credit card number to validate or format (may include spaces or dashes)."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "varint",
+  "category": "encoding",
+  "description": "Variable-length integer encoding and decoding in protobuf-style, supporting both unsigned and signed (ZigZag) varints.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when implementing protocol buffers, custom binary protocols, or any scenario where you want to compactly encode integers of varying magnitude. Small integers take fewer bytes. Supports ZigZag encoding for efficiently encoding negative signed integers.",
+  "parameters": [
+    {
+      "name": "n",
+      "type": "number",
+      "required": true,
+      "description": "The integer value to encode."
+    },
+    {
+      "name": "buf",
+      "type": "Uint8Array",
+      "required": true,
+      "description": "The byte buffer to decode a varint from."
+    },
+    {
+      "name": "offset",
+      "type": "number",
+      "required": false,
+      "description": "Byte offset into the buffer to start decoding from. Defaults to 0."
+    }
+  ]
+}

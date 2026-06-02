@@ -1,0 +1,15 @@
+{
+  "name": "observable-store",
+  "category": "state",
+  "description": "Observable key-value state store with per-key change subscriptions, batched transactions, and JSON serialization — a lightweight MobX-style reactive store.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need reactive state management without a full framework. Observers are notified only when the specific key they watch changes. Use transaction() to batch multiple mutations into one notification cycle, preventing intermediate renders or effects.",
+  "parameters": [
+    {
+      "name": "initialState",
+      "type": "Object",
+      "required": false,
+      "description": "Optional initial key-value state to seed the store on construction."
+    }
+  ]
+}

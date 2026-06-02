@@ -1,0 +1,33 @@
+{
+  "name": "a-star",
+  "category": "algo",
+  "description": "A* pathfinding algorithm on a 2D grid that finds the shortest path using heuristic-guided search.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to find the optimal path between two points on a 2D grid with obstacles, such as game maps, robot navigation, or maze solving. Faster than Dijkstra when a good heuristic is available.",
+  "parameters": [
+    {
+      "name": "grid",
+      "type": "number[][]",
+      "required": true,
+      "description": "2D array where 0 = passable cell and 1 = obstacle."
+    },
+    {
+      "name": "start",
+      "type": "{x: number, y: number}",
+      "required": true,
+      "description": "Starting cell coordinates {x, y} (column, row)."
+    },
+    {
+      "name": "goal",
+      "type": "{x: number, y: number}",
+      "required": true,
+      "description": "Goal cell coordinates {x, y} (column, row)."
+    },
+    {
+      "name": "heuristic",
+      "type": "Function",
+      "required": false,
+      "description": "Optional heuristic function (a, b) => number. Defaults to Manhattan distance."
+    }
+  ]
+}

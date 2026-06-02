@@ -41,7 +41,6 @@ function getCompatibility(category) {
   };
 }
 
-// Map block names to accurate time/space complexity for documentation
 function getComplexity(name) {
   switch (name) {
     // ===== algo =====
@@ -63,6 +62,16 @@ function getComplexity(name) {
       return { time: 'O(V + E) Kahn\'s BFS / DFS', space: 'O(V + E)' };
     case 'segment-tree':
       return { time: 'O(log N) point-update and range-query; O(N) build', space: 'O(N) tree nodes' };
+    case 'a-star':
+      return { time: 'O(E log V) or O(B^D) depending on grid complexity and heuristic accuracy', space: 'O(V) node structures' };
+    case 'dijkstra':
+      return { time: 'O(V^2) or O(E log V) with min-priority queue', space: 'O(V + E)' };
+    case 'flood-fill':
+      return { time: 'O(R × C) grid dimensions', space: 'O(R × C) recursion stack/queue' };
+    case 'knapsack':
+      return { time: 'O(N × W) number of items × capacity', space: 'O(N × W) DP table' };
+    case 'lcs':
+      return { time: 'O(N × M) string lengths', space: 'O(N × M) matrix buffer' };
 
     // ===== async =====
     case 'event-emitter':
@@ -71,6 +80,16 @@ function getComplexity(name) {
       return { time: 'O(N) total tasks, concurrency-limited', space: 'O(C) active task buffer' };
     case 'semaphore':
       return { time: 'O(1) acquire/release', space: 'O(Q) queued waiters' };
+    case 'async-rate-limiter':
+      return { time: 'O(1) per execution call check', space: 'O(1)' };
+    case 'observable':
+      return { time: 'O(1) subscriber operations', space: 'O(S) subscriptions' };
+    case 'task-queue':
+      return { time: 'O(log N) priority insert/extract', space: 'O(N) queued tasks' };
+    case 'timeout-promise':
+      return { time: 'O(1) promise race execution', space: 'O(1)' };
+    case 'worker-pool':
+      return { time: 'O(1) per submit', space: 'O(W + Q) workers and queues' };
 
     // ===== compiler =====
     case 'json-schema-validator':
@@ -93,7 +112,6 @@ function getComplexity(name) {
       return { time: 'O(1) base conversion arithmetic', space: 'O(1)' };
     case 'hmac':
       return { time: 'O(N) message bytes digested (N = input length)', space: 'O(1)' };
-
 
     // ===== db =====
     case 'document-db':
@@ -132,7 +150,16 @@ function getComplexity(name) {
       return { time: 'O(log N) insert/delete/search guaranteed', space: 'O(N) node records' };
     case 'kd-tree':
       return { time: 'O(log N) avg search/insert (O(N) worst-case)', space: 'O(N) coordinates storage' };
-
+    case 'deque':
+      return { time: 'O(1) push/pop operations at both ends', space: 'O(N) elements' };
+    case 'interval-tree':
+      return { time: 'O(log N + K) interval queries (K = matching intervals)', space: 'O(N)' };
+    case 'rope':
+      return { time: 'O(log N) string splits/concatenations', space: 'O(N) tree weight nodes' };
+    case 'skip-list':
+      return { time: 'O(log N) probabilistic lookup/insertion/deletion', space: 'O(N) pointers' };
+    case 'sparse-table':
+      return { time: 'O(1) range queries after O(N log N) preprocessing', space: 'O(N log N) table size' };
 
     // ===== encoding =====
     case 'base64':
@@ -143,6 +170,16 @@ function getComplexity(name) {
       return { time: 'O(N) total bytes packed/unpacked (N = archive size)', space: 'O(N) archive buffer' };
     case 'url-codec':
       return { time: 'O(N) characters encoded/decoded', space: 'O(N) output string' };
+    case 'bencode':
+      return { time: 'O(N) data traversal parsing/serialization', space: 'O(N) buffers' };
+    case 'binary-codec':
+      return { time: 'O(N) bits converted', space: 'O(N) representation' };
+    case 'json-patch':
+      return { time: 'O(P × D) patch instructions × tree depth', space: 'O(D)' };
+    case 'run-length':
+      return { time: 'O(N) linear scan', space: 'O(N) output' };
+    case 'varint':
+      return { time: 'O(1) encoding/decoding byte operations', space: 'O(1)' };
 
     // ===== math =====
     case 'complex':
@@ -161,7 +198,16 @@ function getComplexity(name) {
       return { time: 'O(1) all vector operations', space: 'O(1)' };
     case 'geometry-2d':
       return { time: 'O(P) points polygon calculation (P = polygon vertices count)', space: 'O(1)' };
-
+    case 'bit-ops':
+      return { time: 'O(1) single instruction bits operation', space: 'O(1)' };
+    case 'combinatorics':
+      return { time: 'O(N! / (N-K)!) permutations and combinations generation', space: 'O(N!) array output' };
+    case 'fraction':
+      return { time: 'O(log(min(a,b))) Euclidean GCD reduction', space: 'O(1)' };
+    case 'interpolation':
+      return { time: 'O(N) points evaluation', space: 'O(1)' };
+    case 'polynomial':
+      return { time: 'O(N × M) coefficients multiplication', space: 'O(N + M)' };
 
     // ===== ml =====
     case 'decision-tree':
@@ -180,6 +226,16 @@ function getComplexity(name) {
       return { time: 'O(1) state transition (Map lookup)', space: 'O(V + E) states and transitions' };
     case 'redux-lite':
       return { time: 'O(1) dispatch; O(L) notify listeners (L = subscriber count)', space: 'O(L) listener registry' };
+    case 'atom':
+      return { time: 'O(1) get/set subscription notifier operations', space: 'O(L) list of subscribers' };
+    case 'command-pattern':
+      return { time: 'O(1) execute/undo/redo transitions', space: 'O(H) history list size' };
+    case 'history-manager':
+      return { time: 'O(1) push/replace/go navigation state updates', space: 'O(H) history entries' };
+    case 'observable-store':
+      return { time: 'O(1) get/set trigger; O(L) subscriber dispatch', space: 'O(L)' };
+    case 'signal':
+      return { time: 'O(1) read/write; O(D) reactive graph propagation depth', space: 'O(D)' };
 
     // ===== text =====
     case 'csv-parser':
@@ -202,7 +258,16 @@ function getComplexity(name) {
       return { time: 'O(N) lines parsed linearly', space: 'O(N) resulting object tree' };
     case 'slugify':
       return { time: 'O(N) character conversion normalize operations', space: 'O(N) output string path' };
-
+    case 'ansi':
+      return { time: 'O(N) character string parsed/styled', space: 'O(N)' };
+    case 'edit-distance':
+      return { time: 'O(N × M) edit metrics mapping matrix', space: 'O(N + M) buffer' };
+    case 'string-search':
+      return { time: 'O(N + M) linear pattern matching search times', space: 'O(M)' };
+    case 'tokenizer':
+      return { time: 'O(N) parsed symbols', space: 'O(N) tokens' };
+    case 'word-wrap':
+      return { time: 'O(N) characters formatted', space: 'O(N) text block output' };
 
     // ===== ui =====
     case 'color-converter':
@@ -231,6 +296,24 @@ function getComplexity(name) {
       return { time: 'O(1) per call (timer check)', space: 'O(1)' };
     case 'uuid-v4':
       return { time: 'O(1) crypto random generation', space: 'O(1)' };
+    case 'chunk':
+      return { time: 'O(N) items sliced', space: 'O(N) chunk list' };
+    case 'color-utils':
+      return { time: 'O(1) rgb conversion calculation', space: 'O(1)' };
+    case 'deep-merge':
+      return { time: 'O(N) combined objects keys size', space: 'O(N)' };
+    case 'event-bus':
+      return { time: 'O(1) dispatch registration listener checks', space: 'O(L) listeners map' };
+    case 'flatten':
+      return { time: 'O(N) nested elements count', space: 'O(D) depth array copy' };
+    case 'pick-omit':
+      return { time: 'O(K) keys filter selection list', space: 'O(K)' };
+    case 'size-formatter':
+      return { time: 'O(1) byte calculation parsing', space: 'O(1)' };
+    case 'string-utils':
+      return { time: 'O(N) string processing operations', space: 'O(N)' };
+    case 'template-engine':
+      return { time: 'O(N) template length compiles', space: 'O(V) template expressions' };
 
     // ===== validation =====
     case 'email-rfc5322':
@@ -249,7 +332,16 @@ function getComplexity(name) {
       return { time: 'O(N) HTML characters scanned', space: 'O(N) sanitized output string' };
     case 'password-strength':
       return { time: 'O(N) password check rules validation (N = length)', space: 'O(1)' };
-
+    case 'credit-card':
+      return { time: 'O(N) card validation luhn checks', space: 'O(1)' };
+    case 'date-validator':
+      return { time: 'O(F) custom date pattern string matches', space: 'O(1)' };
+    case 'json-path':
+      return { time: 'O(P × D) segments lookup path traversal depth', space: 'O(D)' };
+    case 'phone-validator':
+      return { time: 'O(N) patterns match check phone validations', space: 'O(1)' };
+    case 'url-validator':
+      return { time: 'O(N) components url length checks', space: 'O(1)' };
 
     // ===== web =====
     case 'api-client':
@@ -274,7 +366,6 @@ function getComplexity(name) {
       return { time: 'O(1) persistent request response cycle', space: 'O(1)' };
     case 'cors-middleware':
       return { time: 'O(1) rules match verification', space: 'O(1)' };
-
 
     default:
       // Prevent silent errors when new blocks are added to the repo

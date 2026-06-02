@@ -1,0 +1,21 @@
+{
+  "name": "async-rate-limiter",
+  "category": "async",
+  "description": "Rate limits async function calls using a token bucket algorithm with sliding window support.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to throttle async function calls to a maximum number of calls per time interval (e.g. 10 requests per second). Implements a token bucket algorithm. Wrap any async function with rateLimit() or use the RateLimiter class for shared rate limiting across multiple callers.",
+  "parameters": [
+    {
+      "name": "n",
+      "type": "number",
+      "required": true,
+      "description": "Maximum number of calls allowed per interval."
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "required": true,
+      "description": "Time window in milliseconds."
+    }
+  ]
+}

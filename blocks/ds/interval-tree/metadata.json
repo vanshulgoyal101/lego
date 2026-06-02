@@ -1,0 +1,27 @@
+{
+  "name": "interval-tree",
+  "category": "ds",
+  "description": "Augmented BST that stores intervals and supports efficient overlap and point-stab queries.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to find all intervals that overlap a given point or range, such as calendar conflict detection, genomics annotation overlap, or network packet scheduling.",
+  "parameters": [
+    {
+      "name": "start",
+      "type": "number",
+      "required": true,
+      "description": "The start (left endpoint) of an interval to insert."
+    },
+    {
+      "name": "end",
+      "type": "number",
+      "required": true,
+      "description": "The end (right endpoint) of an interval to insert."
+    },
+    {
+      "name": "data",
+      "type": "any",
+      "required": false,
+      "description": "Optional arbitrary payload to associate with the interval."
+    }
+  ]
+}

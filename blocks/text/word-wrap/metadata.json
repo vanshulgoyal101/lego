@@ -1,0 +1,27 @@
+{
+  "name": "word-wrap",
+  "category": "text",
+  "description": "Intelligent text wrapping with configurable width, indentation, hard-cut mode, newline preservation, plus word-wrap and center-text utilities.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when formatting text for terminal output, README files, email bodies, or any fixed-width text display where words should not be broken across lines unless necessary.",
+  "parameters": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The text to wrap"
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": true,
+      "description": "Maximum line width in characters"
+    },
+    {
+      "name": "options",
+      "type": "object",
+      "required": false,
+      "description": "Options: indent (string), cut (bool), preserveNewlines (bool)"
+    }
+  ]
+}

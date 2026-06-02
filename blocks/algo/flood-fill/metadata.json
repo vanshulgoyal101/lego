@@ -1,0 +1,33 @@
+{
+  "name": "flood-fill",
+  "category": "algo",
+  "description": "Flood fill and boundary fill algorithms for 2D grids, similar to a paint-bucket tool, returning a modified grid copy.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to fill a contiguous region of a 2D grid with a new value, such as image paint-bucket operations, cave/room detection in tilemaps, or connected-component labelling.",
+  "parameters": [
+    {
+      "name": "grid",
+      "type": "Array[]",
+      "required": true,
+      "description": "2D array (grid) whose cells contain comparable values."
+    },
+    {
+      "name": "startRow",
+      "type": "number",
+      "required": true,
+      "description": "Row index of the seed cell to begin filling from."
+    },
+    {
+      "name": "startCol",
+      "type": "number",
+      "required": true,
+      "description": "Column index of the seed cell to begin filling from."
+    },
+    {
+      "name": "newValue",
+      "type": "any",
+      "required": true,
+      "description": "The value to fill the connected region with."
+    }
+  ]
+}

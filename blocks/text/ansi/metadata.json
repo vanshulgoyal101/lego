@@ -1,0 +1,15 @@
+{
+  "name": "ansi",
+  "category": "text",
+  "description": "ANSI escape code utilities for colorful terminal output with text colors, background colors, styles, ANSI stripping, and terminal support detection.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building CLI tools that need colorized or styled terminal output, for logging with visual emphasis, or for building interactive terminal UIs.",
+  "parameters": [
+    {
+      "name": "str",
+      "type": "string",
+      "required": true,
+      "description": "The string to apply ANSI styling to"
+    }
+  ]
+}

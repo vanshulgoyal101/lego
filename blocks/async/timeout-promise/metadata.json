@@ -1,0 +1,21 @@
+{
+  "name": "timeout-promise",
+  "category": "async",
+  "description": "Promise utilities for timeouts, sleep, retry with backoff, settled-with-timeout, and first-fulfilled race.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block for promise orchestration: add timeouts to any promise, sleep between operations, retry failing async functions with exponential backoff, wait for all promises with a global timeout, or get the first promise that fulfills (ignoring rejections). Zero dependencies.",
+  "parameters": [
+    {
+      "name": "promise",
+      "type": "Promise",
+      "required": true,
+      "description": "The promise to wrap with a timeout or race."
+    },
+    {
+      "name": "ms",
+      "type": "number",
+      "required": true,
+      "description": "Timeout duration in milliseconds."
+    }
+  ]
+}

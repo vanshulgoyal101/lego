@@ -1,0 +1,15 @@
+{
+  "name": "rope",
+  "category": "ds",
+  "description": "Binary-tree rope structure for O(log N) concatenation, split, and character access on large immutable strings.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when working with very large strings that need frequent concatenation or splitting, such as text editors, diff engines, or document processing pipelines, where standard string operations would be O(N).",
+  "parameters": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": false,
+      "description": "Initial string content to store in the rope (default empty string)."
+    }
+  ]
+}

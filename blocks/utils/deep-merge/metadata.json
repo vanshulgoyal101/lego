@@ -1,0 +1,21 @@
+{
+  "name": "deep-merge",
+  "category": "utils",
+  "description": "Deep merges multiple plain objects together, with configurable array merging strategy (concatenate or replace).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to recursively merge configuration objects, default settings with user overrides, or combine multiple data sources where nested objects should be merged rather than replaced.",
+  "parameters": [
+    {
+      "name": "objects",
+      "type": "object[]",
+      "required": true,
+      "description": "Two or more plain objects to deeply merge together (left to right)."
+    },
+    {
+      "name": "options",
+      "type": "object",
+      "required": false,
+      "description": "Optional configuration: { arrayMerge: 'concat' | 'replace' } (default: 'replace')."
+    }
+  ]
+}

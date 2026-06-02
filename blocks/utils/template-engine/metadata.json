@@ -1,0 +1,21 @@
+{
+  "name": "template-engine",
+  "category": "utils",
+  "description": "Minimal zero-dependency string template engine supporting variable interpolation, conditionals ({{#if}}), and loops ({{#each}}).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need simple Mustache/Handlebars-style template rendering without pulling in a full templating library. Suitable for generating HTML snippets, email bodies, configuration files, or any text with dynamic placeholders.",
+  "parameters": [
+    {
+      "name": "template",
+      "type": "string",
+      "required": true,
+      "description": "The template string containing {{variable}}, {{#if key}}, and {{#each array}} tags."
+    },
+    {
+      "name": "data",
+      "type": "object",
+      "required": true,
+      "description": "The data context object whose properties are used to resolve template variables."
+    }
+  ]
+}

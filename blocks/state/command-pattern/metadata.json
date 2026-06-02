@@ -1,0 +1,15 @@
+{
+  "name": "command-pattern",
+  "category": "state",
+  "description": "Command pattern implementation with an undo/redo history stack for executing, reversing, and replaying discrete operations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need undo/redo functionality in editors, drawing apps, form wizards, or any workflow where user actions must be reversible. Commands are plain objects with execute() and undo() methods, making it easy to wrap any operation.",
+  "parameters": [
+    {
+      "name": "command",
+      "type": "Object",
+      "required": true,
+      "description": "A command object with execute() and undo() methods, and an optional description string."
+    }
+  ]
+}

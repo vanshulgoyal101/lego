@@ -1,0 +1,15 @@
+{
+  "name": "atom",
+  "category": "state",
+  "description": "Jotai-style atomic state primitives with get, set, subscribe, derive, reset, and peek — composable independent units of reactive state.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you want simple, composable atomic state units without a centralized store. Each Atom is independent; derived atoms recalculate when their source atom changes. Use peek() to read a value without triggering reactivity. Suitable for lightweight state management in UI components or services.",
+  "parameters": [
+    {
+      "name": "initialValue",
+      "type": "any",
+      "required": true,
+      "description": "The initial value of the atom."
+    }
+  ]
+}

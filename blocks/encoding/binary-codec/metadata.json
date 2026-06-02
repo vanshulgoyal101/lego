@@ -1,0 +1,33 @@
+{
+  "name": "binary-codec",
+  "category": "encoding",
+  "description": "Binary data encoding/decoding utilities for converting numbers and buffers to binary strings, hex strings, and big/little-endian byte arrays.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need low-level binary data manipulation: converting numbers to binary/hex representations, encoding integers in specific byte orders (big-endian or little-endian), or parsing raw binary protocol data. Ideal for network protocols, file format parsers, and binary serialization tasks.",
+  "parameters": [
+    {
+      "name": "n",
+      "type": "number",
+      "required": false,
+      "description": "An integer value to encode (used by toBinary, toHex, toBigEndian, toLittleEndian)."
+    },
+    {
+      "name": "str",
+      "type": "string",
+      "required": false,
+      "description": "A binary string ('0'/'1') or hex string to decode (used by fromBinary, fromHex)."
+    },
+    {
+      "name": "buf",
+      "type": "Uint8Array",
+      "required": false,
+      "description": "A byte buffer to decode (used by fromBigEndian, fromLittleEndian, toHex)."
+    },
+    {
+      "name": "bytes",
+      "type": "number",
+      "required": false,
+      "description": "Number of bytes to use when encoding an integer (used by toBigEndian, toLittleEndian)."
+    }
+  ]
+}
