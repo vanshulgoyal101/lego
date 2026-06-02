@@ -1,0 +1,21 @@
+{
+  "name": "jwt-validator",
+  "category": "validation",
+  "description": "JWT authentication credentials extraction and verification utility for request headers.",
+  "dependencies": ["crypto/jwt-helper"],
+  "aiPromptContext": "Use this block in HTTP API middlewares (like Express, Koa, Next.js, or serverless functions) to protect API endpoints and verify incoming user tokens. Import using: import { validateJwtHeaders } from './validation/jwt-validator.js';",
+  "parameters": [
+    {
+      "name": "headers",
+      "type": "Object | string",
+      "required": true,
+      "description": "The headers map object or the raw Authorization header string value."
+    },
+    {
+      "name": "secret",
+      "type": "string",
+      "required": true,
+      "description": "The HMAC verification secret key."
+    }
+  ]
+}

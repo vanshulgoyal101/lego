@@ -1,0 +1,20 @@
+{
+  "name": "memoize",
+  "category": "utils",
+  "description": "Memoization utility cache decorator caching function results mapped by argument signatures.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when executing heavy computation calculations (like Fibonacci calculations, factorial numbers parsing, matrix transformations, or recurring DB lookups) to instantly reuse computed outputs.",
+  "parameters": [
+    {
+      "name": "func",
+      "type": "Function",
+      "required": true,
+      "description": "The target computation function to cache."
+    },
+    {
+      "name": "resolver",
+      "type": "Function",
+      "description": "Custom function to resolve cache keys based on arguments."
+    }
+  ]
+}

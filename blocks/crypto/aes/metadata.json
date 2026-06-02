@@ -1,0 +1,21 @@
+{
+  "name": "aes",
+  "category": "crypto",
+  "description": "Symmetrical encryption and decryption (AES-256-GCM) utilizing native Web Crypto API. Fully cross-platform.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when encrypting sensitive data locally (like database passwords, session data caches, or sensitive messages in transit) without using external crypto-js or node-only modules. Import using: import { encrypt, decrypt } from './crypto/aes.js';",
+  "parameters": [
+    {
+      "name": "plaintext",
+      "type": "string",
+      "required": true,
+      "description": "The cleartext string to encrypt."
+    },
+    {
+      "name": "secret",
+      "type": "string",
+      "required": true,
+      "description": "The encryption password key."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "diff-match",
+  "category": "text",
+  "description": "Text line comparison engine computing difference deltas using Longest Common Subsequence (LCS).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when displaying code or text edits side-by-side (like git diff views, document revisions check, or comparing AI outputs against expected targets).",
+  "parameters": [
+    {
+      "name": "text1",
+      "type": "string",
+      "required": true,
+      "description": "The base/original text string."
+    },
+    {
+      "name": "text2",
+      "type": "string",
+      "required": true,
+      "description": "The modified text string."
+    }
+  ]
+}

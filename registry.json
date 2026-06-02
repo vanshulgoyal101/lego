@@ -46,6 +46,31 @@
         "index.js"
       ]
     },
+    "algo/sorting": {
+      "name": "sorting",
+      "category": "algo",
+      "description": "Production-grade sorting algorithms (QuickSort and MergeSort) supporting custom comparator functions.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need efficient sorting (O(N log N)) of elements or objects using custom keys (e.g. sorting user objects by rating or timeline dates) where standard Array.prototype.sort is insufficient or requires predictability.",
+      "parameters": [
+        {
+          "name": "array",
+          "type": "Array",
+          "required": true,
+          "description": "The list to sort."
+        },
+        {
+          "name": "comparator",
+          "type": "Function",
+          "description": "Sort comparator logic function (a, b) => number."
+        }
+      ],
+      "path": "blocks/algo/sorting",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "async/event-emitter": {
       "name": "event-emitter",
       "category": "async",
@@ -74,6 +99,32 @@
         }
       ],
       "path": "blocks/async/semaphore",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "crypto/aes": {
+      "name": "aes",
+      "category": "crypto",
+      "description": "Symmetrical encryption and decryption (AES-256-GCM) utilizing native Web Crypto API. Fully cross-platform.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when encrypting sensitive data locally (like database passwords, session data caches, or sensitive messages in transit) without using external crypto-js or node-only modules. Import using: import { encrypt, decrypt } from './crypto/aes.js';",
+      "parameters": [
+        {
+          "name": "plaintext",
+          "type": "string",
+          "required": true,
+          "description": "The cleartext string to encrypt."
+        },
+        {
+          "name": "secret",
+          "type": "string",
+          "required": true,
+          "description": "The encryption password key."
+        }
+      ],
+      "path": "blocks/crypto/aes",
       "files": [
         "README.md",
         "index.js"
@@ -156,6 +207,19 @@
         }
       ],
       "path": "blocks/db/json-db",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "ds/binary-search-tree": {
+      "name": "binary-search-tree",
+      "category": "ds",
+      "description": "Standard Binary Search Tree (BST) class supporting node insertions, searches, deletions, and traversal checks.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building sorted search lookup trees, range-based indexing structures, or data sorting tree-based pipelines. Import using: import { BinarySearchTree } from './ds/binary-search-tree.js';",
+      "parameters": [],
+      "path": "blocks/ds/binary-search-tree",
       "files": [
         "README.md",
         "index.js"
@@ -388,6 +452,32 @@
         "index.js"
       ]
     },
+    "text/diff-match": {
+      "name": "diff-match",
+      "category": "text",
+      "description": "Text line comparison engine computing difference deltas using Longest Common Subsequence (LCS).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when displaying code or text edits side-by-side (like git diff views, document revisions check, or comparing AI outputs against expected targets).",
+      "parameters": [
+        {
+          "name": "text1",
+          "type": "string",
+          "required": true,
+          "description": "The base/original text string."
+        },
+        {
+          "name": "text2",
+          "type": "string",
+          "required": true,
+          "description": "The modified text string."
+        }
+      ],
+      "path": "blocks/text/diff-match",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "text/markdown-parser": {
       "name": "markdown-parser",
       "category": "text",
@@ -441,6 +531,32 @@
         "index.js"
       ]
     },
+    "utils/date-formatter": {
+      "name": "date-formatter",
+      "category": "utils",
+      "description": "Date arithmetic and token formatting helper (format, addTime, isBetween) without external libraries.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when styling user-facing date strings, shifting timestamps, or validating calendar date boundary selection ranges. Import using: import { formatDate, addTime } from './utils/date-formatter.js';",
+      "parameters": [
+        {
+          "name": "dateVal",
+          "type": "Date | string | number",
+          "required": true,
+          "description": "Target date input."
+        },
+        {
+          "name": "formatStr",
+          "type": "string",
+          "required": true,
+          "description": "Output formatting template pattern (e.g. YYYY-MM-DD)."
+        }
+      ],
+      "path": "blocks/utils/date-formatter",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "utils/debounce": {
       "name": "debounce",
       "category": "utils",
@@ -468,6 +584,85 @@
         }
       ],
       "path": "blocks/utils/debounce",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "utils/memoize": {
+      "name": "memoize",
+      "category": "utils",
+      "description": "Memoization utility cache decorator caching function results mapped by argument signatures.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when executing heavy computation calculations (like Fibonacci calculations, factorial numbers parsing, matrix transformations, or recurring DB lookups) to instantly reuse computed outputs.",
+      "parameters": [
+        {
+          "name": "func",
+          "type": "Function",
+          "required": true,
+          "description": "The target computation function to cache."
+        },
+        {
+          "name": "resolver",
+          "type": "Function",
+          "description": "Custom function to resolve cache keys based on arguments."
+        }
+      ],
+      "path": "blocks/utils/memoize",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "utils/throttle": {
+      "name": "throttle",
+      "category": "utils",
+      "description": "Throttling wrapper to ensure a function runs at most once in a specified time window.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when handling events that trigger continuously (like scroll, mouse move, or window resize) to update UI layouts or fetch analytics without slowing down page frames rate.",
+      "parameters": [
+        {
+          "name": "func",
+          "type": "Function",
+          "required": true,
+          "description": "The target action function to throttle."
+        },
+        {
+          "name": "wait",
+          "type": "number",
+          "required": true,
+          "description": "The window delay in milliseconds."
+        }
+      ],
+      "path": "blocks/utils/throttle",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "validation/jwt-validator": {
+      "name": "jwt-validator",
+      "category": "validation",
+      "description": "JWT authentication credentials extraction and verification utility for request headers.",
+      "dependencies": [
+        "crypto/jwt-helper"
+      ],
+      "aiPromptContext": "Use this block in HTTP API middlewares (like Express, Koa, Next.js, or serverless functions) to protect API endpoints and verify incoming user tokens. Import using: import { validateJwtHeaders } from './validation/jwt-validator.js';",
+      "parameters": [
+        {
+          "name": "headers",
+          "type": "Object | string",
+          "required": true,
+          "description": "The headers map object or the raw Authorization header string value."
+        },
+        {
+          "name": "secret",
+          "type": "string",
+          "required": true,
+          "description": "The HMAC verification secret key."
+        }
+      ],
+      "path": "blocks/validation/jwt-validator",
       "files": [
         "README.md",
         "index.js"

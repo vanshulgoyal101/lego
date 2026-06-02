@@ -1,0 +1,8 @@
+{
+  "name": "binary-search-tree",
+  "category": "ds",
+  "description": "Standard Binary Search Tree (BST) class supporting node insertions, searches, deletions, and traversal checks.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building sorted search lookup trees, range-based indexing structures, or data sorting tree-based pipelines. Import using: import { BinarySearchTree } from './ds/binary-search-tree.js';",
+  "parameters": []
+}

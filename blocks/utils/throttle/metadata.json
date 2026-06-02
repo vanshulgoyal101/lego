@@ -1,0 +1,21 @@
+{
+  "name": "throttle",
+  "category": "utils",
+  "description": "Throttling wrapper to ensure a function runs at most once in a specified time window.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when handling events that trigger continuously (like scroll, mouse move, or window resize) to update UI layouts or fetch analytics without slowing down page frames rate.",
+  "parameters": [
+    {
+      "name": "func",
+      "type": "Function",
+      "required": true,
+      "description": "The target action function to throttle."
+    },
+    {
+      "name": "wait",
+      "type": "number",
+      "required": true,
+      "description": "The window delay in milliseconds."
+    }
+  ]
+}

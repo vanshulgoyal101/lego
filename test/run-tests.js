@@ -482,6 +482,114 @@ async function runAllTests() {
     });
   });
 
+  // 21. AES Encryption Test
+  const { encrypt: aesEncrypt, decrypt: aesDecrypt } = await import('../blocks/crypto/aes/index.js');
+  await describe('crypto/aes', async () => {
+    await it('should encrypt and decrypt messages correctly', async () => {
+      const secret = 'aes-shared-key';
+      const cipher = await aesEncrypt('hello aes', secret);
+      const plain = await aesDecrypt(cipher, secret);
+      expect(plain).toBe('hello aes');
+    });
+  });
+
+  // 22. JWT Validator Test
+  const { validateJwtHeaders } = await import('../blocks/validation/jwt-validator/index.js');
+  await describe('validation/jwt-validator', async () => {
+    await it('should validate authorization Bearer headers', async () => {
+      const token = await sign({ user: 'foo' }, 'secretKey');
+      const payload = await validateJwtHeaders(`Bearer ${token}`, 'secretKey');
+      expect(payload.user).toBe('foo');
+    });
+  });
+
+  // 23. Binary Search Tree Test
+  const { BinarySearchTree } = await import('../blocks/ds/binary-search-tree/index.js');
+  await describe('ds/binary-search-tree', async () => {
+    await it('should insert, find, delete and traverse values', async () => {
+      const bst = new BinarySearchTree();
+      bst.insert(15);
+      bst.insert(10);
+      bst.insert(20);
+      expect(bst.find(10)).toBe(true);
+      expect(bst.find(30)).toBe(false);
+      
+      bst.delete(10);
+      expect(bst.find(10)).toBe(false);
+      expect(bst.traverseInOrder()).toEqual([15, 20]);
+    });
+  });
+
+  // 24. Sorting Algorithms Test
+  const { quickSort, mergeSort } = await import('../blocks/algo/sorting/index.js');
+  await describe('algo/sorting', async () => {
+    await it('should sort arrays using QuickSort and MergeSort', async () => {
+      const arr1 = [5, 2, 8, 1, 9];
+      const sorted1 = quickSort(arr1);
+      expect(sorted1).toEqual([1, 2, 5, 8, 9]);
+
+      const arr2 = [10, -1, 3, 2];
+      const sorted2 = mergeSort(arr2);
+      expect(sorted2).toEqual([-1, 2, 3, 10]);
+    });
+  });
+
+  // 25. Text Diffing Test
+  const { diffLines } = await import('../blocks/text/diff-match/index.js');
+  await describe('text/diff-match', async () => {
+    await it('should calculate diff arrays for lines comparison', async () => {
+      const text1 = 'hello\nworld';
+      const text2 = 'hello\nthere\nworld';
+      const diff = diffLines(text1, text2);
+      expect(diff[1].type).toBe('added');
+      expect(diff[1].value).toBe('there');
+    });
+  });
+
+  // 26. Throttle Test
+  const { throttle } = await import('../blocks/utils/throttle/index.js');
+  await describe('utils/throttle', async () => {
+    await it('should execute action at most once in a timeframe', async () => {
+      let counter = 0;
+      const fn = throttle(() => { counter++; }, 25);
+      fn();
+      fn();
+      expect(counter).toBe(1);
+      await new Promise(resolve => setTimeout(resolve, 30));
+      fn();
+      expect(counter).toBe(2);
+    });
+  });
+
+  // 27. Memoize Test
+  const { memoize } = await import('../blocks/utils/memoize/index.js');
+  await describe('utils/memoize', async () => {
+    await it('should retrieve cached outputs for same parameters', async () => {
+      let counter = 0;
+      const fn = memoize((x) => {
+        counter++;
+        return x * 2;
+      });
+      expect(fn(5)).toBe(10);
+      expect(fn(5)).toBe(10);
+      expect(counter).toBe(1); // Second call should be from cache
+    });
+  });
+
+  // 28. Date Formatter Test
+  const { formatDate, addTime, isBetween } = await import('../blocks/utils/date-formatter/index.js');
+  await describe('utils/date-formatter', async () => {
+    await it('should format, shift, and check date ranges', async () => {
+      const date = new Date('2026-06-02T12:00:00.000Z');
+      expect(formatDate(date, 'YYYY-MM-DD')).toBe('2026-06-02');
+      
+      const newDate = addTime(date, 2, 'days');
+      expect(formatDate(newDate, 'YYYY-MM-DD')).toBe('2026-06-04');
+
+      expect(isBetween(date, '2026-06-01', '2026-06-03')).toBe(true);
+    });
+  });
+
   console.log(`\n${Colors.bright}${Colors.yellow}========================================`);
   console.log(`             TESTING COMPLETE            `);
   console.log(`========================================${Colors.reset}`);

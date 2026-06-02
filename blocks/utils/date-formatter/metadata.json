@@ -1,0 +1,21 @@
+{
+  "name": "date-formatter",
+  "category": "utils",
+  "description": "Date arithmetic and token formatting helper (format, addTime, isBetween) without external libraries.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when styling user-facing date strings, shifting timestamps, or validating calendar date boundary selection ranges. Import using: import { formatDate, addTime } from './utils/date-formatter.js';",
+  "parameters": [
+    {
+      "name": "dateVal",
+      "type": "Date | string | number",
+      "required": true,
+      "description": "Target date input."
+    },
+    {
+      "name": "formatStr",
+      "type": "string",
+      "required": true,
+      "description": "Output formatting template pattern (e.g. YYYY-MM-DD)."
+    }
+  ]
+}

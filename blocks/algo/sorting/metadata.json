@@ -1,0 +1,20 @@
+{
+  "name": "sorting",
+  "category": "algo",
+  "description": "Production-grade sorting algorithms (QuickSort and MergeSort) supporting custom comparator functions.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need efficient sorting (O(N log N)) of elements or objects using custom keys (e.g. sorting user objects by rating or timeline dates) where standard Array.prototype.sort is insufficient or requires predictability.",
+  "parameters": [
+    {
+      "name": "array",
+      "type": "Array",
+      "required": true,
+      "description": "The list to sort."
+    },
+    {
+      "name": "comparator",
+      "type": "Function",
+      "description": "Sort comparator logic function (a, b) => number."
+    }
+  ]
+}
