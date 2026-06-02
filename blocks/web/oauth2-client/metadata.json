@@ -1,0 +1,8 @@
+{
+  "name": "oauth2-client",
+  "category": "web",
+  "description": "Universal OAuth 2.0 and OpenID Connect client supporting Authorization Code Flow with PKCE state challenge, token exchange, refresh sequences, and cryptographically secure state verifiers.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when integrating user social authentication logins (Google, GitHub, Auth0) inside frontend client runtimes or backend endpoint servers requiring secure PKCE.",
+  "parameters": []
+}

@@ -120,6 +120,12 @@ function getComplexity(name) {
       return { time: 'O(1) execution loops', space: 'O(C) memory request cache entries' };
     case 'timeseries-db':
       return { time: 'O(log N) insert ordering scan', space: 'O(N) data metrics records size' };
+    case 'sql-query-parser':
+      return { time: 'O(N) characters token parse scan', space: 'O(T) query token array length' };
+    case 'oauth2-client':
+      return { time: 'O(1) SHA-256 key generation', space: 'O(1)' };
+    case 'vector-db':
+      return { time: 'O(N * D) K-NN similarity scan (N=records, D=dimensions)', space: 'O(N * D) memory storage allocation' };
     default:
       return { time: 'O(1)', space: 'O(1)' };
   }

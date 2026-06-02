@@ -1,0 +1,15 @@
+{
+  "name": "sql-query-parser",
+  "category": "compiler",
+  "description": "SQL lexical scanner and query parser translating SELECT strings (fields, JOINs, WHERE logic, ORDER BY, LIMIT) into structured Abstract Syntax Trees.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building custom database layers, mocking SQL query execution, or validating SQL command inputs.",
+  "parameters": [
+    {
+      "name": "sql",
+      "type": "string",
+      "required": true,
+      "description": "The raw SQL query string to parse."
+    }
+  ]
+}

@@ -241,6 +241,26 @@
         "index.js"
       ]
     },
+    "compiler/sql-query-parser": {
+      "name": "sql-query-parser",
+      "category": "compiler",
+      "description": "SQL lexical scanner and query parser translating SELECT strings (fields, JOINs, WHERE logic, ORDER BY, LIMIT) into structured Abstract Syntax Trees.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building custom database layers, mocking SQL query execution, or validating SQL command inputs.",
+      "parameters": [
+        {
+          "name": "sql",
+          "type": "string",
+          "required": true,
+          "description": "The raw SQL query string to parse."
+        }
+      ],
+      "path": "blocks/compiler/sql-query-parser",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "crypto/aes": {
       "name": "aes",
       "category": "crypto",
@@ -449,6 +469,19 @@
       "aiPromptContext": "Use this block when building real-time metrics monitoring dashboards, logging historical events, caching IoT sensor signals, or tracking continuous runtime performance metrics.",
       "parameters": [],
       "path": "blocks/db/timeseries-db",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "db/vector-db": {
+      "name": "vector-db",
+      "category": "db",
+      "description": "An in-memory Vector Database supporting cosine similarity, Euclidean distance searches, metadata filter predicates, and K-Nearest Neighbor (K-NN) query calculations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building AI semantic searches, retrieval-augmented generation (RAG) contexts, recommender systems, or matching vector embeddings in pure JS.",
+      "parameters": [],
+      "path": "blocks/db/vector-db",
       "files": [
         "README.md",
         "index.js"
@@ -1214,6 +1247,19 @@
       "aiPromptContext": "Use this block when calling unreliable third-party APIs, enforcing local cache policies, or implementing fallback microservice pipelines requiring fault-tolerance.",
       "parameters": [],
       "path": "blocks/web/http-client-resilient",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "web/oauth2-client": {
+      "name": "oauth2-client",
+      "category": "web",
+      "description": "Universal OAuth 2.0 and OpenID Connect client supporting Authorization Code Flow with PKCE state challenge, token exchange, refresh sequences, and cryptographically secure state verifiers.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when integrating user social authentication logins (Google, GitHub, Auth0) inside frontend client runtimes or backend endpoint servers requiring secure PKCE.",
+      "parameters": [],
+      "path": "blocks/web/oauth2-client",
       "files": [
         "README.md",
         "index.js"

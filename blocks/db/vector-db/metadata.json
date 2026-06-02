@@ -1,0 +1,8 @@
+{
+  "name": "vector-db",
+  "category": "db",
+  "description": "An in-memory Vector Database supporting cosine similarity, Euclidean distance searches, metadata filter predicates, and K-Nearest Neighbor (K-NN) query calculations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building AI semantic searches, retrieval-augmented generation (RAG) contexts, recommender systems, or matching vector embeddings in pure JS.",
+  "parameters": []
+}

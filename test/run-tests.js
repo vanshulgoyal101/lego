@@ -1050,6 +1050,65 @@ async function runAllTests() {
     });
   });
 
+  // 52. SQL Query Parser Test
+  const { parseSql } = await import('../blocks/compiler/sql-query-parser/index.js');
+  await describe('compiler/sql-query-parser', async () => {
+    await it('should parse SELECT columns, aliases, INNER JOINs, and WHERE logical conditions', () => {
+      const sql = 'SELECT users.name AS userName, orders.total FROM users INNER JOIN orders ON users.id = orders.user_id WHERE users.age >= 18 AND orders.status = "paid" LIMIT 10';
+      const ast = parseSql(sql);
+      expect(ast.type).toBe('SELECT');
+      expect(ast.fields[0].name).toBe('users.name');
+      expect(ast.fields[0].alias).toBe('userName');
+      expect(ast.from).toBe('users');
+      expect(ast.joins[0].type).toBe('INNER');
+      expect(ast.joins[0].table).toBe('orders');
+      expect(ast.joins[0].condition.left).toBe('users.id');
+      expect(ast.joins[0].condition.right).toBe('orders.user_id');
+      expect(ast.limit).toBe(10);
+    });
+  });
+
+  // 53. OAuth2 Client Test
+  const { Oauth2Client } = await import('../blocks/web/oauth2-client/index.js');
+  await describe('web/oauth2-client', async () => {
+    await it('should generate cryptographically sound PKCE pairs and compile auth URL redirect queries', async () => {
+      const client = new Oauth2Client({
+        clientId: 'client-123',
+        authEndpoint: 'http://auth.server/authorize',
+        tokenEndpoint: 'http://auth.server/token'
+      });
+
+      const { codeVerifier, codeChallenge } = await client.generatePkcePairs();
+      expect(codeVerifier.length).toBeGreaterThan(30);
+      expect(codeChallenge.length).toBeGreaterThan(30);
+
+      const url = client.getAuthorizationUrl({
+        redirectUri: 'http://my.app/callback',
+        codeChallenge
+      });
+      expect(url.includes('client_id=client-123')).toBe(true);
+      expect(url.includes(`code_challenge=${codeChallenge}`)).toBe(true);
+    });
+  });
+
+  // 54. Vector Database Test
+  const { VectorDb } = await import('../blocks/db/vector-db/index.js');
+  await describe('db/vector-db', async () => {
+    await it('should execute semantic nearest neighbor calculations and apply metadata predicates', () => {
+      const db = new VectorDb();
+      db.insert('item1', [1.0, 0.0, 0.0], { category: 'tech' });
+      db.insert('item2', [0.0, 1.0, 0.0], { category: 'sports' });
+      db.insert('item3', [0.9, 0.1, 0.0], { category: 'tech' });
+
+      // Semantic Cosine search
+      const query = [1.0, 0.1, 0.0];
+      const results = db.query(query, 2, { metric: 'cosine', filter: { category: 'tech' } });
+      expect(results.length).toBe(2);
+      expect(results[0].id).toBe('item3'); // item3 has a slightly higher cosine similarity to the query [1.0, 0.1, 0.0]
+      expect(results[1].id).toBe('item1');
+    });
+  });
+
   console.log(`\n${Colors.bright}${Colors.yellow}========================================`);
   console.log(`             TESTING COMPLETE            `);
   console.log(`========================================${Colors.reset}`);
