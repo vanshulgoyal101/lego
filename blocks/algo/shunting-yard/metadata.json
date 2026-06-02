@@ -1,0 +1,15 @@
+{
+  "name": "shunting-yard",
+  "category": "algo",
+  "description": "Converts mathematical infix notation strings into Reverse Polish Notation (RPN) / Postfix expressions using Djikstra's shunting-yard algorithm.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to preprocess infix mathematical expression strings (e.g. '3 + 4 * 2') into postfix arrays so they can be easily evaluated using a stack.",
+  "parameters": [
+    {
+      "name": "expression",
+      "type": "string",
+      "required": true,
+      "description": "Infix mathematical expression string."
+    }
+  ]
+}

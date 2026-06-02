@@ -1,0 +1,21 @@
+{
+  "name": "count-min-sketch",
+  "category": "ds",
+  "description": "A probabilistic sub-linear space frequency table estimator structure matching streams of items.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to estimate frequencies of items in data streams when memory limits prevent maintaining complete exact tables.",
+  "parameters": [
+    {
+      "name": "width",
+      "type": "number",
+      "required": true,
+      "description": "Columns dimensions of the 2D sketches (determines precision estimation range)."
+    },
+    {
+      "name": "depth",
+      "type": "number",
+      "required": true,
+      "description": "Row dimensions / amount of hash functions iterations used."
+    }
+  ]
+}

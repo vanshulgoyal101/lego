@@ -1,0 +1,21 @@
+{
+  "name": "multipart-parser",
+  "category": "web",
+  "description": "A lightweight parser for decoding multipart/form-data request payloads and extracted file attachments.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block inside zero-dependency HTTP server request controllers to parse incoming multipart/form-data upload values and files.",
+  "parameters": [
+    {
+      "name": "bodyBuffer",
+      "type": "Buffer",
+      "required": true,
+      "description": "Raw body Buffer bytes of the incoming request."
+    },
+    {
+      "name": "boundary",
+      "type": "string",
+      "required": true,
+      "description": "Boundary separation string extracted from the Content-Type header."
+    }
+  ]
+}

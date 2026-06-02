@@ -1,0 +1,21 @@
+{
+  "name": "doh-client",
+  "category": "web",
+  "description": "A DNS-over-HTTPS (DoH) resolver utility using standard fetch APIs to perform JSON-format DNS queries.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to execute DNS resolution queries (A, AAAA, MX, TXT, etc.) inside browser or non-native Node contexts using secure web tunnels.",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": "Host domain query identifier (e.g. 'google.com')."
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "required": false,
+      "description": "DNS record lookup type, such as 'A', 'MX', 'TXT' (defaults to 'A')."
+    }
+  ]
+}

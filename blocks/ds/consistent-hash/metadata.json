@@ -1,0 +1,15 @@
+{
+  "name": "consistent-hash",
+  "category": "ds",
+  "description": "Consistent Hashing ring layout helper allowing distribution of keys across dynamic servers nodes with minimal re-mapping.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to manage load-balancing pools or distributed caching clusters, routing query keys to server nodes dynamically.",
+  "parameters": [
+    {
+      "name": "replicas",
+      "type": "number",
+      "required": false,
+      "description": "Virtual nodes count mapping per real server node to enforce uniform ring dispersion (defaults to 16)."
+    }
+  ]
+}

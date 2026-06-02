@@ -1,0 +1,21 @@
+{
+  "name": "quickselect",
+  "category": "algo",
+  "description": "Finds the k-th smallest element in an unsorted array in O(N) average time using selection partitioning.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to efficiently retrieve order statistics (like the median or k-th smallest/largest value) without paying the full sorting cost.",
+  "parameters": [
+    {
+      "name": "arr",
+      "type": "Array",
+      "required": true,
+      "description": "The input unsorted array of numbers."
+    },
+    {
+      "name": "k",
+      "type": "number",
+      "required": true,
+      "description": "Zero-based index of the target order statistic (e.g. 0 for minimum, len-1 for maximum)."
+    }
+  ]
+}

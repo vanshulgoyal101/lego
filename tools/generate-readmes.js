@@ -82,6 +82,12 @@ function getComplexity(name) {
       return { time: 'O(E log E) sorting edges + O(E α(V)) DSU unions', space: 'O(V + E)' };
     case 'prim-mst':
       return { time: 'O(E log V) adjacent paths search', space: 'O(V + E)' };
+    case 'page-rank':
+      return { time: 'O(I × (V + E)) power iterations count', space: 'O(V) rank buffers' };
+    case 'quickselect':
+      return { time: 'O(N) average / O(N^2) worst case linear partitions', space: 'O(1) recursion stack' };
+    case 'shunting-yard':
+      return { time: 'O(N) infix character tokens parsed', space: 'O(N) operator stacks' };
 
     // ===== async =====
     case 'event-emitter':
@@ -180,6 +186,12 @@ function getComplexity(name) {
       return { time: 'O(log N) regional queries', space: 'O(N) structures space' };
     case 'hyperloglog':
       return { time: 'O(1) add element checks', space: 'O(m) registers size' };
+    case 'count-min-sketch':
+      return { time: 'O(d) updates/estimates checks', space: 'O(d × w) 2D array columns size' };
+    case 'cuckoo-filter':
+      return { time: 'O(1) updates/lookups/deletions checks', space: 'O(C × b) slots capacity' };
+    case 'consistent-hash':
+      return { time: 'O(log(N × R)) nodes lookup binary search', space: 'O(N × R) ring size' };
 
     // ===== encoding =====
     case 'base64':
@@ -386,6 +398,14 @@ function getComplexity(name) {
       return { time: 'O(1) persistent request response cycle', space: 'O(1)' };
     case 'cors-middleware':
       return { time: 'O(1) rules match verification', space: 'O(1)' };
+    case 'multipart-parser':
+      return { time: 'O(N) body data size buffer linear scan', space: 'O(N) data parts extraction' };
+    case 'url-template':
+      return { time: 'O(P) variables replacement operations', space: 'O(1)' };
+    case 'doh-client':
+      return { time: 'O(1) network fetch delay', space: 'O(1)' };
+    case 'session-manager':
+      return { time: 'O(N) digest sign/unsign validation signature bytes', space: 'O(1)' };
 
     default:
       // Prevent silent errors when new blocks are added to the repo

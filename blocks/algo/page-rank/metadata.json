@@ -1,0 +1,27 @@
+{
+  "name": "page-rank",
+  "category": "algo",
+  "description": "Calculates PageRank score distributions for nodes in a graph using iterative power method updates.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to score and rank the relative importance of interconnected nodes in a directed graph (like webpages, citation networks, or recommendation graphs).",
+  "parameters": [
+    {
+      "name": "graph",
+      "type": "Object",
+      "required": true,
+      "description": "Directed adjacency list where keys are node IDs and values are arrays of target node IDs."
+    },
+    {
+      "name": "damping",
+      "type": "number",
+      "required": false,
+      "description": "Probability of continuing traversal (damping factor, defaults to 0.85)."
+    },
+    {
+      "name": "iterations",
+      "type": "number",
+      "required": false,
+      "description": "Maximum power iterations limit (defaults to 100)."
+    }
+  ]
+}

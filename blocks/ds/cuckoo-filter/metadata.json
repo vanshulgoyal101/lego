@@ -1,0 +1,15 @@
+{
+  "name": "cuckoo-filter",
+  "category": "ds",
+  "description": "A space-efficient probabilistic set membership filter supporting adding, testing, and deleting elements.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block as an alternative to Bloom filters when you need to check set membership with zero false negatives, but also need support for deleting elements.",
+  "parameters": [
+    {
+      "name": "capacity",
+      "type": "number",
+      "required": false,
+      "description": "The target elements capacity size (defaults to 1000)."
+    }
+  ]
+}

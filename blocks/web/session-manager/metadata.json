@@ -1,0 +1,15 @@
+{
+  "name": "session-manager",
+  "category": "web",
+  "description": "A signed cookie-based session manager validating session states and preventing tampering using HMAC signatures.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block inside HTTP routers or endpoint logic to issue, check, and sign session payloads securely using standard cookies.",
+  "parameters": [
+    {
+      "name": "secret",
+      "type": "string",
+      "required": true,
+      "description": "HMAC secret string used to sign cookies values."
+    }
+  ]
+}
