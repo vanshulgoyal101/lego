@@ -1,0 +1,27 @@
+{
+  "name": "fsm",
+  "category": "state",
+  "description": "A Finite State Machine (FSM) manager featuring state transitions, guards, side-effect actions, and subscription events.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to manage complex application states, multi-step workflows, or AI agent loop phases. Define clear states, entry/exit actions, and guards to keep transitions predictable.",
+  "parameters": [
+    {
+      "name": "config.initial",
+      "type": "string",
+      "required": true,
+      "description": "The initial state key."
+    },
+    {
+      "name": "config.states",
+      "type": "Object",
+      "required": true,
+      "description": "Object mapping states to event handlers. Each state can have entry, exit, and on transitions."
+    },
+    {
+      "name": "config.context",
+      "type": "Object",
+      "default": {},
+      "description": "Arbitrary sharing context / payload for guards and actions."
+    }
+  ]
+}

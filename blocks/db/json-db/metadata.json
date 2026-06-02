@@ -1,0 +1,15 @@
+{
+  "name": "json-db",
+  "category": "db",
+  "description": "A transactional, file-backed JSON database supporting basic CRUD operations and concurrency safety.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need a local, lightweight data persistence solution without the overhead of SQLite or Postgres. Perfect for testing, configuration storage, local AI memory, or single-developer tools. Import using: import { JsonDatabase } from './db/json-db.js';",
+  "parameters": [
+    {
+      "name": "filepath",
+      "type": "string",
+      "required": true,
+      "description": "The absolute or relative path to the database .json file."
+    }
+  ]
+}
