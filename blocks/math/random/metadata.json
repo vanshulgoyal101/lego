@@ -1,0 +1,8 @@
+{
+  "name": "random",
+  "category": "math",
+  "description": "Random helper utility supporting range integers, item choice arrays, weighted choices, and UUID v4 string generation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when generating unique user session IDs, simulating probabilistic events (weighted outputs), picking index elements randomly, or performing calculations involving randomness. Import using: import { uuidv4, randomInt } from './math/random.js';",
+  "parameters": []
+}

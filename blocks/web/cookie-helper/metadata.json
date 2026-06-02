@@ -1,0 +1,8 @@
+{
+  "name": "cookie-helper",
+  "category": "web",
+  "description": "Safe browser cookie manipulation helper (set, get, delete) supporting attributes like path, domain, security, and samesite.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need client-side session cookie management, user preference caching, or dark-mode toggle persistence that works natively in browsers without external libraries.",
+  "parameters": []
+}

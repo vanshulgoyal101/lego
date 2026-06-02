@@ -1,0 +1,8 @@
+{
+  "name": "stats",
+  "category": "math",
+  "description": "Statistics math helper supporting mean, median, mode, variance, standard deviation, and percentile calculations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when processing numerical analysis lists, summarizing database metric query columns, or plotting dashboard graphics charts (calculating medians or percentiles like p95 or p99). Import using: import { mean, stdDev } from './math/stats.js';",
+  "parameters": []
+}

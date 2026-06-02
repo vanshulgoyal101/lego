@@ -1,0 +1,8 @@
+{
+  "name": "base64",
+  "category": "encoding",
+  "description": "Self-contained Base64 binary and text string encoder/decoder without environment dependencies (works in Node & browser).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when encoding image binary buffers, serializing JSON packets for URL transport, or generating auth credentials blocks without using window.btoa or Node's Buffer. Import using: import { encode, decode } from './encoding/base64.js';",
+  "parameters": []
+}

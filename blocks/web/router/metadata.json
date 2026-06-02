@@ -1,0 +1,8 @@
+{
+  "name": "router",
+  "category": "web",
+  "description": "A client-side routing helper mapping paths to handlers, supporting dynamic param extraction.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building Single Page Applications (SPAs) or client-side navigation hubs that need parameter mapping (/posts/:id) without heavy framework dependencies. Import using: import { ClientRouter } from './web/router.js';",
+  "parameters": []
+}

@@ -1,0 +1,15 @@
+{
+  "name": "graph",
+  "category": "algo",
+  "description": "Standard Graph data structure class supporting DFS, BFS, and Dijkstra pathfinding operations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when representing node relation structures (like social connections, network pathways, geographic navigation routes, or task dependency chains) and executing path searches.",
+  "parameters": [
+    {
+      "name": "directed",
+      "type": "boolean",
+      "default": false,
+      "description": "If true, graph edges are unidirectional."
+    }
+  ]
+}

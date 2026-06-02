@@ -1,0 +1,8 @@
+{
+  "name": "schema-validator",
+  "category": "validation",
+  "description": "A lightweight object schema validation engine (Zod-like syntax) supporting nested properties verification.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when checking incoming request bodies, form submissions, or API payloads for typesafety and custom constraints (like email format or lengths) without importing Zod or Yup. Import using: import { schema } from './validation/schema-validator.js';",
+  "parameters": []
+}

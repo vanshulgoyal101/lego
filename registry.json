@@ -1,5 +1,49 @@
 {
   "blocks": {
+    "algo/binary-search": {
+      "name": "binary-search",
+      "category": "algo",
+      "description": "Binary search algorithm helper for sorted arrays with custom comparator support.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when searching through large sorted lists (like lookup index tables, date records, sorted logs, or user list caches) to avoid slow linear searches (O(n)).",
+      "parameters": [
+        {
+          "name": "array",
+          "type": "Array",
+          "required": true,
+          "description": "The sorted list to search."
+        },
+        {
+          "name": "target",
+          "type": "any",
+          "required": true,
+          "description": "The key or element value to locate."
+        }
+      ],
+      "path": "blocks/algo/binary-search",
+      "files": [
+        "index.js"
+      ]
+    },
+    "algo/graph": {
+      "name": "graph",
+      "category": "algo",
+      "description": "Standard Graph data structure class supporting DFS, BFS, and Dijkstra pathfinding operations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when representing node relation structures (like social connections, network pathways, geographic navigation routes, or task dependency chains) and executing path searches.",
+      "parameters": [
+        {
+          "name": "directed",
+          "type": "boolean",
+          "default": false,
+          "description": "If true, graph edges are unidirectional."
+        }
+      ],
+      "path": "blocks/algo/graph",
+      "files": [
+        "index.js"
+      ]
+    },
     "async/event-emitter": {
       "name": "event-emitter",
       "category": "async",
@@ -190,6 +234,18 @@
         "index.js"
       ]
     },
+    "encoding/base64": {
+      "name": "base64",
+      "category": "encoding",
+      "description": "Self-contained Base64 binary and text string encoder/decoder without environment dependencies (works in Node & browser).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when encoding image binary buffers, serializing JSON packets for URL transport, or generating auth credentials blocks without using window.btoa or Node's Buffer. Import using: import { encode, decode } from './encoding/base64.js';",
+      "parameters": [],
+      "path": "blocks/encoding/base64",
+      "files": [
+        "index.js"
+      ]
+    },
     "math/matrix": {
       "name": "matrix",
       "category": "math",
@@ -205,6 +261,30 @@
         }
       ],
       "path": "blocks/math/matrix",
+      "files": [
+        "index.js"
+      ]
+    },
+    "math/random": {
+      "name": "random",
+      "category": "math",
+      "description": "Random helper utility supporting range integers, item choice arrays, weighted choices, and UUID v4 string generation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when generating unique user session IDs, simulating probabilistic events (weighted outputs), picking index elements randomly, or performing calculations involving randomness. Import using: import { uuidv4, randomInt } from './math/random.js';",
+      "parameters": [],
+      "path": "blocks/math/random",
+      "files": [
+        "index.js"
+      ]
+    },
+    "math/stats": {
+      "name": "stats",
+      "category": "math",
+      "description": "Statistics math helper supporting mean, median, mode, variance, standard deviation, and percentile calculations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when processing numerical analysis lists, summarizing database metric query columns, or plotting dashboard graphics charts (calculating medians or percentiles like p95 or p99). Import using: import { mean, stdDev } from './math/stats.js';",
+      "parameters": [],
+      "path": "blocks/math/stats",
       "files": [
         "index.js"
       ]
@@ -371,6 +451,18 @@
         "index.js"
       ]
     },
+    "validation/schema-validator": {
+      "name": "schema-validator",
+      "category": "validation",
+      "description": "A lightweight object schema validation engine (Zod-like syntax) supporting nested properties verification.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when checking incoming request bodies, form submissions, or API payloads for typesafety and custom constraints (like email format or lengths) without importing Zod or Yup. Import using: import { schema } from './validation/schema-validator.js';",
+      "parameters": [],
+      "path": "blocks/validation/schema-validator",
+      "files": [
+        "index.js"
+      ]
+    },
     "web/api-client": {
       "name": "api-client",
       "category": "web",
@@ -390,6 +482,18 @@
         }
       ],
       "path": "blocks/web/api-client",
+      "files": [
+        "index.js"
+      ]
+    },
+    "web/cookie-helper": {
+      "name": "cookie-helper",
+      "category": "web",
+      "description": "Safe browser cookie manipulation helper (set, get, delete) supporting attributes like path, domain, security, and samesite.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need client-side session cookie management, user preference caching, or dark-mode toggle persistence that works natively in browsers without external libraries.",
+      "parameters": [],
+      "path": "blocks/web/cookie-helper",
       "files": [
         "index.js"
       ]
@@ -427,6 +531,18 @@
         }
       ],
       "path": "blocks/web/fetch-retry",
+      "files": [
+        "index.js"
+      ]
+    },
+    "web/router": {
+      "name": "router",
+      "category": "web",
+      "description": "A client-side routing helper mapping paths to handlers, supporting dynamic param extraction.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building Single Page Applications (SPAs) or client-side navigation hubs that need parameter mapping (/posts/:id) without heavy framework dependencies. Import using: import { ClientRouter } from './web/router.js';",
+      "parameters": [],
+      "path": "blocks/web/router",
       "files": [
         "index.js"
       ]

@@ -1,0 +1,21 @@
+{
+  "name": "binary-search",
+  "category": "algo",
+  "description": "Binary search algorithm helper for sorted arrays with custom comparator support.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when searching through large sorted lists (like lookup index tables, date records, sorted logs, or user list caches) to avoid slow linear searches (O(n)).",
+  "parameters": [
+    {
+      "name": "array",
+      "type": "Array",
+      "required": true,
+      "description": "The sorted list to search."
+    },
+    {
+      "name": "target",
+      "type": "any",
+      "required": true,
+      "description": "The key or element value to locate."
+    }
+  ]
+}
