@@ -22,6 +22,19 @@ import {sanitize, escapeHtml, stripTags} from './index.js';
       expect(result.includes('javascript:')).toBe(false);
     });
 
+    await it('should block unsafe data protocol in href', () => {
+      const input = '<a href="data:text/html;base64,PHNjcmlwdA==">Link</a>';
+      const result = sanitize(input);
+      expect(result.includes('href=')).toBe(false);
+    });
+
+    await it('should remove style attribute by default', () => {
+      const input = '<p style="background:url(javascript:alert(1))">Hi</p>';
+      const result = sanitize(input);
+      expect(result.includes('style=')).toBe(false);
+      expect(result.includes('<p')).toBe(true);
+    });
+
     await it('should allow safe tags and attributes', () => {
       const input = '<div class="box"><p>Safe content</p><strong>Bold</strong></div>';
       const result = sanitize(input);

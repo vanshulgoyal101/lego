@@ -8,4 +8,15 @@ import {parseQuery, stringifyQuery} from './index.js';
       expect(query).toBe('tags[]=admin&tags[]=dev&parent%5Bchild%5D=value');
       expect(parseQuery(query)).toEqual(obj);
     });
+
+    await it('should ignore unsafe keys to prevent prototype pollution', async () => {
+      const parsed = parseQuery('__proto__[polluted]=yes&constructor[prototype]=oops&safe=value');
+      expect(parsed.safe).toBe('value');
+      expect({}.polluted).toBe(undefined);
+    });
+
+    await it('should preserve equals signs in values', async () => {
+      const parsed = parseQuery('token=a=b=c');
+      expect(parsed.token).toBe('a=b=c');
+    });
   });

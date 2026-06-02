@@ -43,19 +43,24 @@ export function stringifyQuery(obj) {
  */
 export function parseQuery(queryString) {
   const query = queryString.startsWith('?') ? queryString.substring(1) : queryString;
-  const result = {};
+  const result = Object.create(null);
   if (!query) return result;
+
+  const isUnsafeKey = (key) => key === '__proto__' || key === 'prototype' || key === 'constructor';
 
   const pairs = query.split('&');
   for (const pair of pairs) {
     if (!pair) continue;
-    const parts = pair.split('=');
-    const key = decodeURIComponent(parts[0]);
-    const value = parts[1] !== undefined ? decodeURIComponent(parts[1]) : '';
+    const eqIdx = pair.indexOf('=');
+    const rawKey = eqIdx === -1 ? pair : pair.slice(0, eqIdx);
+    const rawVal = eqIdx === -1 ? '' : pair.slice(eqIdx + 1);
+    const key = decodeURIComponent(rawKey);
+    const value = decodeURIComponent(rawVal);
 
     // Handle nested array syntax (e.g. key[])
     if (key.endsWith('[]')) {
       const cleanKey = key.slice(0, -2);
+      if (isUnsafeKey(cleanKey)) continue;
       if (!Array.isArray(result[cleanKey])) {
         result[cleanKey] = [];
       }
@@ -64,12 +69,18 @@ export function parseQuery(queryString) {
       // Handle nested object syntax (e.g. parent[child])
       const parent = key.substring(0, key.indexOf('['));
       const child = key.substring(key.indexOf('[') + 1, key.length - 1);
+      if (isUnsafeKey(parent) || isUnsafeKey(child)) continue;
       
-      if (typeof result[parent] !== 'object' || result[parent] === null) {
-        result[parent] = {};
+      if (
+        typeof result[parent] !== 'object' ||
+        result[parent] === null ||
+        Array.isArray(result[parent])
+      ) {
+        result[parent] = Object.create(null);
       }
       result[parent][child] = value;
     } else {
+      if (isUnsafeKey(key)) continue;
       result[key] = value;
     }
   }

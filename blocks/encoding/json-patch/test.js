@@ -65,6 +65,11 @@ await describe('encoding/json-patch', async () => {
     expect(original).toEqual({ a: 1 });
   });
 
+  await it('apply: blocks unsafe prototype mutation paths', () => {
+    expect(() => apply({}, [{ op: 'add', path: '/__proto__/polluted', value: 'yes' }])).toThrow('Unsafe JSON Pointer');
+    expect({}.polluted).toBe(undefined);
+  });
+
   // ─── diff ────────────────────────────────────────────────────────────────
 
   await it('diff generates add for new keys', () => {
@@ -114,6 +119,11 @@ await describe('encoding/json-patch', async () => {
 
   await it('validate rejects copy/move without from field', () => {
     const result = validate([{ op: 'move', path: '/y' }]);
+    expect(result.valid).toBe(false);
+  });
+
+  await it('validate rejects unsafe path segments', () => {
+    const result = validate([{ op: 'add', path: '/__proto__/x', value: 1 }]);
     expect(result.valid).toBe(false);
   });
 

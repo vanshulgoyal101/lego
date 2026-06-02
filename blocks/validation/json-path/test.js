@@ -56,6 +56,13 @@ await describe('validation/json-path', async () => {
     expect(obj.a.c).toBe('hello');
   });
 
+  await it('set() should block unsafe prototype mutation paths', async () => {
+    const obj = {};
+    const result = set(obj, '$.__proto__.polluted', 'yes');
+    expect(result).toBe(false);
+    expect({}.polluted).toBe(undefined);
+  });
+
   await it('exists() should return true for matching paths', async () => {
     expect(exists(STORE, '$.store.owner.name')).toBe(true);
     expect(exists(STORE, '$.store.nonexistent')).toBe(false);

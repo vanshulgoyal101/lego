@@ -26,6 +26,18 @@ function parsePath(pointer) {
   return pointer.slice(1).split('/').map(s => s.replace(/~1/g, '/').replace(/~0/g, '~'));
 }
 
+function isUnsafeKey(part) {
+  return part === '__proto__' || part === 'prototype' || part === 'constructor';
+}
+
+function assertSafePath(parts, sourcePath) {
+  for (const part of parts) {
+    if (isUnsafeKey(part)) {
+      throw new Error(`Unsafe JSON Pointer segment in path "${sourcePath}"`);
+    }
+  }
+}
+
 /**
  * Deep-clones a JSON-serialisable value.
  * @param {*} value
@@ -44,6 +56,7 @@ function deepClone(value) {
  * @throws {Error} If the path does not exist.
  */
 function getIn(doc, parts) {
+  assertSafePath(parts, '/' + parts.join('/'));
   let current = doc;
   for (const part of parts) {
     if (current == null || typeof current !== 'object') {
@@ -66,6 +79,7 @@ function getIn(doc, parts) {
  * @returns {*} Modified document clone.
  */
 function setIn(doc, parts, value) {
+  assertSafePath(parts, '/' + parts.join('/'));
   if (parts.length === 0) return deepClone(value);
   const clone = deepClone(doc);
   let current = clone;
@@ -90,6 +104,7 @@ function setIn(doc, parts, value) {
  * @returns {*} Modified document clone.
  */
 function removeIn(doc, parts) {
+  assertSafePath(parts, '/' + parts.join('/'));
   if (parts.length === 0) throw new Error('Cannot remove the root document');
   const clone = deepClone(doc);
   let current = clone;
@@ -114,6 +129,7 @@ function removeIn(doc, parts) {
  */
 function applyOp(doc, op) {
   const path = parsePath(op.path);
+  assertSafePath(path, op.path);
 
   switch (op.op) {
     case 'add':
@@ -131,12 +147,14 @@ function applyOp(doc, op) {
 
     case 'copy': {
       const fromParts = parsePath(op.from);
+      assertSafePath(fromParts, op.from);
       const srcValue = getIn(doc, fromParts);
       return setIn(doc, path, srcValue);
     }
 
     case 'move': {
       const fromParts = parsePath(op.from);
+      assertSafePath(fromParts, op.from);
       const movedValue = getIn(doc, fromParts);
       const afterRemove = removeIn(doc, fromParts);
       return setIn(afterRemove, path, movedValue);
@@ -260,12 +278,32 @@ export function validate(patch) {
     }
     if (typeof op.path !== 'string') {
       errors.push(`${prefix}: 'path' must be a string`);
+    } else {
+      try {
+        const parts = parsePath(op.path);
+        if (parts.some(isUnsafeKey)) {
+          errors.push(`${prefix}: 'path' contains unsafe key segment`);
+        }
+      } catch (err) {
+        errors.push(`${prefix}: invalid path "${op.path}"`);
+      }
     }
     if (OPS_REQUIRING_VALUE.has(op.op) && !('value' in op)) {
       errors.push(`${prefix}: '${op.op}' requires a 'value' field`);
     }
-    if (OPS_REQUIRING_FROM.has(op.op) && typeof op.from !== 'string') {
-      errors.push(`${prefix}: '${op.op}' requires a 'from' string`);
+    if (OPS_REQUIRING_FROM.has(op.op)) {
+      if (typeof op.from !== 'string') {
+        errors.push(`${prefix}: '${op.op}' requires a 'from' string`);
+      } else {
+        try {
+          const fromParts = parsePath(op.from);
+          if (fromParts.some(isUnsafeKey)) {
+            errors.push(`${prefix}: 'from' contains unsafe key segment`);
+          }
+        } catch (err) {
+          errors.push(`${prefix}: invalid from path "${op.from}"`);
+        }
+      }
     }
   }
 

@@ -6,6 +6,15 @@
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
+function assertSafeMapKey(key) {
+  if (
+    typeof key === 'string' &&
+    (key === '__proto__' || key === 'prototype' || key === 'constructor')
+  ) {
+    throw new Error(`Unsafe MsgPack map key: ${key}`);
+  }
+}
+
 /**
  * Encodes JavaScript values into a MessagePack binary buffer (Uint8Array).
  */
@@ -202,9 +211,10 @@ export function decode(buffer) {
     // FixMap
     if (byte >= 0x80 && byte < 0x90) {
       const len = byte & 0x0f;
-      const res = {};
+      const res = Object.create(null);
       for (let i = 0; i < len; i++) {
         const key = deserialize();
+        assertSafeMapKey(key);
         res[key] = deserialize();
       }
       return res;
@@ -323,9 +333,10 @@ export function decode(buffer) {
       case 0xde: {
         const len = view.getUint16(offset, false);
         offset += 2;
-        const res = {};
+        const res = Object.create(null);
         for (let i = 0; i < len; i++) {
           const key = deserialize();
+          assertSafeMapKey(key);
           res[key] = deserialize();
         }
         return res;
@@ -335,9 +346,10 @@ export function decode(buffer) {
       case 0xdf: {
         const len = view.getUint32(offset, false);
         offset += 4;
-        const res = {};
+        const res = Object.create(null);
         for (let i = 0; i < len; i++) {
           const key = deserialize();
+          assertSafeMapKey(key);
           res[key] = deserialize();
         }
         return res;

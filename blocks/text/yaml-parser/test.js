@@ -55,4 +55,9 @@ import {parseYaml, stringifyYaml} from './index.js';
       expect(yaml.includes('name')).toBe(true);
       expect(yaml.includes('scores')).toBe(true);
     });
+
+    await it('should reject unsafe keys that can cause prototype pollution', () => {
+      expect(() => parseYaml('__proto__: bad')).toThrow('Unsafe YAML key');
+      expect({}.bad).toBe(undefined);
+    });
   });

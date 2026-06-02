@@ -17,12 +17,12 @@ const DEFAULT_ALLOWED_TAGS = new Set([
 // Default allowlisted attributes
 const DEFAULT_ALLOWED_ATTRS = new Set([
   'alt', 'class', 'dir', 'for', 'height', 'href', 'id', 'lang', 'rel',
-  'src', 'style', 'title', 'width', 'target', 'colspan', 'rowspan',
+  'src', 'title', 'width', 'target', 'colspan', 'rowspan',
   'datetime', 'cite', 'align', 'valign', 'scope'
 ]);
 
-// Protocols allowed in href/src
-const SAFE_PROTOCOLS = new Set(['http:', 'https:', 'mailto:', 'tel:', 'ftp:', '#', '/']);
+// Protocols allowed in href/src/action
+const SAFE_PROTOCOLS = new Set(['http:', 'https:', 'mailto:', 'tel:', 'ftp:']);
 
 // Dangerous patterns in attribute values
 const DANGEROUS_ATTR_VALUE = /^javascript:|^vbscript:|^data:(?!image\/(png|jpg|jpeg|gif|webp|svg\+xml))/i;
@@ -63,8 +63,22 @@ function parseTag(tag) {
  * Check if an attribute value is safe.
  */
 function isSafeAttrValue(attrName, value) {
+  const trimmedValue = value.trim();
+
+  if (trimmedValue.includes('\u0000')) return false;
+
   if (attrName === 'href' || attrName === 'src' || attrName === 'action') {
-    if (DANGEROUS_ATTR_VALUE.test(value.trim())) return false;
+    if (DANGEROUS_ATTR_VALUE.test(trimmedValue)) return false;
+
+    if (trimmedValue.startsWith('#') || trimmedValue.startsWith('/')) return true;
+
+    const colonIdx = trimmedValue.indexOf(':');
+    if (colonIdx !== -1) {
+      const protocol = trimmedValue.slice(0, colonIdx + 1).toLowerCase();
+      if (!SAFE_PROTOCOLS.has(protocol)) {
+        return false;
+      }
+    }
   }
 
   // Block on* event handlers (onclick, onerror, etc.)
@@ -157,7 +171,12 @@ export function sanitize(html, options = {}) {
       for (const [name, value] of parsed.attrs.entries()) {
         if (!allowedAttrs.has(name)) continue;
         if (!isSafeAttrValue(name, value)) continue;
-        attrStr += ` ${name}="${value.replace(/"/g, '&quot;')}"`;
+        const escapedValue = value
+          .replace(/&/g, '&amp;')
+          .replace(/"/g, '&quot;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+        attrStr += ` ${name}="${escapedValue}"`;
       }
       result += `<${parsed.tagName}${attrStr}${parsed.isSelfClosing ? ' /' : ''}>`;
     }
