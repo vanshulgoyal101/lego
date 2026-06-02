@@ -1,0 +1,27 @@
+{
+  "name": "redux-lite",
+  "category": "state",
+  "description": "A lightweight global state store with actions dispatcher, state reducers, subscription listeners, and custom middleware support.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building centralized global state flows (like frontend user sessions, theme preferences, dashboard data models, or client/server socket state synchronizations).",
+  "parameters": [
+    {
+      "name": "reducer",
+      "type": "Function",
+      "required": true,
+      "description": "Reducer function (state, action) => newState."
+    },
+    {
+      "name": "initialState",
+      "type": "any",
+      "required": false,
+      "description": "Initial state value."
+    },
+    {
+      "name": "middlewares",
+      "type": "Array<Function>",
+      "required": false,
+      "description": "Optional array of Redux-style middleware functions."
+    }
+  ]
+}

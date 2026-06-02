@@ -90,6 +90,36 @@ function getComplexity(name) {
       return { time: 'O(1)', space: 'O(1)' };
     case 'schema-validator':
       return { time: 'O(P) properties validate (P = schema fields)', space: 'O(P)' };
+    case 'promise-pool':
+      return { time: 'O(N) task mapping execution', space: 'O(C) active concurrency buffer' };
+    case 'sse-client':
+      return { time: 'O(1) persistent stream monitoring', space: 'O(1)' };
+    case 'ip-validator':
+      return { time: 'O(1) validation check speed', space: 'O(1)' };
+    case 'msgpack':
+      return { time: 'O(N) byte serialization mapping', space: 'O(N) binary payload buffers' };
+    case 'kmeans':
+      return { time: 'O(I * K * N * D) where I=iterations, K=clusters, N=points, D=dimensions', space: 'O(K * D + N)' };
+    case 'redux-lite':
+      return { time: 'O(1) dispatch execution state updates', space: 'O(L) store change listeners' };
+    case 'totp':
+      return { time: 'O(W) hash validations (W = window size)', space: 'O(1)' };
+    case 'key-value':
+      return { time: 'O(1) lookup map checks', space: 'O(N) keys cache database size' };
+    case 'document-db':
+      return { time: 'O(N) scan filtering (O(1) if indexing matched)', space: 'O(N) total stored JSON objects' };
+    case 'parser-combinator':
+      return { time: 'O(N) character parse matching', space: 'O(D) parser recursive depth' };
+    case 'markdown-compiler':
+      return { time: 'O(N) lines AST building', space: 'O(A) AST elements tree' };
+    case 'graph-db':
+      return { time: 'O(V * log V + E) for Dijkstra shortestPath', space: 'O(V + E) nodes and edges map' };
+    case 'json-schema-validator':
+      return { time: 'O(P * D) properties deep validation (P=rules, D=data)', space: 'O(R) recursive evaluation stack' };
+    case 'http-client-resilient':
+      return { time: 'O(1) execution loops', space: 'O(C) memory request cache entries' };
+    case 'timeseries-db':
+      return { time: 'O(log N) insert ordering scan', space: 'O(N) data metrics records size' };
     default:
       return { time: 'O(1)', space: 'O(1)' };
   }

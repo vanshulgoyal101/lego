@@ -1,0 +1,21 @@
+{
+  "name": "json-schema-validator",
+  "category": "compiler",
+  "description": "JSON Schema (Draft-07 matching) validation compiler validating object types, min/max limits, regex patterns, enum arrays, required properties, items lists, anyOf, allOf, oneOf, and not specifications.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when validating complex API payloads, config files, database inputs, or parsed JSON structures against standard JSON Schema specifications.",
+  "parameters": [
+    {
+      "name": "schema",
+      "type": "Object",
+      "required": true,
+      "description": "Standard JSON Schema draft-07 configuration object."
+    },
+    {
+      "name": "data",
+      "type": "any",
+      "required": true,
+      "description": "Input data value to validate."
+    }
+  ]
+}

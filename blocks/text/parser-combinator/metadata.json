@@ -1,0 +1,8 @@
+{
+  "name": "parser-combinator",
+  "category": "text",
+  "description": "A monadic parser combinator framework to build custom compilers, lexers, and syntax parsers with full source coordinate (line, column) error tracking.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building custom configuration formats, DSL compilers, math expression parsers, or complex structured log lexers requiring precise error locations.",
+  "parameters": []
+}

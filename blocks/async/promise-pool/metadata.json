@@ -1,0 +1,27 @@
+{
+  "name": "promise-pool",
+  "category": "async",
+  "description": "Executes async tasks over an array of items with a configurable concurrency limit, preserving input order.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you want to execute many async operations (like API calls, database reads, or file downloads) but need to restrict active concurrency (e.g. limit to 5 parallel tasks) to avoid rate limits or exhaustion.",
+  "parameters": [
+    {
+      "name": "items",
+      "type": "Array",
+      "required": true,
+      "description": "Array of input items to process."
+    },
+    {
+      "name": "fn",
+      "type": "Function",
+      "required": true,
+      "description": "Async function mapping each item to a promise: (item, index) => Promise<any>."
+    },
+    {
+      "name": "concurrency",
+      "type": "number",
+      "required": true,
+      "description": "Maximum number of promises running concurrently."
+    }
+  ]
+}

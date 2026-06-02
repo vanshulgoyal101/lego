@@ -1,0 +1,15 @@
+{
+  "name": "msgpack",
+  "category": "encoding",
+  "description": "Pure JS MessagePack (msgpack) binary serialization encoder and decoder. Highly optimized and zero-dependency.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need binary serialization of JSON-like data structures (arrays, objects, strings, numbers, booleans) to reduce network payload size or save raw binary buffers to disk.",
+  "parameters": [
+    {
+      "name": "data",
+      "type": "any",
+      "required": true,
+      "description": "The data object to encode, or binary buffer to decode."
+    }
+  ]
+}

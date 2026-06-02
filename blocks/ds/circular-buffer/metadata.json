@@ -1,0 +1,14 @@
+{
+  "name": "circular-buffer",
+  "category": "ds",
+  "description": "Fixed-size circular ring buffer queue supporting FIFO operations and auto-overwriting on capacity limit.",
+  "parameters": [
+    {
+      "name": "capacity",
+      "type": "number",
+      "required": true,
+      "description": "Fixed maximum size width buffer size."
+    }
+  ],
+  "aiPromptContext": "Use this block when saving sliding window averages, caching the last N application logs, or buffering audio/binary data chunks in real-time streaming connections. Import using: import { CircularBuffer } from './ds/circular-buffer.js';"
+}

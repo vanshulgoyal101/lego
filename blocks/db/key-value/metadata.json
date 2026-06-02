@@ -1,0 +1,15 @@
+{
+  "name": "key-value",
+  "category": "db",
+  "description": "In-memory Key-Value storage engine featuring automated TTL key expirations, event-driven callbacks, and custom persistence adapter hooks.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building cache layers, session storage engines, dynamic application properties configs, or temporal token storage.",
+  "parameters": [
+    {
+      "name": "options",
+      "type": "Object",
+      "required": false,
+      "description": "Configuration: ttlCheckInterval (ms) and custom save/load adapters."
+    }
+  ]
+}

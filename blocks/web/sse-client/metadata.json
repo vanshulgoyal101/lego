@@ -1,0 +1,21 @@
+{
+  "name": "sse-client",
+  "category": "web",
+  "description": "Universal Server-Sent Events (SSE) client built on standard Fetch and Streams API. Supports custom headers, request options, and auto-reconnections.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when subscribing to server-sent events (SSE) or event streams (like AI completion text streams, live dashboards, or stock updates) while requiring custom authorization headers or custom HTTP options.",
+  "parameters": [
+    {
+      "name": "url",
+      "type": "string",
+      "required": true,
+      "description": "Endpoint URL to connect to."
+    },
+    {
+      "name": "options",
+      "type": "Object",
+      "required": false,
+      "description": "Optional configuration including headers, method, body, and custom reconnect settings."
+    }
+  ]
+}

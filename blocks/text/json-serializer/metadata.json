@@ -1,0 +1,8 @@
+{
+  "name": "json-serializer",
+  "category": "text",
+  "description": "Safe JSON parser and stringifier handling circular references, BigInts, and parsing fallback recoveries.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when serializing complex, deep, or untrusted object trees (like application configurations, logger payloads containing active instances, or API response objects) where traditional JSON.stringify could crash. Import using: import { stringifySafe, parseSafe } from './text/json-serializer.js';",
+  "parameters": []
+}

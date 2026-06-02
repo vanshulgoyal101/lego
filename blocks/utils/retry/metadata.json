@@ -1,0 +1,27 @@
+{
+  "name": "retry",
+  "category": "utils",
+  "description": "A generalized task execution retrier supporting custom delay backoff, jitter, and error conditional triggers.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when executing network requests, database transactions, file system locking access, or third-party API queries that can suffer from transient network outages. Import using: import { retry } from './utils/retry.js';",
+  "parameters": [
+    {
+      "name": "task",
+      "type": "Function",
+      "required": true,
+      "description": "The asynchronous task function resolving a promise."
+    },
+    {
+      "name": "options.retries",
+      "type": "number",
+      "default": 3,
+      "description": "Maximum number of retry attempts before throwing."
+    },
+    {
+      "name": "options.delay",
+      "type": "number",
+      "default": 1000,
+      "description": "Initial delay between retry attempts in milliseconds."
+    }
+  ]
+}

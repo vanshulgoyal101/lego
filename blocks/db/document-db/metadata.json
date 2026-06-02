@@ -1,0 +1,8 @@
+{
+  "name": "document-db",
+  "category": "db",
+  "description": "Production-grade, zero-dependency in-memory JSON document database featuring MongoDB-like query parsers, indexing, sorting, projections, and ACID transactions with rollback.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need an advanced, queryable client-side or server-side JSON document storage engine with transactions, custom index optimization, and powerful filtering operators.",
+  "parameters": []
+}

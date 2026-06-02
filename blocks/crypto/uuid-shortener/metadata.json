@@ -1,0 +1,15 @@
+{
+  "name": "uuid-shortener",
+  "category": "crypto",
+  "description": "UUID compression helper converting standard 36-char UUIDs to short URL-safe Base62 22-char strings and back.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when generating compact database identifiers, shortening URLs with keys, saving log files storage size, or reducing API request payloads widths. Import using: import { shortenUuid, expandUuid } from './crypto/uuid-shortener.js';",
+  "parameters": [
+    {
+      "name": "uuid",
+      "type": "string",
+      "required": true,
+      "description": "Standard UUID string sequence to compress."
+    }
+  ]
+}

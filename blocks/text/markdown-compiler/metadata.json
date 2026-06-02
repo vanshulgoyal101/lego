@@ -1,0 +1,15 @@
+{
+  "name": "markdown-compiler",
+  "category": "text",
+  "description": "An AST-based Markdown compiler that parses markdown syntax into an Abstract Syntax Tree (AST) and renders it to sanitized HTML.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to convert markdown content into AST blocks for rendering in modern rich-text engines or rendering customized HTML components with built-in sanitization.",
+  "parameters": [
+    {
+      "name": "markdown",
+      "type": "string",
+      "required": true,
+      "description": "The raw markdown text content to compile."
+    }
+  ]
+}

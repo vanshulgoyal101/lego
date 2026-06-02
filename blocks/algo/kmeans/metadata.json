@@ -1,0 +1,28 @@
+{
+  "name": "kmeans",
+  "category": "algo",
+  "description": "K-Means clustering algorithm for classifying multi-dimensional numerical coordinate vectors.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when classifying data records, grouping multi-dimensional coordinate vectors, or performing simple data science clustering models.",
+  "parameters": [
+    {
+      "name": "data",
+      "type": "Array",
+      "required": true,
+      "description": "Array of numeric arrays, e.g. [[x1, y1], [x2, y2]]."
+    },
+    {
+      "name": "k",
+      "type": "number",
+      "required": true,
+      "description": "Number of clusters to partition the data into."
+    },
+    {
+      "name": "maxIterations",
+      "type": "number",
+      "required": false,
+      "default": 100,
+      "description": "Maximum clustering loop iterations allowed."
+    }
+  ]
+}

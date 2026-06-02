@@ -1,0 +1,8 @@
+{
+  "name": "graph-db",
+  "category": "db",
+  "description": "An in-memory Graph Database featuring labeled nodes, directed property edges, deep traversals (BFS, DFS, Dijkstra), and ACID transactional rollbacks.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when representing rich relationships (like social connections, recommendations, access management ACL lists, or network routing trees) requiring transactional graph queries.",
+  "parameters": []
+}

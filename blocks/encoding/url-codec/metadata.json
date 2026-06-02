@@ -1,0 +1,8 @@
+{
+  "name": "url-codec",
+  "category": "encoding",
+  "description": "Dynamic URL query parameters serializer and deserializer helper with nested array/object parsing.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block in frontend routing parameters serialization, browser search link updates, or server query string parsers. Import using: import { parseQuery, stringifyQuery } from './encoding/url-codec.js';",
+  "parameters": []
+}

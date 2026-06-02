@@ -1,0 +1,21 @@
+{
+  "name": "totp",
+  "category": "crypto",
+  "description": "Universal Time-based One-Time Password (TOTP) and HMAC-based One-Time Password (HOTP) token generator and validator using standard Web Crypto APIs.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when verifying 2-Factor Authentication (2FA) codes from authenticator apps (Google Authenticator, Authy) or generating temporal authorization passcodes.",
+  "parameters": [
+    {
+      "name": "secret",
+      "type": "string",
+      "required": true,
+      "description": "Base32-encoded shared secret string."
+    },
+    {
+      "name": "options",
+      "type": "Object",
+      "required": false,
+      "description": "Configuration: window size, digit length, time step duration (default 30s)."
+    }
+  ]
+}

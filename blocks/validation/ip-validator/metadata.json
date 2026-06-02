@@ -1,0 +1,15 @@
+{
+  "name": "ip-validator",
+  "category": "validation",
+  "description": "Comprehensive IPv4/IPv6 validator featuring syntax checks, CIDR subnet matching, public vs private routing scopes, loopbacks, and link-local validations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when checking client IPs, parsing networking requests, validating CIDR notation, or executing security policy checks on loopback and private subnets.",
+  "parameters": [
+    {
+      "name": "ip",
+      "type": "string",
+      "required": true,
+      "description": "The IP address string to validate."
+    }
+  ]
+}

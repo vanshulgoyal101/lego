@@ -1,0 +1,21 @@
+{
+  "name": "levenshtein",
+  "category": "algo",
+  "description": "Levenshtein distance (edit distance) metric calculator to measure string similarity percentage.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when checking spelling edits, comparing search strings against catalogs (fuzzy logic), matching user voice commands, or grading text generation matches. Import using: import { levenshteinDistance } from './algo/levenshtein.js';",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "string",
+      "required": true,
+      "description": "First comparison string."
+    },
+    {
+      "name": "b",
+      "type": "string",
+      "required": true,
+      "description": "Second comparison string."
+    }
+  ]
+}

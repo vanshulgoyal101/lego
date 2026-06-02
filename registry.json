@@ -46,6 +46,85 @@
         "index.js"
       ]
     },
+    "algo/kmeans": {
+      "name": "kmeans",
+      "category": "algo",
+      "description": "K-Means clustering algorithm for classifying multi-dimensional numerical coordinate vectors.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when classifying data records, grouping multi-dimensional coordinate vectors, or performing simple data science clustering models.",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "Array",
+          "required": true,
+          "description": "Array of numeric arrays, e.g. [[x1, y1], [x2, y2]]."
+        },
+        {
+          "name": "k",
+          "type": "number",
+          "required": true,
+          "description": "Number of clusters to partition the data into."
+        },
+        {
+          "name": "maxIterations",
+          "type": "number",
+          "required": false,
+          "default": 100,
+          "description": "Maximum clustering loop iterations allowed."
+        }
+      ],
+      "path": "blocks/algo/kmeans",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "algo/levenshtein": {
+      "name": "levenshtein",
+      "category": "algo",
+      "description": "Levenshtein distance (edit distance) metric calculator to measure string similarity percentage.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when checking spelling edits, comparing search strings against catalogs (fuzzy logic), matching user voice commands, or grading text generation matches. Import using: import { levenshteinDistance } from './algo/levenshtein.js';",
+      "parameters": [
+        {
+          "name": "a",
+          "type": "string",
+          "required": true,
+          "description": "First comparison string."
+        },
+        {
+          "name": "b",
+          "type": "string",
+          "required": true,
+          "description": "Second comparison string."
+        }
+      ],
+      "path": "blocks/algo/levenshtein",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "algo/luhn": {
+      "name": "luhn",
+      "category": "algo",
+      "description": "Luhn algorithm checksum validator (Mod 10 check) for credit card or IMEI numbers validation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when validating financial payment inputs, verifying IMEI codes, or validating national identification check digits in submission forms. Import using: import { validateLuhn } from './algo/luhn.js';",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string | number",
+          "required": true,
+          "description": "Number card validation sequence."
+        }
+      ],
+      "path": "blocks/algo/luhn",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "algo/sorting": {
       "name": "sorting",
       "category": "algo",
@@ -84,6 +163,38 @@
         "index.js"
       ]
     },
+    "async/promise-pool": {
+      "name": "promise-pool",
+      "category": "async",
+      "description": "Executes async tasks over an array of items with a configurable concurrency limit, preserving input order.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you want to execute many async operations (like API calls, database reads, or file downloads) but need to restrict active concurrency (e.g. limit to 5 parallel tasks) to avoid rate limits or exhaustion.",
+      "parameters": [
+        {
+          "name": "items",
+          "type": "Array",
+          "required": true,
+          "description": "Array of input items to process."
+        },
+        {
+          "name": "fn",
+          "type": "Function",
+          "required": true,
+          "description": "Async function mapping each item to a promise: (item, index) => Promise<any>."
+        },
+        {
+          "name": "concurrency",
+          "type": "number",
+          "required": true,
+          "description": "Maximum number of promises running concurrently."
+        }
+      ],
+      "path": "blocks/async/promise-pool",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "async/semaphore": {
       "name": "semaphore",
       "category": "async",
@@ -99,6 +210,32 @@
         }
       ],
       "path": "blocks/async/semaphore",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "compiler/json-schema-validator": {
+      "name": "json-schema-validator",
+      "category": "compiler",
+      "description": "JSON Schema (Draft-07 matching) validation compiler validating object types, min/max limits, regex patterns, enum arrays, required properties, items lists, anyOf, allOf, oneOf, and not specifications.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when validating complex API payloads, config files, database inputs, or parsed JSON structures against standard JSON Schema specifications.",
+      "parameters": [
+        {
+          "name": "schema",
+          "type": "Object",
+          "required": true,
+          "description": "Standard JSON Schema draft-07 configuration object."
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "required": true,
+          "description": "Input data value to validate."
+        }
+      ],
+      "path": "blocks/compiler/json-schema-validator",
       "files": [
         "README.md",
         "index.js"
@@ -192,6 +329,78 @@
         "index.js"
       ]
     },
+    "crypto/totp": {
+      "name": "totp",
+      "category": "crypto",
+      "description": "Universal Time-based One-Time Password (TOTP) and HMAC-based One-Time Password (HOTP) token generator and validator using standard Web Crypto APIs.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when verifying 2-Factor Authentication (2FA) codes from authenticator apps (Google Authenticator, Authy) or generating temporal authorization passcodes.",
+      "parameters": [
+        {
+          "name": "secret",
+          "type": "string",
+          "required": true,
+          "description": "Base32-encoded shared secret string."
+        },
+        {
+          "name": "options",
+          "type": "Object",
+          "required": false,
+          "description": "Configuration: window size, digit length, time step duration (default 30s)."
+        }
+      ],
+      "path": "blocks/crypto/totp",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "crypto/uuid-shortener": {
+      "name": "uuid-shortener",
+      "category": "crypto",
+      "description": "UUID compression helper converting standard 36-char UUIDs to short URL-safe Base62 22-char strings and back.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when generating compact database identifiers, shortening URLs with keys, saving log files storage size, or reducing API request payloads widths. Import using: import { shortenUuid, expandUuid } from './crypto/uuid-shortener.js';",
+      "parameters": [
+        {
+          "name": "uuid",
+          "type": "string",
+          "required": true,
+          "description": "Standard UUID string sequence to compress."
+        }
+      ],
+      "path": "blocks/crypto/uuid-shortener",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "db/document-db": {
+      "name": "document-db",
+      "category": "db",
+      "description": "Production-grade, zero-dependency in-memory JSON document database featuring MongoDB-like query parsers, indexing, sorting, projections, and ACID transactions with rollback.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need an advanced, queryable client-side or server-side JSON document storage engine with transactions, custom index optimization, and powerful filtering operators.",
+      "parameters": [],
+      "path": "blocks/db/document-db",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "db/graph-db": {
+      "name": "graph-db",
+      "category": "db",
+      "description": "An in-memory Graph Database featuring labeled nodes, directed property edges, deep traversals (BFS, DFS, Dijkstra), and ACID transactional rollbacks.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when representing rich relationships (like social connections, recommendations, access management ACL lists, or network routing trees) requiring transactional graph queries.",
+      "parameters": [],
+      "path": "blocks/db/graph-db",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "db/json-db": {
       "name": "json-db",
       "category": "db",
@@ -207,6 +416,39 @@
         }
       ],
       "path": "blocks/db/json-db",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "db/key-value": {
+      "name": "key-value",
+      "category": "db",
+      "description": "In-memory Key-Value storage engine featuring automated TTL key expirations, event-driven callbacks, and custom persistence adapter hooks.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building cache layers, session storage engines, dynamic application properties configs, or temporal token storage.",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "Object",
+          "required": false,
+          "description": "Configuration: ttlCheckInterval (ms) and custom save/load adapters."
+        }
+      ],
+      "path": "blocks/db/key-value",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "db/timeseries-db": {
+      "name": "timeseries-db",
+      "category": "db",
+      "description": "An in-memory Time-Series Database featuring metric point ingestion, TTL retention policies, tumbling/sliding time window aggregations, downsampling, and stream alerting thresholds.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building real-time metrics monitoring dashboards, logging historical events, caching IoT sensor signals, or tracking continuous runtime performance metrics.",
+      "parameters": [],
+      "path": "blocks/db/timeseries-db",
       "files": [
         "README.md",
         "index.js"
@@ -246,6 +488,25 @@
         }
       ],
       "path": "blocks/ds/bloom-filter",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "ds/circular-buffer": {
+      "name": "circular-buffer",
+      "category": "ds",
+      "description": "Fixed-size circular ring buffer queue supporting FIFO operations and auto-overwriting on capacity limit.",
+      "parameters": [
+        {
+          "name": "capacity",
+          "type": "number",
+          "required": true,
+          "description": "Fixed maximum size width buffer size."
+        }
+      ],
+      "aiPromptContext": "Use this block when saving sliding window averages, caching the last N application logs, or buffering audio/binary data chunks in real-time streaming connections. Import using: import { CircularBuffer } from './ds/circular-buffer.js';",
+      "path": "blocks/ds/circular-buffer",
       "files": [
         "README.md",
         "index.js"
@@ -317,6 +578,39 @@
       "aiPromptContext": "Use this block when encoding image binary buffers, serializing JSON packets for URL transport, or generating auth credentials blocks without using window.btoa or Node's Buffer. Import using: import { encode, decode } from './encoding/base64.js';",
       "parameters": [],
       "path": "blocks/encoding/base64",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "encoding/msgpack": {
+      "name": "msgpack",
+      "category": "encoding",
+      "description": "Pure JS MessagePack (msgpack) binary serialization encoder and decoder. Highly optimized and zero-dependency.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need binary serialization of JSON-like data structures (arrays, objects, strings, numbers, booleans) to reduce network payload size or save raw binary buffers to disk.",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "any",
+          "required": true,
+          "description": "The data object to encode, or binary buffer to decode."
+        }
+      ],
+      "path": "blocks/encoding/msgpack",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "encoding/url-codec": {
+      "name": "url-codec",
+      "category": "encoding",
+      "description": "Dynamic URL query parameters serializer and deserializer helper with nested array/object parsing.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block in frontend routing parameters serialization, browser search link updates, or server query string parsers. Import using: import { parseQuery, stringifyQuery } from './encoding/url-codec.js';",
+      "parameters": [],
+      "path": "blocks/encoding/url-codec",
       "files": [
         "README.md",
         "index.js"
@@ -426,6 +720,38 @@
         "index.js"
       ]
     },
+    "state/redux-lite": {
+      "name": "redux-lite",
+      "category": "state",
+      "description": "A lightweight global state store with actions dispatcher, state reducers, subscription listeners, and custom middleware support.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building centralized global state flows (like frontend user sessions, theme preferences, dashboard data models, or client/server socket state synchronizations).",
+      "parameters": [
+        {
+          "name": "reducer",
+          "type": "Function",
+          "required": true,
+          "description": "Reducer function (state, action) => newState."
+        },
+        {
+          "name": "initialState",
+          "type": "any",
+          "required": false,
+          "description": "Initial state value."
+        },
+        {
+          "name": "middlewares",
+          "type": "Array<Function>",
+          "required": false,
+          "description": "Optional array of Redux-style middleware functions."
+        }
+      ],
+      "path": "blocks/state/redux-lite",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "text/csv-parser": {
       "name": "csv-parser",
       "category": "text",
@@ -478,6 +804,39 @@
         "index.js"
       ]
     },
+    "text/json-serializer": {
+      "name": "json-serializer",
+      "category": "text",
+      "description": "Safe JSON parser and stringifier handling circular references, BigInts, and parsing fallback recoveries.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when serializing complex, deep, or untrusted object trees (like application configurations, logger payloads containing active instances, or API response objects) where traditional JSON.stringify could crash. Import using: import { stringifySafe, parseSafe } from './text/json-serializer.js';",
+      "parameters": [],
+      "path": "blocks/text/json-serializer",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "text/markdown-compiler": {
+      "name": "markdown-compiler",
+      "category": "text",
+      "description": "An AST-based Markdown compiler that parses markdown syntax into an Abstract Syntax Tree (AST) and renders it to sanitized HTML.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to convert markdown content into AST blocks for rendering in modern rich-text engines or rendering customized HTML components with built-in sanitization.",
+      "parameters": [
+        {
+          "name": "markdown",
+          "type": "string",
+          "required": true,
+          "description": "The raw markdown text content to compile."
+        }
+      ],
+      "path": "blocks/text/markdown-compiler",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "text/markdown-parser": {
       "name": "markdown-parser",
       "category": "text",
@@ -493,6 +852,19 @@
         }
       ],
       "path": "blocks/text/markdown-parser",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "text/parser-combinator": {
+      "name": "parser-combinator",
+      "category": "text",
+      "description": "A monadic parser combinator framework to build custom compilers, lexers, and syntax parsers with full source coordinate (line, column) error tracking.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building custom configuration formats, DSL compilers, math expression parsers, or complex structured log lexers requiring precise error locations.",
+      "parameters": [],
+      "path": "blocks/text/parser-combinator",
       "files": [
         "README.md",
         "index.js"
@@ -614,6 +986,38 @@
         "index.js"
       ]
     },
+    "utils/retry": {
+      "name": "retry",
+      "category": "utils",
+      "description": "A generalized task execution retrier supporting custom delay backoff, jitter, and error conditional triggers.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when executing network requests, database transactions, file system locking access, or third-party API queries that can suffer from transient network outages. Import using: import { retry } from './utils/retry.js';",
+      "parameters": [
+        {
+          "name": "task",
+          "type": "Function",
+          "required": true,
+          "description": "The asynchronous task function resolving a promise."
+        },
+        {
+          "name": "options.retries",
+          "type": "number",
+          "default": 3,
+          "description": "Maximum number of retry attempts before throwing."
+        },
+        {
+          "name": "options.delay",
+          "type": "number",
+          "default": 1000,
+          "description": "Initial delay between retry attempts in milliseconds."
+        }
+      ],
+      "path": "blocks/utils/retry",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "utils/throttle": {
       "name": "throttle",
       "category": "utils",
@@ -635,6 +1039,26 @@
         }
       ],
       "path": "blocks/utils/throttle",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "validation/ip-validator": {
+      "name": "ip-validator",
+      "category": "validation",
+      "description": "Comprehensive IPv4/IPv6 validator featuring syntax checks, CIDR subnet matching, public vs private routing scopes, loopbacks, and link-local validations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when checking client IPs, parsing networking requests, validating CIDR notation, or executing security policy checks on loopback and private subnets.",
+      "parameters": [
+        {
+          "name": "ip",
+          "type": "string",
+          "required": true,
+          "description": "The IP address string to validate."
+        }
+      ],
+      "path": "blocks/validation/ip-validator",
       "files": [
         "README.md",
         "index.js"
@@ -663,6 +1087,32 @@
         }
       ],
       "path": "blocks/validation/jwt-validator",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "validation/rate-limiter": {
+      "name": "rate-limiter",
+      "category": "validation",
+      "description": "In-memory sliding-window Rate Limiter to protect API gateways or inputs against spamming.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block inside servers, mock environments, web socket controllers, or serverless functions to rate-limit user actions (IP verification or token limits) without spinning up Redis databases. Import using: import { RateLimiter } from './validation/rate-limiter.js';",
+      "parameters": [
+        {
+          "name": "limit",
+          "type": "number",
+          "required": true,
+          "description": "Maximum actions allowed in window period."
+        },
+        {
+          "name": "windowMs",
+          "type": "number",
+          "required": true,
+          "description": "Sliding timeframe window in milliseconds."
+        }
+      ],
+      "path": "blocks/validation/rate-limiter",
       "files": [
         "README.md",
         "index.js"
@@ -756,6 +1206,19 @@
         "index.js"
       ]
     },
+    "web/http-client-resilient": {
+      "name": "http-client-resilient",
+      "category": "web",
+      "description": "Production-grade universal HTTP client featuring built-in Circuit Breaker patterns, caching with TTL, request/response middleware, rate limiting, and exponential retry backoff.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when calling unreliable third-party APIs, enforcing local cache policies, or implementing fallback microservice pipelines requiring fault-tolerance.",
+      "parameters": [],
+      "path": "blocks/web/http-client-resilient",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "web/router": {
       "name": "router",
       "category": "web",
@@ -764,6 +1227,32 @@
       "aiPromptContext": "Use this block when building Single Page Applications (SPAs) or client-side navigation hubs that need parameter mapping (/posts/:id) without heavy framework dependencies. Import using: import { ClientRouter } from './web/router.js';",
       "parameters": [],
       "path": "blocks/web/router",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "web/sse-client": {
+      "name": "sse-client",
+      "category": "web",
+      "description": "Universal Server-Sent Events (SSE) client built on standard Fetch and Streams API. Supports custom headers, request options, and auto-reconnections.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when subscribing to server-sent events (SSE) or event streams (like AI completion text streams, live dashboards, or stock updates) while requiring custom authorization headers or custom HTTP options.",
+      "parameters": [
+        {
+          "name": "url",
+          "type": "string",
+          "required": true,
+          "description": "Endpoint URL to connect to."
+        },
+        {
+          "name": "options",
+          "type": "Object",
+          "required": false,
+          "description": "Optional configuration including headers, method, body, and custom reconnect settings."
+        }
+      ],
+      "path": "blocks/web/sse-client",
       "files": [
         "README.md",
         "index.js"

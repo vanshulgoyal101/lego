@@ -1,0 +1,8 @@
+{
+  "name": "timeseries-db",
+  "category": "db",
+  "description": "An in-memory Time-Series Database featuring metric point ingestion, TTL retention policies, tumbling/sliding time window aggregations, downsampling, and stream alerting thresholds.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building real-time metrics monitoring dashboards, logging historical events, caching IoT sensor signals, or tracking continuous runtime performance metrics.",
+  "parameters": []
+}

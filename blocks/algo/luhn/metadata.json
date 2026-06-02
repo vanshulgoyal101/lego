@@ -1,0 +1,15 @@
+{
+  "name": "luhn",
+  "category": "algo",
+  "description": "Luhn algorithm checksum validator (Mod 10 check) for credit card or IMEI numbers validation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when validating financial payment inputs, verifying IMEI codes, or validating national identification check digits in submission forms. Import using: import { validateLuhn } from './algo/luhn.js';",
+  "parameters": [
+    {
+      "name": "value",
+      "type": "string | number",
+      "required": true,
+      "description": "Number card validation sequence."
+    }
+  ]
+}

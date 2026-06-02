@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Code Library — AI-Optimized & Universal Modular Code Blocks</title>
+  <meta name="description" content="A lightweight, robust, zero-dependency, crash-proof collection of reusable code components optimized for humans and AI agents. Works across Deno, Bun, Node, and Browsers.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-logo">
+        <span class="logo-icon">🧱</span>
+        <div class="logo-text">
+          <h1>Lego Library</h1>
+          <p>Universal Reusable Code Blocks</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle dark/light theme">
+          <span class="theme-icon-light">☀️</span>
+          <span class="theme-icon-dark">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <div class="app-body">
+      <!-- Sidebar -->
+      <aside class="app-sidebar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search blocks..." autocomplete="off">
+        </div>
+        <div class="category-filters" id="category-list">
+          <!-- Populated by JavaScript -->
+        </div>
+        <div class="blocks-list-container">
+          <div class="blocks-list-header">
+            <span>Blocks</span>
+            <span id="blocks-count" class="badge">0</span>
+          </div>
+          <ul class="blocks-list" id="blocks-list">
+            <!-- Populated by JavaScript -->
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="app-content" id="main-content">
+        <!-- Default State -->
+        <div class="welcome-screen" id="welcome-screen">
+          <span class="welcome-icon">🧱</span>
+          <h2>Welcome to Lego Code Library</h2>
+          <p>Select a modular block from the sidebar to inspect parameters, view production-grade code, read runtime compatibility details, and copy directly into your codebase.</p>
+          <div class="quick-start-box">
+            <h3>CLI Usage</h3>
+            <p>You can discover and add blocks using the repository CLI helper:</p>
+            <pre><code># List available blocks
+node bin/cli.js list
+
+# View a block's metadata
+node bin/cli.js view web/fetch-retry
+
+# Copy block to target directory
+node bin/cli.js add web/fetch-retry --dest ./src/utils</code></pre>
+          </div>
+        </div>
+
+        <!-- Block Detail Screen (hidden by default) -->
+        <div class="block-detail" id="block-detail" style="display: none;">
+          <div class="detail-header">
+            <div class="header-meta">
+              <span id="block-category" class="badge category-badge">Category</span>
+              <h2 id="block-title">Block Name</h2>
+              <p id="block-description">Description of block goes here.</p>
+            </div>
+            <div class="compatibility-container" id="compatibility-badges">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Quick Actions & Stats -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Time Complexity</span>
+              <span class="stat-value" id="stat-time">O(1)</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Space Complexity</span>
+              <span class="stat-value" id="stat-space">O(1)</span>
+            </div>
+            <div class="stat-card action-card">
+              <span class="stat-label">Copy Command</span>
+              <button class="btn-copy-command" id="btn-copy-command">
+                <span class="command-text" id="cli-command-text">npx lego-cli add ...</span>
+                <span class="copy-icon">📋</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Tabs Navigation -->
+          <nav class="detail-tabs">
+            <button class="tab-btn active" data-tab="tab-overview">Overview & Docs</button>
+            <button class="tab-btn" data-tab="tab-code">Source Code</button>
+            <button class="tab-btn" data-tab="tab-ai">AI Prompt context</button>
+          </nav>
+
+          <!-- Tab Contents -->
+          <div class="tab-content active" id="tab-overview">
+            <div class="overview-section">
+              <h3>Parameters Specifications</h3>
+              <div class="table-container">
+                <table class="params-table" id="params-table">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Default</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody id="params-table-body">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="tab-code">
+            <div class="code-header">
+              <span class="code-filename" id="code-filename">index.js</span>
+              <button id="btn-copy-code" class="btn-primary">
+                <span>Copy Code</span>
+                <span class="btn-icon-inline">📋</span>
+              </button>
+            </div>
+            <div class="code-wrapper">
+              <pre><code id="code-display" class="language-javascript"></code></pre>
+            </div>
+          </div>
+
+          <div class="tab-content" id="tab-ai">
+            <div class="ai-prompt-box">
+              <h3>Directives for AI Coding Assistants</h3>
+              <p>When feeding this code block context to coding LLMs (e.g. Gemini, Claude, GPT), paste this instruction prompt:</p>
+              <div class="ai-prompt-text-container">
+                <blockquote id="ai-prompt-text"></blockquote>
+                <button id="btn-copy-ai-prompt" class="btn-secondary">Copy Instructions</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Copied to clipboard!</div>
+
+  <!-- Load Database Data First -->
+  <script src="docs-data.js"></script>
+  <!-- Load Main App Controller -->
+  <script src="app.js"></script>
+</body>
+</html>

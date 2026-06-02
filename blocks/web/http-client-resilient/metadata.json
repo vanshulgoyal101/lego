@@ -1,0 +1,8 @@
+{
+  "name": "http-client-resilient",
+  "category": "web",
+  "description": "Production-grade universal HTTP client featuring built-in Circuit Breaker patterns, caching with TTL, request/response middleware, rate limiting, and exponential retry backoff.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when calling unreliable third-party APIs, enforcing local cache policies, or implementing fallback microservice pipelines requiring fault-tolerance.",
+  "parameters": []
+}
