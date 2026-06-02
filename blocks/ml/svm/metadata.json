@@ -1,0 +1,21 @@
+{
+  "name": "svm",
+  "category": "ml",
+  "description": "Support Vector Machine (SVM) binary classifier using linear kernels and simple gradient updates.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to train a binary classifier that finds optimal margin boundary lines separating high-dimensional numeric datasets.",
+  "parameters": [
+    {
+      "name": "c",
+      "type": "number",
+      "required": false,
+      "description": "Regularization strength constraint parameter (defaults to 1.0)."
+    },
+    {
+      "name": "learningRate",
+      "type": "number",
+      "required": false,
+      "description": "Adjustment step size constant (defaults to 0.001)."
+    }
+  ]
+}

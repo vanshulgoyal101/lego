@@ -1,37 +1,21 @@
 {
   "name": "knn",
   "category": "ml",
-  "description": "A K-Nearest Neighbors (KNN) classifier and regressor. Features Euclidean, Manhattan, and Cosine distance metrics, support for custom value weighting (uniform or distance-inverse), feature standardization scaling, and predictions for both discrete classes and continuous values.",
+  "description": "K-Nearest Neighbors classifier and regressor supporting Euclidean, Manhattan, and Chebyshev distance metrics.",
   "dependencies": [],
-  "aiPromptContext": "Use this block when you need a classic non-parametric classification or regression model (KNN) without external libraries like scikit-learn.",
+  "aiPromptContext": "Use this block to perform simple instance-based classification or regression on numeric multi-dimensional vectors.",
   "parameters": [
     {
       "name": "k",
       "type": "number",
       "required": false,
-      "default": 3,
-      "description": "Number of nearest neighbors to look at."
+      "description": "Number of nearest neighbors to consult (defaults to 3)."
     },
     {
-      "name": "distanceMetric",
+      "name": "metric",
       "type": "string",
       "required": false,
-      "default": "euclidean",
-      "description": "The distance metric to use: 'euclidean', 'manhattan', or 'cosine'."
-    },
-    {
-      "name": "weighting",
-      "type": "string",
-      "required": false,
-      "default": "uniform",
-      "description": "The voting weights strategy: 'uniform' or 'distance'."
-    },
-    {
-      "name": "standardize",
-      "type": "boolean",
-      "required": false,
-      "default": false,
-      "description": "If true, normalizes input features to mean=0 and variance=1 based on training data statistics."
+      "description": "Distance metric lookup: 'euclidean', 'manhattan', or 'chebyshev' (defaults to 'euclidean')."
     }
   ]
 }

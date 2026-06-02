@@ -1,9 +1,9 @@
 # Lego Block: `ml/knn`
 
-A K-Nearest Neighbors (KNN) classifier and regressor. Features Euclidean, Manhattan, and Cosine distance metrics, support for custom value weighting (uniform or distance-inverse), feature standardization scaling, and predictions for both discrete classes and continuous values.
+K-Nearest Neighbors classifier and regressor supporting Euclidean, Manhattan, and Chebyshev distance metrics.
 
 > [!NOTE]
-> **AI Agent Context:** Use this block when you need a classic non-parametric classification or regression model (KNN) without external libraries like scikit-learn.
+> **AI Agent Context:** Use this block to perform simple instance-based classification or regression on numeric multi-dimensional vectors.
 
 ---
 
@@ -22,10 +22,8 @@ npx lego-cli add ml/knn
 
 | Parameter | Type | Required | Default | Description |
 |---|---|---|---|---|
-| `k` | `number` | No | `3` | Number of nearest neighbors to look at. |
-| `distanceMetric` | `string` | No | `euclidean` | The distance metric to use: 'euclidean', 'manhattan', or 'cosine'. |
-| `weighting` | `string` | No | `uniform` | The voting weights strategy: 'uniform' or 'distance'. |
-| `standardize` | `boolean` | No | `false` | If true, normalizes input features to mean=0 and variance=1 based on training data statistics. |
+| `k` | `number` | No | *-* | Number of nearest neighbors to consult (defaults to 3). |
+| `metric` | `string` | No | *-* | Distance metric lookup: 'euclidean', 'manhattan', or 'chebyshev' (defaults to 'euclidean'). |
 
 
 ---

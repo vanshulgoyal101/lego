@@ -1,0 +1,15 @@
+{
+  "name": "tf-idf",
+  "category": "ml",
+  "description": "Term Frequency-Inverse Document Frequency (TF-IDF) document text vectorizer/encoder with built-in tokenization and L2 normalization options.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to transform raw text documents into numerical feature vectors representing word importance for ML algorithms.",
+  "parameters": [
+    {
+      "name": "lowercase",
+      "type": "boolean",
+      "required": false,
+      "description": "Convert all characters to lowercase before tokenizing (default: true)."
+    }
+  ]
+}

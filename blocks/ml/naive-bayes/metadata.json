@@ -1,0 +1,15 @@
+{
+  "name": "naive-bayes",
+  "category": "ml",
+  "description": "A Multinomial Naive Bayes classifier primarily used for text classification and bag-of-words document grouping.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to train a simple classifier on discrete categorical occurrences counters (like word frequencies mapping to document categories).",
+  "parameters": [
+    {
+      "name": "alpha",
+      "type": "number",
+      "required": false,
+      "description": "Additive (Laplace) smoothing parameter constant (defaults to 1.0)."
+    }
+  ]
+}

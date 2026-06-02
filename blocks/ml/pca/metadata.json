@@ -1,0 +1,15 @@
+{
+  "name": "pca",
+  "category": "ml",
+  "description": "Principal Component Analysis (PCA) utility for feature reduction and data projections.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to reduce the dimensions of numeric datasets by computing principal component eigenvector paths using power iteration matrix covariance.",
+  "parameters": [
+    {
+      "name": "nComponents",
+      "type": "number",
+      "required": true,
+      "description": "Number of dimensions/components to project values into."
+    }
+  ]
+}

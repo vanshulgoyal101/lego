@@ -248,6 +248,24 @@ function getComplexity(name) {
       return { time: 'O(N × D) per prediction (brute-force distance)', space: 'O(N × D) training set' };
     case 'neural-network':
       return { time: 'O(E × N × L²) training (E = epochs, N = samples, L = layer size)', space: 'O(L²) weights' };
+    case 'linear-regression':
+      return { time: 'O(E × N × D) gradient descent iterations', space: 'O(D) weights' };
+    case 'logistic-regression':
+      return { time: 'O(E × N × D) gradient descent iterations', space: 'O(D) weights' };
+    case 'naive-bayes':
+      return { time: 'O(N × L + V) training; O(D × V) classification', space: 'O(C × V) class term frequencies' };
+    case 'svm':
+      return { time: 'O(E × N) training epochs approximation; O(D) prediction', space: 'O(D) weights' };
+    case 'pca':
+      return { time: 'O(D² × N + D³) covariance + SVD solver', space: 'O(D²) projection mapping' };
+    case 'dbscan':
+      return { time: 'O(N²) distance evaluations', space: 'O(N) neighbor queues' };
+    case 'random-forest':
+      return { time: 'O(T × N × D × log N) tree builds', space: 'O(T × Nodes) ensemble storage' };
+    case 'tf-idf':
+      return { time: 'O(N × L) document tokenization; O(N × V) encoding matrix', space: 'O(V) vocabulary dictionary size' };
+    case 'cosine-similarity':
+      return { time: 'O(D) vector dimensions calculation; O(N² × D) pairwise', space: 'O(N²) matrix output' };
 
     // ===== protocol =====
     case 'dns-resolver':

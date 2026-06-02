@@ -1,0 +1,29 @@
+{
+  "name": "random-forest",
+  "category": "ml",
+  "description": "Random Forest Ensemble Classifier and Regressor built using bootstrapped Decision Trees and random feature selection.",
+  "dependencies": [
+    "ml/decision-tree"
+  ],
+  "aiPromptContext": "Use this block to train an ensemble of Decision Trees for classification or regression, providing robust predictions and reducing overfitting.",
+  "parameters": [
+    {
+      "name": "nEstimators",
+      "type": "number",
+      "required": false,
+      "description": "The number of trees in the forest (default: 10)."
+    },
+    {
+      "name": "maxDepth",
+      "type": "number",
+      "required": false,
+      "description": "The maximum depth of the individual trees."
+    },
+    {
+      "name": "criterion",
+      "type": "string",
+      "required": false,
+      "description": "The function to measure the quality of a split: 'gini', 'entropy' or 'mse' (default: 'gini')."
+    }
+  ]
+}

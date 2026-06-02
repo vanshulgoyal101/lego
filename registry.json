@@ -2075,6 +2075,47 @@
         "test.js"
       ]
     },
+    "ml/cosine-similarity": {
+      "name": "cosine-similarity",
+      "category": "ml",
+      "description": "Calculates the cosine similarity, cosine distance, and pairwise similarities between high-dimensional vector embeddings.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compute the angular similarity or distance between two numerical vectors or compute a pairwise similarity matrix for a collection of vectors.",
+      "parameters": [],
+      "path": "blocks/ml/cosine-similarity",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ml/dbscan": {
+      "name": "dbscan",
+      "category": "ml",
+      "description": "Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm for clustering multi-dimensional data points and identifying noise.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to cluster spatial/numerical coordinates based on point density, especially when clusters are of arbitrary shapes and there are outliers (noise).",
+      "parameters": [
+        {
+          "name": "eps",
+          "type": "number",
+          "required": false,
+          "description": "The maximum distance between two samples for one to be considered as in the neighborhood of the other (default: 1.0)."
+        },
+        {
+          "name": "minPts",
+          "type": "number",
+          "required": false,
+          "description": "The number of samples in a neighborhood for a point to be considered as a core point (default: 5)."
+        }
+      ],
+      "path": "blocks/ml/dbscan",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "ml/decision-tree": {
       "name": "decision-tree",
       "category": "ml",
@@ -2092,40 +2133,99 @@
     "ml/knn": {
       "name": "knn",
       "category": "ml",
-      "description": "A K-Nearest Neighbors (KNN) classifier and regressor. Features Euclidean, Manhattan, and Cosine distance metrics, support for custom value weighting (uniform or distance-inverse), feature standardization scaling, and predictions for both discrete classes and continuous values.",
+      "description": "K-Nearest Neighbors classifier and regressor supporting Euclidean, Manhattan, and Chebyshev distance metrics.",
       "dependencies": [],
-      "aiPromptContext": "Use this block when you need a classic non-parametric classification or regression model (KNN) without external libraries like scikit-learn.",
+      "aiPromptContext": "Use this block to perform simple instance-based classification or regression on numeric multi-dimensional vectors.",
       "parameters": [
         {
           "name": "k",
           "type": "number",
           "required": false,
-          "default": 3,
-          "description": "Number of nearest neighbors to look at."
+          "description": "Number of nearest neighbors to consult (defaults to 3)."
         },
         {
-          "name": "distanceMetric",
+          "name": "metric",
           "type": "string",
           "required": false,
-          "default": "euclidean",
-          "description": "The distance metric to use: 'euclidean', 'manhattan', or 'cosine'."
-        },
-        {
-          "name": "weighting",
-          "type": "string",
-          "required": false,
-          "default": "uniform",
-          "description": "The voting weights strategy: 'uniform' or 'distance'."
-        },
-        {
-          "name": "standardize",
-          "type": "boolean",
-          "required": false,
-          "default": false,
-          "description": "If true, normalizes input features to mean=0 and variance=1 based on training data statistics."
+          "description": "Distance metric lookup: 'euclidean', 'manhattan', or 'chebyshev' (defaults to 'euclidean')."
         }
       ],
       "path": "blocks/ml/knn",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ml/linear-regression": {
+      "name": "linear-regression",
+      "category": "ml",
+      "description": "Performs univariate or multivariate Linear Regression trained using standard Gradient Descent.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to fit a linear model predicting numerical target outcomes from multi-dimensional features inputs.",
+      "parameters": [
+        {
+          "name": "learningRate",
+          "type": "number",
+          "required": false,
+          "description": "Speed scale constant of gradient descent adjustments (defaults to 0.01)."
+        },
+        {
+          "name": "epochs",
+          "type": "number",
+          "required": false,
+          "description": "Number of training iterations loops (defaults to 1000)."
+        }
+      ],
+      "path": "blocks/ml/linear-regression",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ml/logistic-regression": {
+      "name": "logistic-regression",
+      "category": "ml",
+      "description": "Performs binary classification using Logistic Regression optimized with Gradient Descent.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to train a binary classifier mapping numerical multi-dimensional features to a 0 or 1 probability/classification state.",
+      "parameters": [
+        {
+          "name": "learningRate",
+          "type": "number",
+          "required": false,
+          "description": "Adjustments step size constant (defaults to 0.1)."
+        },
+        {
+          "name": "epochs",
+          "type": "number",
+          "required": false,
+          "description": "Number of training iterations loops (defaults to 1000)."
+        }
+      ],
+      "path": "blocks/ml/logistic-regression",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ml/naive-bayes": {
+      "name": "naive-bayes",
+      "category": "ml",
+      "description": "A Multinomial Naive Bayes classifier primarily used for text classification and bag-of-words document grouping.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to train a simple classifier on discrete categorical occurrences counters (like word frequencies mapping to document categories).",
+      "parameters": [
+        {
+          "name": "alpha",
+          "type": "number",
+          "required": false,
+          "description": "Additive (Laplace) smoothing parameter constant (defaults to 1.0)."
+        }
+      ],
+      "path": "blocks/ml/naive-bayes",
       "files": [
         "README.md",
         "index.js",
@@ -2140,6 +2240,110 @@
       "aiPromptContext": "Use this block when you need to construct, train, fit, evaluate, and save/load custom feedforward neural network models in environments with zero access to external npm modules (e.g. tensorflow, onnx).",
       "parameters": [],
       "path": "blocks/ml/neural-network",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ml/pca": {
+      "name": "pca",
+      "category": "ml",
+      "description": "Principal Component Analysis (PCA) utility for feature reduction and data projections.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to reduce the dimensions of numeric datasets by computing principal component eigenvector paths using power iteration matrix covariance.",
+      "parameters": [
+        {
+          "name": "nComponents",
+          "type": "number",
+          "required": true,
+          "description": "Number of dimensions/components to project values into."
+        }
+      ],
+      "path": "blocks/ml/pca",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ml/random-forest": {
+      "name": "random-forest",
+      "category": "ml",
+      "description": "Random Forest Ensemble Classifier and Regressor built using bootstrapped Decision Trees and random feature selection.",
+      "dependencies": [
+        "ml/decision-tree"
+      ],
+      "aiPromptContext": "Use this block to train an ensemble of Decision Trees for classification or regression, providing robust predictions and reducing overfitting.",
+      "parameters": [
+        {
+          "name": "nEstimators",
+          "type": "number",
+          "required": false,
+          "description": "The number of trees in the forest (default: 10)."
+        },
+        {
+          "name": "maxDepth",
+          "type": "number",
+          "required": false,
+          "description": "The maximum depth of the individual trees."
+        },
+        {
+          "name": "criterion",
+          "type": "string",
+          "required": false,
+          "description": "The function to measure the quality of a split: 'gini', 'entropy' or 'mse' (default: 'gini')."
+        }
+      ],
+      "path": "blocks/ml/random-forest",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ml/svm": {
+      "name": "svm",
+      "category": "ml",
+      "description": "Support Vector Machine (SVM) binary classifier using linear kernels and simple gradient updates.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to train a binary classifier that finds optimal margin boundary lines separating high-dimensional numeric datasets.",
+      "parameters": [
+        {
+          "name": "c",
+          "type": "number",
+          "required": false,
+          "description": "Regularization strength constraint parameter (defaults to 1.0)."
+        },
+        {
+          "name": "learningRate",
+          "type": "number",
+          "required": false,
+          "description": "Adjustment step size constant (defaults to 0.001)."
+        }
+      ],
+      "path": "blocks/ml/svm",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ml/tf-idf": {
+      "name": "tf-idf",
+      "category": "ml",
+      "description": "Term Frequency-Inverse Document Frequency (TF-IDF) document text vectorizer/encoder with built-in tokenization and L2 normalization options.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to transform raw text documents into numerical feature vectors representing word importance for ML algorithms.",
+      "parameters": [
+        {
+          "name": "lowercase",
+          "type": "boolean",
+          "required": false,
+          "description": "Convert all characters to lowercase before tokenizing (default: true)."
+        }
+      ],
+      "path": "blocks/ml/tf-idf",
       "files": [
         "README.md",
         "index.js",

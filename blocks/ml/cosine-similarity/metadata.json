@@ -1,0 +1,8 @@
+{
+  "name": "cosine-similarity",
+  "category": "ml",
+  "description": "Calculates the cosine similarity, cosine distance, and pairwise similarities between high-dimensional vector embeddings.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compute the angular similarity or distance between two numerical vectors or compute a pairwise similarity matrix for a collection of vectors.",
+  "parameters": []
+}

@@ -1,0 +1,21 @@
+{
+  "name": "logistic-regression",
+  "category": "ml",
+  "description": "Performs binary classification using Logistic Regression optimized with Gradient Descent.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to train a binary classifier mapping numerical multi-dimensional features to a 0 or 1 probability/classification state.",
+  "parameters": [
+    {
+      "name": "learningRate",
+      "type": "number",
+      "required": false,
+      "description": "Adjustments step size constant (defaults to 0.1)."
+    },
+    {
+      "name": "epochs",
+      "type": "number",
+      "required": false,
+      "description": "Number of training iterations loops (defaults to 1000)."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "linear-regression",
+  "category": "ml",
+  "description": "Performs univariate or multivariate Linear Regression trained using standard Gradient Descent.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to fit a linear model predicting numerical target outcomes from multi-dimensional features inputs.",
+  "parameters": [
+    {
+      "name": "learningRate",
+      "type": "number",
+      "required": false,
+      "description": "Speed scale constant of gradient descent adjustments (defaults to 0.01)."
+    },
+    {
+      "name": "epochs",
+      "type": "number",
+      "required": false,
+      "description": "Number of training iterations loops (defaults to 1000)."
+    }
+  ]
+}

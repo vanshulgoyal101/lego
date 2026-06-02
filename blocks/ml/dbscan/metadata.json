@@ -1,0 +1,21 @@
+{
+  "name": "dbscan",
+  "category": "ml",
+  "description": "Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm for clustering multi-dimensional data points and identifying noise.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to cluster spatial/numerical coordinates based on point density, especially when clusters are of arbitrary shapes and there are outliers (noise).",
+  "parameters": [
+    {
+      "name": "eps",
+      "type": "number",
+      "required": false,
+      "description": "The maximum distance between two samples for one to be considered as in the neighborhood of the other (default: 1.0)."
+    },
+    {
+      "name": "minPts",
+      "type": "number",
+      "required": false,
+      "description": "The number of samples in a neighborhood for a point to be considered as a core point (default: 5)."
+    }
+  ]
+}
