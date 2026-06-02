@@ -37,8 +37,8 @@ npx lego-cli add db/document-db
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N) scan filtering (O(1) if indexing matched)`
-* **Space Complexity:** `O(N) total stored JSON objects`
+* **Time Complexity:** `O(N) full scan filter; O(1) indexed lookup`
+* **Space Complexity:** `O(N) stored documents`
 
 ---
 

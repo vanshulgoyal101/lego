@@ -41,7 +41,7 @@ npx lego-cli add algo/binary-search
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(log N) per search`
 * **Space Complexity:** `O(1)`
 
 ---

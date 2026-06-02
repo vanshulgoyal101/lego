@@ -1,0 +1,22 @@
+{
+  "name": "static-server",
+  "description": "A zero-dependency static file server mapping URLs to directories, managing MIME types, ETag cache validations, and file streams.",
+  "category": "web",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to run or test a lightweight web server serving assets from a specified folder.",
+  "parameters": [
+    {
+      "name": "publicDir",
+      "type": "string",
+      "required": true,
+      "description": "Absolute path to the public directory."
+    },
+    {
+      "name": "port",
+      "type": "number",
+      "required": false,
+      "default": 3000,
+      "description": "Port to bind the server to."
+    }
+  ]
+}

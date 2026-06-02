@@ -37,8 +37,8 @@ npx lego-cli add async/event-emitter
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(L) listeners iterate`
-* **Space Complexity:** `O(E * L) registered event mappings`
+* **Time Complexity:** `O(L) emit (L = listeners per event)`
+* **Space Complexity:** `O(E × L) event→listener map`
 
 ---
 

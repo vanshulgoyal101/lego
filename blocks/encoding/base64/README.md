@@ -37,8 +37,8 @@ npx lego-cli add encoding/base64
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) bytes encoded/decoded`
+* **Space Complexity:** `O(N) output string`
 
 ---
 

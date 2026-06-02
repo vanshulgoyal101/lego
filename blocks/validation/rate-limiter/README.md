@@ -41,8 +41,8 @@ npx lego-cli add validation/rate-limiter
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(1) token-bucket check per request`
+* **Space Complexity:** `O(C) client state records`
 
 ---
 

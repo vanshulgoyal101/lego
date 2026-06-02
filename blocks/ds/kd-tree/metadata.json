@@ -1,0 +1,21 @@
+{
+  "name": "kd-tree",
+  "description": "A K-Dimensional Tree for spatial partitioning and fast multi-dimensional nearest neighbor search.",
+  "category": "ds",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to index multi-dimensional coordinates and perform nearest neighbor search.",
+  "parameters": [
+    {
+      "name": "points",
+      "type": "Array<Array<number>>",
+      "required": true,
+      "description": "Array of multi-dimensional numerical coordinate points."
+    },
+    {
+      "name": "dimensions",
+      "type": "number",
+      "required": true,
+      "description": "Number of dimensions for each coordinate."
+    }
+  ]
+}

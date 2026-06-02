@@ -43,8 +43,8 @@ npx lego-cli add ml/knn
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N × D) per prediction (brute-force distance)`
+* **Space Complexity:** `O(N × D) training set`
 
 ---
 

@@ -37,8 +37,8 @@ npx lego-cli add math/stats
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) mean/sum/variance; O(N log N) median (sort)`
+* **Space Complexity:** `O(N) input copy for sort`
 
 ---
 

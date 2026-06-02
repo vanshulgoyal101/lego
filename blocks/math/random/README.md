@@ -37,7 +37,7 @@ npx lego-cli add math/random
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(1) per random value`
 * **Space Complexity:** `O(1)`
 
 ---

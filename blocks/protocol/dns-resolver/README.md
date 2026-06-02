@@ -37,8 +37,8 @@ npx lego-cli add protocol/dns-resolver
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) packet bytes serialized/parsed`
+* **Space Complexity:** `O(N) packet buffer`
 
 ---
 

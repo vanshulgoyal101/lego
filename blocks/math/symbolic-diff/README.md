@@ -41,8 +41,8 @@ npx lego-cli add math/symbolic-diff
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) expression tree nodes (N = AST size)`
+* **Space Complexity:** `O(N) expression tree`
 
 ---
 

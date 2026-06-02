@@ -41,7 +41,7 @@ npx lego-cli add utils/throttle
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(1) per call (timer check)`
 * **Space Complexity:** `O(1)`
 
 ---

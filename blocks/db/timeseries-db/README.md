@@ -37,8 +37,8 @@ npx lego-cli add db/timeseries-db
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(log N) insert ordering scan`
-* **Space Complexity:** `O(N) data metrics records size`
+* **Time Complexity:** `O(log N) insert (sorted); O(N) range scan`
+* **Space Complexity:** `O(N) metric records`
 
 ---
 

@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import http from 'http';
 
 // Define ANSI Colors
 const Colors = {
@@ -2490,6 +2491,184 @@ async function runAllTests() {
       const received = [];
       bus.subscribe('news', m => received.push(m), { replay: true });
       expect(received).toEqual(['Article 1', 'Article 2']);
+    });
+  });
+
+  // ===== Batch 5 New Blocks =====
+
+  // 1. ds/kd-tree
+  const { KDTree } = await import('../blocks/ds/kd-tree/index.js');
+  await describe('ds/kd-tree', async () => {
+    await it('should correctly build and search nearest neighbor', () => {
+      const points = [[2, 3], [5, 4], [9, 6], [4, 7], [8, 1], [7, 2]];
+      const tree = new KDTree(points, 2);
+      const nearest = tree.nearestNeighbor([9, 2]);
+      // nearest point should be [7, 2] or [8, 1]
+      expect(nearest).toEqual([8, 1]);
+    });
+
+    await it('should insert new points correctly', () => {
+      const tree = new KDTree([[2, 3], [5, 4]], 2);
+      tree.insert([9, 6]);
+      const nearest = tree.nearestNeighbor([9, 5]);
+      expect(nearest).toEqual([9, 6]);
+    });
+  });
+
+  // 2. ds/avl-tree
+  const { AVLTree } = await import('../blocks/ds/avl-tree/index.js');
+  await describe('ds/avl-tree', async () => {
+    await it('should self-balance when keys are inserted in sorted order', () => {
+      const tree = new AVLTree();
+      tree.insert(10, 'A');
+      tree.insert(20, 'B');
+      tree.insert(30, 'C'); // triggers left rotation
+      expect(tree.root.key).toBe(20);
+      expect(tree.root.left.key).toBe(10);
+      expect(tree.root.right.key).toBe(30);
+    });
+
+    await it('should find and delete nodes correctly', () => {
+      const tree = new AVLTree();
+      tree.insert(15, 'XV');
+      tree.insert(10, 'X');
+      tree.insert(20, 'XX');
+      expect(tree.find(10)).toBe('X');
+      tree.delete(10);
+      expect(tree.find(10)).toBe(undefined);
+      expect(tree.inOrder()).toEqual([
+        { key: 15, value: 'XV' },
+        { key: 20, value: 'XX' }
+      ]);
+    });
+  });
+
+  // 3. web/static-server
+  const { StaticServer } = await import('../blocks/web/static-server/index.js');
+  await describe('web/static-server', async () => {
+    await it('should start, serve file content, and stop successfully', async () => {
+      const serverTestDir = path.resolve('./scratch/static_test');
+      await fs.mkdir(serverTestDir, { recursive: true });
+      await fs.writeFile(path.join(serverTestDir, 'index.html'), '<h1>Hello Static</h1>', 'utf8');
+
+      const server = new StaticServer(serverTestDir, 4567);
+      await server.start();
+
+      const fetchRes = await new Promise((resolve, reject) => {
+        http.get('http://localhost:4567/', (res) => {
+          let data = '';
+          res.on('data', chunk => { data += chunk; });
+          res.on('end', () => resolve({ status: res.statusCode, body: data, headers: res.headers }));
+        }).on('error', reject);
+      });
+
+      expect(fetchRes.status).toBe(200);
+      expect(fetchRes.body).toBe('<h1>Hello Static</h1>');
+      expect(fetchRes.headers['content-type']).toBe('text/html; charset=utf-8');
+
+      await server.stop();
+      // clean up
+      await fs.rm(serverTestDir, { recursive: true, force: true });
+    });
+  });
+
+  // 4. web/cors-middleware
+  const { CorsMiddleware } = await import('../blocks/web/cors-middleware/index.js');
+  await describe('web/cors-middleware', async () => {
+    await it('should allow configured origin and methods', () => {
+      const middleware = new CorsMiddleware({ origin: 'http://allowed.com', methods: ['POST'] });
+      
+      const req = {
+        headers: { origin: 'http://allowed.com' },
+        method: 'GET'
+      };
+      const res = {
+        headers: {},
+        setHeader(k, v) { this.headers[k.toLowerCase()] = v; }
+      };
+
+      middleware.handle(req, res);
+      expect(res.headers['access-control-allow-origin']).toBe('http://allowed.com');
+    });
+
+    await it('should handle preflight options request', () => {
+      const middleware = new CorsMiddleware({ origin: '*', methods: ['GET', 'POST'] });
+      let ended = false;
+      const req = {
+        headers: { origin: 'http://test.com', 'access-control-request-headers': 'x-custom' },
+        method: 'OPTIONS'
+      };
+      const res = {
+        headers: {},
+        setHeader(k, v) { this.headers[k.toLowerCase()] = v; },
+        end() { ended = true; }
+      };
+
+      middleware.handle(req, res);
+      expect(res.statusCode).toBe(204);
+      expect(res.headers['access-control-allow-origin']).toBe('*');
+      expect(res.headers['access-control-allow-methods']).toBe('GET, POST');
+      expect(res.headers['access-control-allow-headers']).toBe('x-custom');
+      expect(ended).toBeTruthy();
+    });
+  });
+
+  // 5. crypto/hmac
+  const { HMAC } = await import('../blocks/crypto/hmac/index.js');
+  await describe('crypto/hmac', async () => {
+    await it('should sign messages and verify signature correctness', () => {
+      const signer = new HMAC('my-secret-key', 'sha256');
+      const msg = 'authenticity payload';
+      const sig = signer.sign(msg);
+      
+      expect(sig instanceof Uint8Array || sig instanceof Buffer).toBeTruthy();
+      expect(signer.verify(msg, sig)).toBeTruthy();
+      expect(signer.verify('tampered-payload', sig)).toBeFalsy();
+    });
+  });
+
+  // 6. validation/password-strength
+  const { PasswordStrength } = await import('../blocks/validation/password-strength/index.js');
+  await describe('validation/password-strength', async () => {
+    await it('should analyze passwords and calculate entropy correctly', () => {
+      const weak = PasswordStrength.analyze('abc');
+      expect(weak.strength).toBe('weak');
+      expect(weak.valid).toBeFalsy();
+
+      const strong = PasswordStrength.analyze('P@ssw0rdStrength');
+      expect(strong.valid).toBeTruthy();
+      expect(strong.entropy > 60).toBeTruthy();
+    });
+  });
+
+  // 7. math/geometry-2d
+  const { Geometry2D } = await import('../blocks/math/geometry-2d/index.js');
+  await describe('math/geometry-2d', async () => {
+    await it('should compute line intersections correctly', () => {
+      const p1 = { x: 0, y: 0 }, p2 = { x: 4, y: 4 };
+      const p3 = { x: 0, y: 4 }, p4 = { x: 4, y: 0 };
+      const intersect = Geometry2D.lineIntersection(p1, p2, p3, p4);
+      expect(intersect).toEqual({ x: 2, y: 2 });
+    });
+
+    await it('should evaluate point inside polygon correctly', () => {
+      const poly = [
+        { x: 0, y: 0 },
+        { x: 5, y: 0 },
+        { x: 5, y: 5 },
+        { x: 0, y: 5 }
+      ];
+      expect(Geometry2D.pointInPolygon({ x: 2, y: 2 }, poly)).toBeTruthy();
+      expect(Geometry2D.pointInPolygon({ x: 10, y: 2 }, poly)).toBeFalsy();
+    });
+  });
+
+  // 8. text/slugify
+  const { slugify } = await import('../blocks/text/slugify/index.js');
+  await describe('text/slugify', async () => {
+    await it('should convert string to url path slugs', () => {
+      expect(slugify('Hello World, this is Lego!')).toBe('hello-world-this-is-lego');
+      expect(slugify('Café & Restaurant')).toBe('cafe-restaurant');
     });
   });
 

@@ -37,8 +37,8 @@ npx lego-cli add utils/pubsub
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(S × P) publish (S = subscribers, P = pattern match per subscriber)`
+* **Space Complexity:** `O(S + H) subscribers + history`
 
 ---
 

@@ -40,7 +40,7 @@ npx lego-cli add crypto/uuid-shortener
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(1) base conversion arithmetic`
 * **Space Complexity:** `O(1)`
 
 ---

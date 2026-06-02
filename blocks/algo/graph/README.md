@@ -40,8 +40,8 @@ npx lego-cli add algo/graph
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(V + E) BFS/DFS traversal`
+* **Space Complexity:** `O(V + E) adjacency list`
 
 ---
 

@@ -37,8 +37,8 @@ npx lego-cli add ml/decision-tree
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N × D × log N) training (N = samples, D = features); O(log N) predict`
+* **Space Complexity:** `O(N × D) training data`
 
 ---
 

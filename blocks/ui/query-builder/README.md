@@ -40,8 +40,8 @@ npx lego-cli add ui/query-builder
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(C) columns building (C = condition criteria count)`
-* **Space Complexity:** `O(C)`
+* **Time Complexity:** `O(C) conditions assembled (C = clause count)`
+* **Space Complexity:** `O(C) query string`
 
 ---
 

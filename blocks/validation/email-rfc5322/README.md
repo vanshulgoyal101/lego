@@ -40,7 +40,7 @@ npx lego-cli add validation/email-rfc5322
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(N) characters validated (N = email length)`
 * **Space Complexity:** `O(1)`
 
 ---

@@ -37,8 +37,8 @@ npx lego-cli add validation/schema-validator
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(P) properties validate (P = schema fields)`
-* **Space Complexity:** `O(P)`
+* **Time Complexity:** `O(P) schema properties validated`
+* **Space Complexity:** `O(P) error collection`
 
 ---
 

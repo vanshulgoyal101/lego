@@ -1,0 +1,22 @@
+{
+  "name": "hmac",
+  "description": "Hash-based Message Authentication Code builder utilizing custom hash engines and cryptographic primitives.",
+  "category": "crypto",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to generate signature hashes verification codes using Web Crypto keys or Node primitives.",
+  "parameters": [
+    {
+      "name": "key",
+      "type": "string|Uint8Array",
+      "required": true,
+      "description": "Secret key for message signing."
+    },
+    {
+      "name": "algorithm",
+      "type": "string",
+      "required": false,
+      "default": "SHA-256",
+      "description": "Cryptographic digest hash algorithm (SHA-1, SHA-256, SHA-512)."
+    }
+  ]
+}

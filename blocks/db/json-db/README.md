@@ -40,8 +40,8 @@ npx lego-cli add db/json-db
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N) for read/write file transactions`
-* **Space Complexity:** `O(N) table data in memory`
+* **Time Complexity:** `O(N) file read/write (N = record count)`
+* **Space Complexity:** `O(N) in-memory table`
 
 ---
 

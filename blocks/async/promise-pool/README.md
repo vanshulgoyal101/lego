@@ -42,8 +42,8 @@ npx lego-cli add async/promise-pool
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N) task mapping execution`
-* **Space Complexity:** `O(C) active concurrency buffer`
+* **Time Complexity:** `O(N) total tasks, concurrency-limited`
+* **Space Complexity:** `O(C) active task buffer`
 
 ---
 

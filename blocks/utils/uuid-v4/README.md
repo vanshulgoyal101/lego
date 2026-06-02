@@ -37,7 +37,7 @@ npx lego-cli add utils/uuid-v4
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(1) crypto random generation`
 * **Space Complexity:** `O(1)`
 
 ---

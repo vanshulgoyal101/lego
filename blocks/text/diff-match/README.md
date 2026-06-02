@@ -41,8 +41,8 @@ npx lego-cli add text/diff-match
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N × M) Myers diff algorithm (N, M = string lengths)`
+* **Space Complexity:** `O(N + M) edit path`
 
 ---
 

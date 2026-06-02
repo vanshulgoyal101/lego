@@ -41,8 +41,8 @@ npx lego-cli add utils/memoize
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(1) cache hit; O(F) cache miss (F = wrapped function cost)`
+* **Space Complexity:** `O(K) cached keys`
 
 ---
 

@@ -1,0 +1,15 @@
+{
+  "name": "slugify",
+  "description": "Unicode-friendly slug generator converting raw string titles to clean, URL-safe path strings.",
+  "category": "text",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to sanitize dynamic titles, labels, or document headers into path slugs.",
+  "parameters": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The input text string to convert."
+    }
+  ]
+}

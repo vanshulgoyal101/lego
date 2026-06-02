@@ -37,8 +37,8 @@ npx lego-cli add utils/object-diff
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) keys compared recursively (N = total key count)`
+* **Space Complexity:** `O(N) change records`
 
 ---
 

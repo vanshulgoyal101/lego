@@ -42,8 +42,8 @@ npx lego-cli add crypto/jwt-helper
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) hashing speed`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) payload bytes signed/verified`
+* **Space Complexity:** `O(N) encoded token`
 
 ---
 

@@ -37,8 +37,8 @@ npx lego-cli add encoding/tar-archiver
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) total bytes packed/unpacked (N = archive size)`
+* **Space Complexity:** `O(N) archive buffer`
 
 ---
 

@@ -37,8 +37,8 @@ npx lego-cli add db/vector-db
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N * D) K-NN similarity scan (N=records, D=dimensions)`
-* **Space Complexity:** `O(N * D) memory storage allocation`
+* **Time Complexity:** `O(N × D) K-NN brute scan (N = vectors, D = dimensions)`
+* **Space Complexity:** `O(N × D)`
 
 ---
 

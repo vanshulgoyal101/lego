@@ -1,0 +1,8 @@
+{
+  "name": "avl-tree",
+  "description": "A self-balancing binary search tree supporting guaranteed logarithmic inserts, deletes, and lookups via tree rotations.",
+  "category": "ds",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to maintain sorted keys with guaranteed O(log N) insertion, search, and deletion.",
+  "parameters": []
+}

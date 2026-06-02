@@ -37,8 +37,8 @@ npx lego-cli add algo/huffman-coding
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N log N) tree build, O(N) encode/decode (N = unique symbols)`
+* **Space Complexity:** `O(N) code table`
 
 ---
 

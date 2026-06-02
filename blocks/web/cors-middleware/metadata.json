@@ -1,0 +1,15 @@
+{
+  "name": "cors-middleware",
+  "description": "Rules-based CORS handler managing pre-flight checks, dynamic origin validations, custom headers, and authorization requests.",
+  "category": "web",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to manage Cross-Origin Resource Sharing logic in raw Node.js HTTP servers.",
+  "parameters": [
+    {
+      "name": "options",
+      "type": "object",
+      "required": false,
+      "description": "Configuration matching origin rules, allowed headers, and methods."
+    }
+  ]
+}

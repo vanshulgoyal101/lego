@@ -37,8 +37,8 @@ npx lego-cli add db/graph-db
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(V * log V + E) for Dijkstra shortestPath`
-* **Space Complexity:** `O(V + E) nodes and edges map`
+* **Time Complexity:** `O(V log V + E) Dijkstra shortest path`
+* **Space Complexity:** `O(V + E) nodes + edges`
 
 ---
 

@@ -41,8 +41,8 @@ npx lego-cli add text/csv-parser
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(L) linear parser lookup (L = string)`
-* **Space Complexity:** `O(L)`
+* **Time Complexity:** `O(N) characters parsed linearly`
+* **Space Complexity:** `O(N) parsed rows`
 
 ---
 

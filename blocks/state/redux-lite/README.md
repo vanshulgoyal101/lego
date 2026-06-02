@@ -42,8 +42,8 @@ npx lego-cli add state/redux-lite
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) dispatch execution state updates`
-* **Space Complexity:** `O(L) store change listeners`
+* **Time Complexity:** `O(1) dispatch; O(L) notify listeners (L = subscriber count)`
+* **Space Complexity:** `O(L) listener registry`
 
 ---
 

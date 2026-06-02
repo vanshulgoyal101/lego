@@ -37,7 +37,7 @@ npx lego-cli add web/router
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(R * P) route patterns iterate (R = routes, P = path parts)`
+* **Time Complexity:** `O(R × P) route scan (R = routes, P = path segments)`
 * **Space Complexity:** `O(R)`
 
 ---

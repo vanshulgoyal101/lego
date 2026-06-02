@@ -40,8 +40,8 @@ npx lego-cli add encoding/msgpack
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N) byte serialization mapping`
-* **Space Complexity:** `O(N) binary payload buffers`
+* **Time Complexity:** `O(N) bytes serialized/deserialized`
+* **Space Complexity:** `O(N) binary payload`
 
 ---
 

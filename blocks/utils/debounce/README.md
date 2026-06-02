@@ -42,7 +42,7 @@ npx lego-cli add utils/debounce
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(1) per call (timer reset)`
 * **Space Complexity:** `O(1)`
 
 ---

@@ -40,8 +40,8 @@ npx lego-cli add text/markdown-parser
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(L * R) regex checks (L = string, R = rules)`
-* **Space Complexity:** `O(L)`
+* **Time Complexity:** `O(N × R) input length × rule count (regex passes)`
+* **Space Complexity:** `O(N) output HTML`
 
 ---
 

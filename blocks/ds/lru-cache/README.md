@@ -41,8 +41,8 @@ npx lego-cli add ds/lru-cache
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) get/set Map access`
-* **Space Complexity:** `O(C) max capacity storage limit`
+* **Time Complexity:** `O(1) get/set using Map + doubly-linked list`
+* **Space Complexity:** `O(C) max capacity`
 
 ---
 

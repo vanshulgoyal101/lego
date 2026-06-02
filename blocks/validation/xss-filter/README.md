@@ -37,8 +37,8 @@ npx lego-cli add validation/xss-filter
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) HTML characters scanned`
+* **Space Complexity:** `O(N) sanitized output string`
 
 ---
 

@@ -42,7 +42,7 @@ npx lego-cli add utils/retry
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(A) attempts (A = max retries)`
 * **Space Complexity:** `O(1)`
 
 ---

@@ -37,8 +37,8 @@ npx lego-cli add text/json-serializer
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) object nodes traversed`
+* **Space Complexity:** `O(N) serialized string`
 
 ---
 

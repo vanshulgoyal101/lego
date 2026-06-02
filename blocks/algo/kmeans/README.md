@@ -42,8 +42,8 @@ npx lego-cli add algo/kmeans
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(I * K * N * D) where I=iterations, K=clusters, N=points, D=dimensions`
-* **Space Complexity:** `O(K * D + N)`
+* **Time Complexity:** `O(I × K × N × D) iterations × clusters × points × dimensions`
+* **Space Complexity:** `O(K × D + N)`
 
 ---
 

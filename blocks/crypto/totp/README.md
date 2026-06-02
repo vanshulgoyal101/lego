@@ -41,7 +41,7 @@ npx lego-cli add crypto/totp
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(W) hash validations (W = window size)`
+* **Time Complexity:** `O(W) window validations (W = time window)`
 * **Space Complexity:** `O(1)`
 
 ---

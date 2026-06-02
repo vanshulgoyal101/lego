@@ -38,7 +38,7 @@ npx lego-cli add ds/trie
 ## Computational Complexity
 
 * **Time Complexity:** `O(L) insert/search (L = string length)`
-* **Space Complexity:** `O(N * L) space`
+* **Space Complexity:** `O(N × L) total stored strings`
 
 ---
 

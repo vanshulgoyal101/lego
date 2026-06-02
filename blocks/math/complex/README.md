@@ -37,7 +37,7 @@ npx lego-cli add math/complex
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(1) arithmetic; O(log N) power via exp/ln`
 * **Space Complexity:** `O(1)`
 
 ---

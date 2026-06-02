@@ -37,8 +37,8 @@ npx lego-cli add validation/semver
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(1) parse/compare; O(N log N) sort (N = version count)`
+* **Space Complexity:** `O(N) sorted array`
 
 ---
 

@@ -37,8 +37,8 @@ npx lego-cli add web/cookie-helper
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) cookie string parsed (N = length)`
+* **Space Complexity:** `O(K) cookie key-value pairs`
 
 ---
 

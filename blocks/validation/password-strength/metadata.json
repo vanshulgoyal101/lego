@@ -1,0 +1,8 @@
+{
+  "name": "password-strength",
+  "description": "Calculates entropy scoring password complexity based on length, casing, digit matching, symbols, and repeating sequences.",
+  "category": "validation",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to score credentials strength metrics dynamically before storage registration.",
+  "parameters": []
+}

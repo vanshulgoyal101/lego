@@ -370,6 +370,33 @@
         "index.js"
       ]
     },
+    "crypto/hmac": {
+      "name": "hmac",
+      "description": "Hash-based Message Authentication Code builder utilizing custom hash engines and cryptographic primitives.",
+      "category": "crypto",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to generate signature hashes verification codes using Web Crypto keys or Node primitives.",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "string|Uint8Array",
+          "required": true,
+          "description": "Secret key for message signing."
+        },
+        {
+          "name": "algorithm",
+          "type": "string",
+          "required": false,
+          "default": "SHA-256",
+          "description": "Cryptographic digest hash algorithm (SHA-1, SHA-256, SHA-512)."
+        }
+      ],
+      "path": "blocks/crypto/hmac",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "crypto/jwt-helper": {
       "name": "jwt-helper",
       "category": "crypto",
@@ -552,6 +579,19 @@
         "index.js"
       ]
     },
+    "ds/avl-tree": {
+      "name": "avl-tree",
+      "description": "A self-balancing binary search tree supporting guaranteed logarithmic inserts, deletes, and lookups via tree rotations.",
+      "category": "ds",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to maintain sorted keys with guaranteed O(log N) insertion, search, and deletion.",
+      "parameters": [],
+      "path": "blocks/ds/avl-tree",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "ds/binary-search-tree": {
       "name": "binary-search-tree",
       "category": "ds",
@@ -618,6 +658,32 @@
       "aiPromptContext": "Use this block when you need pathfinding (Dijkstra, A*), spanning tree layouts (Kruskal), or cycle and strongly connected component detections (Tarjan) in directed/undirected graphs.",
       "parameters": [],
       "path": "blocks/ds/graph-network",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "ds/kd-tree": {
+      "name": "kd-tree",
+      "description": "A K-Dimensional Tree for spatial partitioning and fast multi-dimensional nearest neighbor search.",
+      "category": "ds",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to index multi-dimensional coordinates and perform nearest neighbor search.",
+      "parameters": [
+        {
+          "name": "points",
+          "type": "Array<Array<number>>",
+          "required": true,
+          "description": "Array of multi-dimensional numerical coordinate points."
+        },
+        {
+          "name": "dimensions",
+          "type": "number",
+          "required": true,
+          "description": "Number of dimensions for each coordinate."
+        }
+      ],
+      "path": "blocks/ds/kd-tree",
       "files": [
         "README.md",
         "index.js"
@@ -768,6 +834,19 @@
       "aiPromptContext": "Use this block when performing signal processing math, solving differential equations, working with Fourier transforms, or doing any computation requiring numbers with real and imaginary components.",
       "parameters": [],
       "path": "blocks/math/complex",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "math/geometry-2d": {
+      "name": "geometry-2d",
+      "description": "Intersection and distance calculators for 2D vectors, lines, circles, boxes, and polygons.",
+      "category": "math",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to solve collision checks, line segments crossings, and bounding boxes geometry calculation.",
+      "parameters": [],
+      "path": "blocks/math/geometry-2d",
       "files": [
         "README.md",
         "index.js"
@@ -1174,6 +1253,26 @@
         "index.js"
       ]
     },
+    "text/slugify": {
+      "name": "slugify",
+      "description": "Unicode-friendly slug generator converting raw string titles to clean, URL-safe path strings.",
+      "category": "text",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to sanitize dynamic titles, labels, or document headers into path slugs.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "The input text string to convert."
+        }
+      ],
+      "path": "blocks/text/slugify",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "text/yaml-parser": {
       "name": "yaml-parser",
       "category": "text",
@@ -1501,6 +1600,19 @@
         "index.js"
       ]
     },
+    "validation/password-strength": {
+      "name": "password-strength",
+      "description": "Calculates entropy scoring password complexity based on length, casing, digit matching, symbols, and repeating sequences.",
+      "category": "validation",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to score credentials strength metrics dynamically before storage registration.",
+      "parameters": [],
+      "path": "blocks/validation/password-strength",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "validation/rate-limiter": {
       "name": "rate-limiter",
       "category": "validation",
@@ -1598,6 +1710,26 @@
       "aiPromptContext": "Use this block when you need client-side session cookie management, user preference caching, or dark-mode toggle persistence that works natively in browsers without external libraries.",
       "parameters": [],
       "path": "blocks/web/cookie-helper",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "web/cors-middleware": {
+      "name": "cors-middleware",
+      "description": "Rules-based CORS handler managing pre-flight checks, dynamic origin validations, custom headers, and authorization requests.",
+      "category": "web",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to manage Cross-Origin Resource Sharing logic in raw Node.js HTTP servers.",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "object",
+          "required": false,
+          "description": "Configuration matching origin rules, allowed headers, and methods."
+        }
+      ],
+      "path": "blocks/web/cors-middleware",
       "files": [
         "README.md",
         "index.js"
@@ -1714,6 +1846,33 @@
         }
       ],
       "path": "blocks/web/sse-client",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "web/static-server": {
+      "name": "static-server",
+      "description": "A zero-dependency static file server mapping URLs to directories, managing MIME types, ETag cache validations, and file streams.",
+      "category": "web",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to run or test a lightweight web server serving assets from a specified folder.",
+      "parameters": [
+        {
+          "name": "publicDir",
+          "type": "string",
+          "required": true,
+          "description": "Absolute path to the public directory."
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "required": false,
+          "default": 3000,
+          "description": "Port to bind the server to."
+        }
+      ],
+      "path": "blocks/web/static-server",
       "files": [
         "README.md",
         "index.js"

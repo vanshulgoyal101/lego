@@ -37,7 +37,7 @@ npx lego-cli add ui/color-converter
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) conversion arithmetic`
+* **Time Complexity:** `O(1) arithmetic conversions`
 * **Space Complexity:** `O(1)`
 
 ---

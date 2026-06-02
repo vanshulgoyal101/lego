@@ -40,8 +40,8 @@ npx lego-cli add ds/priority-queue
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(log N) enqueue/dequeue`
-* **Space Complexity:** `O(N) size`
+* **Time Complexity:** `O(log N) enqueue/dequeue (binary heap)`
+* **Space Complexity:** `O(N)`
 
 ---
 

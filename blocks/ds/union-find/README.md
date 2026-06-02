@@ -40,8 +40,8 @@ npx lego-cli add ds/union-find
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(α(N)) per union/find (inverse Ackermann, effectively O(1))`
+* **Space Complexity:** `O(N)`
 
 ---
 

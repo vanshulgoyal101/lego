@@ -40,8 +40,8 @@ npx lego-cli add math/matrix
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(R * C) operations speed`
-* **Space Complexity:** `O(R * C)`
+* **Time Complexity:** `O(R × C) for most ops; O(N³) matrix multiply`
+* **Space Complexity:** `O(R × C)`
 
 ---
 

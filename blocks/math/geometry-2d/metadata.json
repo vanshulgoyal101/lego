@@ -1,0 +1,8 @@
+{
+  "name": "geometry-2d",
+  "description": "Intersection and distance calculators for 2D vectors, lines, circles, boxes, and polygons.",
+  "category": "math",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to solve collision checks, line segments crossings, and bounding boxes geometry calculation.",
+  "parameters": []
+}

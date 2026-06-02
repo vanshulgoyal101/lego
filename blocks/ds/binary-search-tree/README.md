@@ -37,8 +37,8 @@ npx lego-cli add ds/binary-search-tree
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(log N) avg insert/search; O(N) worst-case unbalanced`
+* **Space Complexity:** `O(N)`
 
 ---
 

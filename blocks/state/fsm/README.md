@@ -42,8 +42,8 @@ npx lego-cli add state/fsm
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) transition lookup`
-* **Space Complexity:** `O(V + E) for states storage`
+* **Time Complexity:** `O(1) state transition (Map lookup)`
+* **Space Complexity:** `O(V + E) states and transitions`
 
 ---
 

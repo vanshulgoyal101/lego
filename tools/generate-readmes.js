@@ -41,93 +41,244 @@ function getCompatibility(category) {
   };
 }
 
-// Map categories to complexity estimations for documentation
+// Map block names to accurate time/space complexity for documentation
 function getComplexity(name) {
   switch (name) {
-    case 'debounce':
-      return { time: 'O(1)', space: 'O(1)' };
-    case 'fetch-retry':
-      return { time: 'O(1) per request', space: 'O(1)' };
-    case 'fsm':
-      return { time: 'O(1) transition lookup', space: 'O(V + E) for states storage' };
-    case 'json-db':
-      return { time: 'O(N) for read/write file transactions', space: 'O(N) table data in memory' };
-    case 'jwt-helper':
-      return { time: 'O(1) hashing speed', space: 'O(1)' };
-    case 'hash':
-      return { time: 'O(1) digest execution', space: 'O(1)' };
-    case 'priority-queue':
-      return { time: 'O(log N) enqueue/dequeue', space: 'O(N) size' };
-    case 'trie':
-      return { time: 'O(L) insert/search (L = string length)', space: 'O(N * L) space' };
-    case 'api-client':
-      return { time: 'O(1) routing intercept', space: 'O(1)' };
-    case 'websocket-client':
-      return { time: 'O(1) message send', space: 'O(M) buffered offline outbox queue' };
-    case 'vector2d':
-      return { time: 'O(1) vector arithmetic', space: 'O(1)' };
-    case 'matrix':
-      return { time: 'O(R * C) operations speed', space: 'O(R * C)' };
-    case 'semaphore':
-      return { time: 'O(1)', space: 'O(Q) where Q is queued lock tasks size' };
-    case 'event-emitter':
-      return { time: 'O(L) listeners iterate', space: 'O(E * L) registered event mappings' };
-    case 'lru-cache':
-      return { time: 'O(1) get/set Map access', space: 'O(C) max capacity storage limit' };
-    case 'bloom-filter':
-      return { time: 'O(K) hash runs (K = hash functions)', space: 'O(M) bits memory width allocation' };
-    case 'markdown-parser':
-      return { time: 'O(L * R) regex checks (L = string, R = rules)', space: 'O(L)' };
-    case 'csv-parser':
-      return { time: 'O(L) linear parser lookup (L = string)', space: 'O(L)' };
-    case 'color-converter':
-      return { time: 'O(1) conversion arithmetic', space: 'O(1)' };
-    case 'query-builder':
-      return { time: 'O(C) columns building (C = condition criteria count)', space: 'O(C)' };
-    case 'router':
-      return { time: 'O(R * P) route patterns iterate (R = routes, P = path parts)', space: 'O(R)' };
-    case 'cookie-helper':
-      return { time: 'O(1)', space: 'O(1)' };
-    case 'schema-validator':
-      return { time: 'O(P) properties validate (P = schema fields)', space: 'O(P)' };
-    case 'promise-pool':
-      return { time: 'O(N) task mapping execution', space: 'O(C) active concurrency buffer' };
-    case 'sse-client':
-      return { time: 'O(1) persistent stream monitoring', space: 'O(1)' };
-    case 'ip-validator':
-      return { time: 'O(1) validation check speed', space: 'O(1)' };
-    case 'msgpack':
-      return { time: 'O(N) byte serialization mapping', space: 'O(N) binary payload buffers' };
+    // ===== algo =====
+    case 'binary-search':
+      return { time: 'O(log N) per search', space: 'O(1)' };
+    case 'sorting':
+      return { time: 'O(N log N) QuickSort avg / MergeSort worst', space: 'O(N) merge buffer' };
+    case 'graph':
+      return { time: 'O(V + E) BFS/DFS traversal', space: 'O(V + E) adjacency list' };
     case 'kmeans':
-      return { time: 'O(I * K * N * D) where I=iterations, K=clusters, N=points, D=dimensions', space: 'O(K * D + N)' };
-    case 'redux-lite':
-      return { time: 'O(1) dispatch execution state updates', space: 'O(L) store change listeners' };
-    case 'totp':
-      return { time: 'O(W) hash validations (W = window size)', space: 'O(1)' };
-    case 'key-value':
-      return { time: 'O(1) lookup map checks', space: 'O(N) keys cache database size' };
-    case 'document-db':
-      return { time: 'O(N) scan filtering (O(1) if indexing matched)', space: 'O(N) total stored JSON objects' };
-    case 'parser-combinator':
-      return { time: 'O(N) character parse matching', space: 'O(D) parser recursive depth' };
-    case 'markdown-compiler':
-      return { time: 'O(N) lines AST building', space: 'O(A) AST elements tree' };
-    case 'graph-db':
-      return { time: 'O(V * log V + E) for Dijkstra shortestPath', space: 'O(V + E) nodes and edges map' };
+      return { time: 'O(I × K × N × D) iterations × clusters × points × dimensions', space: 'O(K × D + N)' };
+    case 'levenshtein':
+      return { time: 'O(N × M) string lengths', space: 'O(N × M) DP table' };
+    case 'luhn':
+      return { time: 'O(N) digit count', space: 'O(1)' };
+    case 'huffman-coding':
+      return { time: 'O(N log N) tree build, O(N) encode/decode (N = unique symbols)', space: 'O(N) code table' };
+    case 'topological-sort':
+      return { time: 'O(V + E) Kahn\'s BFS / DFS', space: 'O(V + E)' };
+    case 'segment-tree':
+      return { time: 'O(log N) point-update and range-query; O(N) build', space: 'O(N) tree nodes' };
+
+    // ===== async =====
+    case 'event-emitter':
+      return { time: 'O(L) emit (L = listeners per event)', space: 'O(E × L) event→listener map' };
+    case 'promise-pool':
+      return { time: 'O(N) total tasks, concurrency-limited', space: 'O(C) active task buffer' };
+    case 'semaphore':
+      return { time: 'O(1) acquire/release', space: 'O(Q) queued waiters' };
+
+    // ===== compiler =====
     case 'json-schema-validator':
-      return { time: 'O(P * D) properties deep validation (P=rules, D=data)', space: 'O(R) recursive evaluation stack' };
-    case 'http-client-resilient':
-      return { time: 'O(1) execution loops', space: 'O(C) memory request cache entries' };
-    case 'timeseries-db':
-      return { time: 'O(log N) insert ordering scan', space: 'O(N) data metrics records size' };
+      return { time: 'O(P × D) schema properties × data depth', space: 'O(D) recursion stack' };
+    case 'regex-engine':
+      return { time: 'O(N × M) input × pattern states (NFA simulation)', space: 'O(M) NFA state set' };
     case 'sql-query-parser':
-      return { time: 'O(N) characters token parse scan', space: 'O(T) query token array length' };
-    case 'oauth2-client':
-      return { time: 'O(1) SHA-256 key generation', space: 'O(1)' };
+      return { time: 'O(N) characters tokenized linearly', space: 'O(T) token array length' };
+
+    // ===== crypto =====
+    case 'aes':
+      return { time: 'O(N) blocks (N = data length / 16)', space: 'O(N) ciphertext buffer' };
+    case 'hash':
+      return { time: 'O(N) input bytes digested', space: 'O(1) fixed-size output digest' };
+    case 'jwt-helper':
+      return { time: 'O(N) payload bytes signed/verified', space: 'O(N) encoded token' };
+    case 'totp':
+      return { time: 'O(W) window validations (W = time window)', space: 'O(1)' };
+    case 'uuid-shortener':
+      return { time: 'O(1) base conversion arithmetic', space: 'O(1)' };
+    case 'hmac':
+      return { time: 'O(N) message bytes digested (N = input length)', space: 'O(1)' };
+
+
+    // ===== db =====
+    case 'document-db':
+      return { time: 'O(N) full scan filter; O(1) indexed lookup', space: 'O(N) stored documents' };
+    case 'graph-db':
+      return { time: 'O(V log V + E) Dijkstra shortest path', space: 'O(V + E) nodes + edges' };
+    case 'json-db':
+      return { time: 'O(N) file read/write (N = record count)', space: 'O(N) in-memory table' };
+    case 'key-value':
+      return { time: 'O(1) get/set via Map', space: 'O(N) stored key count' };
+    case 'relational-db':
+      return { time: 'O(N × M) join (N rows × M rows); O(N) scan', space: 'O(N) table rows' };
+    case 'timeseries-db':
+      return { time: 'O(log N) insert (sorted); O(N) range scan', space: 'O(N) metric records' };
     case 'vector-db':
-      return { time: 'O(N * D) K-NN similarity scan (N=records, D=dimensions)', space: 'O(N * D) memory storage allocation' };
+      return { time: 'O(N × D) K-NN brute scan (N = vectors, D = dimensions)', space: 'O(N × D)' };
+
+    // ===== ds =====
+    case 'binary-search-tree':
+      return { time: 'O(log N) avg insert/search; O(N) worst-case unbalanced', space: 'O(N)' };
+    case 'bloom-filter':
+      return { time: 'O(K) per add/test (K = hash function count)', space: 'O(M) bit array' };
+    case 'circular-buffer':
+      return { time: 'O(1) push/pop', space: 'O(N) fixed capacity' };
+    case 'graph-network':
+      return { time: 'O(V log V + E) Dijkstra/A*; O(E log E) Kruskal; O(V + E) Tarjan', space: 'O(V + E)' };
+    case 'lru-cache':
+      return { time: 'O(1) get/set using Map + doubly-linked list', space: 'O(C) max capacity' };
+    case 'priority-queue':
+      return { time: 'O(log N) enqueue/dequeue (binary heap)', space: 'O(N)' };
+    case 'trie':
+      return { time: 'O(L) insert/search (L = string length)', space: 'O(N × L) total stored strings' };
+    case 'union-find':
+      return { time: 'O(α(N)) per union/find (inverse Ackermann, effectively O(1))', space: 'O(N)' };
+    case 'avl-tree':
+      return { time: 'O(log N) insert/delete/search guaranteed', space: 'O(N) node records' };
+    case 'kd-tree':
+      return { time: 'O(log N) avg search/insert (O(N) worst-case)', space: 'O(N) coordinates storage' };
+
+
+    // ===== encoding =====
+    case 'base64':
+      return { time: 'O(N) bytes encoded/decoded', space: 'O(N) output string' };
+    case 'msgpack':
+      return { time: 'O(N) bytes serialized/deserialized', space: 'O(N) binary payload' };
+    case 'tar-archiver':
+      return { time: 'O(N) total bytes packed/unpacked (N = archive size)', space: 'O(N) archive buffer' };
+    case 'url-codec':
+      return { time: 'O(N) characters encoded/decoded', space: 'O(N) output string' };
+
+    // ===== math =====
+    case 'complex':
+      return { time: 'O(1) arithmetic; O(log N) power via exp/ln', space: 'O(1)' };
+    case 'matrix':
+      return { time: 'O(R × C) for most ops; O(N³) matrix multiply', space: 'O(R × C)' };
+    case 'prime-generator':
+      return { time: 'O(N log log N) Sieve; O(√N) trial division; O(log²N) Miller-Rabin', space: 'O(N) sieve bitmap' };
+    case 'random':
+      return { time: 'O(1) per random value', space: 'O(1)' };
+    case 'stats':
+      return { time: 'O(N) mean/sum/variance; O(N log N) median (sort)', space: 'O(N) input copy for sort' };
+    case 'symbolic-diff':
+      return { time: 'O(N) expression tree nodes (N = AST size)', space: 'O(N) expression tree' };
+    case 'vector2d':
+      return { time: 'O(1) all vector operations', space: 'O(1)' };
+    case 'geometry-2d':
+      return { time: 'O(P) points polygon calculation (P = polygon vertices count)', space: 'O(1)' };
+
+
+    // ===== ml =====
+    case 'decision-tree':
+      return { time: 'O(N × D × log N) training (N = samples, D = features); O(log N) predict', space: 'O(N × D) training data' };
+    case 'knn':
+      return { time: 'O(N × D) per prediction (brute-force distance)', space: 'O(N × D) training set' };
+    case 'neural-network':
+      return { time: 'O(E × N × L²) training (E = epochs, N = samples, L = layer size)', space: 'O(L²) weights' };
+
+    // ===== protocol =====
+    case 'dns-resolver':
+      return { time: 'O(N) packet bytes serialized/parsed', space: 'O(N) packet buffer' };
+
+    // ===== state =====
+    case 'fsm':
+      return { time: 'O(1) state transition (Map lookup)', space: 'O(V + E) states and transitions' };
+    case 'redux-lite':
+      return { time: 'O(1) dispatch; O(L) notify listeners (L = subscriber count)', space: 'O(L) listener registry' };
+
+    // ===== text =====
+    case 'csv-parser':
+      return { time: 'O(N) characters parsed linearly', space: 'O(N) parsed rows' };
+    case 'diff-match':
+      return { time: 'O(N × M) Myers diff algorithm (N, M = string lengths)', space: 'O(N + M) edit path' };
+    case 'ini-parser':
+      return { time: 'O(N) lines parsed linearly', space: 'O(K) key-value pairs stored' };
+    case 'json-serializer':
+      return { time: 'O(N) object nodes traversed', space: 'O(N) serialized string' };
+    case 'json5-parser':
+      return { time: 'O(N) characters tokenized and parsed', space: 'O(N) parse tree' };
+    case 'markdown-compiler':
+      return { time: 'O(N) lines → AST nodes', space: 'O(N) AST tree' };
+    case 'markdown-parser':
+      return { time: 'O(N × R) input length × rule count (regex passes)', space: 'O(N) output HTML' };
+    case 'parser-combinator':
+      return { time: 'O(N) characters consumed sequentially', space: 'O(D) recursion call depth' };
+    case 'yaml-parser':
+      return { time: 'O(N) lines parsed linearly', space: 'O(N) resulting object tree' };
+    case 'slugify':
+      return { time: 'O(N) character conversion normalize operations', space: 'O(N) output string path' };
+
+
+    // ===== ui =====
+    case 'color-converter':
+      return { time: 'O(1) arithmetic conversions', space: 'O(1)' };
+    case 'query-builder':
+      return { time: 'O(C) conditions assembled (C = clause count)', space: 'O(C) query string' };
+    case 'virtual-dom':
+      return { time: 'O(N) diff/patch (N = tree nodes); O(N) SSR render', space: 'O(N) VNode tree' };
+
+    // ===== utils =====
+    case 'date-formatter':
+      return { time: 'O(F) format tokens (F = format string length)', space: 'O(1)' };
+    case 'debounce':
+      return { time: 'O(1) per call (timer reset)', space: 'O(1)' };
+    case 'deep-clone':
+      return { time: 'O(N) object nodes traversed', space: 'O(N) cloned structure' };
+    case 'memoize':
+      return { time: 'O(1) cache hit; O(F) cache miss (F = wrapped function cost)', space: 'O(K) cached keys' };
+    case 'object-diff':
+      return { time: 'O(N) keys compared recursively (N = total key count)', space: 'O(N) change records' };
+    case 'pubsub':
+      return { time: 'O(S × P) publish (S = subscribers, P = pattern match per subscriber)', space: 'O(S + H) subscribers + history' };
+    case 'retry':
+      return { time: 'O(A) attempts (A = max retries)', space: 'O(1)' };
+    case 'throttle':
+      return { time: 'O(1) per call (timer check)', space: 'O(1)' };
+    case 'uuid-v4':
+      return { time: 'O(1) crypto random generation', space: 'O(1)' };
+
+    // ===== validation =====
+    case 'email-rfc5322':
+      return { time: 'O(N) characters validated (N = email length)', space: 'O(1)' };
+    case 'ip-validator':
+      return { time: 'O(1) fixed-format check', space: 'O(1)' };
+    case 'jwt-validator':
+      return { time: 'O(N) payload bytes verified (N = token length)', space: 'O(N) decoded payload' };
+    case 'rate-limiter':
+      return { time: 'O(1) token-bucket check per request', space: 'O(C) client state records' };
+    case 'schema-validator':
+      return { time: 'O(P) schema properties validated', space: 'O(P) error collection' };
+    case 'semver':
+      return { time: 'O(1) parse/compare; O(N log N) sort (N = version count)', space: 'O(N) sorted array' };
+    case 'xss-filter':
+      return { time: 'O(N) HTML characters scanned', space: 'O(N) sanitized output string' };
+    case 'password-strength':
+      return { time: 'O(N) password check rules validation (N = length)', space: 'O(1)' };
+
+
+    // ===== web =====
+    case 'api-client':
+      return { time: 'O(1) per request dispatch', space: 'O(1)' };
+    case 'cookie-helper':
+      return { time: 'O(N) cookie string parsed (N = length)', space: 'O(K) cookie key-value pairs' };
+    case 'fetch-retry':
+      return { time: 'O(A) retry attempts', space: 'O(1)' };
+    case 'http-client-resilient':
+      return { time: 'O(1) per request; O(C) cache lookup', space: 'O(C) response cache entries' };
+    case 'http-server':
+      return { time: 'O(R) route matching (R = registered routes)', space: 'O(R) route registry' };
+    case 'oauth2-client':
+      return { time: 'O(1) PKCE generation (SHA-256 is O(N) input bytes)', space: 'O(1)' };
+    case 'router':
+      return { time: 'O(R × P) route scan (R = routes, P = path segments)', space: 'O(R)' };
+    case 'sse-client':
+      return { time: 'O(1) per event dispatch', space: 'O(1)' };
+    case 'websocket-client':
+      return { time: 'O(1) send; O(M) offline queue drain (M = buffered messages)', space: 'O(M) outbox queue' };
+    case 'static-server':
+      return { time: 'O(1) persistent request response cycle', space: 'O(1)' };
+    case 'cors-middleware':
+      return { time: 'O(1) rules match verification', space: 'O(1)' };
+
+
     default:
-      return { time: 'O(1)', space: 'O(1)' };
+      // Prevent silent errors when new blocks are added to the repo
+      throw new Error(`[README Generator Error] Block "${name}" has no complexity mapping defined in getComplexity(). Please add it to "tools/generate-readmes.js".`);
   }
 }
 

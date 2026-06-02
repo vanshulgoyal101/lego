@@ -41,8 +41,8 @@ npx lego-cli add crypto/aes
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) blocks (N = data length / 16)`
+* **Space Complexity:** `O(N) ciphertext buffer`
 
 ---
 

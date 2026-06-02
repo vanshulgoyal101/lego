@@ -40,8 +40,8 @@ npx lego-cli add text/markdown-compiler
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N) lines AST building`
-* **Space Complexity:** `O(A) AST elements tree`
+* **Time Complexity:** `O(N) lines → AST nodes`
+* **Space Complexity:** `O(N) AST tree`
 
 ---
 

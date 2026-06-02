@@ -37,8 +37,8 @@ npx lego-cli add ml/neural-network
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(E × N × L²) training (E = epochs, N = samples, L = layer size)`
+* **Space Complexity:** `O(L²) weights`
 
 ---
 

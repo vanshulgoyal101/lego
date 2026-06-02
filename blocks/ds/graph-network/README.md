@@ -37,8 +37,8 @@ npx lego-cli add ds/graph-network
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(V log V + E) Dijkstra/A*; O(E log E) Kruskal; O(V + E) Tarjan`
+* **Space Complexity:** `O(V + E)`
 
 ---
 

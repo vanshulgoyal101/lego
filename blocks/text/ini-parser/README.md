@@ -37,8 +37,8 @@ npx lego-cli add text/ini-parser
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) lines parsed linearly`
+* **Space Complexity:** `O(K) key-value pairs stored`
 
 ---
 

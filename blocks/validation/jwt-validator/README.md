@@ -41,8 +41,8 @@ npx lego-cli add validation/jwt-validator
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) payload bytes verified (N = token length)`
+* **Space Complexity:** `O(N) decoded payload`
 
 ---
 

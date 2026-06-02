@@ -37,8 +37,8 @@ npx lego-cli add math/prime-generator
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N log log N) Sieve; O(√N) trial division; O(log²N) Miller-Rabin`
+* **Space Complexity:** `O(N) sieve bitmap`
 
 ---
 

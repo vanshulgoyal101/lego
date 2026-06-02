@@ -41,8 +41,8 @@ npx lego-cli add algo/sorting
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N log N) QuickSort avg / MergeSort worst`
+* **Space Complexity:** `O(N) merge buffer`
 
 ---
 

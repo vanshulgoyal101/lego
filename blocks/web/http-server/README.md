@@ -37,8 +37,8 @@ npx lego-cli add web/http-server
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(R) route matching (R = registered routes)`
+* **Space Complexity:** `O(R) route registry`
 
 ---
 

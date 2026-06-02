@@ -41,8 +41,8 @@ npx lego-cli add compiler/json-schema-validator
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(P * D) properties deep validation (P=rules, D=data)`
-* **Space Complexity:** `O(R) recursive evaluation stack`
+* **Time Complexity:** `O(P × D) schema properties × data depth`
+* **Space Complexity:** `O(D) recursion stack`
 
 ---
 

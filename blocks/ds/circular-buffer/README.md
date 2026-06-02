@@ -40,8 +40,8 @@ npx lego-cli add ds/circular-buffer
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(1) push/pop`
+* **Space Complexity:** `O(N) fixed capacity`
 
 ---
 

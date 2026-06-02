@@ -41,7 +41,7 @@ npx lego-cli add utils/date-formatter
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(F) format tokens (F = format string length)`
 * **Space Complexity:** `O(1)`
 
 ---

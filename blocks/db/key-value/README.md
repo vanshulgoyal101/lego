@@ -40,8 +40,8 @@ npx lego-cli add db/key-value
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) lookup map checks`
-* **Space Complexity:** `O(N) keys cache database size`
+* **Time Complexity:** `O(1) get/set via Map`
+* **Space Complexity:** `O(N) stored key count`
 
 ---
 

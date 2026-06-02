@@ -37,8 +37,8 @@ npx lego-cli add text/parser-combinator
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N) character parse matching`
-* **Space Complexity:** `O(D) parser recursive depth`
+* **Time Complexity:** `O(N) characters consumed sequentially`
+* **Space Complexity:** `O(D) recursion call depth`
 
 ---
 

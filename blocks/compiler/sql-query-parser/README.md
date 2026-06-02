@@ -40,8 +40,8 @@ npx lego-cli add compiler/sql-query-parser
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N) characters token parse scan`
-* **Space Complexity:** `O(T) query token array length`
+* **Time Complexity:** `O(N) characters tokenized linearly`
+* **Space Complexity:** `O(T) token array length`
 
 ---
 

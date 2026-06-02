@@ -41,8 +41,8 @@ npx lego-cli add algo/levenshtein
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N × M) string lengths`
+* **Space Complexity:** `O(N × M) DP table`
 
 ---
 

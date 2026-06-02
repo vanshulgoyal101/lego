@@ -37,7 +37,7 @@ npx lego-cli add web/oauth2-client
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) SHA-256 key generation`
+* **Time Complexity:** `O(1) PKCE generation (SHA-256 is O(N) input bytes)`
 * **Space Complexity:** `O(1)`
 
 ---

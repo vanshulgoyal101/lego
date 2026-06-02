@@ -41,7 +41,7 @@ npx lego-cli add web/api-client
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) routing intercept`
+* **Time Complexity:** `O(1) per request dispatch`
 * **Space Complexity:** `O(1)`
 
 ---

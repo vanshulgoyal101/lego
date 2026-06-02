@@ -37,8 +37,8 @@ npx lego-cli add web/http-client-resilient
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) execution loops`
-* **Space Complexity:** `O(C) memory request cache entries`
+* **Time Complexity:** `O(1) per request; O(C) cache lookup`
+* **Space Complexity:** `O(C) response cache entries`
 
 ---
 

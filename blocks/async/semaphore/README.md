@@ -40,8 +40,8 @@ npx lego-cli add async/semaphore
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(Q) where Q is queued lock tasks size`
+* **Time Complexity:** `O(1) acquire/release`
+* **Space Complexity:** `O(Q) queued waiters`
 
 ---
 

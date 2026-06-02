@@ -43,7 +43,7 @@ npx lego-cli add web/fetch-retry
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) per request`
+* **Time Complexity:** `O(A) retry attempts`
 * **Space Complexity:** `O(1)`
 
 ---

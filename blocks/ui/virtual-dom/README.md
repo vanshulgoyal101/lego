@@ -37,8 +37,8 @@ npx lego-cli add ui/virtual-dom
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) diff/patch (N = tree nodes); O(N) SSR render`
+* **Space Complexity:** `O(N) VNode tree`
 
 ---
 

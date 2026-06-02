@@ -41,8 +41,8 @@ npx lego-cli add ds/bloom-filter
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(K) hash runs (K = hash functions)`
-* **Space Complexity:** `O(M) bits memory width allocation`
+* **Time Complexity:** `O(K) per add/test (K = hash function count)`
+* **Space Complexity:** `O(M) bit array`
 
 ---
 

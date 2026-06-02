@@ -37,8 +37,8 @@ npx lego-cli add compiler/regex-engine
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N × M) input × pattern states (NFA simulation)`
+* **Space Complexity:** `O(M) NFA state set`
 
 ---
 

@@ -42,8 +42,8 @@ npx lego-cli add crypto/hash
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) digest execution`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N) input bytes digested`
+* **Space Complexity:** `O(1) fixed-size output digest`
 
 ---
 

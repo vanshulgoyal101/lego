@@ -40,7 +40,7 @@ npx lego-cli add algo/luhn
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
+* **Time Complexity:** `O(N) digit count`
 * **Space Complexity:** `O(1)`
 
 ---

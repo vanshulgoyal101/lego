@@ -40,7 +40,7 @@ npx lego-cli add validation/ip-validator
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) validation check speed`
+* **Time Complexity:** `O(1) fixed-format check`
 * **Space Complexity:** `O(1)`
 
 ---

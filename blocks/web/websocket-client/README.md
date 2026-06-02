@@ -42,8 +42,8 @@ npx lego-cli add web/websocket-client
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) message send`
-* **Space Complexity:** `O(M) buffered offline outbox queue`
+* **Time Complexity:** `O(1) send; O(M) offline queue drain (M = buffered messages)`
+* **Space Complexity:** `O(M) outbox queue`
 
 ---
 

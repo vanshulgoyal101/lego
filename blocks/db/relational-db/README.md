@@ -37,8 +37,8 @@ npx lego-cli add db/relational-db
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(N × M) join (N rows × M rows); O(N) scan`
+* **Space Complexity:** `O(N) table rows`
 
 ---
 

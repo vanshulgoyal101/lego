@@ -41,7 +41,7 @@ npx lego-cli add math/vector2d
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) vector arithmetic`
+* **Time Complexity:** `O(1) all vector operations`
 * **Space Complexity:** `O(1)`
 
 ---

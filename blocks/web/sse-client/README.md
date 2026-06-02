@@ -41,7 +41,7 @@ npx lego-cli add web/sse-client
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1) persistent stream monitoring`
+* **Time Complexity:** `O(1) per event dispatch`
 * **Space Complexity:** `O(1)`
 
 ---

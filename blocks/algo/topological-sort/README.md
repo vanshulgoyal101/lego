@@ -37,8 +37,8 @@ npx lego-cli add algo/topological-sort
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(V + E) Kahn's BFS / DFS`
+* **Space Complexity:** `O(V + E)`
 
 ---
 

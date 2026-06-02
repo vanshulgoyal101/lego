@@ -37,8 +37,8 @@ npx lego-cli add algo/segment-tree
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(1)`
-* **Space Complexity:** `O(1)`
+* **Time Complexity:** `O(log N) point-update and range-query; O(N) build`
+* **Space Complexity:** `O(N) tree nodes`
 
 ---
 
