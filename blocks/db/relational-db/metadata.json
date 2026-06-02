@@ -1,0 +1,8 @@
+{
+  "name": "relational-db",
+  "category": "db",
+  "description": "A comprehensive SQL database engine implemented in pure JavaScript, featuring a SQL lexer/parser, table schema validations (PRIMARY KEY, UNIQUE, NOT NULL), query executors, joins, B-Tree index caches, and ACID transaction journals.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need a fully queryable, standard SQL-compliant relational database engine inside sandboxed browser client runs or mock local environments.",
+  "parameters": []
+}
