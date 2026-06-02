@@ -1,5 +1,36 @@
 {
   "blocks": {
+    "async/event-emitter": {
+      "name": "event-emitter",
+      "category": "async",
+      "description": "A fully-featured typed event emitter supporting standard register, emit, once, and listener management.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building pub-sub systems, custom event loops, socket connection message routers, or component communication layers.",
+      "parameters": [],
+      "path": "blocks/async/event-emitter",
+      "files": [
+        "index.js"
+      ]
+    },
+    "async/semaphore": {
+      "name": "semaphore",
+      "category": "async",
+      "description": "Concurrency limiter (Semaphore) to throttle parallel async tasks execution.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when throttling resource-heavy tasks like parallel web requests, massive filesystem writes, or database queries to avoid hitting rate limits or memory exhaustion. Import using: import { Semaphore } from './async/semaphore.js';",
+      "parameters": [
+        {
+          "name": "maxConcurrency",
+          "type": "number",
+          "required": true,
+          "description": "Maximum number of simultaneous active async operations."
+        }
+      ],
+      "path": "blocks/async/semaphore",
+      "files": [
+        "index.js"
+      ]
+    },
     "crypto/hash": {
       "name": "hash",
       "category": "crypto",
@@ -75,6 +106,56 @@
         }
       ],
       "path": "blocks/db/json-db",
+      "files": [
+        "index.js"
+      ]
+    },
+    "ds/bloom-filter": {
+      "name": "bloom-filter",
+      "category": "ds",
+      "description": "A space-efficient probabilistic Bloom Filter membership tester.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when checking if values exist in large datasets without querying databases (e.g. username availability caching, blocking malicious URLs, duplicate key verification).",
+      "parameters": [
+        {
+          "name": "size",
+          "type": "number",
+          "required": true,
+          "description": "Array bit length allocation."
+        },
+        {
+          "name": "hashFunctionsCount",
+          "type": "number",
+          "default": 3,
+          "description": "Total hashes to execute per item."
+        }
+      ],
+      "path": "blocks/ds/bloom-filter",
+      "files": [
+        "index.js"
+      ]
+    },
+    "ds/lru-cache": {
+      "name": "lru-cache",
+      "category": "ds",
+      "description": "Least-Recently-Used (LRU) Cache supporting maximum capacity limit eviction and Time-To-Live expiration.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building memory caches for heavy database reads, API response caches, user session memory pools, or image buffering frameworks. Import using: import { LruCache } from './ds/lru-cache.js';",
+      "parameters": [
+        {
+          "name": "capacity",
+          "type": "number",
+          "required": true,
+          "description": "Maximum number of items allowed in the cache before eviction."
+        },
+        {
+          "name": "ttl",
+          "type": "number",
+          "default": 0,
+          "description": "Item lifetime in milliseconds. 0 represents infinite lifespan."
+        }
+      ],
+      "path": "blocks/ds/lru-cache",
       "files": [
         "index.js"
       ]
@@ -180,6 +261,81 @@
         }
       ],
       "path": "blocks/state/fsm",
+      "files": [
+        "index.js"
+      ]
+    },
+    "text/csv-parser": {
+      "name": "csv-parser",
+      "category": "text",
+      "description": "Robust CSV parser and generator correctly handling quoted escape strings and delimiters.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when handling data imports/exports (like user tables list, report logs, excel uploads/downloads) without installing heavy npm dependencies.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "The raw CSV string payload."
+        },
+        {
+          "name": "delimiter",
+          "type": "string",
+          "default": ",",
+          "description": "The character cell separator."
+        }
+      ],
+      "path": "blocks/text/csv-parser",
+      "files": [
+        "index.js"
+      ]
+    },
+    "text/markdown-parser": {
+      "name": "markdown-parser",
+      "category": "text",
+      "description": "Lightweight Markdown-to-HTML formatting parser.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when generating simple rich text rendering wrappers for blog posts, chat message logs, or readme display interfaces.",
+      "parameters": [
+        {
+          "name": "markdown",
+          "type": "string",
+          "required": true,
+          "description": "Raw markdown string content."
+        }
+      ],
+      "path": "blocks/text/markdown-parser",
+      "files": [
+        "index.js"
+      ]
+    },
+    "ui/color-converter": {
+      "name": "color-converter",
+      "category": "ui",
+      "description": "Color parsing and format space converter (HEX, RGB, HSL) with W3C relative luminance contrast ratio compliance calculations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when styling dynamic UI theme palettes, calculating optimal text color over a dynamic background for readability compliance (WCAG contrast checks), or implementing CSS styling properties engines.",
+      "parameters": [],
+      "path": "blocks/ui/color-converter",
+      "files": [
+        "index.js"
+      ]
+    },
+    "ui/query-builder": {
+      "name": "query-builder",
+      "category": "ui",
+      "description": "Safe SQL query string building helper utilizing template placeholders for bind values.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when constructing SQL strings dynamically (for SQLite, MySQL, Postgres databases) to make your database interaction calls structured and resilient against SQL injection vulnerabilities.",
+      "parameters": [
+        {
+          "name": "table",
+          "type": "string",
+          "required": true,
+          "description": "Destination database table target name."
+        }
+      ],
+      "path": "blocks/ui/query-builder",
       "files": [
         "index.js"
       ]

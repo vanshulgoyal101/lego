@@ -1,0 +1,15 @@
+{
+  "name": "semaphore",
+  "category": "async",
+  "description": "Concurrency limiter (Semaphore) to throttle parallel async tasks execution.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when throttling resource-heavy tasks like parallel web requests, massive filesystem writes, or database queries to avoid hitting rate limits or memory exhaustion. Import using: import { Semaphore } from './async/semaphore.js';",
+  "parameters": [
+    {
+      "name": "maxConcurrency",
+      "type": "number",
+      "required": true,
+      "description": "Maximum number of simultaneous active async operations."
+    }
+  ]
+}

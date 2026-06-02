@@ -1,0 +1,21 @@
+{
+  "name": "bloom-filter",
+  "category": "ds",
+  "description": "A space-efficient probabilistic Bloom Filter membership tester.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when checking if values exist in large datasets without querying databases (e.g. username availability caching, blocking malicious URLs, duplicate key verification).",
+  "parameters": [
+    {
+      "name": "size",
+      "type": "number",
+      "required": true,
+      "description": "Array bit length allocation."
+    },
+    {
+      "name": "hashFunctionsCount",
+      "type": "number",
+      "default": 3,
+      "description": "Total hashes to execute per item."
+    }
+  ]
+}

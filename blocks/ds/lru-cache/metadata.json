@@ -1,0 +1,21 @@
+{
+  "name": "lru-cache",
+  "category": "ds",
+  "description": "Least-Recently-Used (LRU) Cache supporting maximum capacity limit eviction and Time-To-Live expiration.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building memory caches for heavy database reads, API response caches, user session memory pools, or image buffering frameworks. Import using: import { LruCache } from './ds/lru-cache.js';",
+  "parameters": [
+    {
+      "name": "capacity",
+      "type": "number",
+      "required": true,
+      "description": "Maximum number of items allowed in the cache before eviction."
+    },
+    {
+      "name": "ttl",
+      "type": "number",
+      "default": 0,
+      "description": "Item lifetime in milliseconds. 0 represents infinite lifespan."
+    }
+  ]
+}

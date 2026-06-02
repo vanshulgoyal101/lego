@@ -1,0 +1,8 @@
+{
+  "name": "event-emitter",
+  "category": "async",
+  "description": "A fully-featured typed event emitter supporting standard register, emit, once, and listener management.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building pub-sub systems, custom event loops, socket connection message routers, or component communication layers.",
+  "parameters": []
+}

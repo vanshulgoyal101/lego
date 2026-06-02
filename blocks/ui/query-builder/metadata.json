@@ -1,0 +1,15 @@
+{
+  "name": "query-builder",
+  "category": "ui",
+  "description": "Safe SQL query string building helper utilizing template placeholders for bind values.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when constructing SQL strings dynamically (for SQLite, MySQL, Postgres databases) to make your database interaction calls structured and resilient against SQL injection vulnerabilities.",
+  "parameters": [
+    {
+      "name": "table",
+      "type": "string",
+      "required": true,
+      "description": "Destination database table target name."
+    }
+  ]
+}

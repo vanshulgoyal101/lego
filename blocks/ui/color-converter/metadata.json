@@ -1,0 +1,8 @@
+{
+  "name": "color-converter",
+  "category": "ui",
+  "description": "Color parsing and format space converter (HEX, RGB, HSL) with W3C relative luminance contrast ratio compliance calculations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when styling dynamic UI theme palettes, calculating optimal text color over a dynamic background for readability compliance (WCAG contrast checks), or implementing CSS styling properties engines.",
+  "parameters": []
+}

@@ -1,0 +1,21 @@
+{
+  "name": "csv-parser",
+  "category": "text",
+  "description": "Robust CSV parser and generator correctly handling quoted escape strings and delimiters.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when handling data imports/exports (like user tables list, report logs, excel uploads/downloads) without installing heavy npm dependencies.",
+  "parameters": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The raw CSV string payload."
+    },
+    {
+      "name": "delimiter",
+      "type": "string",
+      "default": ",",
+      "description": "The character cell separator."
+    }
+  ]
+}
