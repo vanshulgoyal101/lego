@@ -1,0 +1,8 @@
+{
+  "name": "graph-network",
+  "category": "ds",
+  "description": "An advanced graph network library. Supports directed/undirected representations, shortest path solvers using Dijkstra and A* search, Minimum Spanning Trees (MST) via Kruskal's algorithm (using inline Disjoint Set Union), and Tarjan's Strongly Connected Components (SCC) algorithm.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need pathfinding (Dijkstra, A*), spanning tree layouts (Kruskal), or cycle and strongly connected component detections (Tarjan) in directed/undirected graphs.",
+  "parameters": []
+}

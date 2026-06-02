@@ -1,0 +1,8 @@
+{
+  "name": "http-server",
+  "category": "web",
+  "description": "A zero-dependency HTTP/1.1 Web Server built from scratch using Node.js TCP sockets. Implements raw request parsing, header and cookie mapping, body buffers, a parameterized routing tree, middleware orchestration, and response formatting helpers.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need a lightweight web server with routing, middlewares, and cookie/body parsing without importing express, fastify, or other external server libraries.",
+  "parameters": []
+}

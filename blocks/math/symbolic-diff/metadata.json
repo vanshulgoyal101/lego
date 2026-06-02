@@ -1,0 +1,22 @@
+{
+  "name": "symbolic-diff",
+  "category": "math",
+  "description": "A symbolic differentiation engine. Parses mathematical expression strings into Abstract Syntax Trees (AST), computes exact derivative expressions using differentiation rules (power, product, quotient, chain, and trigonometric rules), simplifies the resulting ASTs, and formats them back to standard expression strings.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to compute analytical derivatives of math expressions dynamically without relying on numeric approximation or heavyweight computer algebra systems.",
+  "parameters": [
+    {
+      "name": "expression",
+      "type": "string",
+      "required": true,
+      "description": "The mathematical expression string (e.g. 'x^2 + 3*x - sin(x)')."
+    },
+    {
+      "name": "variable",
+      "type": "string",
+      "required": false,
+      "default": "x",
+      "description": "The variable with respect to which differentiation is performed."
+    }
+  ]
+}

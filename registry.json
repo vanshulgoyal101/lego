@@ -571,6 +571,19 @@
         "index.js"
       ]
     },
+    "ds/graph-network": {
+      "name": "graph-network",
+      "category": "ds",
+      "description": "An advanced graph network library. Supports directed/undirected representations, shortest path solvers using Dijkstra and A* search, Minimum Spanning Trees (MST) via Kruskal's algorithm (using inline Disjoint Set Union), and Tarjan's Strongly Connected Components (SCC) algorithm.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need pathfinding (Dijkstra, A*), spanning tree layouts (Kruskal), or cycle and strongly connected component detections (Tarjan) in directed/undirected graphs.",
+      "parameters": [],
+      "path": "blocks/ds/graph-network",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "ds/lru-cache": {
       "name": "lru-cache",
       "category": "ds",
@@ -662,6 +675,19 @@
         "index.js"
       ]
     },
+    "encoding/tar-archiver": {
+      "name": "tar-archiver",
+      "category": "encoding",
+      "description": "A cross-runtime POSIX ustar tar archiver and extractor. Encodes files with metadata (name, mode, uid, gid, mtime, size) into raw binary 512-byte aligned tar archive payloads, computes standard octal checksums, and parses tar archives back into file record structures.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to create or read standard POSIX tar archives in-memory using pure Uint8Array operations, without external system commands or node-tar dependencies.",
+      "parameters": [],
+      "path": "blocks/encoding/tar-archiver",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "encoding/url-codec": {
       "name": "url-codec",
       "category": "encoding",
@@ -721,6 +747,33 @@
         "index.js"
       ]
     },
+    "math/symbolic-diff": {
+      "name": "symbolic-diff",
+      "category": "math",
+      "description": "A symbolic differentiation engine. Parses mathematical expression strings into Abstract Syntax Trees (AST), computes exact derivative expressions using differentiation rules (power, product, quotient, chain, and trigonometric rules), simplifies the resulting ASTs, and formats them back to standard expression strings.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to compute analytical derivatives of math expressions dynamically without relying on numeric approximation or heavyweight computer algebra systems.",
+      "parameters": [
+        {
+          "name": "expression",
+          "type": "string",
+          "required": true,
+          "description": "The mathematical expression string (e.g. 'x^2 + 3*x - sin(x)')."
+        },
+        {
+          "name": "variable",
+          "type": "string",
+          "required": false,
+          "default": "x",
+          "description": "The variable with respect to which differentiation is performed."
+        }
+      ],
+      "path": "blocks/math/symbolic-diff",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
     "math/vector2d": {
       "name": "vector2d",
       "category": "math",
@@ -755,6 +808,48 @@
       "aiPromptContext": "Use this block when you need a fast, non-linear classification or regression model (such as a decision tree) without importing scikit-learn or external JS ML libraries.",
       "parameters": [],
       "path": "blocks/ml/decision-tree",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "ml/knn": {
+      "name": "knn",
+      "category": "ml",
+      "description": "A K-Nearest Neighbors (KNN) classifier and regressor. Features Euclidean, Manhattan, and Cosine distance metrics, support for custom value weighting (uniform or distance-inverse), feature standardization scaling, and predictions for both discrete classes and continuous values.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a classic non-parametric classification or regression model (KNN) without external libraries like scikit-learn.",
+      "parameters": [
+        {
+          "name": "k",
+          "type": "number",
+          "required": false,
+          "default": 3,
+          "description": "Number of nearest neighbors to look at."
+        },
+        {
+          "name": "distanceMetric",
+          "type": "string",
+          "required": false,
+          "default": "euclidean",
+          "description": "The distance metric to use: 'euclidean', 'manhattan', or 'cosine'."
+        },
+        {
+          "name": "weighting",
+          "type": "string",
+          "required": false,
+          "default": "uniform",
+          "description": "The voting weights strategy: 'uniform' or 'distance'."
+        },
+        {
+          "name": "standardize",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "description": "If true, normalizes input features to mean=0 and variance=1 based on training data statistics."
+        }
+      ],
+      "path": "blocks/ml/knn",
       "files": [
         "README.md",
         "index.js"
@@ -1325,6 +1420,19 @@
       "aiPromptContext": "Use this block when calling unreliable third-party APIs, enforcing local cache policies, or implementing fallback microservice pipelines requiring fault-tolerance.",
       "parameters": [],
       "path": "blocks/web/http-client-resilient",
+      "files": [
+        "README.md",
+        "index.js"
+      ]
+    },
+    "web/http-server": {
+      "name": "http-server",
+      "category": "web",
+      "description": "A zero-dependency HTTP/1.1 Web Server built from scratch using Node.js TCP sockets. Implements raw request parsing, header and cookie mapping, body buffers, a parameterized routing tree, middleware orchestration, and response formatting helpers.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a lightweight web server with routing, middlewares, and cookie/body parsing without importing express, fastify, or other external server libraries.",
+      "parameters": [],
+      "path": "blocks/web/http-server",
       "files": [
         "README.md",
         "index.js"
