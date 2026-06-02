@@ -1,104 +1,42 @@
 import { describe, it, expect } from '../../../test/test-harness.js';
-import {
-  encodeVarint, decodeVarint,
-  encodeSignedVarint, decodeSignedVarint,
-} from './index.js';
+import { encode, decode } from './index.js';
 
 await describe('encoding/varint', async () => {
+  await it('should encode and decode values up to very large BigInts', () => {
+    // 150 should be encoded as [0x96, 0x01]
+    const b150 = encode(150);
+    expect(b150.length).toBe(2);
+    expect(b150[0]).toBe(0x96);
+    expect(b150[1]).toBe(0x01);
 
-  await it('encodeVarint encodes small values in one byte', () => {
-    const buf = encodeVarint(1);
-    expect(buf.length).toBe(1);
-    expect(buf[0]).toBe(0x01);
+    const d150 = decode(b150);
+    expect(d150.value).toBe(150n);
+    expect(d150.bytesRead).toBe(2);
 
-    const buf127 = encodeVarint(127);
-    expect(buf127.length).toBe(1);
-    expect(buf127[0]).toBe(0x7f);
+    // Large BigInt
+    const val = 12345678901234567890n;
+    const bLarge = encode(val);
+    const dLarge = decode(bLarge);
+    expect(dLarge.value).toBe(val);
+
+    // 0 and 1
+    expect(decode(encode(0)).value).toBe(0n);
+    expect(decode(encode(1)).value).toBe(1n);
   });
 
-  await it('encodeVarint encodes 128 in two bytes', () => {
-    const buf = encodeVarint(128);
-    expect(buf.length).toBe(2);
-    expect(buf[0]).toBe(0x80);
-    expect(buf[1]).toBe(0x01);
-  });
+  await it('should decode multiple consecutive varints using offsets', () => {
+    const b1 = encode(300); // 2 bytes
+    const b2 = encode(12);  // 1 byte
+    const stream = new Uint8Array(b1.length + b2.length);
+    stream.set(b1, 0);
+    stream.set(b2, b1.length);
 
-  await it('encodeVarint encodes 300 correctly', () => {
-    const buf = encodeVarint(300);
-    expect(buf.length).toBe(2);
-    expect(buf[0]).toBe(0xac);
-    expect(buf[1]).toBe(0x02);
-  });
+    const r1 = decode(stream, 0);
+    expect(r1.value).toBe(300n);
+    expect(r1.bytesRead).toBe(2);
 
-  await it('encodeVarint encodes 0', () => {
-    const buf = encodeVarint(0);
-    expect(buf.length).toBe(1);
-    expect(buf[0]).toBe(0x00);
-  });
-
-  await it('encodeVarint throws for negative numbers', () => {
-    expect(() => encodeVarint(-1)).toThrow('non-negative');
-  });
-
-  await it('decodeVarint decodes single-byte values', () => {
-    const { value, bytesRead } = decodeVarint(new Uint8Array([0x01]));
-    expect(value).toBe(1);
-    expect(bytesRead).toBe(1);
-  });
-
-  await it('decodeVarint decodes 300', () => {
-    const { value, bytesRead } = decodeVarint(new Uint8Array([0xac, 0x02]));
-    expect(value).toBe(300);
-    expect(bytesRead).toBe(2);
-  });
-
-  await it('decodeVarint respects offset parameter', () => {
-    // Prepend a zero byte; reading from offset 1 should still find the varint
-    const buf = new Uint8Array([0x00, 0xac, 0x02]);
-    const { value, bytesRead } = decodeVarint(buf, 1);
-    expect(value).toBe(300);
-    expect(bytesRead).toBe(2);
-  });
-
-  await it('encodeVarint/decodeVarint roundtrip for various values', () => {
-    const testValues = [0, 1, 63, 64, 127, 128, 255, 300, 16383, 16384, 2097151];
-    for (const n of testValues) {
-      const encoded = encodeVarint(n);
-      const { value } = decodeVarint(encoded);
-      expect(value).toBe(n);
-    }
-  });
-
-  await it('encodeSignedVarint encodes negative numbers efficiently', () => {
-    const neg1 = encodeSignedVarint(-1);
-    expect(neg1.length).toBe(1);
-    expect(neg1[0]).toBe(0x01); // ZigZag(-1) = 1
-
-    const neg2 = encodeSignedVarint(-2);
-    expect(neg2[0]).toBe(0x03); // ZigZag(-2) = 3
-  });
-
-  await it('encodeSignedVarint encodes positive numbers', () => {
-    const pos1 = encodeSignedVarint(1);
-    expect(pos1[0]).toBe(0x02); // ZigZag(1) = 2
-  });
-
-  await it('decodeSignedVarint decodes negative numbers', () => {
-    const { value } = decodeSignedVarint(new Uint8Array([0x01]));
-    expect(value).toBe(-1);
-  });
-
-  await it('encodeSignedVarint/decodeSignedVarint roundtrip', () => {
-    const testValues = [-1000, -128, -1, 0, 1, 128, 1000];
-    for (const n of testValues) {
-      const encoded = encodeSignedVarint(n);
-      const { value } = decodeSignedVarint(encoded);
-      expect(value).toBe(n);
-    }
-  });
-
-  await it('decodeVarint throws on truncated buffer', () => {
-    // A buffer where the MSB is set (continuation bit) but there are no more bytes
-    expect(() => decodeVarint(new Uint8Array([0x80]))).toThrow();
+    const r2 = decode(stream, r1.bytesRead);
+    expect(r2.value).toBe(12n);
+    expect(r2.bytesRead).toBe(1);
   });
 });

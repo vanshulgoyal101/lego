@@ -1,9 +1,9 @@
-# Lego Block: `algo/huffman-coding`
+# Lego Block: `math/bezier`
 
-Huffman Coding compression helper that constructs a frequency tree, generates prefix codes, and supports encoding/decoding of arbitrary text.
+Bezier curve coordinate generator supporting quadratic, cubic, and arbitrary-degree De Casteljau algorithms for 2D spatial interpolation.
 
 > [!NOTE]
-> **AI Agent Context:** Use this block to compress text inputs to binary representations or decode huffman binary strings back to original symbols.
+> **AI Agent Context:** Use this block to generate smooth 2D curve coordinates from control points for UI transitions, canvas drawings, or vector paths.
 
 ---
 
@@ -11,7 +11,7 @@ Huffman Coding compression helper that constructs a frequency tree, generates pr
 
 To copy this block directly into your project codebase, run the following CLI command:
 ```bash
-npx lego-cli add algo/huffman-coding
+npx lego-cli add math/bezier
 ```
 
 ---
@@ -37,8 +37,8 @@ npx lego-cli add algo/huffman-coding
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N log N) tree build, O(N) encode/decode (N = unique symbols)`
-* **Space Complexity:** `O(N) code table`
+* **Time Complexity:** `O(N) curve points generation (N = sample resolution)`
+* **Space Complexity:** `O(N) output coordinates array`
 
 ---
 

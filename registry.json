@@ -92,6 +92,20 @@
         "index.js"
       ]
     },
+    "algo/boyer-moore": {
+      "name": "boyer-moore",
+      "category": "algo",
+      "description": "Boyer-Moore substring search algorithm utilizing the bad character heuristic table for right-to-left pattern matching scans.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to quickly find all occurrences of a string pattern within text, optimized for larger alphabets and long patterns.",
+      "parameters": [],
+      "path": "blocks/algo/boyer-moore",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "algo/dijkstra": {
       "name": "dijkstra",
       "category": "algo",
@@ -202,9 +216,9 @@
     "algo/huffman-coding": {
       "name": "huffman-coding",
       "category": "algo",
-      "description": "A complete Huffman coding compression and decompression engine. Builds a frequency-based binary tree from input symbols, generates prefix-free variable-length binary codes, encodes input byte sequences into compact bitstrings, and decodes them back to the original data.",
+      "description": "Huffman Coding compression helper that constructs a frequency tree, generates prefix codes, and supports encoding/decoding of arbitrary text.",
       "dependencies": [],
-      "aiPromptContext": "Use this block when implementing lossless data compression, file compression utilities, or teaching coding theory. Huffman coding is the foundational algorithm in ZIP, gzip, and JPEG compression.",
+      "aiPromptContext": "Use this block to compress text inputs to binary representations or decode huffman binary strings back to original symbols.",
       "parameters": [],
       "path": "blocks/algo/huffman-coding",
       "files": [
@@ -241,6 +255,20 @@
         }
       ],
       "path": "blocks/algo/kmeans",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "algo/kmp-search": {
+      "name": "kmp-search",
+      "category": "algo",
+      "description": "Knuth-Morris-Pratt (KMP) substring matching algorithm that precomputes a prefix/LPS table to perform O(N+M) string searches.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to find all start indices of a substring pattern within a large text body efficiently.",
+      "parameters": [],
+      "path": "blocks/algo/kmp-search",
       "files": [
         "README.md",
         "index.js",
@@ -457,6 +485,20 @@
         }
       ],
       "path": "blocks/algo/quickselect",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "algo/rabin-karp": {
+      "name": "rabin-karp",
+      "category": "algo",
+      "description": "Rabin-Karp substring pattern matching algorithm utilizing rolling hashes and character collision verification checks.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to search for a pattern in text using rolling hashes, especially when dealing with multiple pattern searches.",
+      "parameters": [],
+      "path": "blocks/algo/rabin-karp",
       "files": [
         "README.md",
         "index.js",
@@ -1498,6 +1540,20 @@
         "test.js"
       ]
     },
+    "ds/min-max-heap": {
+      "name": "min-max-heap",
+      "category": "ds",
+      "description": "Double-ended priority queue (Min-Max Heap) supporting retrieval and deletion of both minimum and maximum values in O(log N) time.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a heap structure that allows fetching both min and max elements efficiently.",
+      "parameters": [],
+      "path": "blocks/ds/min-max-heap",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "ds/priority-queue": {
       "name": "priority-queue",
       "category": "ds",
@@ -1671,23 +1727,10 @@
     "encoding/bencode": {
       "name": "bencode",
       "category": "encoding",
-      "description": "BitTorrent bencode format encoder and decoder supporting strings, integers, lists, and dictionaries as used in .torrent files.",
+      "description": "Bencoding serialization and deserialization utility supporting integers, strings, lists, and sorted key dictionaries.",
       "dependencies": [],
-      "aiPromptContext": "Use this block when working with BitTorrent .torrent files, DHT (distributed hash table) protocols, or any system that uses the bencode serialization format. encode() converts JS values to bencode byte strings; decode() parses bencode back to JS values.",
-      "parameters": [
-        {
-          "name": "data",
-          "type": "string | number | Array | Object",
-          "required": true,
-          "description": "The JavaScript value to encode to bencode format."
-        },
-        {
-          "name": "buffer",
-          "type": "string | Uint8Array",
-          "required": true,
-          "description": "The bencode string or byte buffer to decode into a JavaScript value."
-        }
-      ],
+      "aiPromptContext": "Use this block to read/write BitTorrent torrent/metadata configuration files using Bencoding standard.",
+      "parameters": [],
       "path": "blocks/encoding/bencode",
       "files": [
         "README.md",
@@ -1858,30 +1901,25 @@
     "encoding/varint": {
       "name": "varint",
       "category": "encoding",
-      "description": "Variable-length integer encoding and decoding in protobuf-style, supporting both unsigned and signed (ZigZag) varints.",
+      "description": "Variable-length integer representation (Varint) utilizing MSB continuation flags to serialize and deserialize BigInt numbers efficiently.",
       "dependencies": [],
-      "aiPromptContext": "Use this block when implementing protocol buffers, custom binary protocols, or any scenario where you want to compactly encode integers of varying magnitude. Small integers take fewer bytes. Supports ZigZag encoding for efficiently encoding negative signed integers.",
-      "parameters": [
-        {
-          "name": "n",
-          "type": "number",
-          "required": true,
-          "description": "The integer value to encode."
-        },
-        {
-          "name": "buf",
-          "type": "Uint8Array",
-          "required": true,
-          "description": "The byte buffer to decode a varint from."
-        },
-        {
-          "name": "offset",
-          "type": "number",
-          "required": false,
-          "description": "Byte offset into the buffer to start decoding from. Defaults to 0."
-        }
-      ],
+      "aiPromptContext": "Use this block to encode/decode positive integers to variable-length byte streams (Protobuf style).",
+      "parameters": [],
       "path": "blocks/encoding/varint",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/bezier": {
+      "name": "bezier",
+      "category": "math",
+      "description": "Bezier curve coordinate generator supporting quadratic, cubic, and arbitrary-degree De Casteljau algorithms for 2D spatial interpolation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to generate smooth 2D curve coordinates from control points for UI transitions, canvas drawings, or vector paths.",
+      "parameters": [],
+      "path": "blocks/math/bezier",
       "files": [
         "README.md",
         "index.js",
@@ -1962,6 +2000,20 @@
       "aiPromptContext": "Use this block when performing signal processing math, solving differential equations, working with Fourier transforms, or doing any computation requiring numbers with real and imaginary components.",
       "parameters": [],
       "path": "blocks/math/complex",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/fft": {
+      "name": "fft",
+      "category": "math",
+      "description": "Radix-2 Cooley-Tukey Fast Fourier Transform (FFT) and Inverse FFT (IFFT) algorithm for numerical frequency domain transformations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to perform Discrete Fourier Transforms (FFT/IFFT) in O(N log N) time on arrays representing complex inputs of sizes that are powers of 2.",
+      "parameters": [],
+      "path": "blocks/math/fft",
       "files": [
         "README.md",
         "index.js",
@@ -3565,6 +3617,27 @@
         }
       ],
       "path": "blocks/validation/ip-validator",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "validation/isbn": {
+      "name": "isbn",
+      "category": "validation",
+      "description": "ISBN-10 and ISBN-13 validator that handles spaces, dashes, and verifies weighted checksum constraints (including 'X' check character).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to validate book identifier codes (ISBN-10 or ISBN-13) for correctness.",
+      "parameters": [
+        {
+          "name": "isbn",
+          "type": "string",
+          "required": true,
+          "description": "The ISBN string code to validate."
+        }
+      ],
+      "path": "blocks/validation/isbn",
       "files": [
         "README.md",
         "index.js",

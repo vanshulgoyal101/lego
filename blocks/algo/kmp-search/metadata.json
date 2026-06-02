@@ -1,0 +1,8 @@
+{
+  "name": "kmp-search",
+  "category": "algo",
+  "description": "Knuth-Morris-Pratt (KMP) substring matching algorithm that precomputes a prefix/LPS table to perform O(N+M) string searches.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to find all start indices of a substring pattern within a large text body efficiently.",
+  "parameters": []
+}

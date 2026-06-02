@@ -1,9 +1,9 @@
 # Lego Block: `encoding/bencode`
 
-BitTorrent bencode format encoder and decoder supporting strings, integers, lists, and dictionaries as used in .torrent files.
+Bencoding serialization and deserialization utility supporting integers, strings, lists, and sorted key dictionaries.
 
 > [!NOTE]
-> **AI Agent Context:** Use this block when working with BitTorrent .torrent files, DHT (distributed hash table) protocols, or any system that uses the bencode serialization format. encode() converts JS values to bencode byte strings; decode() parses bencode back to JS values.
+> **AI Agent Context:** Use this block to read/write BitTorrent torrent/metadata configuration files using Bencoding standard.
 
 ---
 
@@ -20,11 +20,7 @@ npx lego-cli add encoding/bencode
 
 ### Parameters
 
-| Parameter | Type | Required | Default | Description |
-|---|---|---|---|---|
-| `data` | `string | number | Array | Object` | ⚠️ Yes | *-* | The JavaScript value to encode to bencode format. |
-| `buffer` | `string | Uint8Array` | ⚠️ Yes | *-* | The bencode string or byte buffer to decode into a JavaScript value. |
-
+*None*
 
 ---
 

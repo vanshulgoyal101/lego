@@ -1,0 +1,8 @@
+{
+  "name": "rabin-karp",
+  "category": "algo",
+  "description": "Rabin-Karp substring pattern matching algorithm utilizing rolling hashes and character collision verification checks.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to search for a pattern in text using rolling hashes, especially when dealing with multiple pattern searches.",
+  "parameters": []
+}

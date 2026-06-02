@@ -1,0 +1,8 @@
+{
+  "name": "fft",
+  "category": "math",
+  "description": "Radix-2 Cooley-Tukey Fast Fourier Transform (FFT) and Inverse FFT (IFFT) algorithm for numerical frequency domain transformations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to perform Discrete Fourier Transforms (FFT/IFFT) in O(N log N) time on arrays representing complex inputs of sizes that are powers of 2.",
+  "parameters": []
+}

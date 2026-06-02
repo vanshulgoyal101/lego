@@ -1,9 +1,9 @@
-# Lego Block: `algo/huffman-coding`
+# Lego Block: `math/fft`
 
-Huffman Coding compression helper that constructs a frequency tree, generates prefix codes, and supports encoding/decoding of arbitrary text.
+Radix-2 Cooley-Tukey Fast Fourier Transform (FFT) and Inverse FFT (IFFT) algorithm for numerical frequency domain transformations.
 
 > [!NOTE]
-> **AI Agent Context:** Use this block to compress text inputs to binary representations or decode huffman binary strings back to original symbols.
+> **AI Agent Context:** Use this block to perform Discrete Fourier Transforms (FFT/IFFT) in O(N log N) time on arrays representing complex inputs of sizes that are powers of 2.
 
 ---
 
@@ -11,7 +11,7 @@ Huffman Coding compression helper that constructs a frequency tree, generates pr
 
 To copy this block directly into your project codebase, run the following CLI command:
 ```bash
-npx lego-cli add algo/huffman-coding
+npx lego-cli add math/fft
 ```
 
 ---
@@ -37,8 +37,8 @@ npx lego-cli add algo/huffman-coding
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N log N) tree build, O(N) encode/decode (N = unique symbols)`
-* **Space Complexity:** `O(N) code table`
+* **Time Complexity:** `O(N log N) Cooley-Tukey transformation time`
+* **Space Complexity:** `O(N) computation arrays`
 
 ---
 

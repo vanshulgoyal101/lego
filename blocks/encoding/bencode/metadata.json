@@ -1,21 +1,8 @@
 {
   "name": "bencode",
   "category": "encoding",
-  "description": "BitTorrent bencode format encoder and decoder supporting strings, integers, lists, and dictionaries as used in .torrent files.",
+  "description": "Bencoding serialization and deserialization utility supporting integers, strings, lists, and sorted key dictionaries.",
   "dependencies": [],
-  "aiPromptContext": "Use this block when working with BitTorrent .torrent files, DHT (distributed hash table) protocols, or any system that uses the bencode serialization format. encode() converts JS values to bencode byte strings; decode() parses bencode back to JS values.",
-  "parameters": [
-    {
-      "name": "data",
-      "type": "string | number | Array | Object",
-      "required": true,
-      "description": "The JavaScript value to encode to bencode format."
-    },
-    {
-      "name": "buffer",
-      "type": "string | Uint8Array",
-      "required": true,
-      "description": "The bencode string or byte buffer to decode into a JavaScript value."
-    }
-  ]
+  "aiPromptContext": "Use this block to read/write BitTorrent torrent/metadata configuration files using Bencoding standard.",
+  "parameters": []
 }

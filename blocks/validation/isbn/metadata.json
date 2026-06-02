@@ -1,0 +1,15 @@
+{
+  "name": "isbn",
+  "category": "validation",
+  "description": "ISBN-10 and ISBN-13 validator that handles spaces, dashes, and verifies weighted checksum constraints (including 'X' check character).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to validate book identifier codes (ISBN-10 or ISBN-13) for correctness.",
+  "parameters": [
+    {
+      "name": "isbn",
+      "type": "string",
+      "required": true,
+      "description": "The ISBN string code to validate."
+    }
+  ]
+}

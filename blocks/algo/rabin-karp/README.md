@@ -1,9 +1,9 @@
-# Lego Block: `algo/huffman-coding`
+# Lego Block: `algo/rabin-karp`
 
-Huffman Coding compression helper that constructs a frequency tree, generates prefix codes, and supports encoding/decoding of arbitrary text.
+Rabin-Karp substring pattern matching algorithm utilizing rolling hashes and character collision verification checks.
 
 > [!NOTE]
-> **AI Agent Context:** Use this block to compress text inputs to binary representations or decode huffman binary strings back to original symbols.
+> **AI Agent Context:** Use this block to search for a pattern in text using rolling hashes, especially when dealing with multiple pattern searches.
 
 ---
 
@@ -11,7 +11,7 @@ Huffman Coding compression helper that constructs a frequency tree, generates pr
 
 To copy this block directly into your project codebase, run the following CLI command:
 ```bash
-npx lego-cli add algo/huffman-coding
+npx lego-cli add algo/rabin-karp
 ```
 
 ---
@@ -37,8 +37,8 @@ npx lego-cli add algo/huffman-coding
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N log N) tree build, O(N) encode/decode (N = unique symbols)`
-* **Space Complexity:** `O(N) code table`
+* **Time Complexity:** `O(N + M) average / O(N × M) worst case matching`
+* **Space Complexity:** `O(1)`
 
 ---
 

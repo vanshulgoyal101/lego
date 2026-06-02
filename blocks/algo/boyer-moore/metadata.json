@@ -1,0 +1,8 @@
+{
+  "name": "boyer-moore",
+  "category": "algo",
+  "description": "Boyer-Moore substring search algorithm utilizing the bad character heuristic table for right-to-left pattern matching scans.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to quickly find all occurrences of a string pattern within text, optimized for larger alphabets and long patterns.",
+  "parameters": []
+}

@@ -88,6 +88,12 @@ function getComplexity(name) {
       return { time: 'O(N) average / O(N^2) worst case linear partitions', space: 'O(1) recursion stack' };
     case 'shunting-yard':
       return { time: 'O(N) infix character tokens parsed', space: 'O(N) operator stacks' };
+    case 'kmp-search':
+      return { time: 'O(N + M) matching time (N = text length, M = pattern length)', space: 'O(M) prefix LPS array' };
+    case 'boyer-moore':
+      return { time: 'O(N + M) average / O(N × M) worst case matching', space: 'O(A) alphabet shift map' };
+    case 'rabin-karp':
+      return { time: 'O(N + M) average / O(N × M) worst case matching', space: 'O(1)' };
 
     // ===== async =====
     case 'event-emitter':
@@ -204,6 +210,9 @@ function getComplexity(name) {
       return { time: 'O(1) updates/lookups/deletions checks', space: 'O(C × b) slots capacity' };
     case 'consistent-hash':
       return { time: 'O(log(N × R)) nodes lookup binary search', space: 'O(N × R) ring size' };
+    case 'min-max-heap':
+      return { time: 'O(log N) push/pop; O(1) peekMin/peekMax', space: 'O(N) internal heap list' };
+
 
     // ===== encoding =====
     case 'base64':
@@ -252,6 +261,11 @@ function getComplexity(name) {
       return { time: 'O(N) points evaluation', space: 'O(1)' };
     case 'polynomial':
       return { time: 'O(N × M) coefficients multiplication', space: 'O(N + M)' };
+    case 'bezier':
+      return { time: 'O(N) curve points generation (N = sample resolution)', space: 'O(N) output coordinates array' };
+    case 'fft':
+      return { time: 'O(N log N) Cooley-Tukey transformation time', space: 'O(N) computation arrays' };
+
 
     // ===== ml =====
     case 'decision-tree':
@@ -406,6 +420,9 @@ function getComplexity(name) {
       return { time: 'O(N) components url length checks', space: 'O(1)' };
     case 'cron-parser':
       return { time: 'O(D) cron intervals validation search steps', space: 'O(1)' };
+    case 'isbn':
+      return { time: 'O(1) fixed check digit iteration scans', space: 'O(1)' };
+
 
     // ===== web =====
     case 'api-client':

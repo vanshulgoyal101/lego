@@ -1,0 +1,8 @@
+{
+  "name": "bezier",
+  "category": "math",
+  "description": "Bezier curve coordinate generator supporting quadratic, cubic, and arbitrary-degree De Casteljau algorithms for 2D spatial interpolation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to generate smooth 2D curve coordinates from control points for UI transitions, canvas drawings, or vector paths.",
+  "parameters": []
+}

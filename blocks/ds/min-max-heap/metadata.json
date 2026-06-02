@@ -1,0 +1,8 @@
+{
+  "name": "min-max-heap",
+  "category": "ds",
+  "description": "Double-ended priority queue (Min-Max Heap) supporting retrieval and deletion of both minimum and maximum values in O(log N) time.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need a heap structure that allows fetching both min and max elements efficiently.",
+  "parameters": []
+}

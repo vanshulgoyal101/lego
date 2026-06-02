@@ -1,9 +1,9 @@
-# Lego Block: `algo/huffman-coding`
+# Lego Block: `ds/min-max-heap`
 
-Huffman Coding compression helper that constructs a frequency tree, generates prefix codes, and supports encoding/decoding of arbitrary text.
+Double-ended priority queue (Min-Max Heap) supporting retrieval and deletion of both minimum and maximum values in O(log N) time.
 
 > [!NOTE]
-> **AI Agent Context:** Use this block to compress text inputs to binary representations or decode huffman binary strings back to original symbols.
+> **AI Agent Context:** Use this block when you need a heap structure that allows fetching both min and max elements efficiently.
 
 ---
 
@@ -11,7 +11,7 @@ Huffman Coding compression helper that constructs a frequency tree, generates pr
 
 To copy this block directly into your project codebase, run the following CLI command:
 ```bash
-npx lego-cli add algo/huffman-coding
+npx lego-cli add ds/min-max-heap
 ```
 
 ---
@@ -37,8 +37,8 @@ npx lego-cli add algo/huffman-coding
 
 ## Computational Complexity
 
-* **Time Complexity:** `O(N log N) tree build, O(N) encode/decode (N = unique symbols)`
-* **Space Complexity:** `O(N) code table`
+* **Time Complexity:** `O(log N) push/pop; O(1) peekMin/peekMax`
+* **Space Complexity:** `O(N) internal heap list`
 
 ---
 
