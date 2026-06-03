@@ -1,0 +1,8 @@
+{
+  "name": "parser-generator",
+  "category": "compiler",
+  "description": "LL(1) parse table generator from context-free grammar specifications.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compute FIRST and FOLLOW sets, and generate LL(1) parse tables for a context-free grammar.",
+  "parameters": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "splay-tree",
+  "category": "ds",
+  "description": "Self-adjusting binary search tree where recently accessed elements are splayed to the root, optimizing access speed.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to maintain dynamic sorted data with fast access times for recently queried keys.",
+  "parameters": []
+}

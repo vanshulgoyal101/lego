@@ -1,0 +1,8 @@
+{
+  "name": "sha3",
+  "category": "crypto",
+  "description": "Cryptographic Keccak (SHA-3) hashing function implementation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compute secure SHA-3 hashes (e.g., SHA3-256) of strings or byte buffers.",
+  "parameters": []
+}

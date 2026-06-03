@@ -1,0 +1,8 @@
+{
+  "name": "doh-server",
+  "category": "web",
+  "description": "Lightweight DNS-over-HTTPS (DoH) handler that parses and responds to standard RFC 8484 DNS queries over HTTP.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to build a mock or light DNS-over-HTTPS server responding to GET or POST DNS queries.",
+  "parameters": []
+}

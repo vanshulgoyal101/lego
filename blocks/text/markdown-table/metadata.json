@@ -1,0 +1,8 @@
+{
+  "name": "markdown-table",
+  "category": "text",
+  "description": "Formatter that translates arrays of objects or rows into clean markdown table layouts.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to format arrays of objects or arrays of arrays into standard markdown table strings.",
+  "parameters": []
+}

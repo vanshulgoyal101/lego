@@ -885,6 +885,20 @@
         "test.js"
       ]
     },
+    "compiler/parser-generator": {
+      "name": "parser-generator",
+      "category": "compiler",
+      "description": "LL(1) parse table generator from context-free grammar specifications.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compute FIRST and FOLLOW sets, and generate LL(1) parse tables for a context-free grammar.",
+      "parameters": [],
+      "path": "blocks/compiler/parser-generator",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "compiler/regex-engine": {
       "name": "regex-engine",
       "category": "compiler",
@@ -1131,6 +1145,34 @@
       "aiPromptContext": "Use this block to demonstrate RSA asymmetric encryption, key derivation mathematical properties, or basic message signature validation.",
       "parameters": [],
       "path": "blocks/crypto/rsa-light",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "crypto/scrypt": {
+      "name": "scrypt",
+      "category": "crypto",
+      "description": "Memory-hard password key-derivation function based on scrypt, preventing custom hardware attacks.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to run secure, memory-hard key derivation or password hashing using scrypt.",
+      "parameters": [],
+      "path": "blocks/crypto/scrypt",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "crypto/sha3": {
+      "name": "sha3",
+      "category": "crypto",
+      "description": "Cryptographic Keccak (SHA-3) hashing function implementation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compute secure SHA-3 hashes (e.g., SHA3-256) of strings or byte buffers.",
+      "parameters": [],
+      "path": "blocks/crypto/sha3",
       "files": [
         "README.md",
         "index.js",
@@ -1416,6 +1458,20 @@
       "aiPromptContext": "Use this block to maintain sorted keys with guaranteed O(log N) insertion, search, and deletion.",
       "parameters": [],
       "path": "blocks/ds/avl-tree",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/b-tree": {
+      "name": "b-tree",
+      "category": "ds",
+      "description": "Balanced search tree optimized for database indexing, supporting multi-way branching, search, and insertion keys splitting.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to maintain sorted keys with O(log n) search and insert times in a disk-friendly multi-way structure.",
+      "parameters": [],
+      "path": "blocks/ds/b-tree",
       "files": [
         "README.md",
         "index.js",
@@ -1867,6 +1923,20 @@
         }
       ],
       "path": "blocks/ds/sparse-table",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/splay-tree": {
+      "name": "splay-tree",
+      "category": "ds",
+      "description": "Self-adjusting binary search tree where recently accessed elements are splayed to the root, optimizing access speed.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to maintain dynamic sorted data with fast access times for recently queried keys.",
+      "parameters": [],
+      "path": "blocks/ds/splay-tree",
       "files": [
         "README.md",
         "index.js",
@@ -2436,6 +2506,20 @@
       "files": [
         "README.md",
         "index.js"
+      ]
+    },
+    "math/signal-filter": {
+      "name": "signal-filter",
+      "category": "math",
+      "description": "Digital signal filters including lowpass, highpass, bandpass, and bandstop Butterworth (IIR) filters, Exponential Moving Average (EMA), and Moving Average filters.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to filter digital signals using Butterworth (IIR) lowpass, highpass, bandpass, bandstop, simple moving average, or exponential moving average filters.",
+      "parameters": [],
+      "path": "blocks/math/signal-filter",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
       ]
     },
     "math/statistics-advanced": {
@@ -3025,6 +3109,20 @@
         "test.js"
       ]
     },
+    "text/bbcode-parser": {
+      "name": "bbcode-parser",
+      "category": "text",
+      "description": "BBCode to HTML parser and AST compiler (handles standard tags like [b], [i], [url]).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compile BBCode formatted strings into HTML representations.",
+      "parameters": [],
+      "path": "blocks/text/bbcode-parser",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "text/csv-parser": {
       "name": "csv-parser",
       "category": "text",
@@ -3198,6 +3296,20 @@
         }
       ],
       "path": "blocks/text/markdown-parser",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "text/markdown-table": {
+      "name": "markdown-table",
+      "category": "text",
+      "description": "Formatter that translates arrays of objects or rows into clean markdown table layouts.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to format arrays of objects or arrays of arrays into standard markdown table strings.",
+      "parameters": [],
+      "path": "blocks/text/markdown-table",
       "files": [
         "README.md",
         "index.js",
@@ -3849,6 +3961,20 @@
         "test.js"
       ]
     },
+    "utils/url-builder": {
+      "name": "url-builder",
+      "category": "utils",
+      "description": "Parameter builder that constructs, validates, and parses nested query strings and URL objects.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to safely build URLs, serialize complex nested query parameters, or parse search queries.",
+      "parameters": [],
+      "path": "blocks/utils/url-builder",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "utils/uuid-v4": {
       "name": "uuid-v4",
       "category": "utils",
@@ -4316,6 +4442,20 @@
         }
       ],
       "path": "blocks/web/doh-client",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "web/doh-server": {
+      "name": "doh-server",
+      "category": "web",
+      "description": "Lightweight DNS-over-HTTPS (DoH) handler that parses and responds to standard RFC 8484 DNS queries over HTTP.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to build a mock or light DNS-over-HTTPS server responding to GET or POST DNS queries.",
+      "parameters": [],
+      "path": "blocks/web/doh-server",
       "files": [
         "README.md",
         "index.js",

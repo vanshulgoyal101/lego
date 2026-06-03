@@ -1,0 +1,8 @@
+{
+  "name": "b-tree",
+  "category": "ds",
+  "description": "Balanced search tree optimized for database indexing, supporting multi-way branching, search, and insertion keys splitting.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to maintain sorted keys with O(log n) search and insert times in a disk-friendly multi-way structure.",
+  "parameters": []
+}

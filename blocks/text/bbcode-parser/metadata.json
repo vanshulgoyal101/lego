@@ -1,0 +1,8 @@
+{
+  "name": "bbcode-parser",
+  "category": "text",
+  "description": "BBCode to HTML parser and AST compiler (handles standard tags like [b], [i], [url]).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compile BBCode formatted strings into HTML representations.",
+  "parameters": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "scrypt",
+  "category": "crypto",
+  "description": "Memory-hard password key-derivation function based on scrypt, preventing custom hardware attacks.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to run secure, memory-hard key derivation or password hashing using scrypt.",
+  "parameters": []
+}

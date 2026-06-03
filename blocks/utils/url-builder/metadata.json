@@ -1,0 +1,8 @@
+{
+  "name": "url-builder",
+  "category": "utils",
+  "description": "Parameter builder that constructs, validates, and parses nested query strings and URL objects.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to safely build URLs, serialize complex nested query parameters, or parse search queries.",
+  "parameters": []
+}

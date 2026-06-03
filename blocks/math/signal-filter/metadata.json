@@ -1,0 +1,8 @@
+{
+  "name": "signal-filter",
+  "category": "math",
+  "description": "Digital signal filters including lowpass, highpass, bandpass, and bandstop Butterworth (IIR) filters, Exponential Moving Average (EMA), and Moving Average filters.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to filter digital signals using Butterworth (IIR) lowpass, highpass, bandpass, bandstop, simple moving average, or exponential moving average filters.",
+  "parameters": []
+}
