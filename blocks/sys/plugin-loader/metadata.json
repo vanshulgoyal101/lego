@@ -1,0 +1,8 @@
+{
+  "name": "plugin-loader",
+  "category": "sys",
+  "description": "Dynamic plugin manager supporting topological dependency sorting, lifecycle hook execution, and automatic directory-based plugin discovery.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to load plugins, resolve their dependency order, and manage their lifecycle hooks.",
+  "parameters": []
+}

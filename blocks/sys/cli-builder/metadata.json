@@ -1,0 +1,8 @@
+{
+  "name": "cli-builder",
+  "category": "sys",
+  "description": "Declarative command line interface builder supporting subcommands, custom flags, descriptions, and automatic help generation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to define, parse, and execute CLI commands and options with built-in help and version displays.",
+  "parameters": []
+}

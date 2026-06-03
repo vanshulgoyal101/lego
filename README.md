@@ -48,7 +48,7 @@ node bin/cli.js add web/fetch-retry --dest ./src/utils
 
 ## Categorized Block Catalog
 
-We have developed **259 production-grade blocks** organized across 22 categories:
+We have developed **264 production-grade blocks** organized across 22 categories:
 
 ### 1. Agent
 * [`agent/chain-runner`](blocks/agent/chain-runner): Sequential/branching chain executor for AI agents where each step receives context and returns updated context, with retry, skip, and conditional branching support.
@@ -263,8 +263,13 @@ We have developed **259 production-grade blocks** organized across 22 categories
 * [`stream/windowed-aggregator`](blocks/stream/windowed-aggregator): Aggregates streaming data in real-time using tumbling, sliding, or session windows, computing metrics like count, sum, average, min, max, or custom metrics.
 
 ### 17. Sys
+* [`sys/cli-builder`](blocks/sys/cli-builder): Declarative command line interface builder supporting subcommands, custom flags, descriptions, and automatic help generation.
+* [`sys/config-loader`](blocks/sys/config-loader): Flexible configuration loader that deep-merges defaults with JSON files, environment variables, and CLI arguments.
 * [`sys/env-parser`](blocks/sys/env-parser): Parses .env configuration files, supporting single/double quotes, comments, escapes, and multiline variables.
+* [`sys/file-watcher`](blocks/sys/file-watcher): Cross-platform file and directory change watcher supporting both native FS events and polling fallback.
 * [`sys/path-resolver`](blocks/sys/path-resolver): Cross-platform path normalization, resolution, and joining utility for resolving relative and absolute paths.
+* [`sys/plugin-loader`](blocks/sys/plugin-loader): Dynamic plugin manager supporting topological dependency sorting, lifecycle hook execution, and automatic directory-based plugin discovery.
+* [`sys/process-monitor`](blocks/sys/process-monitor): Wraps child process execution with status monitoring, safety limits, and collects resource usage samples (CPU/memory) for processes.
 * [`sys/terminal-ansi`](blocks/sys/terminal-ansi): ANSI escape code utility for styling terminal text output (colors, backgrounds, styles) and stripping styles.
 
 ### 18. Text Processing & Formatter

@@ -1,0 +1,8 @@
+{
+  "name": "file-watcher",
+  "category": "sys",
+  "description": "Cross-platform file and directory change watcher supporting both native FS events and polling fallback.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to monitor files and directories for changes, creations, and deletions using native events or polling.",
+  "parameters": []
+}

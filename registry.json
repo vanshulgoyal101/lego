@@ -3368,6 +3368,30 @@
         "index.js"
       ]
     },
+    "sys/cli-builder": {
+      "name": "cli-builder",
+      "category": "sys",
+      "description": "Declarative command line interface builder supporting subcommands, custom flags, descriptions, and automatic help generation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to define, parse, and execute CLI commands and options with built-in help and version displays.",
+      "parameters": [],
+      "path": "blocks/sys/cli-builder",
+      "files": [
+        "index.js"
+      ]
+    },
+    "sys/config-loader": {
+      "name": "config-loader",
+      "category": "sys",
+      "description": "Flexible configuration loader that deep-merges defaults with JSON files, environment variables, and CLI arguments.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to load, parse, and deep-merge configs from defaults, files, process.env, and CLI parameters.",
+      "parameters": [],
+      "path": "blocks/sys/config-loader",
+      "files": [
+        "index.js"
+      ]
+    },
     "sys/env-parser": {
       "name": "env-parser",
       "category": "sys",
@@ -3380,6 +3404,18 @@
         "index.js"
       ]
     },
+    "sys/file-watcher": {
+      "name": "file-watcher",
+      "category": "sys",
+      "description": "Cross-platform file and directory change watcher supporting both native FS events and polling fallback.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to monitor files and directories for changes, creations, and deletions using native events or polling.",
+      "parameters": [],
+      "path": "blocks/sys/file-watcher",
+      "files": [
+        "index.js"
+      ]
+    },
     "sys/path-resolver": {
       "name": "path-resolver",
       "category": "sys",
@@ -3388,6 +3424,30 @@
       "aiPromptContext": "Use this block to normalize, join, and resolve paths using POSIX/Windows compatible separator logic.",
       "parameters": [],
       "path": "blocks/sys/path-resolver",
+      "files": [
+        "index.js"
+      ]
+    },
+    "sys/plugin-loader": {
+      "name": "plugin-loader",
+      "category": "sys",
+      "description": "Dynamic plugin manager supporting topological dependency sorting, lifecycle hook execution, and automatic directory-based plugin discovery.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to load plugins, resolve their dependency order, and manage their lifecycle hooks.",
+      "parameters": [],
+      "path": "blocks/sys/plugin-loader",
+      "files": [
+        "index.js"
+      ]
+    },
+    "sys/process-monitor": {
+      "name": "process-monitor",
+      "category": "sys",
+      "description": "Wraps child process execution with status monitoring, safety limits, and collects resource usage samples (CPU/memory) for processes.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to run and monitor child processes or sample resource usage stats of the current process.",
+      "parameters": [],
+      "path": "blocks/sys/process-monitor",
       "files": [
         "index.js"
       ]

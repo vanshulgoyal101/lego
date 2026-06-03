@@ -1,0 +1,8 @@
+{
+  "name": "config-loader",
+  "category": "sys",
+  "description": "Flexible configuration loader that deep-merges defaults with JSON files, environment variables, and CLI arguments.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to load, parse, and deep-merge configs from defaults, files, process.env, and CLI parameters.",
+  "parameters": []
+}
