@@ -3002,6 +3002,18 @@
         "index.js"
       ]
     },
+    "protocol/coap-parser": {
+      "name": "coap-parser",
+      "category": "protocol",
+      "description": "A zero-dependency RFC 7252 CoAP (Constrained Application Protocol) packet parser and formatter. Supports message types (CON, NON, ACK, RST), token parsing, delta-encoded option processing (e.g. Uri-Path, Uri-Query, Content-Format), option delta extensions, and payload serialization.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to construct or parse low-level CoAP packets for UDP-based IoT messaging systems.",
+      "parameters": [],
+      "path": "blocks/protocol/coap-parser",
+      "files": [
+        "index.js"
+      ]
+    },
     "protocol/dns-resolver": {
       "name": "dns-resolver",
       "category": "protocol",
@@ -3010,6 +3022,42 @@
       "aiPromptContext": "Use this block when you need to perform DNS queries directly via UDP socket buffers to nameservers (like 8.8.8.8) in restricted runtimes without relying on Node's native dns module.",
       "parameters": [],
       "path": "blocks/protocol/dns-resolver",
+      "files": [
+        "index.js"
+      ]
+    },
+    "protocol/grpc-encoder": {
+      "name": "grpc-encoder",
+      "category": "protocol",
+      "description": "A zero-dependency gRPC length-prefixed framing serializer and deserializer. Formats messages into the gRPC protocol wire format (1-byte compressed flag, 4-byte big-endian length, and body), and parses incoming frames back into messages.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to serialize and deserialize binary payloads into gRPC length-prefixed frames for HTTP2 streams.",
+      "parameters": [],
+      "path": "blocks/protocol/grpc-encoder",
+      "files": [
+        "index.js"
+      ]
+    },
+    "protocol/mqtt-client": {
+      "name": "mqtt-client",
+      "category": "protocol",
+      "description": "A zero-dependency, lightweight MQTT v3.1.1 packet parser and serializer. Supports CONNECT, CONNACK, PUBLISH, PUBACK, SUBSCRIBE, and SUBACK packets.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to serialize and deserialize MQTT binary packets for client connections, subscribing to topics, and publishing messages.",
+      "parameters": [],
+      "path": "blocks/protocol/mqtt-client",
+      "files": [
+        "index.js"
+      ]
+    },
+    "protocol/websocket-frame": {
+      "name": "websocket-frame",
+      "category": "protocol",
+      "description": "A zero-dependency RFC 6455 WebSocket frame serializer and parser. Handles FIN, RSV bits, opcodes (text, binary, ping, pong, close), masking/unmasking, and variable length payload decoding (7-bit, 16-bit, and 64-bit lengths).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to serialize and deserialize low-level WebSocket protocol frames for raw TCP/TLS socket connections.",
+      "parameters": [],
+      "path": "blocks/protocol/websocket-frame",
       "files": [
         "index.js"
       ]

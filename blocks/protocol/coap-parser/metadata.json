@@ -1,0 +1,8 @@
+{
+  "name": "coap-parser",
+  "category": "protocol",
+  "description": "A zero-dependency RFC 7252 CoAP (Constrained Application Protocol) packet parser and formatter. Supports message types (CON, NON, ACK, RST), token parsing, delta-encoded option processing (e.g. Uri-Path, Uri-Query, Content-Format), option delta extensions, and payload serialization.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to construct or parse low-level CoAP packets for UDP-based IoT messaging systems.",
+  "parameters": []
+}

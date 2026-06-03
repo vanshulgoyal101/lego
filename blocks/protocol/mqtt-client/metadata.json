@@ -1,0 +1,8 @@
+{
+  "name": "mqtt-client",
+  "category": "protocol",
+  "description": "A zero-dependency, lightweight MQTT v3.1.1 packet parser and serializer. Supports CONNECT, CONNACK, PUBLISH, PUBACK, SUBSCRIBE, and SUBACK packets.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to serialize and deserialize MQTT binary packets for client connections, subscribing to topics, and publishing messages.",
+  "parameters": []
+}

@@ -48,7 +48,7 @@ node bin/cli.js add web/fetch-retry --dest ./src/utils
 
 ## Categorized Block Catalog
 
-We have developed **264 production-grade blocks** organized across 22 categories:
+We have developed **268 production-grade blocks** organized across 22 categories:
 
 ### 1. Agent
 * [`agent/chain-runner`](blocks/agent/chain-runner): Sequential/branching chain executor for AI agents where each step receives context and returns updated context, with retry, skip, and conditional branching support.
@@ -234,7 +234,11 @@ We have developed **264 production-grade blocks** organized across 22 categories
 * [`observability/span-tracer`](blocks/observability/span-tracer): Lightweight distributed tracing: spans, parent-child hierarchy, and W3C traceparent headers.
 
 ### 13. Network Protocols
+* [`protocol/coap-parser`](blocks/protocol/coap-parser): A zero-dependency RFC 7252 CoAP (Constrained Application Protocol) packet parser and formatter. Supports message types (CON, NON, ACK, RST), token parsing, delta-encoded option processing (e.g. Uri-Path, Uri-Query, Content-Format), option delta extensions, and payload serialization.
 * [`protocol/dns-resolver`](blocks/protocol/dns-resolver): A zero-dependency DNS client and resolver built from scratch in Node.js. Packs binary DNS query structures (Headers, Question flags, label-length domain encoding) and decodes DNS response packets (decoding headers, question echoes, records A, AAAA, CNAME, MX, TXT, and domain name compression pointers) using UDP sockets.
+* [`protocol/grpc-encoder`](blocks/protocol/grpc-encoder): A zero-dependency gRPC length-prefixed framing serializer and deserializer. Formats messages into the gRPC protocol wire format (1-byte compressed flag, 4-byte big-endian length, and body), and parses incoming frames back into messages.
+* [`protocol/mqtt-client`](blocks/protocol/mqtt-client): A zero-dependency, lightweight MQTT v3.1.1 packet parser and serializer. Supports CONNECT, CONNACK, PUBLISH, PUBACK, SUBSCRIBE, and SUBACK packets.
+* [`protocol/websocket-frame`](blocks/protocol/websocket-frame): A zero-dependency RFC 6455 WebSocket frame serializer and parser. Handles FIN, RSV bits, opcodes (text, binary, ping, pong, close), masking/unmasking, and variable length payload decoding (7-bit, 16-bit, and 64-bit lengths).
 
 ### 14. Security
 * [`security/api-key-manager`](blocks/security/api-key-manager): Secure API key generation, hashing, rotation, and revocation management.

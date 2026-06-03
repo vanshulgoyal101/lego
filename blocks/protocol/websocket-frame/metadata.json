@@ -1,0 +1,8 @@
+{
+  "name": "websocket-frame",
+  "category": "protocol",
+  "description": "A zero-dependency RFC 6455 WebSocket frame serializer and parser. Handles FIN, RSV bits, opcodes (text, binary, ping, pong, close), masking/unmasking, and variable length payload decoding (7-bit, 16-bit, and 64-bit lengths).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to serialize and deserialize low-level WebSocket protocol frames for raw TCP/TLS socket connections.",
+  "parameters": []
+}

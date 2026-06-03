@@ -363,6 +363,14 @@ function getComplexity(name) {
     // ===== protocol =====
     case 'dns-resolver':
       return { time: 'O(N) packet bytes serialized/parsed', space: 'O(N) packet buffer' };
+    case 'mqtt-client':
+      return { time: 'O(N) packet serialization/parsing (N = length)', space: 'O(B) active message stream buffer' };
+    case 'websocket-frame':
+      return { time: 'O(N) frame payload encoding/decryption with mask key', space: 'O(N) frame payload bytes buffer' };
+    case 'grpc-encoder':
+      return { time: 'O(N) prefix framing data copy operations', space: 'O(N) frame payload bytes buffer' };
+    case 'coap-parser':
+      return { time: 'O(N) parsing binary packet options', space: 'O(N) message buffer' };
 
     // ===== state =====
     case 'fsm':
