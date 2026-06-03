@@ -1,0 +1,6 @@
+{
+  "name": "metrics-registry",
+  "category": "observability",
+  "description": "In-process metrics registry supporting Counters, Gauges, and Histograms with Prometheus exposition text format export.",
+  "dependencies": []
+}

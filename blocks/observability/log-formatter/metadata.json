@@ -1,0 +1,6 @@
+{
+  "name": "log-formatter",
+  "category": "observability",
+  "description": "Structured JSON log formatter featuring customizable levels, correlation ID tracing, and deep object redaction of sensitive key/value pairs.",
+  "dependencies": []
+}

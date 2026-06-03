@@ -48,7 +48,7 @@ node bin/cli.js add web/fetch-retry --dest ./src/utils
 
 ## Categorized Block Catalog
 
-We have developed **240 production-grade blocks** organized across 19 categories:
+We have developed **246 production-grade blocks** organized across 20 categories:
 
 ### 1. Agent
 * [`agent/chain-runner`](blocks/agent/chain-runner): Sequential/branching chain executor for AI agents where each step receives context and returns updated context, with retry, skip, and conditional branching support.
@@ -225,10 +225,18 @@ We have developed **240 production-grade blocks** organized across 19 categories
 * [`ml/svm`](blocks/ml/svm): Support Vector Machine (SVM) binary classifier using linear kernels and simple gradient updates.
 * [`ml/tf-idf`](blocks/ml/tf-idf): Term Frequency-Inverse Document Frequency (TF-IDF) document text vectorizer/encoder with built-in tokenization and L2 normalization options.
 
-### 12. Network Protocols
+### 12. Observability
+* [`observability/error-aggregator`](blocks/observability/error-aggregator): Fingerprint, group, and deduplicate application errors. Tracks occurrence statistics, timelines, and metadata context.
+* [`observability/health-check`](blocks/observability/health-check): HTTP health/readiness/liveness checker with support for concurrent checks, timeouts, and standard HTTP server handlers.
+* [`observability/log-formatter`](blocks/observability/log-formatter): Structured JSON log formatter featuring customizable levels, correlation ID tracing, and deep object redaction of sensitive key/value pairs.
+* [`observability/metrics-registry`](blocks/observability/metrics-registry): In-process metrics registry supporting Counters, Gauges, and Histograms with Prometheus exposition text format export.
+* [`observability/perf-profiler`](blocks/observability/perf-profiler): High-resolution hierarchical performance profiler with flamegraph-compatible text export formats.
+* [`observability/span-tracer`](blocks/observability/span-tracer): Lightweight distributed tracing: spans, parent-child hierarchy, and W3C traceparent headers.
+
+### 13. Network Protocols
 * [`protocol/dns-resolver`](blocks/protocol/dns-resolver): A zero-dependency DNS client and resolver built from scratch in Node.js. Packs binary DNS query structures (Headers, Question flags, label-length domain encoding) and decodes DNS response packets (decoding headers, question echoes, records A, AAAA, CNAME, MX, TXT, and domain name compression pointers) using UDP sockets.
 
-### 13. State Management
+### 14. State Management
 * [`state/atom`](blocks/state/atom): Jotai-style atomic state primitives with get, set, subscribe, derive, reset, and peek — composable independent units of reactive state.
 * [`state/command-pattern`](blocks/state/command-pattern): Command pattern implementation with an undo/redo history stack for executing, reversing, and replaying discrete operations.
 * [`state/fsm`](blocks/state/fsm): A Finite State Machine (FSM) manager featuring state transitions, guards, side-effect actions, and subscription events.
@@ -237,12 +245,12 @@ We have developed **240 production-grade blocks** organized across 19 categories
 * [`state/redux-lite`](blocks/state/redux-lite): A lightweight global state store with actions dispatcher, state reducers, subscription listeners, and custom middleware support.
 * [`state/signal`](blocks/state/signal): Fine-grained reactive signals inspired by SolidJS — signal(), computed(), and effect() primitives with automatic dependency tracking.
 
-### 14. Sys
+### 15. Sys
 * [`sys/env-parser`](blocks/sys/env-parser): Parses .env configuration files, supporting single/double quotes, comments, escapes, and multiline variables.
 * [`sys/path-resolver`](blocks/sys/path-resolver): Cross-platform path normalization, resolution, and joining utility for resolving relative and absolute paths.
 * [`sys/terminal-ansi`](blocks/sys/terminal-ansi): ANSI escape code utility for styling terminal text output (colors, backgrounds, styles) and stripping styles.
 
-### 15. Text Processing & Formatter
+### 16. Text Processing & Formatter
 * [`text/bbcode-parser`](blocks/text/bbcode-parser): BBCode to HTML parser and AST compiler (handles standard tags like [b], [i], [url]).
 * [`text/csv-parser`](blocks/text/csv-parser): Robust CSV parser and generator correctly handling quoted escape strings and delimiters.
 * [`text/diff-match`](blocks/text/diff-match): Text line comparison engine computing difference deltas using Longest Common Subsequence (LCS).
@@ -258,13 +266,13 @@ We have developed **240 production-grade blocks** organized across 19 categories
 * [`text/xml-parser`](blocks/text/xml-parser): Lightweight, zero-dependency XML-to-JSON parser that parses XML strings into nested JavaScript object trees.
 * [`text/yaml-parser`](blocks/text/yaml-parser): A lightweight YAML 1.2 subset parser supporting scalar strings, booleans, integers, floats, null, multiline strings (literal | and folded >), nested mappings (objects), sequences (arrays), and inline flow syntax. Serializes JavaScript values back to YAML format.
 
-### 16. UI & Layout Mechanics
+### 17. UI & Layout Mechanics
 * [`ui/color-converter`](blocks/ui/color-converter): Color parsing and format space converter (HEX, RGB, HSL) with W3C relative luminance contrast ratio compliance calculations.
 * [`ui/css-parser`](blocks/ui/css-parser): Lightweight CSS parser that parses style sheets into structured rule and declaration objects.
 * [`ui/query-builder`](blocks/ui/query-builder): Safe SQL query string building helper utilizing template placeholders for bind values.
 * [`ui/virtual-dom`](blocks/ui/virtual-dom): A lightweight Virtual DOM and reconciliation engine in pure JavaScript. Features virtual node creation (h/createElement), tree diffing & patch reconciliation, functional components with state and effect hooks (useState, useEffect), and server-side rendering (SSR) to HTML.
 
-### 17. Utility Helper Functions
+### 18. Utility Helper Functions
 * [`utils/chunk`](blocks/utils/chunk): Splits arrays into chunks of a given size, or groups elements by a predicate function.
 * [`utils/date-formatter`](blocks/utils/date-formatter): Date arithmetic and token formatting helper (format, addTime, isBetween) without external libraries.
 * [`utils/debounce`](blocks/utils/debounce): Creates a debounced version of a function to delay invocation until after wait milliseconds.
@@ -285,7 +293,7 @@ We have developed **240 production-grade blocks** organized across 19 categories
 * [`utils/url-builder`](blocks/utils/url-builder): Parameter builder that constructs, validates, and parses nested query strings and URL objects.
 * [`utils/uuid-v4`](blocks/utils/uuid-v4): Generates cryptographically random UUID v4 strings (xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx format). Works in Node.js, Deno, Bun, and browsers via the Web Crypto API. Also validates UUID format strings and generates short 8-character nanoid-style IDs.
 
-### 18. Validation & Security Guards
+### 19. Validation & Security Guards
 * [`validation/credit-card`](blocks/validation/credit-card): Credit card number validation using the Luhn algorithm with card type detection and formatting.
 * [`validation/cron-parser`](blocks/validation/cron-parser): Standard 5-field crontab pattern parser to validate schedules and resolve subsequent matching execution timestamps.
 * [`validation/date-validator`](blocks/validation/date-validator): Date string validation, range checking, leap year detection, and weekday/weekend classification.
@@ -304,7 +312,7 @@ We have developed **240 production-grade blocks** organized across 19 categories
 * [`validation/url-validator`](blocks/validation/url-validator): Validates URLs with fine-grained options including protocol, TLD, and localhost requirements.
 * [`validation/xss-filter`](blocks/validation/xss-filter): An HTML XSS sanitizer that removes dangerous script elements, event handler attributes, javascript: protocol links, and data: URI injections from HTML strings. Supports allowlists for safe tags and attributes. Returns sanitized HTML safe for rendering in the browser.
 
-### 19. Web & Networking Middleware
+### 20. Web & Networking Middleware
 * [`web/api-client`](blocks/web/api-client): An advanced REST API request builder supporting middleware-like request and response interceptors.
 * [`web/cookie-helper`](blocks/web/cookie-helper): Safe browser cookie manipulation helper (set, get, delete) supporting attributes like path, domain, security, and samesite.
 * [`web/cors-middleware`](blocks/web/cors-middleware): Rules-based CORS handler managing pre-flight checks, dynamic origin validations, custom headers, and authorization requests.

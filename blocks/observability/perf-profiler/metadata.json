@@ -1,0 +1,6 @@
+{
+  "name": "perf-profiler",
+  "category": "observability",
+  "description": "High-resolution hierarchical performance profiler with flamegraph-compatible text export formats.",
+  "dependencies": []
+}

@@ -1,0 +1,6 @@
+{
+  "name": "health-check",
+  "category": "observability",
+  "description": "HTTP health/readiness/liveness checker with support for concurrent checks, timeouts, and standard HTTP server handlers.",
+  "dependencies": []
+}

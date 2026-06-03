@@ -597,6 +597,19 @@ function getComplexity(name) {
       return { time: 'O(N × Q) chunk search cosine ranking (N = chunks, Q = query terms)', space: 'O(C) memory chunks data structures' };
     case 'decision-tree-agent':
       return { time: 'O(D) rule conditions checks evaluation depth', space: 'O(D)' };
+    // ===== observability =====
+    case 'span-tracer':
+      return { time: 'O(1) span creation and tracking', space: 'O(N) active trace spans stored' };
+    case 'metrics-registry':
+      return { time: 'O(1) metrics registration and update', space: 'O(M) tracked metrics storage' };
+    case 'log-formatter':
+      return { time: 'O(N) serialization overhead for log message and metadata', space: 'O(1)' };
+    case 'health-check':
+      return { time: 'O(C) health checks aggregation execution', space: 'O(C) registered check definitions' };
+    case 'error-aggregator':
+      return { time: 'O(1) deduplication and fingerprint lookup', space: 'O(E) unique active errors tracking' };
+    case 'perf-profiler':
+      return { time: 'O(1) start/end profile measurement; O(S) tree formatting', space: 'O(S) active call stack samples' };
 
     default:
       // Prevent silent errors when new blocks are added to the repo

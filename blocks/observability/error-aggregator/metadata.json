@@ -1,0 +1,6 @@
+{
+  "name": "error-aggregator",
+  "category": "observability",
+  "description": "Fingerprint, group, and deduplicate application errors. Tracks occurrence statistics, timelines, and metadata context.",
+  "dependencies": []
+}

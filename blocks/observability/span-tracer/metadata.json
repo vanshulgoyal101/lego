@@ -1,0 +1,6 @@
+{
+  "name": "span-tracer",
+  "category": "observability",
+  "description": "Lightweight distributed tracing: spans, parent-child hierarchy, and W3C traceparent headers.",
+  "dependencies": []
+}

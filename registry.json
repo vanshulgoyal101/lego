@@ -2942,6 +2942,66 @@
         "index.js"
       ]
     },
+    "observability/error-aggregator": {
+      "name": "error-aggregator",
+      "category": "observability",
+      "description": "Fingerprint, group, and deduplicate application errors. Tracks occurrence statistics, timelines, and metadata context.",
+      "dependencies": [],
+      "path": "blocks/observability/error-aggregator",
+      "files": [
+        "index.js"
+      ]
+    },
+    "observability/health-check": {
+      "name": "health-check",
+      "category": "observability",
+      "description": "HTTP health/readiness/liveness checker with support for concurrent checks, timeouts, and standard HTTP server handlers.",
+      "dependencies": [],
+      "path": "blocks/observability/health-check",
+      "files": [
+        "index.js"
+      ]
+    },
+    "observability/log-formatter": {
+      "name": "log-formatter",
+      "category": "observability",
+      "description": "Structured JSON log formatter featuring customizable levels, correlation ID tracing, and deep object redaction of sensitive key/value pairs.",
+      "dependencies": [],
+      "path": "blocks/observability/log-formatter",
+      "files": [
+        "index.js"
+      ]
+    },
+    "observability/metrics-registry": {
+      "name": "metrics-registry",
+      "category": "observability",
+      "description": "In-process metrics registry supporting Counters, Gauges, and Histograms with Prometheus exposition text format export.",
+      "dependencies": [],
+      "path": "blocks/observability/metrics-registry",
+      "files": [
+        "index.js"
+      ]
+    },
+    "observability/perf-profiler": {
+      "name": "perf-profiler",
+      "category": "observability",
+      "description": "High-resolution hierarchical performance profiler with flamegraph-compatible text export formats.",
+      "dependencies": [],
+      "path": "blocks/observability/perf-profiler",
+      "files": [
+        "index.js"
+      ]
+    },
+    "observability/span-tracer": {
+      "name": "span-tracer",
+      "category": "observability",
+      "description": "Lightweight distributed tracing: spans, parent-child hierarchy, and W3C traceparent headers.",
+      "dependencies": [],
+      "path": "blocks/observability/span-tracer",
+      "files": [
+        "index.js"
+      ]
+    },
     "protocol/dns-resolver": {
       "name": "dns-resolver",
       "category": "protocol",
