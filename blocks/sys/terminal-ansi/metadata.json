@@ -1,0 +1,8 @@
+{
+  "name": "terminal-ansi",
+  "category": "sys",
+  "description": "ANSI escape code utility for styling terminal text output (colors, backgrounds, styles) and stripping styles.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to colorize console output using standard ANSI codes, or to strip ANSI codes from logs.",
+  "parameters": []
+}

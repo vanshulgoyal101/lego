@@ -281,6 +281,9 @@ function getComplexity(name) {
       return { time: 'O(N) binary stream parse passes', space: 'O(N) parsed fields array' };
     case 'utf8-validator':
       return { time: 'O(N) byte buffer linear scans', space: 'O(1)' };
+    case 'hex':
+      return { time: 'O(N) encoding and decoding operations (N = input length)', space: 'O(N) output string/buffer' };
+
 
     // ===== math =====
     case 'complex':
@@ -320,6 +323,9 @@ function getComplexity(name) {
       return { time: 'O(N log N) Cooley-Tukey transformation time', space: 'O(N) computation arrays' };
     case 'signal-filter':
       return { time: 'O(N) sample size linear execution', space: 'O(P) state filter order history' };
+    case 'bigint-fraction':
+      return { time: 'O(log(min(a,b))) Euclidean GCD canonical reduction', space: 'O(1)' };
+
 
     case 'quaternion':
       return { time: 'O(1) rotations, additions, multiplications', space: 'O(1)' };
@@ -411,15 +417,36 @@ function getComplexity(name) {
       return { time: 'O(N) linear character scan (N = input length)', space: 'O(D) tag stack nesting depth' };
     case 'markdown-table':
       return { time: 'O(R × C) rows × columns formatting', space: 'O(R × C) cell strings cache' };
+    case 'xml-parser':
+      return { time: 'O(N) tokenizer and AST assembly linear scan', space: 'O(D) maximum XML tags nesting stack depth' };
+
 
 
     // ===== ui =====
     case 'color-converter':
       return { time: 'O(1) arithmetic conversions', space: 'O(1)' };
+
     case 'query-builder':
       return { time: 'O(C) conditions assembled (C = clause count)', space: 'O(C) query string' };
     case 'virtual-dom':
       return { time: 'O(N) diff/patch (N = tree nodes); O(N) SSR render', space: 'O(N) VNode tree' };
+    case 'css-parser':
+      return { time: 'O(N) character scanner loops (N = input length)', space: 'O(R + D) rules and declarations' };
+
+    // ===== media =====
+    case 'wav-decoder':
+      return { time: 'O(S × C) samples × channels parsing iteration', space: 'O(S × C) normalized float channels data' };
+    case 'bmp-encoder':
+      return { time: 'O(W × H) pixels encoding loop', space: 'O(W × H) binary file buffer' };
+
+    // ===== sys =====
+    case 'path-resolver':
+      return { time: 'O(N) path segments resolution and normalizations', space: 'O(N) normalized output path string' };
+    case 'env-parser':
+      return { time: 'O(N) lines parsed linearly (N = file line count)', space: 'O(K) key-value configuration entries' };
+    case 'terminal-ansi':
+      return { time: 'O(1) styling formatting; O(N) regex strip pattern match', space: 'O(N) output stylized/stripped string' };
+
 
     // ===== utils =====
     case 'date-formatter':
@@ -503,6 +530,9 @@ function getComplexity(name) {
       return { time: 'O(N × R) input length × rule count (regex passes)', space: 'O(1)' };
     case 'json-sanitizer':
       return { time: 'O(N) character scanner loops (N = input length)', space: 'O(N) cleaned string' };
+    case 'cors':
+      return { time: 'O(O + M + H) origin list × allowed methods × requested headers validations', space: 'O(1) output headers map' };
+
 
     // ===== web =====
     case 'api-client':

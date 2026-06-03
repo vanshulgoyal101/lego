@@ -1,0 +1,8 @@
+{
+  "name": "bmp-encoder",
+  "category": "media",
+  "description": "Encodes raw RGB pixel buffers into standard uncompressed 24-bit BMP image byte buffers.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to encode a 1D array of RGB values into a binary BMP format file buffer.",
+  "parameters": []
+}

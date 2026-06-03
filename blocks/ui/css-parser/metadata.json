@@ -1,0 +1,8 @@
+{
+  "name": "css-parser",
+  "category": "ui",
+  "description": "Lightweight CSS parser that parses style sheets into structured rule and declaration objects.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to parse standard CSS strings into structured Javascript objects containing selectors and their declarations.",
+  "parameters": []
+}

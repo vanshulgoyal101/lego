@@ -1,0 +1,8 @@
+{
+  "name": "hex",
+  "category": "encoding",
+  "description": "High-performance hexadecimal encoding and decoding utility for string and byte representations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to encode byte arrays (Uint8Array) or strings to hex representation and decode them back.",
+  "parameters": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "cors",
+  "category": "validation",
+  "description": "Rules-based CORS policy validator matching wildcards, checking request credentials, methods, and headers.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to validate client cross-origin headers against specified allowed origins (supporting wildcards), methods, and custom headers.",
+  "parameters": []
+}

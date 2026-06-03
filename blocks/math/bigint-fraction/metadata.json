@@ -1,0 +1,8 @@
+{
+  "name": "bigint-fraction",
+  "category": "math",
+  "description": "Arbitrary-precision rational fraction solver utilizing BigInt, supporting canonical reduction, arithmetic, comparisons, and float conversion.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to perform exact rational arithmetic (add, subtract, multiply, divide) with arbitrary precision using BigInt numbers.",
+  "parameters": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "path-resolver",
+  "category": "sys",
+  "description": "Cross-platform path normalization, resolution, and joining utility for resolving relative and absolute paths.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to normalize, join, and resolve paths using POSIX/Windows compatible separator logic.",
+  "parameters": []
+}

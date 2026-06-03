@@ -1,0 +1,8 @@
+{
+  "name": "xml-parser",
+  "category": "text",
+  "description": "Lightweight, zero-dependency XML-to-JSON parser that parses XML strings into nested JavaScript object trees.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to parse an XML string into a structured JavaScript object representation.",
+  "parameters": []
+}

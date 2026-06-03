@@ -1,0 +1,8 @@
+{
+  "name": "wav-decoder",
+  "category": "media",
+  "description": "Reads and decodes RIFF/WAV audio metadata and raw sample data from binary byte buffers into normalized Float32 arrays.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to decode a binary WAV audio buffer into structured channel data and audio metadata.",
+  "parameters": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "env-parser",
+  "category": "sys",
+  "description": "Parses .env configuration files, supporting single/double quotes, comments, escapes, and multiline variables.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to parse .env files or strings into structured key-value configuration objects.",
+  "parameters": []
+}

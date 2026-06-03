@@ -2058,6 +2058,20 @@
         "test.js"
       ]
     },
+    "encoding/hex": {
+      "name": "hex",
+      "category": "encoding",
+      "description": "High-performance hexadecimal encoding and decoding utility for string and byte representations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to encode byte arrays (Uint8Array) or strings to hex representation and decode them back.",
+      "parameters": [],
+      "path": "blocks/encoding/hex",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "encoding/json-patch": {
       "name": "json-patch",
       "category": "encoding",
@@ -2229,6 +2243,20 @@
       "aiPromptContext": "Use this block to generate smooth 2D curve coordinates from control points for UI transitions, canvas drawings, or vector paths.",
       "parameters": [],
       "path": "blocks/math/bezier",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/bigint-fraction": {
+      "name": "bigint-fraction",
+      "category": "math",
+      "description": "Arbitrary-precision rational fraction solver utilizing BigInt, supporting canonical reduction, arithmetic, comparisons, and float conversion.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to perform exact rational arithmetic (add, subtract, multiply, divide) with arbitrary precision using BigInt numbers.",
+      "parameters": [],
+      "path": "blocks/math/bigint-fraction",
       "files": [
         "README.md",
         "index.js",
@@ -2598,6 +2626,34 @@
         }
       ],
       "path": "blocks/math/vector2d",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "media/bmp-encoder": {
+      "name": "bmp-encoder",
+      "category": "media",
+      "description": "Encodes raw RGB pixel buffers into standard uncompressed 24-bit BMP image byte buffers.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to encode a 1D array of RGB values into a binary BMP format file buffer.",
+      "parameters": [],
+      "path": "blocks/media/bmp-encoder",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "media/wav-decoder": {
+      "name": "wav-decoder",
+      "category": "media",
+      "description": "Reads and decodes RIFF/WAV audio metadata and raw sample data from binary byte buffers into normalized Float32 arrays.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to decode a binary WAV audio buffer into structured channel data and audio metadata.",
+      "parameters": [],
+      "path": "blocks/media/wav-decoder",
       "files": [
         "README.md",
         "index.js",
@@ -3088,6 +3144,48 @@
         "index.js"
       ]
     },
+    "sys/env-parser": {
+      "name": "env-parser",
+      "category": "sys",
+      "description": "Parses .env configuration files, supporting single/double quotes, comments, escapes, and multiline variables.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse .env files or strings into structured key-value configuration objects.",
+      "parameters": [],
+      "path": "blocks/sys/env-parser",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "sys/path-resolver": {
+      "name": "path-resolver",
+      "category": "sys",
+      "description": "Cross-platform path normalization, resolution, and joining utility for resolving relative and absolute paths.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to normalize, join, and resolve paths using POSIX/Windows compatible separator logic.",
+      "parameters": [],
+      "path": "blocks/sys/path-resolver",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "sys/terminal-ansi": {
+      "name": "terminal-ansi",
+      "category": "sys",
+      "description": "ANSI escape code utility for styling terminal text output (colors, backgrounds, styles) and stripping styles.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to colorize console output using standard ANSI codes, or to strip ANSI codes from logs.",
+      "parameters": [],
+      "path": "blocks/sys/terminal-ansi",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "text/ansi": {
       "name": "ansi",
       "category": "text",
@@ -3417,6 +3515,20 @@
         "test.js"
       ]
     },
+    "text/xml-parser": {
+      "name": "xml-parser",
+      "category": "text",
+      "description": "Lightweight, zero-dependency XML-to-JSON parser that parses XML strings into nested JavaScript object trees.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse an XML string into a structured JavaScript object representation.",
+      "parameters": [],
+      "path": "blocks/text/xml-parser",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "text/yaml-parser": {
       "name": "yaml-parser",
       "category": "text",
@@ -3439,6 +3551,20 @@
       "aiPromptContext": "Use this block when styling dynamic UI theme palettes, calculating optimal text color over a dynamic background for readability compliance (WCAG contrast checks), or implementing CSS styling properties engines.",
       "parameters": [],
       "path": "blocks/ui/color-converter",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ui/css-parser": {
+      "name": "css-parser",
+      "category": "ui",
+      "description": "Lightweight CSS parser that parses style sheets into structured rule and declaration objects.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse standard CSS strings into structured Javascript objects containing selectors and their declarations.",
+      "parameters": [],
+      "path": "blocks/ui/css-parser",
       "files": [
         "README.md",
         "index.js",
@@ -3983,6 +4109,20 @@
       "aiPromptContext": "Use this block when you need to generate universally unique identifiers for records, session tokens, or temporary IDs in both browser and server environments without importing the 'uuid' npm package.",
       "parameters": [],
       "path": "blocks/utils/uuid-v4",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "validation/cors": {
+      "name": "cors",
+      "category": "validation",
+      "description": "Rules-based CORS policy validator matching wildcards, checking request credentials, methods, and headers.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to validate client cross-origin headers against specified allowed origins (supporting wildcards), methods, and custom headers.",
+      "parameters": [],
+      "path": "blocks/validation/cors",
       "files": [
         "README.md",
         "index.js",
