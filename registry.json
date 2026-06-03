@@ -2881,25 +2881,6 @@
         "index.js"
       ]
     },
-    "text/ansi": {
-      "name": "ansi",
-      "category": "text",
-      "description": "ANSI escape code utilities for colorful terminal output with text colors, background colors, styles, ANSI stripping, and terminal support detection.",
-      "dependencies": [],
-      "aiPromptContext": "Use this block when building CLI tools that need colorized or styled terminal output, for logging with visual emphasis, or for building interactive terminal UIs.",
-      "parameters": [
-        {
-          "name": "str",
-          "type": "string",
-          "required": true,
-          "description": "The string to apply ANSI styling to"
-        }
-      ],
-      "path": "blocks/text/ansi",
-      "files": [
-        "index.js"
-      ]
-    },
     "text/bbcode-parser": {
       "name": "bbcode-parser",
       "category": "text",
@@ -2958,31 +2939,6 @@
         }
       ],
       "path": "blocks/text/diff-match",
-      "files": [
-        "index.js"
-      ]
-    },
-    "text/edit-distance": {
-      "name": "edit-distance",
-      "category": "text",
-      "description": "Multiple string distance algorithms including Levenshtein, Hamming, Jaro, Jaro-Winkler, and Damerau-Levenshtein for measuring string similarity.",
-      "dependencies": [],
-      "aiPromptContext": "Use this block to compare strings for similarity, spell-checking, fuzzy matching, DNA sequence alignment, or de-duplication tasks where edit distance metrics are needed.",
-      "parameters": [
-        {
-          "name": "a",
-          "type": "string",
-          "required": true,
-          "description": "First string for comparison"
-        },
-        {
-          "name": "b",
-          "type": "string",
-          "required": true,
-          "description": "Second string for comparison"
-        }
-      ],
-      "path": "blocks/text/edit-distance",
       "files": [
         "index.js"
       ]
@@ -3054,25 +3010,6 @@
         "index.js"
       ]
     },
-    "text/markdown-parser": {
-      "name": "markdown-parser",
-      "category": "text",
-      "description": "Lightweight Markdown-to-HTML formatting parser.",
-      "dependencies": [],
-      "aiPromptContext": "Use this block when generating simple rich text rendering wrappers for blog posts, chat message logs, or readme display interfaces.",
-      "parameters": [
-        {
-          "name": "markdown",
-          "type": "string",
-          "required": true,
-          "description": "Raw markdown string content."
-        }
-      ],
-      "path": "blocks/text/markdown-parser",
-      "files": [
-        "index.js"
-      ]
-    },
     "text/markdown-table": {
       "name": "markdown-table",
       "category": "text",
@@ -3093,31 +3030,6 @@
       "aiPromptContext": "Use this block when building custom configuration formats, DSL compilers, math expression parsers, or complex structured log lexers requiring precise error locations.",
       "parameters": [],
       "path": "blocks/text/parser-combinator",
-      "files": [
-        "index.js"
-      ]
-    },
-    "text/string-search": {
-      "name": "string-search",
-      "category": "text",
-      "description": "Efficient string pattern search algorithms: Knuth-Morris-Pratt, Boyer-Moore, and Rabin-Karp, all returning arrays of match start indices.",
-      "dependencies": [],
-      "aiPromptContext": "Use this block when you need fast substring search within large texts, multiple pattern occurrence finding, or need a specific search algorithm for performance or educational purposes.",
-      "parameters": [
-        {
-          "name": "text",
-          "type": "string",
-          "required": true,
-          "description": "The text to search within"
-        },
-        {
-          "name": "pattern",
-          "type": "string",
-          "required": true,
-          "description": "The pattern string to search for"
-        }
-      ],
-      "path": "blocks/text/string-search",
       "files": [
         "index.js"
       ]
@@ -3282,25 +3194,6 @@
         "index.js"
       ]
     },
-    "utils/color-utils": {
-      "name": "color-utils",
-      "category": "utils",
-      "description": "Color manipulation utilities for converting between HEX, RGB, and HSL formats, and for lightening or darkening colors.",
-      "dependencies": [],
-      "aiPromptContext": "Use this block when you need to programmatically manipulate CSS colors, generate color palettes, validate hex color inputs, or convert between color representations without a graphics library.",
-      "parameters": [
-        {
-          "name": "hex",
-          "type": "string",
-          "required": true,
-          "description": "A CSS hex color string (e.g. '#ff0000' or '#f00')."
-        }
-      ],
-      "path": "blocks/utils/color-utils",
-      "files": [
-        "index.js"
-      ]
-    },
     "utils/date-formatter": {
       "name": "date-formatter",
       "category": "utils",
@@ -3413,31 +3306,6 @@
         "index.js"
       ]
     },
-    "utils/event-bus": {
-      "name": "event-bus",
-      "category": "utils",
-      "description": "Typed global event bus singleton supporting on, off, emit, once, and clear operations for decoupled component communication.",
-      "dependencies": [],
-      "aiPromptContext": "Use this block when you need a lightweight publish-subscribe mechanism to decouple modules without a full state management library. Useful for cross-component communication in UI apps, plugin systems, or service-to-service notifications.",
-      "parameters": [
-        {
-          "name": "event",
-          "type": "string",
-          "required": true,
-          "description": "The event name to subscribe to, publish, or clear."
-        },
-        {
-          "name": "handler",
-          "type": "function",
-          "required": false,
-          "description": "The callback function to invoke when the event is emitted."
-        }
-      ],
-      "path": "blocks/utils/event-bus",
-      "files": [
-        "index.js"
-      ]
-    },
     "utils/flatten": {
       "name": "flatten",
       "category": "utils",
@@ -3532,18 +3400,6 @@
       "aiPromptContext": "Use this block to decouple components using events across modules, implement cross-component communication in frontend apps, or build lightweight service bus messaging without external dependencies.",
       "parameters": [],
       "path": "blocks/utils/pubsub",
-      "files": [
-        "index.js"
-      ]
-    },
-    "utils/pubsub-wildcard": {
-      "name": "pubsub-wildcard",
-      "category": "utils",
-      "description": "Message pub-sub publisher implementing wildcard event matching subscriptions (e.g. subscribing to 'users.*' receives updates for 'users.login').",
-      "dependencies": [],
-      "aiPromptContext": "Use this block to build a message broker or event dispatching system with hierarchical event paths and wildcard selectors.",
-      "parameters": [],
-      "path": "blocks/utils/pubsub-wildcard",
       "files": [
         "index.js"
       ]
@@ -3718,18 +3574,6 @@
       "aiPromptContext": "Use this block when you need to generate universally unique identifiers for records, session tokens, or temporary IDs in both browser and server environments without importing the 'uuid' npm package.",
       "parameters": [],
       "path": "blocks/utils/uuid-v4",
-      "files": [
-        "index.js"
-      ]
-    },
-    "validation/cors": {
-      "name": "cors",
-      "category": "validation",
-      "description": "Rules-based CORS policy validator matching wildcards, checking request credentials, methods, and headers.",
-      "dependencies": [],
-      "aiPromptContext": "Use this block to validate client cross-origin headers against specified allowed origins (supporting wildcards), methods, and custom headers.",
-      "parameters": [],
-      "path": "blocks/validation/cors",
       "files": [
         "index.js"
       ]
@@ -3970,31 +3814,6 @@
         }
       ],
       "path": "blocks/validation/phone-validator",
-      "files": [
-        "index.js"
-      ]
-    },
-    "validation/rate-limiter": {
-      "name": "rate-limiter",
-      "category": "validation",
-      "description": "In-memory sliding-window Rate Limiter to protect API gateways or inputs against spamming.",
-      "dependencies": [],
-      "aiPromptContext": "Use this block inside servers, mock environments, web socket controllers, or serverless functions to rate-limit user actions (IP verification or token limits) without spinning up Redis databases. Import using: import { RateLimiter } from './validation/rate-limiter.js';",
-      "parameters": [
-        {
-          "name": "limit",
-          "type": "number",
-          "required": true,
-          "description": "Maximum actions allowed in window period."
-        },
-        {
-          "name": "windowMs",
-          "type": "number",
-          "required": true,
-          "description": "Sliding timeframe window in milliseconds."
-        }
-      ],
-      "path": "blocks/validation/rate-limiter",
       "files": [
         "index.js"
       ]

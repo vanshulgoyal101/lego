@@ -48,7 +48,7 @@ node bin/cli.js add web/fetch-retry --dest ./src/utils
 
 ## Categorized Block Catalog
 
-We have developed **241 production-grade blocks** organized across 18 categories:
+We have developed **232 production-grade blocks** organized across 18 categories:
 
 ### 1. Algorithms
 * [`algo/a-star`](blocks/algo/a-star): A* pathfinding algorithm on a 2D grid that finds the shortest path using heuristic-guided search.
@@ -233,20 +233,16 @@ We have developed **241 production-grade blocks** organized across 18 categories
 * [`sys/terminal-ansi`](blocks/sys/terminal-ansi): ANSI escape code utility for styling terminal text output (colors, backgrounds, styles) and stripping styles.
 
 ### 14. Text Processing & Formatter
-* [`text/ansi`](blocks/text/ansi): ANSI escape code utilities for colorful terminal output with text colors, background colors, styles, ANSI stripping, and terminal support detection.
 * [`text/bbcode-parser`](blocks/text/bbcode-parser): BBCode to HTML parser and AST compiler (handles standard tags like [b], [i], [url]).
 * [`text/csv-parser`](blocks/text/csv-parser): Robust CSV parser and generator correctly handling quoted escape strings and delimiters.
 * [`text/diff-match`](blocks/text/diff-match): Text line comparison engine computing difference deltas using Longest Common Subsequence (LCS).
-* [`text/edit-distance`](blocks/text/edit-distance): Multiple string distance algorithms including Levenshtein, Hamming, Jaro, Jaro-Winkler, and Damerau-Levenshtein for measuring string similarity.
 * [`text/html-parser`](blocks/text/html-parser): Lightweight HTML string to AST parser that handles standard tags, self-closing tags, attributes, and text nodes.
 * [`text/ini-parser`](blocks/text/ini-parser): A parser and serializer for INI configuration file format. Parses sections ([section]), key-value pairs, comments (# and ;), inline comments, multi-value keys, and quoted string values. Serializes JavaScript objects back into INI format.
 * [`text/json-serializer`](blocks/text/json-serializer): Safe JSON parser and stringifier handling circular references, BigInts, and parsing fallback recoveries.
 * [`text/json5-parser`](blocks/text/json5-parser): A complete JSON5 parser and serializer. Parses JSON5 superset strings supporting single-quoted strings, unquoted keys, trailing commas, block and line comments, hexadecimal literals, Infinity, NaN, and multiline strings. Serializes values back to valid JSON5 format.
 * [`text/markdown-compiler`](blocks/text/markdown-compiler): An AST-based Markdown compiler that parses markdown syntax into an Abstract Syntax Tree (AST) and renders it to sanitized HTML.
-* [`text/markdown-parser`](blocks/text/markdown-parser): Lightweight Markdown-to-HTML formatting parser.
 * [`text/markdown-table`](blocks/text/markdown-table): Formatter that translates arrays of objects or rows into clean markdown table layouts.
 * [`text/parser-combinator`](blocks/text/parser-combinator): A monadic parser combinator framework to build custom compilers, lexers, and syntax parsers with full source coordinate (line, column) error tracking.
-* [`text/string-search`](blocks/text/string-search): Efficient string pattern search algorithms: Knuth-Morris-Pratt, Boyer-Moore, and Rabin-Karp, all returning arrays of match start indices.
 * [`text/tokenizer`](blocks/text/tokenizer): Simple whitespace and punctuation tokenizer producing clean token arrays, with support for word tokenization, sentence splitting, and n-gram generation.
 * [`text/word-wrap`](blocks/text/word-wrap): Intelligent text wrapping with configurable width, indentation, hard-cut mode, newline preservation, plus word-wrap and center-text utilities.
 * [`text/xml-parser`](blocks/text/xml-parser): Lightweight, zero-dependency XML-to-JSON parser that parses XML strings into nested JavaScript object trees.
@@ -260,19 +256,16 @@ We have developed **241 production-grade blocks** organized across 18 categories
 
 ### 16. Utility Helper Functions
 * [`utils/chunk`](blocks/utils/chunk): Splits arrays into chunks of a given size, or groups elements by a predicate function.
-* [`utils/color-utils`](blocks/utils/color-utils): Color manipulation utilities for converting between HEX, RGB, and HSL formats, and for lightening or darkening colors.
 * [`utils/date-formatter`](blocks/utils/date-formatter): Date arithmetic and token formatting helper (format, addTime, isBetween) without external libraries.
 * [`utils/debounce`](blocks/utils/debounce): Creates a debounced version of a function to delay invocation until after wait milliseconds.
 * [`utils/deep-clone`](blocks/utils/deep-clone): Performs a deep, structural clone of JavaScript values including nested objects, arrays, Maps, Sets, Dates, RegExp, ArrayBuffers, TypedArrays, and handles circular references gracefully using a WeakMap reference tracker.
 * [`utils/deep-merge`](blocks/utils/deep-merge): Deep merges multiple plain objects together, with configurable array merging strategy (concatenate or replace).
 * [`utils/dependency-resolver`](blocks/utils/dependency-resolver): Topological dependency sorting utility that resolves dependency order for a list of packages/nodes and detects circular dependency graphs.
-* [`utils/event-bus`](blocks/utils/event-bus): Typed global event bus singleton supporting on, off, emit, once, and clear operations for decoupled component communication.
 * [`utils/flatten`](blocks/utils/flatten): Flattens nested arrays to any depth, with helpers for shallow, deep, and infinite flattening.
 * [`utils/memoize`](blocks/utils/memoize): Memoization utility cache decorator caching function results mapped by argument signatures.
 * [`utils/object-diff`](blocks/utils/object-diff): Computes a structural diff between two nested JavaScript objects. Returns a patch object describing changes: added keys, removed keys, modified values (with from/to), and nested deep changes. Supports applying patches and computing reverse patches.
 * [`utils/pick-omit`](blocks/utils/pick-omit): Selects or excludes keys from objects using key lists or predicate functions.
 * [`utils/pubsub`](blocks/utils/pubsub): A lightweight topic-based Publish-Subscribe (PubSub) message bus. Supports wildcard topic matching (*, **), synchronous and asynchronous delivery, message history replay for late subscribers, one-time subscribers, and unsubscription.
-* [`utils/pubsub-wildcard`](blocks/utils/pubsub-wildcard): Message pub-sub publisher implementing wildcard event matching subscriptions (e.g. subscribing to 'users.*' receives updates for 'users.login').
 * [`utils/retry`](blocks/utils/retry): A generalized task execution retrier supporting custom delay backoff, jitter, and error conditional triggers.
 * [`utils/size-formatter`](blocks/utils/size-formatter): Converts byte counts to human-readable strings (B, KB, MB, GB, TB) and parses them back to byte counts.
 * [`utils/slugify`](blocks/utils/slugify): Converts arbitrary strings to URL-safe slugs, handling unicode, special characters, custom separators, and case normalization.
@@ -283,7 +276,6 @@ We have developed **241 production-grade blocks** organized across 18 categories
 * [`utils/uuid-v4`](blocks/utils/uuid-v4): Generates cryptographically random UUID v4 strings (xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx format). Works in Node.js, Deno, Bun, and browsers via the Web Crypto API. Also validates UUID format strings and generates short 8-character nanoid-style IDs.
 
 ### 17. Validation & Security Guards
-* [`validation/cors`](blocks/validation/cors): Rules-based CORS policy validator matching wildcards, checking request credentials, methods, and headers.
 * [`validation/credit-card`](blocks/validation/credit-card): Credit card number validation using the Luhn algorithm with card type detection and formatting.
 * [`validation/cron-parser`](blocks/validation/cron-parser): Standard 5-field crontab pattern parser to validate schedules and resolve subsequent matching execution timestamps.
 * [`validation/date-validator`](blocks/validation/date-validator): Date string validation, range checking, leap year detection, and weekday/weekend classification.
@@ -296,7 +288,6 @@ We have developed **241 production-grade blocks** organized across 18 categories
 * [`validation/mime-detector`](blocks/validation/mime-detector): Magic bytes file signature MIME type detector resolving common image, audio, document, archive, and text structured formats.
 * [`validation/password-strength`](blocks/validation/password-strength): Calculates entropy scoring password complexity based on length, casing, digit matching, symbols, and repeating sequences.
 * [`validation/phone-validator`](blocks/validation/phone-validator): International phone number validation, formatting, and extraction supporting E.164 format.
-* [`validation/rate-limiter`](blocks/validation/rate-limiter): In-memory sliding-window Rate Limiter to protect API gateways or inputs against spamming.
 * [`validation/schema-validator`](blocks/validation/schema-validator): A lightweight object schema validation engine (Zod-like syntax) supporting nested properties verification.
 * [`validation/semver`](blocks/validation/semver): Semantic Versioning (SemVer 2.0.0) validator, parser, comparator, and range matcher. Parses version strings into { major, minor, patch, prerelease, build } components, compares versions correctly, checks compatibility ranges (^, ~, >=, <, =, ||, -), and sorts version arrays.
 * [`validation/sql-injection-detector`](blocks/validation/sql-injection-detector): Static heuristic analysis and signature detection to identify SQL injection patterns (e.g., tautologies, union select, database comments) in user inputs.
