@@ -1,0 +1,8 @@
+title = "Lego gitleaks config"
+
+[allowlist]
+description = "Allow known non-secret date formatter documentation strings"
+regexes = [
+  '''adding/subtracting intervals''',
+  '''YYYY-MM-DD HH:mm:ss'''
+]
