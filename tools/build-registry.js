@@ -52,7 +52,7 @@ async function buildRegistry() {
 
       // List all files in the block folder relative to the root or block folder itself
       const files = await fs.readdir(dirPath);
-      const codeFiles = files.filter(f => f !== 'metadata.json');
+      const codeFiles = files.filter(f => f.endsWith('.js') && f !== 'test.js' && f !== 'index.test.js');
 
       registry.blocks[blockKey] = {
         ...metadata,

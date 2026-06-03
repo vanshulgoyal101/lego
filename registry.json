@@ -34,9 +34,7 @@
       ],
       "path": "blocks/algo/a-star",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/bellman-ford": {
@@ -61,9 +59,7 @@
       ],
       "path": "blocks/algo/bellman-ford",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/binary-search": {
@@ -88,7 +84,6 @@
       ],
       "path": "blocks/algo/binary-search",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -101,9 +96,7 @@
       "parameters": [],
       "path": "blocks/algo/boyer-moore",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/dijkstra": {
@@ -128,9 +121,7 @@
       ],
       "path": "blocks/algo/dijkstra",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/flood-fill": {
@@ -167,9 +158,7 @@
       ],
       "path": "blocks/algo/flood-fill",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/floyd-warshall": {
@@ -188,9 +177,7 @@
       ],
       "path": "blocks/algo/floyd-warshall",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/ford-fulkerson": {
@@ -202,9 +189,7 @@
       "parameters": [],
       "path": "blocks/algo/ford-fulkerson",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/graph": {
@@ -223,7 +208,6 @@
       ],
       "path": "blocks/algo/graph",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -236,9 +220,7 @@
       "parameters": [],
       "path": "blocks/algo/huffman-coding",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/kmeans": {
@@ -270,9 +252,7 @@
       ],
       "path": "blocks/algo/kmeans",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/kmp-search": {
@@ -284,9 +264,7 @@
       "parameters": [],
       "path": "blocks/algo/kmp-search",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/knapsack": {
@@ -311,9 +289,7 @@
       ],
       "path": "blocks/algo/knapsack",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/kruskal-mst": {
@@ -338,9 +314,7 @@
       ],
       "path": "blocks/algo/kruskal-mst",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/lcs": {
@@ -365,9 +339,7 @@
       ],
       "path": "blocks/algo/lcs",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/levenshtein": {
@@ -392,9 +364,7 @@
       ],
       "path": "blocks/algo/levenshtein",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/luhn": {
@@ -413,9 +383,7 @@
       ],
       "path": "blocks/algo/luhn",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/page-rank": {
@@ -446,9 +414,7 @@
       ],
       "path": "blocks/algo/page-rank",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/prim-mst": {
@@ -473,9 +439,7 @@
       ],
       "path": "blocks/algo/prim-mst",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/quickselect": {
@@ -500,9 +464,7 @@
       ],
       "path": "blocks/algo/quickselect",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/rabin-karp": {
@@ -514,9 +476,7 @@
       "parameters": [],
       "path": "blocks/algo/rabin-karp",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/segment-tree": {
@@ -528,9 +488,7 @@
       "parameters": [],
       "path": "blocks/algo/segment-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/shunting-yard": {
@@ -549,9 +507,7 @@
       ],
       "path": "blocks/algo/shunting-yard",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/sorting": {
@@ -575,9 +531,7 @@
       ],
       "path": "blocks/algo/sorting",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/tarjan-scc": {
@@ -596,9 +550,7 @@
       ],
       "path": "blocks/algo/tarjan-scc",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/topological-sort": {
@@ -610,9 +562,7 @@
       "parameters": [],
       "path": "blocks/algo/topological-sort",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "algo/tsp-solver": {
@@ -624,9 +574,7 @@
       "parameters": [],
       "path": "blocks/algo/tsp-solver",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "async/cron-scheduler": {
@@ -640,9 +588,7 @@
       "parameters": [],
       "path": "blocks/async/cron-scheduler",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "async/event-emitter": {
@@ -654,9 +600,7 @@
       "parameters": [],
       "path": "blocks/async/event-emitter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "async/observable": {
@@ -668,9 +612,7 @@
       "parameters": [],
       "path": "blocks/async/observable",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "async/promise-pool": {
@@ -701,9 +643,7 @@
       ],
       "path": "blocks/async/promise-pool",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "async/rate-limiter": {
@@ -728,9 +668,7 @@
       ],
       "path": "blocks/async/rate-limiter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "async/semaphore": {
@@ -749,9 +687,7 @@
       ],
       "path": "blocks/async/semaphore",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "async/task-queue": {
@@ -770,9 +706,7 @@
       ],
       "path": "blocks/async/task-queue",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "async/timeout-promise": {
@@ -797,9 +731,7 @@
       ],
       "path": "blocks/async/timeout-promise",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "compiler/ast-walker": {
@@ -818,9 +750,7 @@
       ],
       "path": "blocks/compiler/ast-walker",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "compiler/bf-compiler": {
@@ -832,9 +762,7 @@
       "parameters": [],
       "path": "blocks/compiler/bf-compiler",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "compiler/json-schema-validator": {
@@ -859,9 +787,7 @@
       ],
       "path": "blocks/compiler/json-schema-validator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "compiler/lexer-generator": {
@@ -880,9 +806,7 @@
       ],
       "path": "blocks/compiler/lexer-generator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "compiler/parser-generator": {
@@ -894,9 +818,7 @@
       "parameters": [],
       "path": "blocks/compiler/parser-generator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "compiler/regex-engine": {
@@ -908,9 +830,7 @@
       "parameters": [],
       "path": "blocks/compiler/regex-engine",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "compiler/sql-query-parser": {
@@ -929,9 +849,7 @@
       ],
       "path": "blocks/compiler/sql-query-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/aes": {
@@ -956,9 +874,7 @@
       ],
       "path": "blocks/crypto/aes",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/bcrypt-lite": {
@@ -970,9 +886,7 @@
       "parameters": [],
       "path": "blocks/crypto/bcrypt-lite",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/chacha20": {
@@ -984,9 +898,7 @@
       "parameters": [],
       "path": "blocks/crypto/chacha20",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/diffie-hellman": {
@@ -998,9 +910,7 @@
       "parameters": [],
       "path": "blocks/crypto/diffie-hellman",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/hash": {
@@ -1030,9 +940,7 @@
       ],
       "path": "blocks/crypto/hash",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/hmac": {
@@ -1058,9 +966,7 @@
       ],
       "path": "blocks/crypto/hmac",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/jwt-helper": {
@@ -1090,9 +996,7 @@
       ],
       "path": "blocks/crypto/jwt-helper",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/pbkdf2": {
@@ -1104,9 +1008,7 @@
       "parameters": [],
       "path": "blocks/crypto/pbkdf2",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/poly1305": {
@@ -1118,9 +1020,7 @@
       "parameters": [],
       "path": "blocks/crypto/poly1305",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/rc4": {
@@ -1132,9 +1032,7 @@
       "parameters": [],
       "path": "blocks/crypto/rc4",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/rsa-light": {
@@ -1146,9 +1044,7 @@
       "parameters": [],
       "path": "blocks/crypto/rsa-light",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/scrypt": {
@@ -1160,9 +1056,7 @@
       "parameters": [],
       "path": "blocks/crypto/scrypt",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/sha3": {
@@ -1174,9 +1068,7 @@
       "parameters": [],
       "path": "blocks/crypto/sha3",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/totp": {
@@ -1201,9 +1093,7 @@
       ],
       "path": "blocks/crypto/totp",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "crypto/uuid-shortener": {
@@ -1222,9 +1112,7 @@
       ],
       "path": "blocks/crypto/uuid-shortener",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/document-db": {
@@ -1236,9 +1124,7 @@
       "parameters": [],
       "path": "blocks/db/document-db",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/graph-db": {
@@ -1250,9 +1136,7 @@
       "parameters": [],
       "path": "blocks/db/graph-db",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/json-db": {
@@ -1271,9 +1155,7 @@
       ],
       "path": "blocks/db/json-db",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/key-value": {
@@ -1292,9 +1174,7 @@
       ],
       "path": "blocks/db/key-value",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/lsm-tree": {
@@ -1313,9 +1193,7 @@
       ],
       "path": "blocks/db/lsm-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/migration-engine": {
@@ -1327,9 +1205,7 @@
       "parameters": [],
       "path": "blocks/db/migration-engine",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/page-cache": {
@@ -1354,9 +1230,7 @@
       ],
       "path": "blocks/db/page-cache",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/relational-db": {
@@ -1368,9 +1242,7 @@
       "parameters": [],
       "path": "blocks/db/relational-db",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/resp-parser": {
@@ -1382,9 +1254,7 @@
       "parameters": [],
       "path": "blocks/db/resp-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/sql-builder": {
@@ -1396,9 +1266,7 @@
       "parameters": [],
       "path": "blocks/db/sql-builder",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/timeseries-db": {
@@ -1410,9 +1278,7 @@
       "parameters": [],
       "path": "blocks/db/timeseries-db",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/vector-db": {
@@ -1424,9 +1290,7 @@
       "parameters": [],
       "path": "blocks/db/vector-db",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "db/wal": {
@@ -1445,9 +1309,7 @@
       ],
       "path": "blocks/db/wal",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/avl-tree": {
@@ -1459,9 +1321,7 @@
       "parameters": [],
       "path": "blocks/ds/avl-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/b-tree": {
@@ -1473,9 +1333,7 @@
       "parameters": [],
       "path": "blocks/ds/b-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/binary-search-tree": {
@@ -1487,9 +1345,7 @@
       "parameters": [],
       "path": "blocks/ds/binary-search-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/bloom-filter": {
@@ -1514,9 +1370,7 @@
       ],
       "path": "blocks/ds/bloom-filter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/circular-buffer": {
@@ -1534,9 +1388,7 @@
       "aiPromptContext": "Use this block when saving sliding window averages, caching the last N application logs, or buffering audio/binary data chunks in real-time streaming connections. Import using: import { CircularBuffer } from './ds/circular-buffer.js';",
       "path": "blocks/ds/circular-buffer",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/consistent-hash": {
@@ -1555,9 +1407,7 @@
       ],
       "path": "blocks/ds/consistent-hash",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/count-min-sketch": {
@@ -1582,9 +1432,7 @@
       ],
       "path": "blocks/ds/count-min-sketch",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/cuckoo-filter": {
@@ -1603,9 +1451,7 @@
       ],
       "path": "blocks/ds/cuckoo-filter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/deque": {
@@ -1617,9 +1463,7 @@
       "parameters": [],
       "path": "blocks/ds/deque",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/fenwick-tree": {
@@ -1638,9 +1482,7 @@
       ],
       "path": "blocks/ds/fenwick-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/graph-network": {
@@ -1652,9 +1494,7 @@
       "parameters": [],
       "path": "blocks/ds/graph-network",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/hyperloglog": {
@@ -1673,9 +1513,7 @@
       ],
       "path": "blocks/ds/hyperloglog",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/interval-tree": {
@@ -1706,9 +1544,7 @@
       ],
       "path": "blocks/ds/interval-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/kd-tree": {
@@ -1733,9 +1569,7 @@
       ],
       "path": "blocks/ds/kd-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/lru-cache": {
@@ -1760,9 +1594,7 @@
       ],
       "path": "blocks/ds/lru-cache",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/min-max-heap": {
@@ -1774,9 +1606,7 @@
       "parameters": [],
       "path": "blocks/ds/min-max-heap",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/octree": {
@@ -1788,9 +1618,7 @@
       "parameters": [],
       "path": "blocks/ds/octree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/priority-queue": {
@@ -1808,9 +1636,7 @@
       ],
       "path": "blocks/ds/priority-queue",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/quadtree": {
@@ -1835,9 +1661,7 @@
       ],
       "path": "blocks/ds/quadtree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/red-black-tree": {
@@ -1849,9 +1673,7 @@
       "parameters": [],
       "path": "blocks/ds/red-black-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/rope": {
@@ -1870,9 +1692,7 @@
       ],
       "path": "blocks/ds/rope",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/skip-list": {
@@ -1897,9 +1717,7 @@
       ],
       "path": "blocks/ds/skip-list",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/sparse-table": {
@@ -1924,9 +1742,7 @@
       ],
       "path": "blocks/ds/sparse-table",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/splay-tree": {
@@ -1938,9 +1754,7 @@
       "parameters": [],
       "path": "blocks/ds/splay-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/treap": {
@@ -1952,9 +1766,7 @@
       "parameters": [],
       "path": "blocks/ds/treap",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/trie": {
@@ -1966,9 +1778,7 @@
       "parameters": [],
       "path": "blocks/ds/trie",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ds/union-find": {
@@ -1987,9 +1797,7 @@
       ],
       "path": "blocks/ds/union-find",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/base64": {
@@ -2001,7 +1809,6 @@
       "parameters": [],
       "path": "blocks/encoding/base64",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -2014,9 +1821,7 @@
       "parameters": [],
       "path": "blocks/encoding/bencode",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/binary-codec": {
@@ -2053,9 +1858,7 @@
       ],
       "path": "blocks/encoding/binary-codec",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/hex": {
@@ -2067,9 +1870,7 @@
       "parameters": [],
       "path": "blocks/encoding/hex",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/json-patch": {
@@ -2106,9 +1907,7 @@
       ],
       "path": "blocks/encoding/json-patch",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/msgpack": {
@@ -2127,9 +1926,7 @@
       ],
       "path": "blocks/encoding/msgpack",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/protobuf-decoder": {
@@ -2141,9 +1938,7 @@
       "parameters": [],
       "path": "blocks/encoding/protobuf-decoder",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/run-length": {
@@ -2174,9 +1969,7 @@
       ],
       "path": "blocks/encoding/run-length",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/tar-archiver": {
@@ -2188,9 +1981,7 @@
       "parameters": [],
       "path": "blocks/encoding/tar-archiver",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/url-codec": {
@@ -2202,9 +1993,7 @@
       "parameters": [],
       "path": "blocks/encoding/url-codec",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/utf8-validator": {
@@ -2216,9 +2005,7 @@
       "parameters": [],
       "path": "blocks/encoding/utf8-validator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "encoding/varint": {
@@ -2230,9 +2017,7 @@
       "parameters": [],
       "path": "blocks/encoding/varint",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/bezier": {
@@ -2244,9 +2029,7 @@
       "parameters": [],
       "path": "blocks/math/bezier",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/bigint-fraction": {
@@ -2258,9 +2041,7 @@
       "parameters": [],
       "path": "blocks/math/bigint-fraction",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/bit-ops": {
@@ -2291,9 +2072,7 @@
       ],
       "path": "blocks/math/bit-ops",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/combinatorics": {
@@ -2324,9 +2103,7 @@
       ],
       "path": "blocks/math/combinatorics",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/complex": {
@@ -2338,9 +2115,7 @@
       "parameters": [],
       "path": "blocks/math/complex",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/fft": {
@@ -2352,9 +2127,7 @@
       "parameters": [],
       "path": "blocks/math/fft",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/fraction": {
@@ -2379,9 +2152,7 @@
       ],
       "path": "blocks/math/fraction",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/geometry-2d": {
@@ -2393,9 +2164,7 @@
       "parameters": [],
       "path": "blocks/math/geometry-2d",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/interpolation": {
@@ -2420,9 +2189,7 @@
       ],
       "path": "blocks/math/interpolation",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/linear-equations": {
@@ -2434,9 +2201,7 @@
       "parameters": [],
       "path": "blocks/math/linear-equations",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/matrix": {
@@ -2455,9 +2220,7 @@
       ],
       "path": "blocks/math/matrix",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/numerical-integration": {
@@ -2469,9 +2232,7 @@
       "parameters": [],
       "path": "blocks/math/numerical-integration",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/polynomial": {
@@ -2490,9 +2251,7 @@
       ],
       "path": "blocks/math/polynomial",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/prime-generator": {
@@ -2504,9 +2263,7 @@
       "parameters": [],
       "path": "blocks/math/prime-generator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/quaternion": {
@@ -2518,9 +2275,7 @@
       "parameters": [],
       "path": "blocks/math/quaternion",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/random": {
@@ -2532,7 +2287,6 @@
       "parameters": [],
       "path": "blocks/math/random",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -2545,9 +2299,7 @@
       "parameters": [],
       "path": "blocks/math/signal-filter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/statistics-advanced": {
@@ -2559,9 +2311,7 @@
       "parameters": [],
       "path": "blocks/math/statistics-advanced",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/stats": {
@@ -2573,7 +2323,6 @@
       "parameters": [],
       "path": "blocks/math/stats",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -2600,9 +2349,7 @@
       ],
       "path": "blocks/math/symbolic-diff",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "math/vector2d": {
@@ -2627,9 +2374,7 @@
       ],
       "path": "blocks/math/vector2d",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "media/bmp-encoder": {
@@ -2641,9 +2386,7 @@
       "parameters": [],
       "path": "blocks/media/bmp-encoder",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "media/wav-decoder": {
@@ -2655,9 +2398,7 @@
       "parameters": [],
       "path": "blocks/media/wav-decoder",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/cosine-similarity": {
@@ -2669,9 +2410,7 @@
       "parameters": [],
       "path": "blocks/ml/cosine-similarity",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/dbscan": {
@@ -2696,9 +2435,7 @@
       ],
       "path": "blocks/ml/dbscan",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/decision-tree": {
@@ -2710,9 +2447,7 @@
       "parameters": [],
       "path": "blocks/ml/decision-tree",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/knn": {
@@ -2737,9 +2472,7 @@
       ],
       "path": "blocks/ml/knn",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/linear-regression": {
@@ -2764,9 +2497,7 @@
       ],
       "path": "blocks/ml/linear-regression",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/logistic-regression": {
@@ -2791,9 +2522,7 @@
       ],
       "path": "blocks/ml/logistic-regression",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/naive-bayes": {
@@ -2812,9 +2541,7 @@
       ],
       "path": "blocks/ml/naive-bayes",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/neural-network": {
@@ -2826,9 +2553,7 @@
       "parameters": [],
       "path": "blocks/ml/neural-network",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/pca": {
@@ -2847,9 +2572,7 @@
       ],
       "path": "blocks/ml/pca",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/perceptron": {
@@ -2861,9 +2584,7 @@
       "parameters": [],
       "path": "blocks/ml/perceptron",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/random-forest": {
@@ -2896,9 +2617,7 @@
       ],
       "path": "blocks/ml/random-forest",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/svm": {
@@ -2923,9 +2642,7 @@
       ],
       "path": "blocks/ml/svm",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ml/tf-idf": {
@@ -2944,9 +2661,7 @@
       ],
       "path": "blocks/ml/tf-idf",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "protocol/dns-resolver": {
@@ -2958,9 +2673,7 @@
       "parameters": [],
       "path": "blocks/protocol/dns-resolver",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "state/atom": {
@@ -2979,7 +2692,6 @@
       ],
       "path": "blocks/state/atom",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -2999,9 +2711,7 @@
       ],
       "path": "blocks/state/command-pattern",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "state/fsm": {
@@ -3032,9 +2742,7 @@
       ],
       "path": "blocks/state/fsm",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "state/history-manager": {
@@ -3059,9 +2767,7 @@
       ],
       "path": "blocks/state/history-manager",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "state/observable-store": {
@@ -3080,9 +2786,7 @@
       ],
       "path": "blocks/state/observable-store",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "state/redux-lite": {
@@ -3113,9 +2817,7 @@
       ],
       "path": "blocks/state/redux-lite",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "state/signal": {
@@ -3140,7 +2842,6 @@
       ],
       "path": "blocks/state/signal",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -3153,9 +2854,7 @@
       "parameters": [],
       "path": "blocks/sys/env-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "sys/path-resolver": {
@@ -3167,9 +2866,7 @@
       "parameters": [],
       "path": "blocks/sys/path-resolver",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "sys/terminal-ansi": {
@@ -3181,9 +2878,7 @@
       "parameters": [],
       "path": "blocks/sys/terminal-ansi",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/ansi": {
@@ -3202,9 +2897,7 @@
       ],
       "path": "blocks/text/ansi",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/bbcode-parser": {
@@ -3216,9 +2909,7 @@
       "parameters": [],
       "path": "blocks/text/bbcode-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/csv-parser": {
@@ -3243,9 +2934,7 @@
       ],
       "path": "blocks/text/csv-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/diff-match": {
@@ -3270,9 +2959,7 @@
       ],
       "path": "blocks/text/diff-match",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/edit-distance": {
@@ -3297,9 +2984,7 @@
       ],
       "path": "blocks/text/edit-distance",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/html-parser": {
@@ -3311,9 +2996,7 @@
       "parameters": [],
       "path": "blocks/text/html-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/ini-parser": {
@@ -3325,9 +3008,7 @@
       "parameters": [],
       "path": "blocks/text/ini-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/json-serializer": {
@@ -3339,9 +3020,7 @@
       "parameters": [],
       "path": "blocks/text/json-serializer",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/json5-parser": {
@@ -3353,9 +3032,7 @@
       "parameters": [],
       "path": "blocks/text/json5-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/markdown-compiler": {
@@ -3374,9 +3051,7 @@
       ],
       "path": "blocks/text/markdown-compiler",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/markdown-parser": {
@@ -3395,9 +3070,7 @@
       ],
       "path": "blocks/text/markdown-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/markdown-table": {
@@ -3409,9 +3082,7 @@
       "parameters": [],
       "path": "blocks/text/markdown-table",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/parser-combinator": {
@@ -3423,9 +3094,7 @@
       "parameters": [],
       "path": "blocks/text/parser-combinator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/string-search": {
@@ -3450,9 +3119,7 @@
       ],
       "path": "blocks/text/string-search",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/tokenizer": {
@@ -3477,9 +3144,7 @@
       ],
       "path": "blocks/text/tokenizer",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/word-wrap": {
@@ -3510,9 +3175,7 @@
       ],
       "path": "blocks/text/word-wrap",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/xml-parser": {
@@ -3524,9 +3187,7 @@
       "parameters": [],
       "path": "blocks/text/xml-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "text/yaml-parser": {
@@ -3538,9 +3199,7 @@
       "parameters": [],
       "path": "blocks/text/yaml-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ui/color-converter": {
@@ -3552,9 +3211,7 @@
       "parameters": [],
       "path": "blocks/ui/color-converter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ui/css-parser": {
@@ -3566,9 +3223,7 @@
       "parameters": [],
       "path": "blocks/ui/css-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ui/query-builder": {
@@ -3587,9 +3242,7 @@
       ],
       "path": "blocks/ui/query-builder",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "ui/virtual-dom": {
@@ -3601,9 +3254,7 @@
       "parameters": [],
       "path": "blocks/ui/virtual-dom",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/chunk": {
@@ -3628,9 +3279,7 @@
       ],
       "path": "blocks/utils/chunk",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/color-utils": {
@@ -3649,9 +3298,7 @@
       ],
       "path": "blocks/utils/color-utils",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/date-formatter": {
@@ -3676,9 +3323,7 @@
       ],
       "path": "blocks/utils/date-formatter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/debounce": {
@@ -3709,9 +3354,7 @@
       ],
       "path": "blocks/utils/debounce",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/deep-clone": {
@@ -3730,9 +3373,7 @@
       ],
       "path": "blocks/utils/deep-clone",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/deep-merge": {
@@ -3757,9 +3398,7 @@
       ],
       "path": "blocks/utils/deep-merge",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/dependency-resolver": {
@@ -3771,9 +3410,7 @@
       "parameters": [],
       "path": "blocks/utils/dependency-resolver",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/event-bus": {
@@ -3798,9 +3435,7 @@
       ],
       "path": "blocks/utils/event-bus",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/flatten": {
@@ -3825,9 +3460,7 @@
       ],
       "path": "blocks/utils/flatten",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/memoize": {
@@ -3851,9 +3484,7 @@
       ],
       "path": "blocks/utils/memoize",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/object-diff": {
@@ -3865,9 +3496,7 @@
       "parameters": [],
       "path": "blocks/utils/object-diff",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/pick-omit": {
@@ -3892,9 +3521,7 @@
       ],
       "path": "blocks/utils/pick-omit",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/pubsub": {
@@ -3906,9 +3533,7 @@
       "parameters": [],
       "path": "blocks/utils/pubsub",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/pubsub-wildcard": {
@@ -3920,9 +3545,7 @@
       "parameters": [],
       "path": "blocks/utils/pubsub-wildcard",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/retry": {
@@ -3953,9 +3576,7 @@
       ],
       "path": "blocks/utils/retry",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/size-formatter": {
@@ -3980,9 +3601,7 @@
       ],
       "path": "blocks/utils/size-formatter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/slugify": {
@@ -4007,9 +3626,7 @@
       ],
       "path": "blocks/utils/slugify",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/string-utils": {
@@ -4028,9 +3645,7 @@
       ],
       "path": "blocks/utils/string-utils",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/template-engine": {
@@ -4055,9 +3670,7 @@
       ],
       "path": "blocks/utils/template-engine",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/throttle": {
@@ -4082,9 +3695,7 @@
       ],
       "path": "blocks/utils/throttle",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/url-builder": {
@@ -4096,9 +3707,7 @@
       "parameters": [],
       "path": "blocks/utils/url-builder",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "utils/uuid-v4": {
@@ -4110,9 +3719,7 @@
       "parameters": [],
       "path": "blocks/utils/uuid-v4",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/cors": {
@@ -4124,9 +3731,7 @@
       "parameters": [],
       "path": "blocks/validation/cors",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/credit-card": {
@@ -4145,9 +3750,7 @@
       ],
       "path": "blocks/validation/credit-card",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/cron-parser": {
@@ -4166,9 +3769,7 @@
       ],
       "path": "blocks/validation/cron-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/date-validator": {
@@ -4193,9 +3794,7 @@
       ],
       "path": "blocks/validation/date-validator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/email-rfc5322": {
@@ -4214,9 +3813,7 @@
       ],
       "path": "blocks/validation/email-rfc5322",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/ip-validator": {
@@ -4235,9 +3832,7 @@
       ],
       "path": "blocks/validation/ip-validator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/isbn": {
@@ -4256,9 +3851,7 @@
       ],
       "path": "blocks/validation/isbn",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/json-path": {
@@ -4283,9 +3876,7 @@
       ],
       "path": "blocks/validation/json-path",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/json-sanitizer": {
@@ -4297,9 +3888,7 @@
       "parameters": [],
       "path": "blocks/validation/json-sanitizer",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/jwt-validator": {
@@ -4326,9 +3915,7 @@
       ],
       "path": "blocks/validation/jwt-validator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/mime-detector": {
@@ -4347,9 +3934,7 @@
       ],
       "path": "blocks/validation/mime-detector",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/password-strength": {
@@ -4361,9 +3946,7 @@
       "parameters": [],
       "path": "blocks/validation/password-strength",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/phone-validator": {
@@ -4388,9 +3971,7 @@
       ],
       "path": "blocks/validation/phone-validator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/rate-limiter": {
@@ -4415,9 +3996,7 @@
       ],
       "path": "blocks/validation/rate-limiter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/schema-validator": {
@@ -4429,7 +4008,6 @@
       "parameters": [],
       "path": "blocks/validation/schema-validator",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -4442,9 +4020,7 @@
       "parameters": [],
       "path": "blocks/validation/semver",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/sql-injection-detector": {
@@ -4456,9 +4032,7 @@
       "parameters": [],
       "path": "blocks/validation/sql-injection-detector",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/url-validator": {
@@ -4483,9 +4057,7 @@
       ],
       "path": "blocks/validation/url-validator",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "validation/xss-filter": {
@@ -4497,9 +4069,7 @@
       "parameters": [],
       "path": "blocks/validation/xss-filter",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/api-client": {
@@ -4522,9 +4092,7 @@
       ],
       "path": "blocks/web/api-client",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/cookie-helper": {
@@ -4536,7 +4104,6 @@
       "parameters": [],
       "path": "blocks/web/cookie-helper",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -4556,9 +4123,7 @@
       ],
       "path": "blocks/web/cors-middleware",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/doh-client": {
@@ -4583,9 +4148,7 @@
       ],
       "path": "blocks/web/doh-client",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/doh-server": {
@@ -4597,9 +4160,7 @@
       "parameters": [],
       "path": "blocks/web/doh-server",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/fetch-retry": {
@@ -4636,9 +4197,7 @@
       ],
       "path": "blocks/web/fetch-retry",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/graphql-client": {
@@ -4650,9 +4209,7 @@
       "parameters": [],
       "path": "blocks/web/graphql-client",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/http-client-curl": {
@@ -4664,9 +4221,7 @@
       "parameters": [],
       "path": "blocks/web/http-client-curl",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/http-client-resilient": {
@@ -4678,9 +4233,7 @@
       "parameters": [],
       "path": "blocks/web/http-client-resilient",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/http-server": {
@@ -4692,7 +4245,6 @@
       "parameters": [],
       "path": "blocks/web/http-server",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -4705,9 +4257,7 @@
       "parameters": [],
       "path": "blocks/web/load-balancer",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/multipart-parser": {
@@ -4732,9 +4282,7 @@
       ],
       "path": "blocks/web/multipart-parser",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/oauth2-client": {
@@ -4746,9 +4294,7 @@
       "parameters": [],
       "path": "blocks/web/oauth2-client",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/rate-limiter-token-bucket": {
@@ -4773,9 +4319,7 @@
       ],
       "path": "blocks/web/rate-limiter-token-bucket",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/reverse-proxy": {
@@ -4787,9 +4331,7 @@
       "parameters": [],
       "path": "blocks/web/reverse-proxy",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/router": {
@@ -4801,7 +4343,6 @@
       "parameters": [],
       "path": "blocks/web/router",
       "files": [
-        "README.md",
         "index.js"
       ]
     },
@@ -4821,9 +4362,7 @@
       ],
       "path": "blocks/web/session-manager",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/sse-client": {
@@ -4848,9 +4387,7 @@
       ],
       "path": "blocks/web/sse-client",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/static-server": {
@@ -4876,9 +4413,7 @@
       ],
       "path": "blocks/web/static-server",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/tcp-client-server": {
@@ -4890,9 +4425,7 @@
       "parameters": [],
       "path": "blocks/web/tcp-client-server",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/url-template": {
@@ -4911,9 +4444,7 @@
       ],
       "path": "blocks/web/url-template",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     },
     "web/websocket-client": {
@@ -4944,9 +4475,7 @@
       ],
       "path": "blocks/web/websocket-client",
       "files": [
-        "README.md",
-        "index.js",
-        "test.js"
+        "index.js"
       ]
     }
   }

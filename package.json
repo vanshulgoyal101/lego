@@ -8,7 +8,11 @@
     "lego-cli": "./bin/cli.js"
   },
   "scripts": {
-    "build-registry": "node tools/build-registry.js"
+    "build-registry": "node tools/build-registry.js",
+    "build-docs": "node tools/build-docs-data.js",
+    "generate-readmes": "node tools/generate-readmes.js",
+    "update-readme": "node tools/update-readme.js",
+    "test": "node test/run-tests.js"
   },
   "keywords": [
     "ai",
@@ -16,6 +20,6 @@
     "modular",
     "cli"
   ],
-  "author": "",
+  "author": "Google DeepMind team",
   "license": "MIT"
 }
