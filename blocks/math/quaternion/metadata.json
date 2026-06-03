@@ -1,0 +1,8 @@
+{
+  "name": "quaternion",
+  "category": "math",
+  "description": "Quaternion mathematics for representing 3D spatial rotations. Supports addition, multiplication, scaling, conjugate, inverse, normalization, and conversion to/from Euler angles and rotation matrices.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to perform 3D rotations, handle orientations, or interpolate between orientations (slerp) without gimbal lock.",
+  "parameters": []
+}

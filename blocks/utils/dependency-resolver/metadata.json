@@ -1,0 +1,8 @@
+{
+  "name": "dependency-resolver",
+  "category": "utils",
+  "description": "Topological dependency sorting utility that resolves dependency order for a list of packages/nodes and detects circular dependency graphs.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to perform topological sorting, resolve load ordering, or detect cycles in package / task dependencies.",
+  "parameters": []
+}

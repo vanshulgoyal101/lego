@@ -1,0 +1,8 @@
+{
+  "name": "octree",
+  "category": "ds",
+  "description": "3D spatial partitioning tree structure for indexing 3D points, supporting insert, range search (within a bounding box), and nearest neighbor search.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to partition 3D space and quickly query 3D coordinates or objects.",
+  "parameters": []
+}

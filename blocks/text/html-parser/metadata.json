@@ -1,0 +1,8 @@
+{
+  "name": "html-parser",
+  "category": "text",
+  "description": "Lightweight HTML string to AST parser that handles standard tags, self-closing tags, attributes, and text nodes.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to parse simple HTML strings into an Abstract Syntax Tree (AST) for traversal or transformation.",
+  "parameters": []
+}

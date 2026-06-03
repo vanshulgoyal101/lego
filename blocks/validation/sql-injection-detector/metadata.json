@@ -1,0 +1,8 @@
+{
+  "name": "sql-injection-detector",
+  "category": "validation",
+  "description": "Static heuristic analysis and signature detection to identify SQL injection patterns (e.g., tautologies, union select, database comments) in user inputs.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to analyze user input strings for common SQL injection payload signatures or heuristics.",
+  "parameters": []
+}

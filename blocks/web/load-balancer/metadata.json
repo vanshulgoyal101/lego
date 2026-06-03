@@ -1,0 +1,8 @@
+{
+  "name": "load-balancer",
+  "category": "web",
+  "description": "HTTP load balancer distributing requests across multiple backend servers using Round Robin, Least Connections, and Random routing, including active background health checks.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to distribute incoming HTTP traffic among multiple target servers with configurable load balancing policies.",
+  "parameters": []
+}

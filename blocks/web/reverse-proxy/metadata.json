@@ -1,0 +1,8 @@
+{
+  "name": "reverse-proxy",
+  "category": "web",
+  "description": "Programmatic HTTP reverse proxy that forwards incoming requests to target servers, rewriting headers, preserving HTTP methods, and streaming responses back.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to build a gateway or reverse proxy to forward traffic to various microservices.",
+  "parameters": []
+}

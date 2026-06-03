@@ -1,0 +1,8 @@
+{
+  "name": "rc4",
+  "category": "crypto",
+  "description": "RC4 stream cipher implementing the Key-Scheduling Algorithm (KSA) and Pseudo-Random Generation Algorithm (PRGA) for encryption and decryption.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to encrypt or decrypt byte streams or strings using the RC4 symmetric stream cipher algorithm.",
+  "parameters": []
+}

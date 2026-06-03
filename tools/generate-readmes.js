@@ -94,6 +94,8 @@ function getComplexity(name) {
       return { time: 'O(N + M) average / O(N × M) worst case matching', space: 'O(A) alphabet shift map' };
     case 'rabin-karp':
       return { time: 'O(N + M) average / O(N × M) worst case matching', space: 'O(1)' };
+    case 'ford-fulkerson':
+      return { time: 'O(E × f) where f is max flow, or O(V × E^2) Edmonds-Karp complexity', space: 'O(V + E) residual capacities' };
 
     // ===== async =====
     case 'event-emitter':
@@ -155,6 +157,8 @@ function getComplexity(name) {
       return { time: 'O(N) data block XOR streams', space: 'O(1) in-place buffer' };
     case 'pbkdf2':
       return { time: 'O(I × N) iterations × key derivation passes', space: 'O(1)' };
+    case 'rc4':
+      return { time: 'O(N) message bytes processed', space: 'O(1) state array' };
 
     // ===== db =====
     case 'document-db':
@@ -228,7 +232,10 @@ function getComplexity(name) {
       return { time: 'O(log(N × R)) nodes lookup binary search', space: 'O(N × R) ring size' };
     case 'min-max-heap':
       return { time: 'O(log N) push/pop; O(1) peekMin/peekMax', space: 'O(N) internal heap list' };
-
+    case 'octree':
+      return { time: 'O(log N) average insert/query; O(N) worst case', space: 'O(N) nodes and points' };
+    case 'treap':
+      return { time: 'O(log N) expected search/insert/delete; O(N) worst case', space: 'O(N) tree nodes' };
 
     // ===== encoding =====
     case 'base64':
@@ -289,6 +296,8 @@ function getComplexity(name) {
       return { time: 'O(N) curve points generation (N = sample resolution)', space: 'O(N) output coordinates array' };
     case 'fft':
       return { time: 'O(N log N) Cooley-Tukey transformation time', space: 'O(N) computation arrays' };
+    case 'quaternion':
+      return { time: 'O(1) rotations, additions, multiplications', space: 'O(1)' };
 
 
     // ===== ml =====
@@ -368,6 +377,8 @@ function getComplexity(name) {
       return { time: 'O(N) parsed symbols', space: 'O(N) tokens' };
     case 'word-wrap':
       return { time: 'O(N) characters formatted', space: 'O(N) text block output' };
+    case 'html-parser':
+      return { time: 'O(N) characters parsed linearly', space: 'O(D) maximum nesting stack depth' };
 
     // ===== ui =====
     case 'color-converter':
@@ -414,6 +425,8 @@ function getComplexity(name) {
       return { time: 'O(N) string processing operations', space: 'O(N)' };
     case 'template-engine':
       return { time: 'O(N) template length compiles', space: 'O(V) template expressions' };
+    case 'dependency-resolver':
+      return { time: 'O(V + E) where V is nodes and E is dependencies', space: 'O(V + E) graph and visited state' };
 
     // ===== validation =====
     case 'email-rfc5322':
@@ -448,7 +461,8 @@ function getComplexity(name) {
       return { time: 'O(1) fixed check digit iteration scans', space: 'O(1)' };
     case 'mime-detector':
       return { time: 'O(1) signature comparison matches; O(T) text parsing heuristic', space: 'O(1)' };
-
+    case 'sql-injection-detector':
+      return { time: 'O(N × R) input length × rule count (regex passes)', space: 'O(1)' };
 
 
     // ===== web =====
@@ -488,6 +502,10 @@ function getComplexity(name) {
       return { time: 'O(1) fetch response delay', space: 'O(1)' };
     case 'rate-limiter-token-bucket':
       return { time: 'O(1) token consumption verify checks', space: 'O(U) active user keys capacity map' };
+    case 'reverse-proxy':
+      return { time: 'O(1) request streaming proxy overhead', space: 'O(1)' };
+    case 'load-balancer':
+      return { time: 'O(1) routing selection; O(H × T) background health checks', space: 'O(T) targets state map' };
 
     default:
       // Prevent silent errors when new blocks are added to the repo

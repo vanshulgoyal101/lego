@@ -1,0 +1,8 @@
+{
+  "name": "ford-fulkerson",
+  "category": "algo",
+  "description": "Computes the maximum flow in a flow network using the Edmonds-Karp algorithm (breadth-first search for finding augmenting paths).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to compute max flow or min-cut in a directed flow network.",
+  "parameters": []
+}

@@ -193,6 +193,20 @@
         "test.js"
       ]
     },
+    "algo/ford-fulkerson": {
+      "name": "ford-fulkerson",
+      "category": "algo",
+      "description": "Computes the maximum flow in a flow network using the Edmonds-Karp algorithm (breadth-first search for finding augmenting paths).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to compute max flow or min-cut in a directed flow network.",
+      "parameters": [],
+      "path": "blocks/algo/ford-fulkerson",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "algo/graph": {
       "name": "graph",
       "category": "algo",
@@ -1067,6 +1081,20 @@
         "test.js"
       ]
     },
+    "crypto/rc4": {
+      "name": "rc4",
+      "category": "crypto",
+      "description": "RC4 stream cipher implementing the Key-Scheduling Algorithm (KSA) and Pseudo-Random Generation Algorithm (PRGA) for encryption and decryption.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to encrypt or decrypt byte streams or strings using the RC4 symmetric stream cipher algorithm.",
+      "parameters": [],
+      "path": "blocks/crypto/rc4",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "crypto/rsa-light": {
       "name": "rsa-light",
       "category": "crypto",
@@ -1653,6 +1681,20 @@
         "test.js"
       ]
     },
+    "ds/octree": {
+      "name": "octree",
+      "category": "ds",
+      "description": "3D spatial partitioning tree structure for indexing 3D points, supporting insert, range search (within a bounding box), and nearest neighbor search.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to partition 3D space and quickly query 3D coordinates or objects.",
+      "parameters": [],
+      "path": "blocks/ds/octree",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "ds/priority-queue": {
       "name": "priority-queue",
       "category": "ds",
@@ -1769,6 +1811,20 @@
         }
       ],
       "path": "blocks/ds/sparse-table",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ds/treap": {
+      "name": "treap",
+      "category": "ds",
+      "description": "A randomized self-balancing binary search tree combining binary search tree properties with heap priorities, supporting insert, delete, search, and split/join operations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to maintain a dynamic sorted set with O(log n) expected search, insert, and delete operations.",
+      "parameters": [],
+      "path": "blocks/ds/treap",
       "files": [
         "README.md",
         "index.js",
@@ -2279,6 +2335,20 @@
       "aiPromptContext": "Use this block for cryptographic key generation, number theory problems, competitive programming, or educational tools requiring prime number operations.",
       "parameters": [],
       "path": "blocks/math/prime-generator",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "math/quaternion": {
+      "name": "quaternion",
+      "category": "math",
+      "description": "Quaternion mathematics for representing 3D spatial rotations. Supports addition, multiplication, scaling, conjugate, inverse, normalization, and conversion to/from Euler angles and rotation matrices.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to perform 3D rotations, handle orientations, or interpolate between orientations (slerp) without gimbal lock.",
+      "parameters": [],
+      "path": "blocks/math/quaternion",
       "files": [
         "README.md",
         "index.js",
@@ -2938,6 +3008,20 @@
         "test.js"
       ]
     },
+    "text/html-parser": {
+      "name": "html-parser",
+      "category": "text",
+      "description": "Lightweight HTML string to AST parser that handles standard tags, self-closing tags, attributes, and text nodes.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse simple HTML strings into an Abstract Syntax Tree (AST) for traversal or transformation.",
+      "parameters": [],
+      "path": "blocks/text/html-parser",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "text/ini-parser": {
       "name": "ini-parser",
       "category": "text",
@@ -3336,6 +3420,20 @@
         }
       ],
       "path": "blocks/utils/deep-merge",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "utils/dependency-resolver": {
+      "name": "dependency-resolver",
+      "category": "utils",
+      "description": "Topological dependency sorting utility that resolves dependency order for a list of packages/nodes and detects circular dependency graphs.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to perform topological sorting, resolve load ordering, or detect cycles in package / task dependencies.",
+      "parameters": [],
+      "path": "blocks/utils/dependency-resolver",
       "files": [
         "README.md",
         "index.js",
@@ -3957,6 +4055,20 @@
         "test.js"
       ]
     },
+    "validation/sql-injection-detector": {
+      "name": "sql-injection-detector",
+      "category": "validation",
+      "description": "Static heuristic analysis and signature detection to identify SQL injection patterns (e.g., tautologies, union select, database comments) in user inputs.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to analyze user input strings for common SQL injection payload signatures or heuristics.",
+      "parameters": [],
+      "path": "blocks/validation/sql-injection-detector",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "validation/url-validator": {
       "name": "url-validator",
       "category": "validation",
@@ -4164,6 +4276,20 @@
         "index.js"
       ]
     },
+    "web/load-balancer": {
+      "name": "load-balancer",
+      "category": "web",
+      "description": "HTTP load balancer distributing requests across multiple backend servers using Round Robin, Least Connections, and Random routing, including active background health checks.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to distribute incoming HTTP traffic among multiple target servers with configurable load balancing policies.",
+      "parameters": [],
+      "path": "blocks/web/load-balancer",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "web/multipart-parser": {
       "name": "multipart-parser",
       "category": "web",
@@ -4226,6 +4352,20 @@
         }
       ],
       "path": "blocks/web/rate-limiter-token-bucket",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "web/reverse-proxy": {
+      "name": "reverse-proxy",
+      "category": "web",
+      "description": "Programmatic HTTP reverse proxy that forwards incoming requests to target servers, rewriting headers, preserving HTTP methods, and streaming responses back.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to build a gateway or reverse proxy to forward traffic to various microservices.",
+      "parameters": [],
+      "path": "blocks/web/reverse-proxy",
       "files": [
         "README.md",
         "index.js",

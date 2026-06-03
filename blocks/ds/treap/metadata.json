@@ -1,0 +1,8 @@
+{
+  "name": "treap",
+  "category": "ds",
+  "description": "A randomized self-balancing binary search tree combining binary search tree properties with heap priorities, supporting insert, delete, search, and split/join operations.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to maintain a dynamic sorted set with O(log n) expected search, insert, and delete operations.",
+  "parameters": []
+}
