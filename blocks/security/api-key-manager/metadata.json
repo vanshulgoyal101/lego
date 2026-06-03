@@ -1,0 +1,7 @@
+{
+  "name": "api-key-manager",
+  "category": "security",
+  "description": "Secure API key generation, hashing, rotation, and revocation management.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to safely generate prefixes API keys (e.g. sk_live_...), create timing-safe SHA-256 hashes of keys for DB storage, rotation with grace periods, and key verification. Import using: import { APIKeyManager } from './security/api-key-manager/index.js';"
+}

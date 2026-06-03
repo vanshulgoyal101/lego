@@ -1,0 +1,7 @@
+{
+  "name": "audit-logger",
+  "category": "security",
+  "description": "Tamper-evident append-only audit log with HMAC chain integrity.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to log critical security and system events in a cryptographically chained manner, making any modifications, deletion, or reordering detectable. Import using: import { AuditLogger } from './security/audit-logger/index.js';"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "permission-engine",
+  "category": "security",
+  "description": "RBAC/ABAC permission evaluator with role hierarchies.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to evaluate access permissions using combined Role-Based (RBAC) with hierarchy inheritance and Attribute-Based (ABAC) dynamic condition checking. Import using: import { PermissionEngine } from './security/permission-engine/index.js';"
+}

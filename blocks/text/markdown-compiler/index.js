@@ -19,8 +19,8 @@ function escapeHtml(str) {
 // Simple link/image URL sanitizer
 function sanitizeUrl(url) {
   if (!url) return '';
-  const trimmed = url.trim().toLowerCase();
-  if (trimmed.startsWith('javascript:') || trimmed.startsWith('data:') || trimmed.startsWith('vbscript:')) {
+  const sanitized = url.replace(/[\x00-\x1F\x7F-\x9F\s\t\v\r\n]/g, '').toLowerCase();
+  if (sanitized.startsWith('javascript:') || sanitized.startsWith('data:') || sanitized.startsWith('vbscript:')) {
     return '#';
   }
   return url;

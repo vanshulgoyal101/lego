@@ -62,4 +62,11 @@ await describe('async/rate-limiter', async () => {
     expect(caught).toBeTruthy();
     expect(caught.message).toBe('fail');
   });
+
+  await it('should configure new limits dynamically', async () => {
+    const limiter = new RateLimiter(5, 1000);
+    limiter.configure(2, 200);
+    expect(limiter.limit).toBe(2);
+    expect(limiter.interval).toBe(200);
+  });
 });

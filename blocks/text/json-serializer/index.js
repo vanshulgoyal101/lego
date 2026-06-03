@@ -12,7 +12,7 @@
  * @returns {string} JSON output.
  */
 export function stringifySafe(value, replacer = null, space = 2) {
-  const seen = new WeakSet();
+  const parentOf = new WeakMap();
 
   const customReplacer = function (key, val) {
     // 1. Handle BigInt types (standard JSON throws on BigInt)
@@ -22,10 +22,14 @@ export function stringifySafe(value, replacer = null, space = 2) {
 
     // 2. Handle circular references
     if (val !== null && typeof val === 'object') {
-      if (seen.has(val)) {
-        return '[Circular]';
+      let ancestor = this;
+      while (ancestor) {
+        if (ancestor === val) {
+          return '[Circular]';
+        }
+        ancestor = parentOf.get(ancestor);
       }
-      seen.add(val);
+      parentOf.set(val, this);
     }
 
     // If a custom replacer was passed, execute it

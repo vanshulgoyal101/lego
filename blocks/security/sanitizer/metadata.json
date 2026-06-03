@@ -1,0 +1,7 @@
+{
+  "name": "sanitizer",
+  "category": "security",
+  "description": "DOM/HTML input sanitizer (allowlist-based, XSS-proof).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to safely sanitize HTML input strings against cross-site scripting (XSS) using a configurable tags and attributes allowlist. Import using: import { sanitizeHtml } from './security/sanitizer/index.js';"
+}

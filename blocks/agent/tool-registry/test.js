@@ -20,11 +20,16 @@ await describe('agent/tool-registry – validateArgs', async () => {
   };
 
   await it('passes when all required fields are present and typed correctly', async () => {
-    expect(() => validateArgs(schema, { name: 'hello', count: 3 })).not.toThrow();
+    try {
+      validateArgs(schema, { name: 'hello', count: 3 });
+      expect(true).toBe(true);
+    } catch (e) {
+      throw new Error(`Should not throw, but got: ${e.message}`);
+    }
   });
 
   await it('throws when a required field is missing', async () => {
-    expect(() => validateArgs(schema, { name: 'hello' })).toThrow(TypeError);
+    expect(() => validateArgs(schema, { name: 'hello' })).toThrow('Missing required');
   });
 
   await it('throws with a message that names the missing field', async () => {
@@ -37,45 +42,70 @@ await describe('agent/tool-registry – validateArgs', async () => {
   });
 
   await it('throws when a field has the wrong type', async () => {
-    expect(() => validateArgs(schema, { name: 42, count: 1 })).toThrow(TypeError);
+    expect(() => validateArgs(schema, { name: 42, count: 1 })).toThrow('type');
   });
 
   await it('throws for wrong integer type', async () => {
-    expect(() => validateArgs(schema, { name: 'x', count: 'not-a-number' })).toThrow(TypeError);
+    expect(() => validateArgs(schema, { name: 'x', count: 'not-a-number' })).toThrow('type');
   });
 
   await it('accepts float for number type', async () => {
     const s = { type: 'object', properties: { ratio: { type: 'number' } }, required: ['ratio'] };
-    expect(() => validateArgs(s, { ratio: 3.14 })).not.toThrow();
+    try {
+      validateArgs(s, { ratio: 3.14 });
+      expect(true).toBe(true);
+    } catch (e) {
+      throw new Error(`Should not throw, but got: ${e.message}`);
+    }
   });
 
   await it('rejects NaN for number type', async () => {
     const s = { type: 'object', properties: { ratio: { type: 'number' } }, required: ['ratio'] };
-    expect(() => validateArgs(s, { ratio: NaN })).toThrow(TypeError);
+    expect(() => validateArgs(s, { ratio: NaN })).toThrow('number');
   });
 
   await it('accepts boolean type', async () => {
     const s = { type: 'object', properties: { flag: { type: 'boolean' } }, required: ['flag'] };
-    expect(() => validateArgs(s, { flag: false })).not.toThrow();
+    try {
+      validateArgs(s, { flag: false });
+      expect(true).toBe(true);
+    } catch (e) {
+      throw new Error(`Should not throw, but got: ${e.message}`);
+    }
   });
 
   await it('accepts array type', async () => {
     const s = { type: 'object', properties: { items: { type: 'array' } }, required: ['items'] };
-    expect(() => validateArgs(s, { items: [1, 2, 3] })).not.toThrow();
+    try {
+      validateArgs(s, { items: [1, 2, 3] });
+      expect(true).toBe(true);
+    } catch (e) {
+      throw new Error(`Should not throw, but got: ${e.message}`);
+    }
   });
 
   await it('rejects array when object type expected', async () => {
     const s = { type: 'object', properties: { meta: { type: 'object' } }, required: ['meta'] };
-    expect(() => validateArgs(s, { meta: [1, 2] })).toThrow(TypeError);
+    expect(() => validateArgs(s, { meta: [1, 2] })).toThrow('type');
   });
 
   await it('allows extra properties not in the schema', async () => {
-    expect(() => validateArgs(schema, { name: 'x', count: 1, extra: 'ignored' })).not.toThrow();
+    try {
+      validateArgs(schema, { name: 'x', count: 1, extra: 'ignored' });
+      expect(true).toBe(true);
+    } catch (e) {
+      throw new Error(`Should not throw, but got: ${e.message}`);
+    }
   });
 
   await it('works with no required fields', async () => {
     const s = { type: 'object', properties: { x: { type: 'string' } } };
-    expect(() => validateArgs(s, {})).not.toThrow();
+    try {
+      validateArgs(s, {});
+      expect(true).toBe(true);
+    } catch (e) {
+      throw new Error(`Should not throw, but got: ${e.message}`);
+    }
   });
 });
 
@@ -101,23 +131,28 @@ await describe('agent/tool-registry – ToolRegistry', async () => {
 
   await it('registers a tool without throwing', async () => {
     const reg = new ToolRegistry();
-    expect(() => reg.register('add', addSchema, ({ a, b }) => a + b)).not.toThrow();
+    try {
+      reg.register('add', addSchema, ({ a, b }) => a + b);
+      expect(true).toBe(true);
+    } catch (e) {
+      throw new Error(`Should not throw, but got: ${e.message}`);
+    }
   });
 
   await it('throws when registering a duplicate name', async () => {
     const reg = new ToolRegistry();
     reg.register('add', addSchema, () => {});
-    expect(() => reg.register('add', addSchema, () => {})).toThrow(Error);
+    expect(() => reg.register('add', addSchema, () => {})).toThrow('already registered');
   });
 
   await it('throws when name is empty string', async () => {
     const reg = new ToolRegistry();
-    expect(() => reg.register('', addSchema, () => {})).toThrow(TypeError);
+    expect(() => reg.register('', addSchema, () => {})).toThrow('Tool name');
   });
 
   await it('throws when fn is not a function', async () => {
     const reg = new ToolRegistry();
-    expect(() => reg.register('add', addSchema, 'not-a-fn')).toThrow(TypeError);
+    expect(() => reg.register('add', addSchema, 'not-a-fn')).toThrow('must be a function');
   });
 
   // ── has ───────────────────────────────────────────────────────────────────
@@ -146,7 +181,7 @@ await describe('agent/tool-registry – ToolRegistry', async () => {
 
   await it('get() throws for an unknown tool', async () => {
     const reg = new ToolRegistry();
-    expect(() => reg.get('unknown')).toThrow(Error);
+    expect(() => reg.get('unknown')).toThrow('not registered');
   });
 
   await it('get() error message references the tool name', async () => {
@@ -228,7 +263,7 @@ await describe('agent/tool-registry – ToolRegistry', async () => {
       await reg.call('add', { a: 1 }); // missing b
     } catch (e) {
       threw = true;
-      expect(e).toBeInstanceOf(TypeError);
+      expect(e.name).toBe('TypeError');
     }
     expect(threw).toBe(true);
   });
@@ -241,7 +276,7 @@ await describe('agent/tool-registry – ToolRegistry', async () => {
       await reg.call('add', { a: 'not-a-number', b: 2 });
     } catch (e) {
       threw = true;
-      expect(e).toBeInstanceOf(TypeError);
+      expect(e.name).toBe('TypeError');
     }
     expect(threw).toBe(true);
   });
@@ -253,7 +288,7 @@ await describe('agent/tool-registry – ToolRegistry', async () => {
       await reg.call('ghost', {});
     } catch (e) {
       threw = true;
-      expect(e).toBeInstanceOf(Error);
+      expect(e instanceof Error).toBe(true);
     }
     expect(threw).toBe(true);
   });

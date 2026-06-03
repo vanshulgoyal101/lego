@@ -1,0 +1,7 @@
+{
+  "name": "csp-builder",
+  "category": "security",
+  "description": "Content Security Policy (CSP) header builder and security validator.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to generate robust, standards-compliant Content Security Policy headers programmatically, and to validate existing CSP configurations for common security vulnerabilities (e.g. missing default-src, wildcard script sources, clickjacking risks). Import using: import { CSPBuilder } from './security/csp-builder/index.js';"
+}

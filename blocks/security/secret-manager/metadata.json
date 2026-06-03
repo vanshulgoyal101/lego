@@ -1,0 +1,7 @@
+{
+  "name": "secret-manager",
+  "category": "security",
+  "description": "Encrypted in-memory secrets store with TTL expiry and audit log support.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to securely store sensitive data/keys in-memory with automatic TTL expiration, encryption at rest in memory, and an immutable-like audit log for access tracking. Import using: import { SecretManager } from './security/secret-manager/index.js';"
+}

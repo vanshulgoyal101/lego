@@ -588,8 +588,14 @@ export class NeuralNetwork {
    */
   add(layer) {
     if (this.layers.length > 0) {
-      const prev = this.layers[this.layers.length - 1];
-      if (prev.outputDim !== layer.inputDim) {
+      let prev = null;
+      for (let i = this.layers.length - 1; i >= 0; i--) {
+        if (typeof this.layers[i].outputDim === 'number') {
+          prev = this.layers[i];
+          break;
+        }
+      }
+      if (prev && typeof layer.inputDim === 'number' && prev.outputDim !== layer.inputDim) {
         throw new Error(`LayerDimensionMismatch: Added layer input dimension ${layer.inputDim} does not fit previous layer output dimension ${prev.outputDim}`);
       }
     }

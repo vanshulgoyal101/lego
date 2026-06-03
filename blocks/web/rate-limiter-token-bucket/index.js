@@ -23,6 +23,19 @@ export class TokenBucketLimiter {
   }
 
   /**
+   * Cleans up idle buckets that are fully refilled.
+   */
+  cleanup() {
+    const now = Date.now();
+    const expiryAge = (this.capacity / this.refillRate) * 1000;
+    for (const [k, b] of this.buckets.entries()) {
+      if (now - b.lastRefill > expiryAge) {
+        this.buckets.delete(k);
+      }
+    }
+  }
+
+  /**
    * Attempt to consume a specified number of tokens
    *
    * @param {string} key - Unique rate-limit identifier (IP, token, userId)
@@ -30,8 +43,23 @@ export class TokenBucketLimiter {
    * @returns {boolean} True if allowed (tokens consumed), false if rate-limited
    */
   consume(key, tokensToConsume = 1) {
-    const bucket = this._getBucket(key);
     const now = Date.now();
+
+    // 1. Periodically run standard cleanup (1% chance)
+    if (Math.random() < 0.01) {
+      this.cleanup();
+    }
+
+    // 2. Enforce absolute size limits to bound memory strictly under load
+    if (this.buckets.size >= 10000 && !this.buckets.has(key)) {
+      this.cleanup();
+      if (this.buckets.size >= 10000) {
+        const firstKey = this.buckets.keys().next().value;
+        this.buckets.delete(firstKey);
+      }
+    }
+
+    const bucket = this._getBucket(key);
 
     // Calculate elapsed time in seconds
     const elapsed = (now - bucket.lastRefill) / 1000;

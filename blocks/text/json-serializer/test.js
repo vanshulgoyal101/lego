@@ -15,4 +15,13 @@ import {stringifySafe, parseSafe} from './index.js';
       const parsed = parseSafe(json);
       expect(parsed.val).toBe(12345678901234567890n);
     });
+
+    await it('should serialize shared non-circular references correctly', async () => {
+      const shared = { x: 1 };
+      const obj = { a: shared, b: shared };
+      const json = stringifySafe(obj);
+      const parsed = parseSafe(json);
+      expect(parsed.a.x).toBe(1);
+      expect(parsed.b.x).toBe(1);
+    });
   });

@@ -48,5 +48,12 @@ import {Matrix as MlMatrix,  DenseLayer,  DropoutLayer, SGD as MlSgd, Adam as Ml
       const testInputs = new MlMatrix([[1, 2, 3]]);
       const outInference = dropout.forward(testInputs);
       expect(outInference.toArray()).toEqual([[1, 2, 3]]);
+
+      // 6. Test Sequential addition of DropoutLayer
+      const netWithDropout = new NeuralNetwork();
+      netWithDropout.add(new DenseLayer(2, 4));
+      netWithDropout.add(new DropoutLayer(0.2));
+      netWithDropout.add(new DenseLayer(4, 1));
+      expect(netWithDropout.layers.length).toBe(3);
     });
   });

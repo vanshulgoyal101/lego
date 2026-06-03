@@ -13,4 +13,19 @@ import {compileMarkdown, renderHtml} from './index.js';
       expect(html.includes('<h1>Title</h1>')).toBe(true);
       expect(html.includes('<p>This is a <strong>bold</strong> paragraph.</p>')).toBe(true);
     });
+
+    await it('should sanitize javascript: links containing control characters/whitespace', () => {
+      const links = [
+        '[x](javascript:alert(1))',
+        '[x](java\tscript:alert(1))',
+        '[x](java\nscript:alert(1))',
+        '[x](java\rscript:alert(1))',
+        '[x]( java script:alert(1))',
+      ];
+      for (const link of links) {
+        const ast = compileMarkdown(link);
+        const html = renderHtml(ast);
+        expect(html.includes('href="#"')).toBe(true);
+      }
+    });
   });

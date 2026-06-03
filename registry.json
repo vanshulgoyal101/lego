@@ -3014,6 +3014,72 @@
         "index.js"
       ]
     },
+    "security/api-key-manager": {
+      "name": "api-key-manager",
+      "category": "security",
+      "description": "Secure API key generation, hashing, rotation, and revocation management.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to safely generate prefixes API keys (e.g. sk_live_...), create timing-safe SHA-256 hashes of keys for DB storage, rotation with grace periods, and key verification. Import using: import { APIKeyManager } from './security/api-key-manager/index.js';",
+      "path": "blocks/security/api-key-manager",
+      "files": [
+        "index.js"
+      ]
+    },
+    "security/audit-logger": {
+      "name": "audit-logger",
+      "category": "security",
+      "description": "Tamper-evident append-only audit log with HMAC chain integrity.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to log critical security and system events in a cryptographically chained manner, making any modifications, deletion, or reordering detectable. Import using: import { AuditLogger } from './security/audit-logger/index.js';",
+      "path": "blocks/security/audit-logger",
+      "files": [
+        "index.js"
+      ]
+    },
+    "security/csp-builder": {
+      "name": "csp-builder",
+      "category": "security",
+      "description": "Content Security Policy (CSP) header builder and security validator.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to generate robust, standards-compliant Content Security Policy headers programmatically, and to validate existing CSP configurations for common security vulnerabilities (e.g. missing default-src, wildcard script sources, clickjacking risks). Import using: import { CSPBuilder } from './security/csp-builder/index.js';",
+      "path": "blocks/security/csp-builder",
+      "files": [
+        "index.js"
+      ]
+    },
+    "security/permission-engine": {
+      "name": "permission-engine",
+      "category": "security",
+      "description": "RBAC/ABAC permission evaluator with role hierarchies.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to evaluate access permissions using combined Role-Based (RBAC) with hierarchy inheritance and Attribute-Based (ABAC) dynamic condition checking. Import using: import { PermissionEngine } from './security/permission-engine/index.js';",
+      "path": "blocks/security/permission-engine",
+      "files": [
+        "index.js"
+      ]
+    },
+    "security/sanitizer": {
+      "name": "sanitizer",
+      "category": "security",
+      "description": "DOM/HTML input sanitizer (allowlist-based, XSS-proof).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to safely sanitize HTML input strings against cross-site scripting (XSS) using a configurable tags and attributes allowlist. Import using: import { sanitizeHtml } from './security/sanitizer/index.js';",
+      "path": "blocks/security/sanitizer",
+      "files": [
+        "index.js"
+      ]
+    },
+    "security/secret-manager": {
+      "name": "secret-manager",
+      "category": "security",
+      "description": "Encrypted in-memory secrets store with TTL expiry and audit log support.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to securely store sensitive data/keys in-memory with automatic TTL expiration, encryption at rest in memory, and an immutable-like audit log for access tracking. Import using: import { SecretManager } from './security/secret-manager/index.js';",
+      "path": "blocks/security/secret-manager",
+      "files": [
+        "index.js"
+      ]
+    },
     "state/atom": {
       "name": "atom",
       "category": "state",

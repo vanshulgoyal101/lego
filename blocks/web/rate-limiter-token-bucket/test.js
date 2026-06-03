@@ -21,4 +21,17 @@ await describe('web/rate-limiter-token-bucket', async () => {
     await new Promise(resolve => setTimeout(resolve, 150));
     expect(limiter.consume('user1')).toBe(true);
   });
+
+  await it('should clean up stale idle buckets to prevent memory leaks', async () => {
+    // Capacity 1, refill 100/sec. Fully refilled in 10ms.
+    const limiter = new TokenBucketLimiter(1, 100);
+    limiter.consume('user1');
+    limiter.consume('user2');
+    expect(limiter.buckets.size).toBe(2);
+
+    // Wait 20ms for full refill, then clean up
+    await new Promise(resolve => setTimeout(resolve, 20));
+    limiter.cleanup();
+    expect(limiter.buckets.size).toBe(0);
+  });
 });

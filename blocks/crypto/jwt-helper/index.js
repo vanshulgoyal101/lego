@@ -135,6 +135,11 @@ export async function verify(token, secret) {
   }
 
   const [encodedHeader, encodedPayload, encodedSignature] = parts;
+  const header = JSON.parse(base64urlDecode(encodedHeader));
+  if (!header || header.alg !== 'HS256') {
+    throw new Error('Unsupported or invalid algorithm');
+  }
+
   const signatureInput = `${encodedHeader}.${encodedPayload}`;
 
   const encoder = new TextEncoder();
@@ -167,6 +172,11 @@ export async function verify(token, secret) {
   // Validate expiration time if it exists
   if (payload.exp && Date.now() / 1000 > payload.exp) {
     throw new Error('Token expired');
+  }
+
+  // Validate not before (nbf) time if it exists
+  if (payload.nbf && Date.now() / 1000 < payload.nbf) {
+    throw new Error('Token not active yet');
   }
 
   return payload;

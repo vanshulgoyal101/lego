@@ -49,7 +49,7 @@ export class RateLimiter {
    * @param {number} interval - Window in milliseconds.
    * @returns {this} Chainable.
    */
-  limit(n, interval) {
+  configure(n, interval) {
     this.limit = n;
     this.interval = interval;
     return this;
