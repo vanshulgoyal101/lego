@@ -3183,6 +3183,125 @@
         "index.js"
       ]
     },
+    "stream/batch-processor": {
+      "name": "batch-processor",
+      "category": "stream",
+      "description": "Batches streaming data based on item count, size, or time duration before downstream processing.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to group stream items into batches before bulk inserting to a database, uploading to an API, or performing heavy operations.",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "Object",
+          "required": false,
+          "description": "Configuration options: { maxBatchSize, maxTimeMs, maxByteSize, sizeFn }"
+        }
+      ],
+      "path": "blocks/stream/batch-processor",
+      "files": [
+        "index.js"
+      ]
+    },
+    "stream/csv-streamer": {
+      "name": "csv-streamer",
+      "category": "stream",
+      "description": "High-performance, zero-dependency streaming CSV parser and stringifier supporting custom delimiters, escaping, and headers mapping.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse incoming CSV text streams into JavaScript objects line-by-line, or serialize streams of database rows/objects into CSV format without memory overhead.",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "Object",
+          "required": false,
+          "description": "Configuration options: { delimiter, quote, headers, skipEmptyLines }"
+        }
+      ],
+      "path": "blocks/stream/csv-streamer",
+      "files": [
+        "index.js"
+      ]
+    },
+    "stream/deduplicator": {
+      "name": "deduplicator",
+      "category": "stream",
+      "description": "State-tracking stream deduplicator that filters out duplicate records based on a unique key, hash, or sliding window time cache.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to discard duplicate payloads or events in high-throughput streams, with customizable deduplication keys, TTL (expiration times), and max cache sizes.",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "Object",
+          "required": false,
+          "description": "Configuration options: { keySelector, ttlMs, maxCacheSize }"
+        }
+      ],
+      "path": "blocks/stream/deduplicator",
+      "files": [
+        "index.js"
+      ]
+    },
+    "stream/json-streamer": {
+      "name": "json-streamer",
+      "category": "stream",
+      "description": "Streaming JSON parser for large arrays or newline-delimited JSON (NDJSON) payloads, emitting objects as they are parsed without loading the whole file into memory.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when parsing massive JSON arrays or lines of Newline-Delimited JSON (NDJSON/JSONL) records from HTTP responses or local logs without loading the full payload into memory.",
+      "parameters": [],
+      "path": "blocks/stream/json-streamer",
+      "files": [
+        "index.js"
+      ]
+    },
+    "stream/pipeline": {
+      "name": "pipeline",
+      "category": "stream",
+      "description": "A stream pipeline orchestrator that chains multiple async generators, transform streams, or readable/writable streams together with error handling, data flow controls, and performance statistics.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to chain multiple stream transformations, map/filter steps, or custom async generator pipelines with robust error handling and statistics tracking.",
+      "parameters": [],
+      "path": "blocks/stream/pipeline",
+      "files": [
+        "index.js"
+      ]
+    },
+    "stream/schema-mapper": {
+      "name": "schema-mapper",
+      "category": "stream",
+      "description": "Transforms and validates streaming records against a schema with data mapping rules, default value injection, and type coercion.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when incoming stream records have mismatched fields, require normalization, conversion of string fields to actual numbers or dates, or filtering of records failing structural schema constraints.",
+      "parameters": [
+        {
+          "name": "schema",
+          "type": "Object",
+          "required": true,
+          "description": "Schema definition mapping fields to types, renames, default values, and custom rules."
+        }
+      ],
+      "path": "blocks/stream/schema-mapper",
+      "files": [
+        "index.js"
+      ]
+    },
+    "stream/windowed-aggregator": {
+      "name": "windowed-aggregator",
+      "category": "stream",
+      "description": "Aggregates streaming data in real-time using tumbling, sliding, or session windows, computing metrics like count, sum, average, min, max, or custom metrics.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building real-time dashboards, stream analytics pipelines, monitoring alerts, or time-series data rollup pipelines using Tumbling, Sliding, or Session window models.",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "Object",
+          "required": true,
+          "description": "Configuration options: { windowType, windowSizeMs, slideSizeMs, gapSizeMs, timeSelector, valueSelector, aggregateFn }"
+        }
+      ],
+      "path": "blocks/stream/windowed-aggregator",
+      "files": [
+        "index.js"
+      ]
+    },
     "sys/env-parser": {
       "name": "env-parser",
       "category": "sys",

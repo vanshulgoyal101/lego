@@ -1,0 +1,15 @@
+{
+  "name": "schema-mapper",
+  "category": "stream",
+  "description": "Transforms and validates streaming records against a schema with data mapping rules, default value injection, and type coercion.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when incoming stream records have mismatched fields, require normalization, conversion of string fields to actual numbers or dates, or filtering of records failing structural schema constraints.",
+  "parameters": [
+    {
+      "name": "schema",
+      "type": "Object",
+      "required": true,
+      "description": "Schema definition mapping fields to types, renames, default values, and custom rules."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "batch-processor",
+  "category": "stream",
+  "description": "Batches streaming data based on item count, size, or time duration before downstream processing.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to group stream items into batches before bulk inserting to a database, uploading to an API, or performing heavy operations.",
+  "parameters": [
+    {
+      "name": "options",
+      "type": "Object",
+      "required": false,
+      "description": "Configuration options: { maxBatchSize, maxTimeMs, maxByteSize, sizeFn }"
+    }
+  ]
+}

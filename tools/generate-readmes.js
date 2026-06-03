@@ -611,6 +611,48 @@ function getComplexity(name) {
     case 'perf-profiler':
       return { time: 'O(1) start/end profile measurement; O(S) tree formatting', space: 'O(S) active call stack samples' };
 
+    // ===== stream =====
+    case 'pipeline':
+      return { time: 'O(N × P) data size × pipeline stage count', space: 'O(P) active stages callbacks' };
+    case 'batch-processor':
+      return { time: 'O(N) processing time', space: 'O(B) items buffer where B is batch size' };
+    case 'schema-mapper':
+      return { time: 'O(F) mapped fields conversion iterations', space: 'O(F) schema layout definitions' };
+    case 'csv-streamer':
+      return { time: 'O(C) parsed characters scan', space: 'O(L) current row string length' };
+    case 'json-streamer':
+      return { time: 'O(C) parsed JSON characters scan', space: 'O(J) current JSON line size' };
+    case 'deduplicator':
+      return { time: 'O(1) item presence query check', space: 'O(S) unique seen items storage size' };
+    case 'windowed-aggregator':
+      return { time: 'O(E) window check items update', space: 'O(W) current window items storage' };
+
+    // ===== security =====
+    case 'secret-manager':
+      return { time: 'O(1) retrieval/store, O(N) encryption/decryption', space: 'O(S) encrypted secrets count' };
+    case 'csp-builder':
+      return { time: 'O(D × V) directive list size', space: 'O(D) directive storage size' };
+    case 'sanitizer':
+      return { time: 'O(N) input string length scan', space: 'O(N) output clean string' };
+    case 'api-key-manager':
+      return { time: 'O(1) validation check', space: 'O(K) active keys database' };
+    case 'audit-logger':
+      return { time: 'O(E) validation of entry chain', space: 'O(E) log entries database' };
+    case 'permission-engine':
+      return { time: 'O(R × P) role context evaluation', space: 'O(R) hierarchy tree definition' };
+
+    // ===== sys =====
+    case 'file-watcher':
+      return { time: 'O(F) checked files loop', space: 'O(F) file state snapshot registry' };
+    case 'process-monitor':
+      return { time: 'O(1) process metrics sampling', space: 'O(S) sample trace buffer size' };
+    case 'config-loader':
+      return { time: 'O(S × D) config sources deep merge', space: 'O(C) merged configuration state' };
+    case 'cli-builder':
+      return { time: 'O(A) command arguments parse', space: 'O(F) declared flags configuration' };
+    case 'plugin-loader':
+      return { time: 'O(P log P) plugin dependency sorting', space: 'O(P) registered plugin modules database' };
+
     default:
       // Prevent silent errors when new blocks are added to the repo
       throw new Error(`[README Generator Error] Block "${name}" has no complexity mapping defined in getComplexity(). Please add it to "tools/generate-readmes.js".`);

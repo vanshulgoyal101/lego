@@ -1,0 +1,15 @@
+{
+  "name": "csv-streamer",
+  "category": "stream",
+  "description": "High-performance, zero-dependency streaming CSV parser and stringifier supporting custom delimiters, escaping, and headers mapping.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to parse incoming CSV text streams into JavaScript objects line-by-line, or serialize streams of database rows/objects into CSV format without memory overhead.",
+  "parameters": [
+    {
+      "name": "options",
+      "type": "Object",
+      "required": false,
+      "description": "Configuration options: { delimiter, quote, headers, skipEmptyLines }"
+    }
+  ]
+}

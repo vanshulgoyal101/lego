@@ -1,0 +1,8 @@
+{
+  "name": "pipeline",
+  "category": "stream",
+  "description": "A stream pipeline orchestrator that chains multiple async generators, transform streams, or readable/writable streams together with error handling, data flow controls, and performance statistics.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to chain multiple stream transformations, map/filter steps, or custom async generator pipelines with robust error handling and statistics tracking.",
+  "parameters": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "json-streamer",
+  "category": "stream",
+  "description": "Streaming JSON parser for large arrays or newline-delimited JSON (NDJSON) payloads, emitting objects as they are parsed without loading the whole file into memory.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when parsing massive JSON arrays or lines of Newline-Delimited JSON (NDJSON/JSONL) records from HTTP responses or local logs without loading the full payload into memory.",
+  "parameters": []
+}

@@ -1,0 +1,15 @@
+{
+  "name": "deduplicator",
+  "category": "stream",
+  "description": "State-tracking stream deduplicator that filters out duplicate records based on a unique key, hash, or sliding window time cache.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to discard duplicate payloads or events in high-throughput streams, with customizable deduplication keys, TTL (expiration times), and max cache sizes.",
+  "parameters": [
+    {
+      "name": "options",
+      "type": "Object",
+      "required": false,
+      "description": "Configuration options: { keySelector, ttlMs, maxCacheSize }"
+    }
+  ]
+}
