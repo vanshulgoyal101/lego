@@ -1,0 +1,8 @@
+{
+  "name": "pubsub-wildcard",
+  "category": "utils",
+  "description": "Message pub-sub publisher implementing wildcard event matching subscriptions (e.g. subscribing to 'users.*' receives updates for 'users.login').",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to build a message broker or event dispatching system with hierarchical event paths and wildcard selectors.",
+  "parameters": []
+}

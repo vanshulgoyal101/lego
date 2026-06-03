@@ -1,0 +1,8 @@
+{
+  "name": "statistics-advanced",
+  "category": "math",
+  "description": "Implements advanced statistical analyses including ANOVA (Analysis of Variance) and t-tests for hypothesis testing.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to run statistical hypothesis testing like t-test and one-way ANOVA calculations.",
+  "parameters": []
+}

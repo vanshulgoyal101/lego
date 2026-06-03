@@ -1,0 +1,8 @@
+{
+  "name": "bcrypt-lite",
+  "category": "crypto",
+  "description": "Blowfish-based password key-derivation / hashing system mimicking bcrypt functionality.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to run simplified, secure password hashing and verification.",
+  "parameters": []
+}

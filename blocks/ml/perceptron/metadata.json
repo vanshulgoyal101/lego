@@ -1,0 +1,8 @@
+{
+  "name": "perceptron",
+  "category": "ml",
+  "description": "Single-layer binary classifier neural unit that trains weights using a learning rate and updates inputs linearly.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to run basic linear binary classification, pattern separation, or single-unit neural training.",
+  "parameters": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "tsp-solver",
+  "category": "algo",
+  "description": "Backtracking Travelling Salesperson Problem (TSP) shortest tour path solver.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to find the exact shortest path visiting all nodes/cities in a graph and returning to the start.",
+  "parameters": []
+}

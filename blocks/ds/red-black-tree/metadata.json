@@ -1,0 +1,8 @@
+{
+  "name": "red-black-tree",
+  "category": "ds",
+  "description": "Self-balancing binary search tree implementing insertion, deletion, and rotation operations while maintaining node color invariants.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to maintain a dynamic sorted set with O(log n) worst-case search, insert, and delete operations.",
+  "parameters": []
+}

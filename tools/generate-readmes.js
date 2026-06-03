@@ -96,6 +96,8 @@ function getComplexity(name) {
       return { time: 'O(N + M) average / O(N × M) worst case matching', space: 'O(1)' };
     case 'ford-fulkerson':
       return { time: 'O(E × f) where f is max flow, or O(V × E^2) Edmonds-Karp complexity', space: 'O(V + E) residual capacities' };
+    case 'tsp-solver':
+      return { time: 'O(N!) worst-case backtracking permutations search', space: 'O(N) recursion stack' };
 
     // ===== async =====
     case 'event-emitter':
@@ -159,6 +161,8 @@ function getComplexity(name) {
       return { time: 'O(I × N) iterations × key derivation passes', space: 'O(1)' };
     case 'rc4':
       return { time: 'O(N) message bytes processed', space: 'O(1) state array' };
+    case 'bcrypt-lite':
+      return { time: 'O(2^R × N) where R is cost factor rounds and N is derived key passes', space: 'O(1) work memory' };
 
     // ===== db =====
     case 'document-db':
@@ -186,6 +190,8 @@ function getComplexity(name) {
       return { time: 'O(1) append; O(N) recovery parsing', space: 'O(1) append buffer' };
     case 'resp-parser':
       return { time: 'O(N) serialization/deserialization linear scans', space: 'O(N) protocol streams buffer' };
+    case 'migration-engine':
+      return { time: 'O(M) where M is pending/applied migrations count', space: 'O(M) memory list' };
 
     // ===== ds =====
     case 'binary-search-tree':
@@ -236,6 +242,8 @@ function getComplexity(name) {
       return { time: 'O(log N) average insert/query; O(N) worst case', space: 'O(N) nodes and points' };
     case 'treap':
       return { time: 'O(log N) expected search/insert/delete; O(N) worst case', space: 'O(N) tree nodes' };
+    case 'red-black-tree':
+      return { time: 'O(log N) search/insert/delete worst-case bounds', space: 'O(N) tree nodes' };
 
     // ===== encoding =====
     case 'base64':
@@ -258,7 +266,8 @@ function getComplexity(name) {
       return { time: 'O(1) encoding/decoding byte operations', space: 'O(1)' };
     case 'protobuf-decoder':
       return { time: 'O(N) binary stream parse passes', space: 'O(N) parsed fields array' };
-
+    case 'utf8-validator':
+      return { time: 'O(N) byte buffer linear scans', space: 'O(1)' };
 
     // ===== math =====
     case 'complex':
@@ -298,7 +307,8 @@ function getComplexity(name) {
       return { time: 'O(N log N) Cooley-Tukey transformation time', space: 'O(N) computation arrays' };
     case 'quaternion':
       return { time: 'O(1) rotations, additions, multiplications', space: 'O(1)' };
-
+    case 'statistics-advanced':
+      return { time: 'O(N) calculations (t-test / ANOVA groups size)', space: 'O(1)' };
 
     // ===== ml =====
     case 'decision-tree':
@@ -325,6 +335,8 @@ function getComplexity(name) {
       return { time: 'O(N × L) document tokenization; O(N × V) encoding matrix', space: 'O(V) vocabulary dictionary size' };
     case 'cosine-similarity':
       return { time: 'O(D) vector dimensions calculation; O(N² × D) pairwise', space: 'O(N²) matrix output' };
+    case 'perceptron':
+      return { time: 'O(E × N × D) epochs × samples × dimensions', space: 'O(D) weights' };
 
     // ===== protocol =====
     case 'dns-resolver':
@@ -427,6 +439,8 @@ function getComplexity(name) {
       return { time: 'O(N) template length compiles', space: 'O(V) template expressions' };
     case 'dependency-resolver':
       return { time: 'O(V + E) where V is nodes and E is dependencies', space: 'O(V + E) graph and visited state' };
+    case 'pubsub-wildcard':
+      return { time: 'O(N × L) topic regex checks (N = subscribers, L = pattern size)', space: 'O(N) patterns registry' };
 
     // ===== validation =====
     case 'email-rfc5322':
@@ -463,7 +477,8 @@ function getComplexity(name) {
       return { time: 'O(1) signature comparison matches; O(T) text parsing heuristic', space: 'O(1)' };
     case 'sql-injection-detector':
       return { time: 'O(N × R) input length × rule count (regex passes)', space: 'O(1)' };
-
+    case 'json-sanitizer':
+      return { time: 'O(N) character scanner loops (N = input length)', space: 'O(N) cleaned string' };
 
     // ===== web =====
     case 'api-client':
@@ -506,6 +521,8 @@ function getComplexity(name) {
       return { time: 'O(1) request streaming proxy overhead', space: 'O(1)' };
     case 'load-balancer':
       return { time: 'O(1) routing selection; O(H × T) background health checks', space: 'O(T) targets state map' };
+    case 'http-client-curl':
+      return { time: 'O(H + B) formatting overhead (H = headers, B = body size)', space: 'O(H + B) command string buffer' };
 
     default:
       // Prevent silent errors when new blocks are added to the repo

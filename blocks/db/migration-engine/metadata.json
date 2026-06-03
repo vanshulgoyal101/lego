@@ -1,0 +1,8 @@
+{
+  "name": "migration-engine",
+  "category": "db",
+  "description": "Lightweight versioned schema migration runner that tracks applied database state migrations and supports up/down runs.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to execute versioned database schema upgrades and rollbacks programmatically.",
+  "parameters": []
+}

@@ -615,6 +615,20 @@
         "test.js"
       ]
     },
+    "algo/tsp-solver": {
+      "name": "tsp-solver",
+      "category": "algo",
+      "description": "Backtracking Travelling Salesperson Problem (TSP) shortest tour path solver.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to find the exact shortest path visiting all nodes/cities in a graph and returning to the start.",
+      "parameters": [],
+      "path": "blocks/algo/tsp-solver",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "async/cron-scheduler": {
       "name": "cron-scheduler",
       "category": "async",
@@ -933,6 +947,20 @@
         "test.js"
       ]
     },
+    "crypto/bcrypt-lite": {
+      "name": "bcrypt-lite",
+      "category": "crypto",
+      "description": "Blowfish-based password key-derivation / hashing system mimicking bcrypt functionality.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to run simplified, secure password hashing and verification.",
+      "parameters": [],
+      "path": "blocks/crypto/bcrypt-lite",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "crypto/chacha20": {
       "name": "chacha20",
       "category": "crypto",
@@ -1242,6 +1270,20 @@
         }
       ],
       "path": "blocks/db/lsm-tree",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "db/migration-engine": {
+      "name": "migration-engine",
+      "category": "db",
+      "description": "Lightweight versioned schema migration runner that tracks applied database state migrations and supports up/down runs.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to execute versioned database schema upgrades and rollbacks programmatically.",
+      "parameters": [],
+      "path": "blocks/db/migration-engine",
       "files": [
         "README.md",
         "index.js",
@@ -1742,6 +1784,20 @@
         "test.js"
       ]
     },
+    "ds/red-black-tree": {
+      "name": "red-black-tree",
+      "category": "ds",
+      "description": "Self-balancing binary search tree implementing insertion, deletion, and rotation operations while maintaining node color invariants.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to maintain a dynamic sorted set with O(log n) worst-case search, insert, and delete operations.",
+      "parameters": [],
+      "path": "blocks/ds/red-black-tree",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "ds/rope": {
       "name": "rope",
       "category": "ds",
@@ -2067,6 +2123,20 @@
         "test.js"
       ]
     },
+    "encoding/utf8-validator": {
+      "name": "utf8-validator",
+      "category": "encoding",
+      "description": "Checks raw byte buffers for well-formed UTF-8 byte sequences according to standard encoding structures.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to validate whether a byte buffer or array represents a valid UTF-8 string.",
+      "parameters": [],
+      "path": "blocks/encoding/utf8-validator",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "encoding/varint": {
       "name": "varint",
       "category": "encoding",
@@ -2368,6 +2438,20 @@
         "index.js"
       ]
     },
+    "math/statistics-advanced": {
+      "name": "statistics-advanced",
+      "category": "math",
+      "description": "Implements advanced statistical analyses including ANOVA (Analysis of Variance) and t-tests for hypothesis testing.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to run statistical hypothesis testing like t-test and one-way ANOVA calculations.",
+      "parameters": [],
+      "path": "blocks/math/statistics-advanced",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "math/stats": {
       "name": "stats",
       "category": "math",
@@ -2622,6 +2706,20 @@
         }
       ],
       "path": "blocks/ml/pca",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "ml/perceptron": {
+      "name": "perceptron",
+      "category": "ml",
+      "description": "Single-layer binary classifier neural unit that trains weights using a learning rate and updates inputs linearly.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to run basic linear binary classification, pattern separation, or single-unit neural training.",
+      "parameters": [],
+      "path": "blocks/ml/perceptron",
       "files": [
         "README.md",
         "index.js",
@@ -3575,6 +3673,20 @@
         "test.js"
       ]
     },
+    "utils/pubsub-wildcard": {
+      "name": "pubsub-wildcard",
+      "category": "utils",
+      "description": "Message pub-sub publisher implementing wildcard event matching subscriptions (e.g. subscribing to 'users.*' receives updates for 'users.login').",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to build a message broker or event dispatching system with hierarchical event paths and wildcard selectors.",
+      "parameters": [],
+      "path": "blocks/utils/pubsub-wildcard",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
     "utils/retry": {
       "name": "retry",
       "category": "utils",
@@ -3904,6 +4016,20 @@
         }
       ],
       "path": "blocks/validation/json-path",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "validation/json-sanitizer": {
+      "name": "json-sanitizer",
+      "category": "validation",
+      "description": "Cleans malformed/relaxed JSON inputs (such as trailing commas, unquoted keys, single quotes, or comments) to construct standard parseable JSON string blocks.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to sanitize malformed or non-standard JSON input into valid JSON.",
+      "parameters": [],
+      "path": "blocks/validation/json-sanitizer",
       "files": [
         "README.md",
         "index.js",
@@ -4243,6 +4369,20 @@
       "aiPromptContext": "Use this block to send queries/mutations to GraphQL API endpoints with variables and custom authentication headers.",
       "parameters": [],
       "path": "blocks/web/graphql-client",
+      "files": [
+        "README.md",
+        "index.js",
+        "test.js"
+      ]
+    },
+    "web/http-client-curl": {
+      "name": "http-client-curl",
+      "category": "web",
+      "description": "HTTP client request decorator wrapper generating corresponding, executable curl command strings.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to debug, inspect, or output curl command representations of HTTP requests.",
+      "parameters": [],
+      "path": "blocks/web/http-client-curl",
       "files": [
         "README.md",
         "index.js",

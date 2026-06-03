@@ -1,0 +1,8 @@
+{
+  "name": "json-sanitizer",
+  "category": "validation",
+  "description": "Cleans malformed/relaxed JSON inputs (such as trailing commas, unquoted keys, single quotes, or comments) to construct standard parseable JSON string blocks.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to sanitize malformed or non-standard JSON input into valid JSON.",
+  "parameters": []
+}

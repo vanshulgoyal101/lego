@@ -1,0 +1,8 @@
+{
+  "name": "utf8-validator",
+  "category": "encoding",
+  "description": "Checks raw byte buffers for well-formed UTF-8 byte sequences according to standard encoding structures.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to validate whether a byte buffer or array represents a valid UTF-8 string.",
+  "parameters": []
+}

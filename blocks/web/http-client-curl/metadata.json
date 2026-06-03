@@ -1,0 +1,8 @@
+{
+  "name": "http-client-curl",
+  "category": "web",
+  "description": "HTTP client request decorator wrapper generating corresponding, executable curl command strings.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to debug, inspect, or output curl command representations of HTTP requests.",
+  "parameters": []
+}
