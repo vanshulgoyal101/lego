@@ -119,6 +119,11 @@ export function expect(actual) {
         throw new Error(`Expected length ${expectedLength}, got ${actual.length}`);
       }
     },
+    toBeInstanceOf(expectedClass) {
+      if (!(actual instanceof expectedClass)) {
+        throw new Error(`Expected instance of ${expectedClass.name || expectedClass}, but got ${actual ? actual.constructor.name : actual}`);
+      }
+    },
     toThrow(expectedErrorPattern = null) {
       let threw = false;
       let error = null;
@@ -131,8 +136,14 @@ export function expect(actual) {
       if (!threw) {
         throw new Error('Expected function to throw, but it succeeded');
       }
-      if (expectedErrorPattern && error && !error.message.includes(expectedErrorPattern)) {
-        throw new Error(`Expected error to contain "${expectedErrorPattern}", but got "${error.message}"`);
+      if (expectedErrorPattern) {
+        if (typeof expectedErrorPattern === 'function') {
+          if (!(error instanceof expectedErrorPattern)) {
+            throw new Error(`Expected error to be instance of ${expectedErrorPattern.name}, but got ${error ? error.name : error}`);
+          }
+        } else if (error && !error.message.includes(expectedErrorPattern)) {
+          throw new Error(`Expected error to contain "${expectedErrorPattern}", but got "${error.message}"`);
+        }
       }
     },
     async toThrowAsync(expectedErrorPattern = null) {
@@ -147,8 +158,42 @@ export function expect(actual) {
       if (!threw) {
         throw new Error('Expected async function to throw, but it succeeded');
       }
-      if (expectedErrorPattern && error && !error.message.includes(expectedErrorPattern)) {
-        throw new Error(`Expected error to contain "${expectedErrorPattern}", but got "${error.message}"`);
+      if (expectedErrorPattern) {
+        if (typeof expectedErrorPattern === 'function') {
+          if (!(error instanceof expectedErrorPattern)) {
+            throw new Error(`Expected error to be instance of ${expectedErrorPattern.name}, but got ${error ? error.name : error}`);
+          }
+        } else if (error && !error.message.includes(expectedErrorPattern)) {
+          throw new Error(`Expected error to contain "${expectedErrorPattern}", but got "${error.message}"`);
+        }
+      }
+    },
+    not: {
+      toThrow() {
+        let threw = false;
+        let error = null;
+        try {
+          actual();
+        } catch (err) {
+          threw = true;
+          error = err;
+        }
+        if (threw) {
+          throw new Error(`Expected function NOT to throw, but it threw: ${error.message}`);
+        }
+      },
+      async toThrowAsync() {
+        let threw = false;
+        let error = null;
+        try {
+          await actual();
+        } catch (err) {
+          threw = true;
+          error = err;
+        }
+        if (threw) {
+          throw new Error(`Expected async function NOT to throw, but it threw: ${error.message}`);
+        }
       }
     }
   };

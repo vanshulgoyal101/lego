@@ -1,0 +1,27 @@
+{
+  "name": "tool-registry",
+  "category": "agent",
+  "description": "A registry for AI agent callable tools with JSON Schema parameter validation, named dispatch, and LLM function-calling compatible listing.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when building an AI agent that needs to register, look up, and invoke tools/functions by name. It handles JSON Schema-style parameter validation (required fields, type checking) and formats the tool list for LLM function-calling APIs such as OpenAI, Anthropic, and Gemini. Ideal for agentic loops where the model returns a tool name + arguments that must be dispatched to real implementations.",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "String",
+      "required": true,
+      "description": "Unique name used to identify and look up the tool."
+    },
+    {
+      "name": "schema",
+      "type": "Object",
+      "required": true,
+      "description": "JSON-Schema-style descriptor containing a description string and a parameters object with type, properties, and required fields."
+    },
+    {
+      "name": "fn",
+      "type": "Function",
+      "required": true,
+      "description": "The tool implementation. Receives the validated args object and may return any value (sync or async)."
+    }
+  ]
+}

@@ -48,9 +48,19 @@ node bin/cli.js add web/fetch-retry --dest ./src/utils
 
 ## Categorized Block Catalog
 
-We have developed **232 production-grade blocks** organized across 18 categories:
+We have developed **240 production-grade blocks** organized across 19 categories:
 
-### 1. Algorithms
+### 1. Agent
+* [`agent/chain-runner`](blocks/agent/chain-runner): Sequential/branching chain executor for AI agents where each step receives context and returns updated context, with retry, skip, and conditional branching support.
+* [`agent/decision-tree-agent`](blocks/agent/decision-tree-agent): A rule-based decision tree agent that evaluates prioritized condition-action rules against a context object and executes the highest-priority matching action.
+* [`agent/memory-buffer`](blocks/agent/memory-buffer): Sliding context window memory manager for AI agents that tracks conversation history, estimates token usage, and supports summarization when the context limit is approached.
+* [`agent/prompt-template`](blocks/agent/prompt-template): Handlebars-style LLM prompt builder with {{variable}} slot filling, few-shot example injection, multi-role message construction (system/user/assistant), and token estimation.
+* [`agent/react-loop`](blocks/agent/react-loop): ReAct (Reasoning + Acting) loop implementation for AI agents. Runs Thought → Action → Observation cycles with tool dispatch, message history tracking, and configurable max iterations.
+* [`agent/retrieval-context`](blocks/agent/retrieval-context): Builds retrieval-augmented generation (RAG) context by chunking documents, scoring chunks against a query with TF-IDF cosine similarity, and injecting the top-K results into a prompt.
+* [`agent/structured-output`](blocks/agent/structured-output): Parses and validates LLM text outputs that are supposed to be JSON, handling markdown code fences, malformed JSON, schema validation, and retry logic.
+* [`agent/tool-registry`](blocks/agent/tool-registry): A registry for AI agent callable tools with JSON Schema parameter validation, named dispatch, and LLM function-calling compatible listing.
+
+### 2. Algorithms
 * [`algo/a-star`](blocks/algo/a-star): A* pathfinding algorithm on a 2D grid that finds the shortest path using heuristic-guided search.
 * [`algo/bellman-ford`](blocks/algo/bellman-ford): Calculates shortest paths from a single source vertex to all other vertices in a weighted graph, supporting negative edge weights and detecting negative cycles.
 * [`algo/binary-search`](blocks/algo/binary-search): Binary search algorithm helper for sorted arrays with custom comparator support.
@@ -79,7 +89,7 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`algo/topological-sort`](blocks/algo/topological-sort): Topological sort for Directed Acyclic Graphs (DAGs). Implements both Kahn's BFS algorithm and DFS-based approaches. Detects cycles and throws a descriptive error. Used for dependency resolution, task scheduling, and build systems.
 * [`algo/tsp-solver`](blocks/algo/tsp-solver): Backtracking Travelling Salesperson Problem (TSP) shortest tour path solver.
 
-### 2. Asynchronous & Concurrency
+### 3. Asynchronous & Concurrency
 * [`async/cron-scheduler`](blocks/async/cron-scheduler): Asynchronous task scheduler that executes callbacks on recursive timeouts mapped from parsed cron intervals.
 * [`async/event-emitter`](blocks/async/event-emitter): A fully-featured typed event emitter supporting standard register, emit, once, and listener management.
 * [`async/observable`](blocks/async/observable): Minimal reactive Observable implementation with subscribe, map, filter, take, merge, and static factory methods.
@@ -89,7 +99,7 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`async/task-queue`](blocks/async/task-queue): Async task queue with concurrency control, priority ordering, pause/resume, and completion callbacks.
 * [`async/timeout-promise`](blocks/async/timeout-promise): Promise utilities for timeouts, sleep, retry with backoff, settled-with-timeout, and first-fulfilled race.
 
-### 3. Compiler & Parsing Primitives
+### 4. Compiler & Parsing Primitives
 * [`compiler/ast-walker`](blocks/compiler/ast-walker): An AST traversal utility applying the Visitor pattern to clean walk node structures recursively.
 * [`compiler/bf-compiler`](blocks/compiler/bf-compiler): Brainfuck compiler and virtual machine execution environment featuring jump-map precomputation and custom input stream processing.
 * [`compiler/json-schema-validator`](blocks/compiler/json-schema-validator): JSON Schema (Draft-07 matching) validation compiler validating object types, min/max limits, regex patterns, enum arrays, required properties, items lists, anyOf, allOf, oneOf, and not specifications.
@@ -98,7 +108,7 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`compiler/regex-engine`](blocks/compiler/regex-engine): A zero-dependency Regular Expression parser and compiler engine in pure JavaScript. Translates patterns into Abstract Syntax Trees, compiles them to Thompson Nondeterministic Finite Automata (NFA), and executes input matching.
 * [`compiler/sql-query-parser`](blocks/compiler/sql-query-parser): SQL lexical scanner and query parser translating SELECT strings (fields, JOINs, WHERE logic, ORDER BY, LIMIT) into structured Abstract Syntax Trees.
 
-### 4. Cryptography & Security
+### 5. Cryptography & Security
 * [`crypto/aes`](blocks/crypto/aes): Symmetrical encryption and decryption (AES-256-GCM) utilizing native Web Crypto API. Fully cross-platform.
 * [`crypto/bcrypt-lite`](blocks/crypto/bcrypt-lite): Blowfish-based password key-derivation / hashing system mimicking bcrypt functionality.
 * [`crypto/chacha20`](blocks/crypto/chacha20): Pure JavaScript implementation of the ChaCha20 symmetric stream cipher (IETF RFC 7539 format) for high-performance encryption and decryption.
@@ -115,7 +125,7 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`crypto/totp`](blocks/crypto/totp): Universal Time-based One-Time Password (TOTP) and HMAC-based One-Time Password (HOTP) token generator and validator using standard Web Crypto APIs.
 * [`crypto/uuid-shortener`](blocks/crypto/uuid-shortener): UUID compression helper converting standard 36-char UUIDs to short URL-safe Base62 22-char strings and back.
 
-### 5. Database Engine Internals
+### 6. Database Engine Internals
 * [`db/document-db`](blocks/db/document-db): Production-grade, zero-dependency in-memory JSON document database featuring MongoDB-like query parsers, indexing, sorting, projections, and ACID transactions with rollback.
 * [`db/graph-db`](blocks/db/graph-db): An in-memory Graph Database featuring labeled nodes, directed property edges, deep traversals (BFS, DFS, Dijkstra), and ACID transactional rollbacks.
 * [`db/json-db`](blocks/db/json-db): A transactional, file-backed JSON database supporting basic CRUD operations and concurrency safety.
@@ -130,7 +140,7 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`db/vector-db`](blocks/db/vector-db): An in-memory Vector Database supporting cosine similarity, Euclidean distance searches, metadata filter predicates, and K-Nearest Neighbor (K-NN) query calculations.
 * [`db/wal`](blocks/db/wal): Write-Ahead Log (WAL) manager supporting append-only logging, recovery replay, and log clearing to ensure data durability.
 
-### 6. Data Structures
+### 7. Data Structures
 * [`ds/avl-tree`](blocks/ds/avl-tree): A self-balancing binary search tree supporting guaranteed logarithmic inserts, deletes, and lookups via tree rotations.
 * [`ds/b-tree`](blocks/ds/b-tree): Balanced search tree optimized for database indexing, supporting multi-way branching, search, and insertion keys splitting.
 * [`ds/binary-search-tree`](blocks/ds/binary-search-tree): Standard Binary Search Tree (BST) class supporting node insertions, searches, deletions, and traversal checks.
@@ -159,7 +169,7 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`ds/trie`](blocks/ds/trie): Trie (prefix tree) structure optimized for string lookup, autocompletion, and prefix checks.
 * [`ds/union-find`](blocks/ds/union-find): A Disjoint Set Union (DSU) / Union-Find data structure with path compression and union by rank. Efficiently tracks which elements belong to the same partition, merges partitions, and checks connectivity. Used in Kruskal's MST, cycle detection, and dynamic graph connectivity.
 
-### 7. Compression & Encodings
+### 8. Compression & Encodings
 * [`encoding/base64`](blocks/encoding/base64): Self-contained Base64 binary and text string encoder/decoder without environment dependencies (works in Node & browser).
 * [`encoding/bencode`](blocks/encoding/bencode): Bencoding serialization and deserialization utility supporting integers, strings, lists, and sorted key dictionaries.
 * [`encoding/binary-codec`](blocks/encoding/binary-codec): Binary data encoding/decoding utilities for converting numbers and buffers to binary strings, hex strings, and big/little-endian byte arrays.
@@ -173,7 +183,7 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`encoding/utf8-validator`](blocks/encoding/utf8-validator): Checks raw byte buffers for well-formed UTF-8 byte sequences according to standard encoding structures.
 * [`encoding/varint`](blocks/encoding/varint): Variable-length integer representation (Varint) utilizing MSB continuation flags to serialize and deserialize BigInt numbers efficiently.
 
-### 8. Mathematics & Calculations
+### 9. Mathematics & Calculations
 * [`math/bezier`](blocks/math/bezier): Bezier curve coordinate generator supporting quadratic, cubic, and arbitrary-degree De Casteljau algorithms for 2D spatial interpolation.
 * [`math/bigint-fraction`](blocks/math/bigint-fraction): Arbitrary-precision rational fraction solver utilizing BigInt, supporting canonical reduction, arithmetic, comparisons, and float conversion.
 * [`math/bit-ops`](blocks/math/bit-ops): Bit manipulation utilities including power-of-two checks, population count, bit set/clear/toggle/get, bit reversal, and Gray code encoding/decoding.
@@ -196,11 +206,11 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`math/symbolic-diff`](blocks/math/symbolic-diff): A symbolic differentiation engine. Parses mathematical expression strings into Abstract Syntax Trees (AST), computes exact derivative expressions using differentiation rules (power, product, quotient, chain, and trigonometric rules), simplifies the resulting ASTs, and formats them back to standard expression strings.
 * [`math/vector2d`](blocks/math/vector2d): A comprehensive 2D mathematical vector physics and geometry class.
 
-### 9. Media
+### 10. Media
 * [`media/bmp-encoder`](blocks/media/bmp-encoder): Encodes raw RGB pixel buffers into standard uncompressed 24-bit BMP image byte buffers.
 * [`media/wav-decoder`](blocks/media/wav-decoder): Reads and decodes RIFF/WAV audio metadata and raw sample data from binary byte buffers into normalized Float32 arrays.
 
-### 10. Machine Learning Primitives
+### 11. Machine Learning Primitives
 * [`ml/cosine-similarity`](blocks/ml/cosine-similarity): Calculates the cosine similarity, cosine distance, and pairwise similarities between high-dimensional vector embeddings.
 * [`ml/dbscan`](blocks/ml/dbscan): Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm for clustering multi-dimensional data points and identifying noise.
 * [`ml/decision-tree`](blocks/ml/decision-tree): A zero-dependency Decision Tree Classifier and Regressor engine in pure JavaScript. Calculates split nodes recursively using Gini Impurity, entropy, or variance reduction, and supports max depth, min samples split constraints, and feature importance scores.
@@ -215,10 +225,10 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`ml/svm`](blocks/ml/svm): Support Vector Machine (SVM) binary classifier using linear kernels and simple gradient updates.
 * [`ml/tf-idf`](blocks/ml/tf-idf): Term Frequency-Inverse Document Frequency (TF-IDF) document text vectorizer/encoder with built-in tokenization and L2 normalization options.
 
-### 11. Network Protocols
+### 12. Network Protocols
 * [`protocol/dns-resolver`](blocks/protocol/dns-resolver): A zero-dependency DNS client and resolver built from scratch in Node.js. Packs binary DNS query structures (Headers, Question flags, label-length domain encoding) and decodes DNS response packets (decoding headers, question echoes, records A, AAAA, CNAME, MX, TXT, and domain name compression pointers) using UDP sockets.
 
-### 12. State Management
+### 13. State Management
 * [`state/atom`](blocks/state/atom): Jotai-style atomic state primitives with get, set, subscribe, derive, reset, and peek — composable independent units of reactive state.
 * [`state/command-pattern`](blocks/state/command-pattern): Command pattern implementation with an undo/redo history stack for executing, reversing, and replaying discrete operations.
 * [`state/fsm`](blocks/state/fsm): A Finite State Machine (FSM) manager featuring state transitions, guards, side-effect actions, and subscription events.
@@ -227,12 +237,12 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`state/redux-lite`](blocks/state/redux-lite): A lightweight global state store with actions dispatcher, state reducers, subscription listeners, and custom middleware support.
 * [`state/signal`](blocks/state/signal): Fine-grained reactive signals inspired by SolidJS — signal(), computed(), and effect() primitives with automatic dependency tracking.
 
-### 13. Sys
+### 14. Sys
 * [`sys/env-parser`](blocks/sys/env-parser): Parses .env configuration files, supporting single/double quotes, comments, escapes, and multiline variables.
 * [`sys/path-resolver`](blocks/sys/path-resolver): Cross-platform path normalization, resolution, and joining utility for resolving relative and absolute paths.
 * [`sys/terminal-ansi`](blocks/sys/terminal-ansi): ANSI escape code utility for styling terminal text output (colors, backgrounds, styles) and stripping styles.
 
-### 14. Text Processing & Formatter
+### 15. Text Processing & Formatter
 * [`text/bbcode-parser`](blocks/text/bbcode-parser): BBCode to HTML parser and AST compiler (handles standard tags like [b], [i], [url]).
 * [`text/csv-parser`](blocks/text/csv-parser): Robust CSV parser and generator correctly handling quoted escape strings and delimiters.
 * [`text/diff-match`](blocks/text/diff-match): Text line comparison engine computing difference deltas using Longest Common Subsequence (LCS).
@@ -248,13 +258,13 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`text/xml-parser`](blocks/text/xml-parser): Lightweight, zero-dependency XML-to-JSON parser that parses XML strings into nested JavaScript object trees.
 * [`text/yaml-parser`](blocks/text/yaml-parser): A lightweight YAML 1.2 subset parser supporting scalar strings, booleans, integers, floats, null, multiline strings (literal | and folded >), nested mappings (objects), sequences (arrays), and inline flow syntax. Serializes JavaScript values back to YAML format.
 
-### 15. UI & Layout Mechanics
+### 16. UI & Layout Mechanics
 * [`ui/color-converter`](blocks/ui/color-converter): Color parsing and format space converter (HEX, RGB, HSL) with W3C relative luminance contrast ratio compliance calculations.
 * [`ui/css-parser`](blocks/ui/css-parser): Lightweight CSS parser that parses style sheets into structured rule and declaration objects.
 * [`ui/query-builder`](blocks/ui/query-builder): Safe SQL query string building helper utilizing template placeholders for bind values.
 * [`ui/virtual-dom`](blocks/ui/virtual-dom): A lightweight Virtual DOM and reconciliation engine in pure JavaScript. Features virtual node creation (h/createElement), tree diffing & patch reconciliation, functional components with state and effect hooks (useState, useEffect), and server-side rendering (SSR) to HTML.
 
-### 16. Utility Helper Functions
+### 17. Utility Helper Functions
 * [`utils/chunk`](blocks/utils/chunk): Splits arrays into chunks of a given size, or groups elements by a predicate function.
 * [`utils/date-formatter`](blocks/utils/date-formatter): Date arithmetic and token formatting helper (format, addTime, isBetween) without external libraries.
 * [`utils/debounce`](blocks/utils/debounce): Creates a debounced version of a function to delay invocation until after wait milliseconds.
@@ -275,7 +285,7 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`utils/url-builder`](blocks/utils/url-builder): Parameter builder that constructs, validates, and parses nested query strings and URL objects.
 * [`utils/uuid-v4`](blocks/utils/uuid-v4): Generates cryptographically random UUID v4 strings (xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx format). Works in Node.js, Deno, Bun, and browsers via the Web Crypto API. Also validates UUID format strings and generates short 8-character nanoid-style IDs.
 
-### 17. Validation & Security Guards
+### 18. Validation & Security Guards
 * [`validation/credit-card`](blocks/validation/credit-card): Credit card number validation using the Luhn algorithm with card type detection and formatting.
 * [`validation/cron-parser`](blocks/validation/cron-parser): Standard 5-field crontab pattern parser to validate schedules and resolve subsequent matching execution timestamps.
 * [`validation/date-validator`](blocks/validation/date-validator): Date string validation, range checking, leap year detection, and weekday/weekend classification.
@@ -294,7 +304,7 @@ We have developed **232 production-grade blocks** organized across 18 categories
 * [`validation/url-validator`](blocks/validation/url-validator): Validates URLs with fine-grained options including protocol, TLD, and localhost requirements.
 * [`validation/xss-filter`](blocks/validation/xss-filter): An HTML XSS sanitizer that removes dangerous script elements, event handler attributes, javascript: protocol links, and data: URI injections from HTML strings. Supports allowlists for safe tags and attributes. Returns sanitized HTML safe for rendering in the browser.
 
-### 18. Web & Networking Middleware
+### 19. Web & Networking Middleware
 * [`web/api-client`](blocks/web/api-client): An advanced REST API request builder supporting middleware-like request and response interceptors.
 * [`web/cookie-helper`](blocks/web/cookie-helper): Safe browser cookie manipulation helper (set, get, delete) supporting attributes like path, domain, security, and samesite.
 * [`web/cors-middleware`](blocks/web/cors-middleware): Rules-based CORS handler managing pre-flight checks, dynamic origin validations, custom headers, and authorization requests.

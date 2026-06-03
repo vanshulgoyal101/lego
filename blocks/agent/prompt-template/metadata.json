@@ -1,0 +1,27 @@
+{
+  "name": "prompt-template",
+  "category": "agent",
+  "description": "Handlebars-style LLM prompt builder with {{variable}} slot filling, few-shot example injection, multi-role message construction (system/user/assistant), and token estimation.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to construct structured LLM API message arrays (OpenAI-compatible format) from reusable, parameterized templates. Supports dot-notation variable interpolation, few-shot example chaining, and approximate token counting to stay within context limits.",
+  "parameters": [
+    {
+      "name": "system",
+      "type": "string",
+      "required": false,
+      "description": "System prompt template string with {{variable}} placeholders."
+    },
+    {
+      "name": "user",
+      "type": "string",
+      "required": true,
+      "description": "User message template string."
+    },
+    {
+      "name": "vars",
+      "type": "object",
+      "required": false,
+      "description": "Variable map for slot filling."
+    }
+  ]
+}

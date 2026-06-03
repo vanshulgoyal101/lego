@@ -580,6 +580,23 @@ function getComplexity(name) {
     case 'doh-server':
       return { time: 'O(1) request processing overhead', space: 'O(C) active TCP client connections' };
 
+    // ===== agent =====
+    case 'prompt-template':
+      return { time: 'O(T + V × L) template structure length + variables size', space: 'O(T + V)' };
+    case 'tool-registry':
+      return { time: 'O(P) properties schema check on tool registry dispatch', space: 'O(T) registered tools database' };
+    case 'memory-buffer':
+      return { time: 'O(M) memory history buffer truncation evaluation', space: 'O(M) message logs storage' };
+    case 'chain-runner':
+      return { time: 'O(S) steps runner execution count', space: 'O(S) context step tracking maps' };
+    case 'structured-output':
+      return { time: 'O(N) malformed json parse tries', space: 'O(N)' };
+    case 'react-loop':
+      return { time: 'O(I) thought-action iteration loops count', space: 'O(M) agent memory history records' };
+    case 'retrieval-context':
+      return { time: 'O(N × Q) chunk search cosine ranking (N = chunks, Q = query terms)', space: 'O(C) memory chunks data structures' };
+    case 'decision-tree-agent':
+      return { time: 'O(D) rule conditions checks evaluation depth', space: 'O(D)' };
 
     default:
       // Prevent silent errors when new blocks are added to the repo

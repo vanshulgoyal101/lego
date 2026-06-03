@@ -1,5 +1,283 @@
 {
   "blocks": {
+    "agent/chain-runner": {
+      "name": "chain-runner",
+      "category": "agent",
+      "description": "Sequential/branching chain executor for AI agents where each step receives context and returns updated context, with retry, skip, and conditional branching support.",
+      "dependencies": [],
+      "aiPromptContext": "Use chain-runner when you need to orchestrate a series of async operations (LLM calls, API fetches, transforms) in a strict order, where each step can inspect and mutate a shared context object. Ideal for multi-step AI pipelines, agentic workflows, ETL-style data flows, or any scenario requiring structured error recovery (retry/skip) and full execution tracing. Prefer it over raw promise chains or ad-hoc loops when auditability, conditional branching, or per-step retry logic matters.",
+      "parameters": [
+        {
+          "name": "onStep",
+          "type": "Function",
+          "required": false,
+          "description": "Callback invoked after every step with { name, status, ctx, duration, error, attempts }."
+        },
+        {
+          "name": "onError",
+          "type": "Function",
+          "required": false,
+          "description": "Callback invoked on each failed attempt with { name, error, attempt }."
+        }
+      ],
+      "path": "blocks/agent/chain-runner",
+      "files": [
+        "index.js"
+      ]
+    },
+    "agent/decision-tree-agent": {
+      "name": "decision-tree-agent",
+      "category": "agent",
+      "description": "A rule-based decision tree agent that evaluates prioritized condition-action rules against a context object and executes the highest-priority matching action.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need a lightweight, rule-driven dispatch system: route requests, apply business logic, or orchestrate actions based on runtime context without a full workflow engine. Rules have numeric priorities and are evaluated highest-first; the first matching rule wins in evaluate(), while evaluateAll() runs every matching rule. Ideal for chatbot intent routing, feature-flag gating, alert triage, or any scenario where multiple named conditions must be checked in a defined order.",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Unique identifier for a Rule instance."
+        },
+        {
+          "name": "condition",
+          "type": "Function",
+          "required": true,
+          "description": "Synchronous function (ctx) => boolean | truthy — determines whether this rule matches the current context."
+        },
+        {
+          "name": "action",
+          "type": "Function",
+          "required": true,
+          "description": "Async function (ctx) => result — executed when the rule matches; the return value is surfaced in the evaluate/evaluateAll result."
+        },
+        {
+          "name": "priority",
+          "type": "number",
+          "required": false,
+          "description": "Numeric priority for the rule (default 0). Higher values are evaluated before lower values."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "description": "Human-readable description of the rule's intent (default empty string)."
+        },
+        {
+          "name": "onMatch",
+          "type": "Function",
+          "required": false,
+          "description": "DecisionTreeAgent constructor callback — called with { rule, result, ctx } after a successful rule action."
+        },
+        {
+          "name": "onNoMatch",
+          "type": "Function",
+          "required": false,
+          "description": "DecisionTreeAgent constructor callback — called with ctx when no rule matches."
+        }
+      ],
+      "path": "blocks/agent/decision-tree-agent",
+      "files": [
+        "index.js"
+      ]
+    },
+    "agent/memory-buffer": {
+      "name": "memory-buffer",
+      "category": "agent",
+      "description": "Sliding context window memory manager for AI agents that tracks conversation history, estimates token usage, and supports summarization when the context limit is approached.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building AI agents that need to manage a conversation history within a fixed token budget. It handles automatic eviction of old messages (sliding window), provides a summarization hook to compress history, and supports serialization for persistence between sessions. Ideal for chat agents, multi-turn LLM pipelines, or any system where context length must be controlled programmatically.",
+      "parameters": [
+        {
+          "name": "maxTokens",
+          "type": "number",
+          "required": false,
+          "description": "Maximum token budget for the context window. Defaults to 4000."
+        },
+        {
+          "name": "tokenizer",
+          "type": "function",
+          "required": false,
+          "description": "Function that takes a string and returns an estimated token count. Defaults to defaultTokenizer (Math.ceil(text.length / 4))."
+        }
+      ],
+      "path": "blocks/agent/memory-buffer",
+      "files": [
+        "index.js"
+      ]
+    },
+    "agent/prompt-template": {
+      "name": "prompt-template",
+      "category": "agent",
+      "description": "Handlebars-style LLM prompt builder with {{variable}} slot filling, few-shot example injection, multi-role message construction (system/user/assistant), and token estimation.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to construct structured LLM API message arrays (OpenAI-compatible format) from reusable, parameterized templates. Supports dot-notation variable interpolation, few-shot example chaining, and approximate token counting to stay within context limits.",
+      "parameters": [
+        {
+          "name": "system",
+          "type": "string",
+          "required": false,
+          "description": "System prompt template string with {{variable}} placeholders."
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "required": true,
+          "description": "User message template string."
+        },
+        {
+          "name": "vars",
+          "type": "object",
+          "required": false,
+          "description": "Variable map for slot filling."
+        }
+      ],
+      "path": "blocks/agent/prompt-template",
+      "files": [
+        "index.js"
+      ]
+    },
+    "agent/react-loop": {
+      "name": "react-loop",
+      "category": "agent",
+      "description": "ReAct (Reasoning + Acting) loop implementation for AI agents. Runs Thought → Action → Observation cycles with tool dispatch, message history tracking, and configurable max iterations.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to implement the ReAct agent pattern: the LLM reasons about what to do (Thought), calls a tool (Action), observes the result (Observation), and repeats until it produces a Final Answer. Register tools with addTool() and provide an LLM call function.",
+      "parameters": [
+        {
+          "name": "maxIterations",
+          "type": "number",
+          "required": false,
+          "description": "Maximum number of Thought/Action/Observation cycles before halting. Default: 10."
+        },
+        {
+          "name": "onStep",
+          "type": "function",
+          "required": false,
+          "description": "Optional callback invoked after each loop step with the step details."
+        }
+      ],
+      "path": "blocks/agent/react-loop",
+      "files": [
+        "index.js"
+      ]
+    },
+    "agent/retrieval-context": {
+      "name": "retrieval-context",
+      "category": "agent",
+      "description": "Builds retrieval-augmented generation (RAG) context by chunking documents, scoring chunks against a query with TF-IDF cosine similarity, and injecting the top-K results into a prompt.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when you need to implement RAG (retrieval-augmented generation): splitting large text corpora into overlapping chunks, ranking those chunks by relevance to a user query using TF-IDF cosine similarity, and assembling the most relevant chunks into a context string for an LLM prompt. Ideal for question-answering over documents, knowledge-base lookups, and any scenario where you need to ground an LLM response in retrieved text.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "The source text to split into chunks (used by chunkText)."
+        },
+        {
+          "name": "options.chunkSize",
+          "type": "number",
+          "required": false,
+          "description": "Maximum number of characters per chunk (default: 500)."
+        },
+        {
+          "name": "options.overlap",
+          "type": "number",
+          "required": false,
+          "description": "Number of characters to overlap between consecutive chunks (default: 50)."
+        },
+        {
+          "name": "topK",
+          "type": "number",
+          "required": false,
+          "description": "Number of top-scoring chunks to return from search (default: 3)."
+        },
+        {
+          "name": "documents",
+          "type": "Array<string | { id: string, text: string }>",
+          "required": true,
+          "description": "Array of documents (strings or objects) to index in RetrievalContext."
+        },
+        {
+          "name": "query",
+          "type": "string",
+          "required": true,
+          "description": "The search query used to score and retrieve relevant chunks."
+        },
+        {
+          "name": "separator",
+          "type": "string",
+          "required": false,
+          "description": "String separator used to join chunks in buildContext (default: '\\n---\\n')."
+        }
+      ],
+      "path": "blocks/agent/retrieval-context",
+      "files": [
+        "index.js"
+      ]
+    },
+    "agent/structured-output": {
+      "name": "structured-output",
+      "category": "agent",
+      "description": "Parses and validates LLM text outputs that are supposed to be JSON, handling markdown code fences, malformed JSON, schema validation, and retry logic.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block whenever you need to reliably extract structured JSON data from LLM-generated text. It handles common LLM output patterns such as JSON wrapped in markdown code fences, JSON embedded inside prose, and slightly malformed JSON. It also provides lightweight schema validation (required fields, types, enums, numeric bounds) and an optional retry mechanism where a refetch callback is invoked with the current errors so the caller can re-prompt the LLM with corrective instructions.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Raw text output from an LLM that is expected to contain JSON."
+        },
+        {
+          "name": "schema",
+          "type": "object",
+          "required": false,
+          "description": "Optional schema object with 'required' (string[]) and 'properties' ({ [key]: { type, enum, minimum, maximum } }) for validation."
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "required": false,
+          "description": "Options object: { retries: number, refetch: async (errors: string[]) => string }. 'retries' controls how many times to retry, and 'refetch' is an async callback that receives current errors and returns new raw LLM text."
+        }
+      ],
+      "path": "blocks/agent/structured-output",
+      "files": [
+        "index.js"
+      ]
+    },
+    "agent/tool-registry": {
+      "name": "tool-registry",
+      "category": "agent",
+      "description": "A registry for AI agent callable tools with JSON Schema parameter validation, named dispatch, and LLM function-calling compatible listing.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when building an AI agent that needs to register, look up, and invoke tools/functions by name. It handles JSON Schema-style parameter validation (required fields, type checking) and formats the tool list for LLM function-calling APIs such as OpenAI, Anthropic, and Gemini. Ideal for agentic loops where the model returns a tool name + arguments that must be dispatched to real implementations.",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "String",
+          "required": true,
+          "description": "Unique name used to identify and look up the tool."
+        },
+        {
+          "name": "schema",
+          "type": "Object",
+          "required": true,
+          "description": "JSON-Schema-style descriptor containing a description string and a parameters object with type, properties, and required fields."
+        },
+        {
+          "name": "fn",
+          "type": "Function",
+          "required": true,
+          "description": "The tool implementation. Receives the validated args object and may return any value (sync or async)."
+        }
+      ],
+      "path": "blocks/agent/tool-registry",
+      "files": [
+        "index.js"
+      ]
+    },
     "algo/a-star": {
       "name": "a-star",
       "category": "algo",

@@ -1,0 +1,21 @@
+{
+  "name": "chain-runner",
+  "category": "agent",
+  "description": "Sequential/branching chain executor for AI agents where each step receives context and returns updated context, with retry, skip, and conditional branching support.",
+  "dependencies": [],
+  "aiPromptContext": "Use chain-runner when you need to orchestrate a series of async operations (LLM calls, API fetches, transforms) in a strict order, where each step can inspect and mutate a shared context object. Ideal for multi-step AI pipelines, agentic workflows, ETL-style data flows, or any scenario requiring structured error recovery (retry/skip) and full execution tracing. Prefer it over raw promise chains or ad-hoc loops when auditability, conditional branching, or per-step retry logic matters.",
+  "parameters": [
+    {
+      "name": "onStep",
+      "type": "Function",
+      "required": false,
+      "description": "Callback invoked after every step with { name, status, ctx, duration, error, attempts }."
+    },
+    {
+      "name": "onError",
+      "type": "Function",
+      "required": false,
+      "description": "Callback invoked on each failed attempt with { name, error, attempt }."
+    }
+  ]
+}

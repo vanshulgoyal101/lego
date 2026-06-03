@@ -1,0 +1,51 @@
+{
+  "name": "retrieval-context",
+  "category": "agent",
+  "description": "Builds retrieval-augmented generation (RAG) context by chunking documents, scoring chunks against a query with TF-IDF cosine similarity, and injecting the top-K results into a prompt.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need to implement RAG (retrieval-augmented generation): splitting large text corpora into overlapping chunks, ranking those chunks by relevance to a user query using TF-IDF cosine similarity, and assembling the most relevant chunks into a context string for an LLM prompt. Ideal for question-answering over documents, knowledge-base lookups, and any scenario where you need to ground an LLM response in retrieved text.",
+  "parameters": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "The source text to split into chunks (used by chunkText)."
+    },
+    {
+      "name": "options.chunkSize",
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of characters per chunk (default: 500)."
+    },
+    {
+      "name": "options.overlap",
+      "type": "number",
+      "required": false,
+      "description": "Number of characters to overlap between consecutive chunks (default: 50)."
+    },
+    {
+      "name": "topK",
+      "type": "number",
+      "required": false,
+      "description": "Number of top-scoring chunks to return from search (default: 3)."
+    },
+    {
+      "name": "documents",
+      "type": "Array<string | { id: string, text: string }>",
+      "required": true,
+      "description": "Array of documents (strings or objects) to index in RetrievalContext."
+    },
+    {
+      "name": "query",
+      "type": "string",
+      "required": true,
+      "description": "The search query used to score and retrieve relevant chunks."
+    },
+    {
+      "name": "separator",
+      "type": "string",
+      "required": false,
+      "description": "String separator used to join chunks in buildContext (default: '\\n---\\n')."
+    }
+  ]
+}
