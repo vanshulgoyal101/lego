@@ -1,0 +1,8 @@
+{
+  "name": "mp3-id3-parser",
+  "category": "media",
+  "description": "Extracts ID3v1 and ID3v2 tags (title, artist, album, year, genre) from MP3 binary buffers.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to parse ID3v1/ID3v2 metadata from raw MP3 audio buffers.",
+  "parameters": []
+}

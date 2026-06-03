@@ -1,0 +1,8 @@
+{
+  "name": "png-metadata",
+  "category": "media",
+  "description": "Extracts size, dimensions, bit depth, color type, compression method, filter method, interlace method, and text annotations (tEXt) from PNG binary buffers.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to parse details and custom tEXt chunks from a PNG file buffer.",
+  "parameters": []
+}

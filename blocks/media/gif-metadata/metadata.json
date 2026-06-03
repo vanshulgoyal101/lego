@@ -1,0 +1,8 @@
+{
+  "name": "gif-metadata",
+  "category": "media",
+  "description": "Parses Logical Screen Descriptor (width, height, background color index), Global Color Table metadata, and image frames descriptor / delay times from GIF binary buffers.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to parse GIF headers, Global Color Table metadata, and frame delay/dimensions from raw GIF buffers.",
+  "parameters": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "svg-generator",
+  "category": "ui",
+  "description": "Programmatically constructs SVG shapes (rect, circle, line, polygon, path) and attributes, and exports to SVG XML string format.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to generate SVG markup dynamically using standard shapes and properties.",
+  "parameters": []
+}

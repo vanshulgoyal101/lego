@@ -1,0 +1,8 @@
+{
+  "name": "spring-physics",
+  "category": "ui",
+  "description": "A simple mass-spring-damper physics animation tick utility supporting target destination, stiffness, damping, mass, and velocity.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to simulate mass-spring-damper physics animation ticks for UI transitions.",
+  "parameters": []
+}

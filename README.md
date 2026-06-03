@@ -48,7 +48,7 @@ node bin/cli.js add web/fetch-retry --dest ./src/utils
 
 ## Categorized Block Catalog
 
-We have developed **268 production-grade blocks** organized across 22 categories:
+We have developed **274 production-grade blocks** organized across 22 categories:
 
 ### 1. Agent
 * [`agent/chain-runner`](blocks/agent/chain-runner): Sequential/branching chain executor for AI agents where each step receives context and returns updated context, with retry, skip, and conditional branching support.
@@ -208,6 +208,9 @@ We have developed **268 production-grade blocks** organized across 22 categories
 
 ### 10. Media
 * [`media/bmp-encoder`](blocks/media/bmp-encoder): Encodes raw RGB pixel buffers into standard uncompressed 24-bit BMP image byte buffers.
+* [`media/gif-metadata`](blocks/media/gif-metadata): Parses Logical Screen Descriptor (width, height, background color index), Global Color Table metadata, and image frames descriptor / delay times from GIF binary buffers.
+* [`media/mp3-id3-parser`](blocks/media/mp3-id3-parser): Extracts ID3v1 and ID3v2 tags (title, artist, album, year, genre) from MP3 binary buffers.
+* [`media/png-metadata`](blocks/media/png-metadata): Extracts size, dimensions, bit depth, color type, compression method, filter method, interlace method, and text annotations (tEXt) from PNG binary buffers.
 * [`media/wav-decoder`](blocks/media/wav-decoder): Reads and decodes RIFF/WAV audio metadata and raw sample data from binary byte buffers into normalized Float32 arrays.
 
 ### 11. Machine Learning Primitives
@@ -293,9 +296,12 @@ We have developed **268 production-grade blocks** organized across 22 categories
 * [`text/yaml-parser`](blocks/text/yaml-parser): A lightweight YAML 1.2 subset parser supporting scalar strings, booleans, integers, floats, null, multiline strings (literal | and folded >), nested mappings (objects), sequences (arrays), and inline flow syntax. Serializes JavaScript values back to YAML format.
 
 ### 19. UI & Layout Mechanics
+* [`ui/canvas-charts`](blocks/ui/canvas-charts): Programmatic bar, line, and pie chart renderer for HTML Canvas element context based on input options (data, dimensions, colors, labels).
 * [`ui/color-converter`](blocks/ui/color-converter): Color parsing and format space converter (HEX, RGB, HSL) with W3C relative luminance contrast ratio compliance calculations.
 * [`ui/css-parser`](blocks/ui/css-parser): Lightweight CSS parser that parses style sheets into structured rule and declaration objects.
 * [`ui/query-builder`](blocks/ui/query-builder): Safe SQL query string building helper utilizing template placeholders for bind values.
+* [`ui/spring-physics`](blocks/ui/spring-physics): A simple mass-spring-damper physics animation tick utility supporting target destination, stiffness, damping, mass, and velocity.
+* [`ui/svg-generator`](blocks/ui/svg-generator): Programmatically constructs SVG shapes (rect, circle, line, polygon, path) and attributes, and exports to SVG XML string format.
 * [`ui/virtual-dom`](blocks/ui/virtual-dom): A lightweight Virtual DOM and reconciliation engine in pure JavaScript. Features virtual node creation (h/createElement), tree diffing & patch reconciliation, functional components with state and effect hooks (useState, useEffect), and server-side rendering (SSR) to HTML.
 
 ### 20. Utility Helper Functions

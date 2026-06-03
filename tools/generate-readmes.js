@@ -433,19 +433,30 @@ function getComplexity(name) {
     // ===== ui =====
     case 'color-converter':
       return { time: 'O(1) arithmetic conversions', space: 'O(1)' };
-
     case 'query-builder':
       return { time: 'O(C) conditions assembled (C = clause count)', space: 'O(C) query string' };
     case 'virtual-dom':
       return { time: 'O(N) diff/patch (N = tree nodes); O(N) SSR render', space: 'O(N) VNode tree' };
     case 'css-parser':
       return { time: 'O(N) character scanner loops (N = input length)', space: 'O(R + D) rules and declarations' };
+    case 'svg-generator':
+      return { time: 'O(N) shape components rendering', space: 'O(N) SVG XML strings' };
+    case 'spring-physics':
+      return { time: 'O(1) animation physics state update', space: 'O(1)' };
+    case 'canvas-charts':
+      return { time: 'O(N) data items render loops', space: 'O(1)' };
 
     // ===== media =====
     case 'wav-decoder':
       return { time: 'O(S × C) samples × channels parsing iteration', space: 'O(S × C) normalized float channels data' };
     case 'bmp-encoder':
       return { time: 'O(W × H) pixels encoding loop', space: 'O(W × H) binary file buffer' };
+    case 'png-metadata':
+      return { time: 'O(C) chunks scan', space: 'O(1)' };
+    case 'gif-metadata':
+      return { time: 'O(F) frame block scan', space: 'O(F) frame descriptor properties' };
+    case 'mp3-id3-parser':
+      return { time: 'O(T) ID3 tag size parser', space: 'O(T) tag metadata headers' };
 
     // ===== sys =====
     case 'path-resolver':

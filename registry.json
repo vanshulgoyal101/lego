@@ -2667,6 +2667,42 @@
         "index.js"
       ]
     },
+    "media/gif-metadata": {
+      "name": "gif-metadata",
+      "category": "media",
+      "description": "Parses Logical Screen Descriptor (width, height, background color index), Global Color Table metadata, and image frames descriptor / delay times from GIF binary buffers.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse GIF headers, Global Color Table metadata, and frame delay/dimensions from raw GIF buffers.",
+      "parameters": [],
+      "path": "blocks/media/gif-metadata",
+      "files": [
+        "index.js"
+      ]
+    },
+    "media/mp3-id3-parser": {
+      "name": "mp3-id3-parser",
+      "category": "media",
+      "description": "Extracts ID3v1 and ID3v2 tags (title, artist, album, year, genre) from MP3 binary buffers.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse ID3v1/ID3v2 metadata from raw MP3 audio buffers.",
+      "parameters": [],
+      "path": "blocks/media/mp3-id3-parser",
+      "files": [
+        "index.js"
+      ]
+    },
+    "media/png-metadata": {
+      "name": "png-metadata",
+      "category": "media",
+      "description": "Extracts size, dimensions, bit depth, color type, compression method, filter method, interlace method, and text annotations (tEXt) from PNG binary buffers.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to parse details and custom tEXt chunks from a PNG file buffer.",
+      "parameters": [],
+      "path": "blocks/media/png-metadata",
+      "files": [
+        "index.js"
+      ]
+    },
     "media/wav-decoder": {
       "name": "wav-decoder",
       "category": "media",
@@ -3745,6 +3781,18 @@
         "index.js"
       ]
     },
+    "ui/canvas-charts": {
+      "name": "canvas-charts",
+      "category": "ui",
+      "description": "Programmatic bar, line, and pie chart renderer for HTML Canvas element context based on input options (data, dimensions, colors, labels).",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to draw responsive bar, line, and pie charts programmatically onto HTML Canvas 2D contexts.",
+      "parameters": [],
+      "path": "blocks/ui/canvas-charts",
+      "files": [
+        "index.js"
+      ]
+    },
     "ui/color-converter": {
       "name": "color-converter",
       "category": "ui",
@@ -3784,6 +3832,30 @@
         }
       ],
       "path": "blocks/ui/query-builder",
+      "files": [
+        "index.js"
+      ]
+    },
+    "ui/spring-physics": {
+      "name": "spring-physics",
+      "category": "ui",
+      "description": "A simple mass-spring-damper physics animation tick utility supporting target destination, stiffness, damping, mass, and velocity.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to simulate mass-spring-damper physics animation ticks for UI transitions.",
+      "parameters": [],
+      "path": "blocks/ui/spring-physics",
+      "files": [
+        "index.js"
+      ]
+    },
+    "ui/svg-generator": {
+      "name": "svg-generator",
+      "category": "ui",
+      "description": "Programmatically constructs SVG shapes (rect, circle, line, polygon, path) and attributes, and exports to SVG XML string format.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to generate SVG markup dynamically using standard shapes and properties.",
+      "parameters": [],
+      "path": "blocks/ui/svg-generator",
       "files": [
         "index.js"
       ]

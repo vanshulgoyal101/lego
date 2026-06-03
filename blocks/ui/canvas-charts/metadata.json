@@ -1,0 +1,8 @@
+{
+  "name": "canvas-charts",
+  "category": "ui",
+  "description": "Programmatic bar, line, and pie chart renderer for HTML Canvas element context based on input options (data, dimensions, colors, labels).",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to draw responsive bar, line, and pie charts programmatically onto HTML Canvas 2D contexts.",
+  "parameters": []
+}
