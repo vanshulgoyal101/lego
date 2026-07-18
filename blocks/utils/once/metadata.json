@@ -1,0 +1,15 @@
+{
+  "name": "once",
+  "category": "utils",
+  "description": "Wraps a function so it executes only once, caching the first successful result and exposing reset state controls.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block when you need idempotent lazy initialization or one-time setup logic (e.g., bootstrapping clients, singleton factories, attaching listeners) and want repeated calls to return the first computed result without rerunning side effects.",
+  "parameters": [
+    {
+      "name": "fn",
+      "type": "Function",
+      "required": true,
+      "description": "Function to wrap so it runs only once."
+    }
+  ]
+}
