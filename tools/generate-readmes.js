@@ -476,6 +476,8 @@ function getComplexity(name) {
       return { time: 'O(N) object nodes traversed', space: 'O(N) cloned structure' };
     case 'memoize':
       return { time: 'O(1) cache hit; O(F) cache miss (F = wrapped function cost)', space: 'O(K) cached keys' };
+    case 'once':
+      return { time: 'O(1) per invocation after first execution', space: 'O(1) cached first result' };
     case 'object-diff':
       return { time: 'O(N) keys compared recursively (N = total key count)', space: 'O(N) change records' };
     case 'pubsub':

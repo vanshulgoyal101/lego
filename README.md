@@ -48,7 +48,7 @@ node bin/cli.js add web/fetch-retry --dest ./src/utils
 
 ## Categorized Block Catalog
 
-We have developed **274 production-grade blocks** organized across 22 categories:
+We have developed **275 production-grade blocks** organized across 22 categories:
 
 ### 1. Agent
 * [`agent/chain-runner`](blocks/agent/chain-runner): Sequential/branching chain executor for AI agents where each step receives context and returns updated context, with retry, skip, and conditional branching support.
@@ -314,6 +314,7 @@ We have developed **274 production-grade blocks** organized across 22 categories
 * [`utils/flatten`](blocks/utils/flatten): Flattens nested arrays to any depth, with helpers for shallow, deep, and infinite flattening.
 * [`utils/memoize`](blocks/utils/memoize): Memoization utility cache decorator caching function results mapped by argument signatures.
 * [`utils/object-diff`](blocks/utils/object-diff): Computes a structural diff between two nested JavaScript objects. Returns a patch object describing changes: added keys, removed keys, modified values (with from/to), and nested deep changes. Supports applying patches and computing reverse patches.
+* [`utils/once`](blocks/utils/once): Wraps a function so it executes only once, caching the first successful result and exposing reset state controls.
 * [`utils/pick-omit`](blocks/utils/pick-omit): Selects or excludes keys from objects using key lists or predicate functions.
 * [`utils/pubsub`](blocks/utils/pubsub): A lightweight topic-based Publish-Subscribe (PubSub) message bus. Supports wildcard topic matching (*, **), synchronous and asynchronous delivery, message history replay for late subscribers, one-time subscribers, and unsubscription.
 * [`utils/retry`](blocks/utils/retry): A generalized task execution retrier supporting custom delay backoff, jitter, and error conditional triggers.
