@@ -25,6 +25,14 @@ npx lego-cli add crypto/uuid-shortener
 | `uuid` | `string` | ⚠️ Yes | *-* | Standard UUID string sequence to compress. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

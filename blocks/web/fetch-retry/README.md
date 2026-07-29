@@ -28,6 +28,14 @@ npx lego-cli add web/fetch-retry
 | `options.timeout` | `number` | No | `8000` | Abort request after this timeout in milliseconds. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

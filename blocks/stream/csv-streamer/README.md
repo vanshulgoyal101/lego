@@ -25,6 +25,14 @@ npx lego-cli add stream/csv-streamer
 | `options` | `Object` | No | *-* | Configuration options: { delimiter, quote, headers, skipEmptyLines } |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -26,6 +26,14 @@ npx lego-cli add ds/bloom-filter
 | `hashFunctionsCount` | `number` | No | `3` | Total hashes to execute per item. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

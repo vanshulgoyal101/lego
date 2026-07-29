@@ -26,6 +26,14 @@ npx lego-cli add algo/dijkstra
 | `source` | `string|number` | ⚠️ Yes | *-* | The starting node key from which all shortest paths are computed. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

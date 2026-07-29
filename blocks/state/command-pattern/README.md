@@ -25,6 +25,14 @@ npx lego-cli add state/command-pattern
 | `command` | `Object` | ⚠️ Yes | *-* | A command object with execute() and undo() methods, and an optional description string. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

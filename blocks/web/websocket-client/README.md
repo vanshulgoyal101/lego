@@ -27,6 +27,14 @@ npx lego-cli add web/websocket-client
 | `options.heartbeatInterval` | `number` | No | `30000` | Time in milliseconds between ping packets. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

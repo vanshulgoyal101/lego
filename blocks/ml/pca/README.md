@@ -25,6 +25,14 @@ npx lego-cli add ml/pca
 | `nComponents` | `number` | ⚠️ Yes | *-* | Number of dimensions/components to project values into. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

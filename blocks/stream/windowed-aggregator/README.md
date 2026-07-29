@@ -25,6 +25,14 @@ npx lego-cli add stream/windowed-aggregator
 | `options` | `Object` | ⚠️ Yes | *-* | Configuration options: { windowType, windowSizeMs, slideSizeMs, gapSizeMs, timeSelector, valueSelector, aggregateFn } |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

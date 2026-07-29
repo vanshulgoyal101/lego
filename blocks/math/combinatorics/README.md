@@ -27,6 +27,14 @@ npx lego-cli add math/combinatorics
 | `arr` | `Array` | No | *-* | Input array for permutations, combinations, or powerSet |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

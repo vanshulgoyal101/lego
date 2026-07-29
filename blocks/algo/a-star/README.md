@@ -28,6 +28,14 @@ npx lego-cli add algo/a-star
 | `heuristic` | `Function` | No | *-* | Optional heuristic function (a, b) => number. Defaults to Manhattan distance. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -26,6 +26,14 @@ npx lego-cli add utils/date-formatter
 | `formatStr` | `string` | ⚠️ Yes | *-* | Output formatting template pattern (e.g. YYYY-MM-DD). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

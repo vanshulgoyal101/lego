@@ -22,6 +22,14 @@ npx lego-cli add ml/neural-network
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

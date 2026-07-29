@@ -25,6 +25,14 @@ npx lego-cli add compiler/sql-query-parser
 | `sql` | `string` | ⚠️ Yes | *-* | The raw SQL query string to parse. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

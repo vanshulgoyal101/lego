@@ -25,6 +25,14 @@ npx lego-cli add db/wal
 | `logPath` | `string` | ⚠️ Yes | *-* | Path to the append-only log file on disk. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

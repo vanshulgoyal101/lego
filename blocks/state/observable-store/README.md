@@ -25,6 +25,14 @@ npx lego-cli add state/observable-store
 | `initialState` | `Object` | No | *-* | Optional initial key-value state to seed the store on construction. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

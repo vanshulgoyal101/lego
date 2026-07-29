@@ -26,6 +26,14 @@ npx lego-cli add text/csv-parser
 | `delimiter` | `string` | No | `,` | The character cell separator. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

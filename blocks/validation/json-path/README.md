@@ -26,6 +26,14 @@ npx lego-cli add validation/json-path
 | `path` | `string` | ⚠️ Yes | *-* | JSONPath expression string (e.g. '$.store.books[0].title', '$..author', '$.items[*].price'). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

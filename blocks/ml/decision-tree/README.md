@@ -22,6 +22,14 @@ npx lego-cli add ml/decision-tree
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

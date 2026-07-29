@@ -26,6 +26,14 @@ npx lego-cli add utils/template-engine
 | `data` | `object` | ⚠️ Yes | *-* | The data context object whose properties are used to resolve template variables. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

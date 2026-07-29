@@ -26,6 +26,14 @@ npx lego-cli add ml/knn
 | `metric` | `string` | No | *-* | Distance metric lookup: 'euclidean', 'manhattan', or 'chebyshev' (defaults to 'euclidean'). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

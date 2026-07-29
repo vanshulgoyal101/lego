@@ -26,6 +26,14 @@ npx lego-cli add web/sse-client
 | `options` | `Object` | No | *-* | Optional configuration including headers, method, body, and custom reconnect settings. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

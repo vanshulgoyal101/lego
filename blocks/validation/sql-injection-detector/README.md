@@ -22,6 +22,14 @@ npx lego-cli add validation/sql-injection-detector
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

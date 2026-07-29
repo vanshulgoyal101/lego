@@ -26,6 +26,14 @@ npx lego-cli add ml/dbscan
 | `minPts` | `number` | No | *-* | The number of samples in a neighborhood for a point to be considered as a core point (default: 5). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

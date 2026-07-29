@@ -22,6 +22,14 @@ npx lego-cli add web/router
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

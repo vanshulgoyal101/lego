@@ -25,6 +25,14 @@ npx lego-cli add ui/query-builder
 | `table` | `string` | ⚠️ Yes | *-* | Destination database table target name. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

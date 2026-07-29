@@ -26,6 +26,14 @@ npx lego-cli add algo/sorting
 | `comparator` | `Function` | No | *-* | Sort comparator logic function (a, b) => number. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

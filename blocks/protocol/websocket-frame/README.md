@@ -22,6 +22,14 @@ npx lego-cli add protocol/websocket-frame
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

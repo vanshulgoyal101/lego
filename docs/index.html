@@ -36,6 +36,9 @@
         <div class="search-box">
           <span class="search-icon">🔍</span>
           <input type="text" id="search-input" placeholder="Search blocks..." autocomplete="off">
+          <select id="usecase-filter" class="usecase-filter">
+            <option value="all">All use cases</option>
+          </select>
         </div>
         <div class="category-filters" id="category-list">
           <!-- Populated by JavaScript -->
@@ -64,11 +67,20 @@
             <pre><code># List available blocks
 node bin/cli.js list
 
-# View a block's metadata
-node bin/cli.js view web/fetch-retry
+            # Search blocks
+            node bin/cli.js search websocket
+
+            # View a block's metadata
+            node bin/cli.js view web/fetch-retry
 
 # Copy block to target directory
-node bin/cli.js add web/fetch-retry --dest ./src/utils</code></pre>
+node bin/cli.js add web/fetch-retry --dest ./src/utils
+
+# Copy block with README
+node bin/cli.js add web/fetch-retry --dest ./src/utils --with-readme
+
+# Validate registry health
+node bin/cli.js doctor</code></pre>
           </div>
         </div>
 

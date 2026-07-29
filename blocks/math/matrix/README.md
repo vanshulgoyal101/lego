@@ -25,6 +25,14 @@ npx lego-cli add math/matrix
 | `data` | `Array<Array<number>>` | ⚠️ Yes | *-* | 2D array rows and columns values data. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

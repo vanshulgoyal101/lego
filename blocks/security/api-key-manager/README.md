@@ -22,6 +22,14 @@ npx lego-cli add security/api-key-manager
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

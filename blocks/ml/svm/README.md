@@ -26,6 +26,14 @@ npx lego-cli add ml/svm
 | `learningRate` | `number` | No | *-* | Adjustment step size constant (defaults to 0.001). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

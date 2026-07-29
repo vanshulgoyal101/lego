@@ -26,6 +26,14 @@ npx lego-cli add crypto/aes
 | `secret` | `string` | ⚠️ Yes | *-* | The encryption password key. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -22,6 +22,14 @@ npx lego-cli add web/http-client-resilient
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

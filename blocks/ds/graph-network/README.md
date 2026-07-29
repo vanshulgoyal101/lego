@@ -22,6 +22,14 @@ npx lego-cli add ds/graph-network
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

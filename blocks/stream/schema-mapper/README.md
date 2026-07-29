@@ -25,6 +25,14 @@ npx lego-cli add stream/schema-mapper
 | `schema` | `Object` | ⚠️ Yes | *-* | Schema definition mapping fields to types, renames, default values, and custom rules. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

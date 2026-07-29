@@ -26,6 +26,14 @@ npx lego-cli add ds/skip-list
 | `probability` | `number` | No | *-* | Probability factor for level promotion (default 0.5). Controls the trade-off between space and speed. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

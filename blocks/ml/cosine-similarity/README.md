@@ -22,6 +22,14 @@ npx lego-cli add ml/cosine-similarity
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -26,6 +26,14 @@ npx lego-cli add validation/jwt-validator
 | `secret` | `string` | ⚠️ Yes | *-* | The HMAC verification secret key. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

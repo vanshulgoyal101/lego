@@ -26,6 +26,14 @@ npx lego-cli add web/multipart-parser
 | `boundary` | `string` | ⚠️ Yes | *-* | Boundary separation string extracted from the Content-Type header. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -22,6 +22,14 @@ npx lego-cli add observability/span-tracer
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

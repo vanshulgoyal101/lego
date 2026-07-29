@@ -26,6 +26,14 @@ npx lego-cli add ds/sparse-table
 | `mode` | `string` | ⚠️ Yes | *-* | Either 'min' or 'max', determines whether queries return the minimum or maximum over a range. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

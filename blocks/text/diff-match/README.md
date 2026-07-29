@@ -26,6 +26,14 @@ npx lego-cli add text/diff-match
 | `text2` | `string` | ⚠️ Yes | *-* | The modified text string. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

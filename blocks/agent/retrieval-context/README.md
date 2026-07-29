@@ -31,6 +31,14 @@ npx lego-cli add agent/retrieval-context
 | `separator` | `string` | No | *-* | String separator used to join chunks in buildContext (default: '\n---\n'). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

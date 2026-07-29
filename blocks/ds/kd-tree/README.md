@@ -26,6 +26,14 @@ npx lego-cli add ds/kd-tree
 | `dimensions` | `number` | ⚠️ Yes | *-* | Number of dimensions for each coordinate. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

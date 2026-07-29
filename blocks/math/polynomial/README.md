@@ -25,6 +25,14 @@ npx lego-cli add math/polynomial
 | `coefficients` | `number[]` | ⚠️ Yes | *-* | Array of coefficients where index corresponds to degree (coefficients[0] is constant term, coefficients[1] is x^1, etc.) |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -26,6 +26,14 @@ npx lego-cli add validation/date-validator
 | `format` | `string` | No | *-* | Optional date format string (e.g. 'YYYY-MM-DD', 'DD/MM/YYYY', 'MM-DD-YYYY'). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

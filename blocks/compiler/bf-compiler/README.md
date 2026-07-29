@@ -22,6 +22,14 @@ npx lego-cli add compiler/bf-compiler
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

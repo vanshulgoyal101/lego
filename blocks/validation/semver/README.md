@@ -22,6 +22,14 @@ npx lego-cli add validation/semver
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

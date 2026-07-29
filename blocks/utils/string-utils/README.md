@@ -25,6 +25,14 @@ npx lego-cli add utils/string-utils
 | `str` | `string` | ⚠️ Yes | *-* | The input string to transform. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

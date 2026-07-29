@@ -27,6 +27,14 @@ npx lego-cli add async/promise-pool
 | `concurrency` | `number` | ⚠️ Yes | *-* | Maximum number of promises running concurrently. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -26,6 +26,14 @@ npx lego-cli add text/tokenizer
 | `options` | `object` | No | *-* | Options: lowercase (bool), removePunctuation (bool), removeStopWords (string[]) |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

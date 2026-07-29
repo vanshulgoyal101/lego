@@ -26,6 +26,14 @@ npx lego-cli add ds/lru-cache
 | `ttl` | `number` | No | `0` | Item lifetime in milliseconds. 0 represents infinite lifespan. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -26,6 +26,14 @@ npx lego-cli add utils/deep-merge
 | `options` | `object` | No | *-* | Optional configuration: { arrayMerge: 'concat' | 'replace' } (default: 'replace'). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

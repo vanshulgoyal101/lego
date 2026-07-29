@@ -25,6 +25,14 @@ npx lego-cli add text/markdown-compiler
 | `markdown` | `string` | ⚠️ Yes | *-* | The raw markdown text content to compile. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

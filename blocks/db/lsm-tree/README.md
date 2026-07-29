@@ -25,6 +25,14 @@ npx lego-cli add db/lsm-tree
 | `memTableThreshold` | `number` | No | *-* | Maximum number of keys in the MemTable before flushing to SSTable (default: 3). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

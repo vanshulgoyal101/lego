@@ -27,6 +27,14 @@ npx lego-cli add ml/random-forest
 | `criterion` | `string` | No | *-* | The function to measure the quality of a split: 'gini', 'entropy' or 'mse' (default: 'gini'). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -25,6 +25,14 @@ npx lego-cli add ds/consistent-hash
 | `replicas` | `number` | No | *-* | Virtual nodes count mapping per real server node to enforce uniform ring dispersion (defaults to 16). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -22,6 +22,14 @@ npx lego-cli add sys/plugin-loader
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

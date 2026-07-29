@@ -26,6 +26,14 @@ npx lego-cli add web/rate-limiter-token-bucket
 | `refillRate` | `number` | ⚠️ Yes | *-* | Number of tokens added to the bucket per second. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

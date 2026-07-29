@@ -26,6 +26,14 @@ npx lego-cli add algo/quickselect
 | `k` | `number` | ⚠️ Yes | *-* | Zero-based index of the target order statistic (e.g. 0 for minimum, len-1 for maximum). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

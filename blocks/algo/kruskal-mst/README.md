@@ -26,6 +26,14 @@ npx lego-cli add algo/kruskal-mst
 | `edges` | `Array` | ⚠️ Yes | *-* | Array of objects containing { u, v, weight } representing undirected edges. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

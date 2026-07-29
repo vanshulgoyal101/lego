@@ -27,6 +27,14 @@ npx lego-cli add algo/page-rank
 | `iterations` | `number` | No | *-* | Maximum power iterations limit (defaults to 100). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

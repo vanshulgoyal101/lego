@@ -22,6 +22,14 @@ npx lego-cli add db/vector-db
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

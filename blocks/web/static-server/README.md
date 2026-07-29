@@ -26,6 +26,14 @@ npx lego-cli add web/static-server
 | `port` | `number` | No | `3000` | Port to bind the server to. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

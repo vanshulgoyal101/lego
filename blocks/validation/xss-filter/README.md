@@ -22,6 +22,14 @@ npx lego-cli add validation/xss-filter
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

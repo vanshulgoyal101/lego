@@ -22,6 +22,14 @@ npx lego-cli add text/markdown-table
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

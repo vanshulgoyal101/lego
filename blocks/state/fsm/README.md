@@ -27,6 +27,14 @@ npx lego-cli add state/fsm
 | `config.context` | `Object` | No | `[object Object]` | Arbitrary sharing context / payload for guards and actions. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

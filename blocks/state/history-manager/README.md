@@ -26,6 +26,14 @@ npx lego-cli add state/history-manager
 | `initialUrl` | `string` | No | *-* | Optional URL string for the initial history entry. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

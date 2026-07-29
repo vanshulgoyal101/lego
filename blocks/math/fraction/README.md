@@ -26,6 +26,14 @@ npx lego-cli add math/fraction
 | `denominator` | `number` | ⚠️ Yes | *-* | The denominator of the fraction (non-zero integer) |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

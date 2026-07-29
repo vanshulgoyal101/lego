@@ -22,6 +22,14 @@ npx lego-cli add encoding/hex
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

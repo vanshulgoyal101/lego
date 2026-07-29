@@ -22,6 +22,14 @@ npx lego-cli add crypto/scrypt
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

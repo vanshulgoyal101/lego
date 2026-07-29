@@ -26,6 +26,14 @@ npx lego-cli add db/page-cache
 | `pageSize` | `number` | No | *-* | Fixed size of each page in bytes (default: 4096). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

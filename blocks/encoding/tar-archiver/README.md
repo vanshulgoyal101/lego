@@ -22,6 +22,14 @@ npx lego-cli add encoding/tar-archiver
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

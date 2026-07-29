@@ -22,6 +22,14 @@ npx lego-cli add crypto/rc4
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

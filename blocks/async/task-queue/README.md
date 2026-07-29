@@ -25,6 +25,14 @@ npx lego-cli add async/task-queue
 | `concurrency` | `number` | No | *-* | Maximum number of tasks to run in parallel at once. Defaults to 1. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

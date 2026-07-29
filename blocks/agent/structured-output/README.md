@@ -27,6 +27,14 @@ npx lego-cli add agent/structured-output
 | `options` | `object` | No | *-* | Options object: { retries: number, refetch: async (errors: string[]) => string }. 'retries' controls how many times to retry, and 'refetch' is an async callback that receives current errors and returns new raw LLM text. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

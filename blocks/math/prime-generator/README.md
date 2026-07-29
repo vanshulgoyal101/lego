@@ -22,6 +22,14 @@ npx lego-cli add math/prime-generator
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

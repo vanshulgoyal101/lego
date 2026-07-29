@@ -25,6 +25,14 @@ npx lego-cli add validation/mime-detector
 | `buffer` | `Uint8Array` | ⚠️ Yes | *-* | The raw bytes buffer of the file. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

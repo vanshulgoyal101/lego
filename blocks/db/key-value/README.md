@@ -25,6 +25,14 @@ npx lego-cli add db/key-value
 | `options` | `Object` | No | *-* | Configuration: ttlCheckInterval (ms) and custom save/load adapters. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

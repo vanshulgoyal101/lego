@@ -27,6 +27,14 @@ npx lego-cli add algo/kmeans
 | `maxIterations` | `number` | No | `100` | Maximum clustering loop iterations allowed. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

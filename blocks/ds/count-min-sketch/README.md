@@ -26,6 +26,14 @@ npx lego-cli add ds/count-min-sketch
 | `depth` | `number` | ⚠️ Yes | *-* | Row dimensions / amount of hash functions iterations used. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

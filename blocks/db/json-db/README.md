@@ -25,6 +25,14 @@ npx lego-cli add db/json-db
 | `filepath` | `string` | ⚠️ Yes | *-* | The absolute or relative path to the database .json file. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

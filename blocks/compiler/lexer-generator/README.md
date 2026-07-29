@@ -25,6 +25,14 @@ npx lego-cli add compiler/lexer-generator
 | `rules` | `Array` | ⚠️ Yes | *-* | Array of objects containing { type: string, regex: RegExp } token specification guidelines. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

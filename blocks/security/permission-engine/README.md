@@ -22,6 +22,14 @@ npx lego-cli add security/permission-engine
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -25,6 +25,14 @@ npx lego-cli add web/cors-middleware
 | `options` | `object` | No | *-* | Configuration matching origin rules, allowed headers, and methods. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

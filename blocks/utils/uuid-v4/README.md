@@ -22,6 +22,14 @@ npx lego-cli add utils/uuid-v4
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

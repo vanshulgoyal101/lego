@@ -26,6 +26,14 @@ npx lego-cli add math/symbolic-diff
 | `variable` | `string` | No | `x` | The variable with respect to which differentiation is performed. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

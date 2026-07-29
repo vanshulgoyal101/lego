@@ -25,6 +25,14 @@ npx lego-cli add ds/hyperloglog
 | `b` | `number` | No | *-* | Number of precision bits (typically 4 to 16). Higher values reduce error rates but consume more registers memory. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

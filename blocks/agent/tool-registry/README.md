@@ -27,6 +27,14 @@ npx lego-cli add agent/tool-registry
 | `fn` | `Function` | ⚠️ Yes | *-* | The tool implementation. Receives the validated args object and may return any value (sync or async). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

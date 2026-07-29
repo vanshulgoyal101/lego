@@ -27,6 +27,14 @@ npx lego-cli add ds/interval-tree
 | `data` | `any` | No | *-* | Optional arbitrary payload to associate with the interval. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

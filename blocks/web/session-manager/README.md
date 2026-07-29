@@ -25,6 +25,14 @@ npx lego-cli add web/session-manager
 | `secret` | `string` | ⚠️ Yes | *-* | HMAC secret string used to sign cookies values. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

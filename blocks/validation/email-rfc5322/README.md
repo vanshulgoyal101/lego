@@ -25,6 +25,14 @@ npx lego-cli add validation/email-rfc5322
 | `email` | `string` | ⚠️ Yes | *-* | The email address to validate. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

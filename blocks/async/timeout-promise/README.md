@@ -26,6 +26,14 @@ npx lego-cli add async/timeout-promise
 | `ms` | `number` | ⚠️ Yes | *-* | Timeout duration in milliseconds. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

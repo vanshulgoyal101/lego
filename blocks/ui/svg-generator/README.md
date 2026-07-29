@@ -22,6 +22,14 @@ npx lego-cli add ui/svg-generator
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

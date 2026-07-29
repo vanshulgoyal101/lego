@@ -22,6 +22,14 @@ npx lego-cli add media/wav-decoder
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

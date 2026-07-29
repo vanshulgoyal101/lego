@@ -27,6 +27,14 @@ npx lego-cli add crypto/jwt-helper
 | `options.expiresIn` | `number` | No | *-* | Expiration duration in seconds. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -25,6 +25,14 @@ npx lego-cli add stream/batch-processor
 | `options` | `Object` | No | *-* | Configuration options: { maxBatchSize, maxTimeMs, maxByteSize, sizeFn } |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

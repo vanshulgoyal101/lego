@@ -22,6 +22,14 @@ npx lego-cli add math/bigint-fraction
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

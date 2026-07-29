@@ -26,6 +26,14 @@ npx lego-cli add web/doh-client
 | `type` | `string` | No | *-* | DNS record lookup type, such as 'A', 'MX', 'TXT' (defaults to 'A'). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

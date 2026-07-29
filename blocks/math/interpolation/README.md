@@ -26,6 +26,14 @@ npx lego-cli add math/interpolation
 | `x` | `number` | No | *-* | The x-value at which to interpolate |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

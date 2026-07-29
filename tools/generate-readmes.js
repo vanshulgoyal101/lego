@@ -1,27 +1,13 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { findMetadataFiles, readBlockMetadata } from './lib/blocks-index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const ROOT_DIR = path.join(__dirname, '..');
 const BLOCKS_DIR = path.join(ROOT_DIR, 'blocks');
-
-async function findMetadataFiles(dir) {
-  let results = [];
-  const list = await fs.readdir(dir, { withFileTypes: true });
-
-  for (const file of list) {
-    const res = path.resolve(dir, file.name);
-    if (file.isDirectory()) {
-      results = results.concat(await findMetadataFiles(res));
-    } else if (file.name === 'metadata.json') {
-      results.push(res);
-    }
-  }
-  return results;
-}
 
 // Generate runtime compatibility matrix based on category
 function getCompatibility(category) {
@@ -600,6 +586,8 @@ function getComplexity(name) {
       return { time: 'O(H + B) formatting overhead (H = headers, B = body size)', space: 'O(H + B) command string buffer' };
     case 'doh-server':
       return { time: 'O(1) request processing overhead', space: 'O(C) active TCP client connections' };
+    case 'request-deduper':
+      return { time: 'O(1) map lookup for cache and in-flight dedupe', space: 'O(K) active keys where K is cached + in-flight keys' };
 
     // ===== agent =====
     case 'prompt-template':
@@ -618,6 +606,8 @@ function getComplexity(name) {
       return { time: 'O(N × Q) chunk search cosine ranking (N = chunks, Q = query terms)', space: 'O(C) memory chunks data structures' };
     case 'decision-tree-agent':
       return { time: 'O(D) rule conditions checks evaluation depth', space: 'O(D)' };
+    case 'routing-agent':
+      return { time: 'O(R × (K + X + M + E)) route count across keywords/regexes/matchers/examples', space: 'O(R + V) routes plus optional embedding vectors' };
     // ===== observability =====
     case 'span-tracer':
       return { time: 'O(1) span creation and tracking', space: 'O(N) active trace spans stored' };
@@ -680,25 +670,43 @@ function getComplexity(name) {
   }
 }
 
+function resolveCompatibility(metadata, category) {
+  if (metadata.compatibility && typeof metadata.compatibility === 'object') {
+    const c = metadata.compatibility;
+    if (c.browser && c.node && c.deno && c.bun) {
+      return c;
+    }
+  }
+  return getCompatibility(category);
+}
+
+function resolveComplexity(metadata) {
+  if (metadata.complexity && typeof metadata.complexity === 'object') {
+    const c = metadata.complexity;
+    if (c.time && c.space) {
+      return c;
+    }
+  }
+  return getComplexity(metadata.name);
+}
+
 async function generateReadmes() {
   try {
     console.log('Generating Lego Block README files...');
     const metadataPaths = await findMetadataFiles(BLOCKS_DIR);
 
     for (const metaPath of metadataPaths) {
-      const dirPath = path.dirname(metaPath);
-      const relativeDir = path.relative(BLOCKS_DIR, dirPath);
-      const parts = relativeDir.split(path.sep);
-      
-      const category = parts[0];
-      const name = parts.slice(1).join('/');
-      const blockKey = `${category}/${name}`;
+      const block = await readBlockMetadata(metaPath, BLOCKS_DIR);
+      if (!block) {
+        console.warn(`Skipping invalid block structure for metadata file: ${metaPath}`);
+        continue;
+      }
+      const category = block.category;
+      const blockKey = block.blockKey;
+      const metadata = block.metadata;
 
-      const content = await fs.readFile(metaPath, 'utf8');
-      const metadata = JSON.parse(content);
-
-      const comp = getCompatibility(category);
-      const compl = getComplexity(metadata.name);
+      const comp = resolveCompatibility(metadata, category);
+      const compl = resolveComplexity(metadata);
 
       let paramsMarkdown = '*None*';
       if (metadata.parameters && metadata.parameters.length > 0) {
@@ -708,6 +716,16 @@ async function generateReadmes() {
           const def = p.default !== undefined ? `\`${p.default}\`` : '*-*';
           paramsMarkdown += `| \`${p.name}\` | \`${p.type}\` | ${req} | ${def} | ${p.description} |\n`;
         });
+      }
+
+      let tagsMarkdown = '*None*';
+      if (Array.isArray(metadata.tags) && metadata.tags.length > 0) {
+        tagsMarkdown = metadata.tags.map((tag) => `\`${tag}\``).join(', ');
+      }
+
+      let useCasesMarkdown = '*None*';
+      if (Array.isArray(metadata.useCases) && metadata.useCases.length > 0) {
+        useCasesMarkdown = metadata.useCases.map((useCase) => `- ${useCase}`).join('\n');
       }
 
       const readmeContent = `# Lego Block: \`${blockKey}\`
@@ -734,6 +752,14 @@ npx lego-cli add ${blockKey}
 
 ${paramsMarkdown}
 
+### Tags
+
+${tagsMarkdown}
+
+### Use Cases
+
+${useCasesMarkdown}
+
 ---
 
 ## System Compatibility
@@ -759,7 +785,7 @@ ${paramsMarkdown}
 Refer to \`index.js\` inside this folder for full API details.
 `;
 
-      const readmePath = path.join(dirPath, 'README.md');
+      const readmePath = path.join(block.dirPath, 'README.md');
       await fs.writeFile(readmePath, readmeContent, 'utf8');
       console.log(`  + Created: ${path.relative(ROOT_DIR, readmePath)}`);
     }

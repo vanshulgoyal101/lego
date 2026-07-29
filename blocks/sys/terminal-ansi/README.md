@@ -22,6 +22,14 @@ npx lego-cli add sys/terminal-ansi
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

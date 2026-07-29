@@ -28,6 +28,14 @@ npx lego-cli add encoding/binary-codec
 | `bytes` | `number` | No | *-* | Number of bytes to use when encoding an integer (used by toBigEndian, toLittleEndian). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

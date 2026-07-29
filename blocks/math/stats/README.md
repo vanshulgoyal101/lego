@@ -22,6 +22,14 @@ npx lego-cli add math/stats
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -25,6 +25,14 @@ npx lego-cli add algo/floyd-warshall
 | `graph` | `Object` | ⚠️ Yes | *-* | Adjacency list where keys are node IDs and values are arrays of { node, weight } objects. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

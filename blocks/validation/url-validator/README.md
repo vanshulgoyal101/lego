@@ -26,6 +26,14 @@ npx lego-cli add validation/url-validator
 | `options` | `object` | No | *-* | Validation options: requireHttps (bool), allowLocalhost (bool), allowedProtocols (string[]), requireTLD (bool). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

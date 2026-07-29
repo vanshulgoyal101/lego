@@ -22,6 +22,14 @@ npx lego-cli add media/bmp-encoder
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

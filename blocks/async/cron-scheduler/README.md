@@ -22,6 +22,14 @@ npx lego-cli add async/cron-scheduler
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

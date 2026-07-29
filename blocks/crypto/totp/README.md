@@ -26,6 +26,14 @@ npx lego-cli add crypto/totp
 | `options` | `Object` | No | *-* | Configuration: window size, digit length, time step duration (default 30s). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

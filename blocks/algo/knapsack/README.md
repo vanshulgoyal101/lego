@@ -26,6 +26,14 @@ npx lego-cli add algo/knapsack
 | `items` | `Array` | ⚠️ Yes | *-* | Array of items, each with {weight: number, value: number, name?: string}. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

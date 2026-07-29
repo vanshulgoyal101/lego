@@ -22,6 +22,14 @@ npx lego-cli add compiler/parser-generator
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

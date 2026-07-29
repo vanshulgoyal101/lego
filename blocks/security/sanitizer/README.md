@@ -22,6 +22,14 @@ npx lego-cli add security/sanitizer
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

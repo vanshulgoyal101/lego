@@ -28,6 +28,14 @@ npx lego-cli add algo/flood-fill
 | `newValue` | `any` | ⚠️ Yes | *-* | The value to fill the connected region with. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

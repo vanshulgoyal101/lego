@@ -26,6 +26,14 @@ npx lego-cli add utils/throttle
 | `wait` | `number` | ⚠️ Yes | *-* | The window delay in milliseconds. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

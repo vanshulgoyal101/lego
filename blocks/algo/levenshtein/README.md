@@ -26,6 +26,14 @@ npx lego-cli add algo/levenshtein
 | `b` | `string` | ⚠️ Yes | *-* | Second comparison string. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

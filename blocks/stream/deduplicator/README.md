@@ -25,6 +25,14 @@ npx lego-cli add stream/deduplicator
 | `options` | `Object` | No | *-* | Configuration options: { keySelector, ttlMs, maxCacheSize } |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

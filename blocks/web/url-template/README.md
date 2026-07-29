@@ -25,6 +25,14 @@ npx lego-cli add web/url-template
 | `template` | `string` | ⚠️ Yes | *-* | RFC 6570 compliant URI template string. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

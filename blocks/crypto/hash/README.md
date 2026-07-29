@@ -27,6 +27,14 @@ npx lego-cli add crypto/hash
 | `iterations` | `number` | No | `100000` | The PBKDF2 iteration strength parameter. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

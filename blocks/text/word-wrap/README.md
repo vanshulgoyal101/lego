@@ -27,6 +27,14 @@ npx lego-cli add text/word-wrap
 | `options` | `object` | No | *-* | Options: indent (string), cut (bool), preserveNewlines (bool) |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

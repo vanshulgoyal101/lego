@@ -22,6 +22,14 @@ npx lego-cli add observability/perf-profiler
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

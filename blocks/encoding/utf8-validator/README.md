@@ -22,6 +22,14 @@ npx lego-cli add encoding/utf8-validator
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

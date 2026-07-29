@@ -25,6 +25,14 @@ npx lego-cli add ds/cuckoo-filter
 | `capacity` | `number` | No | *-* | The target elements capacity size (defaults to 1000). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -25,6 +25,14 @@ npx lego-cli add ds/rope
 | `text` | `string` | No | *-* | Initial string content to store in the rope (default empty string). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

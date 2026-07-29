@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const welcomeScreen = document.getElementById('welcome-screen');
   const blockDetailScreen = document.getElementById('block-detail');
   const searchInput = document.getElementById('search-input');
+  const useCaseFilter = document.getElementById('usecase-filter');
   const categoryListContainer = document.getElementById('category-list');
   const blocksListContainer = document.getElementById('blocks-list');
   const blocksCountBadge = document.getElementById('blocks-count');
@@ -39,16 +40,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const toast = document.getElementById('toast');
 
   let currentCategory = 'all';
+  let currentUseCase = 'all';
   let searchQuery = '';
   let activeBlockKey = null;
 
   // Extract Categories
   const categories = new Set(['all']);
+  const useCases = new Set(['all']);
   blockKeys.forEach(key => {
     if (database[key].category) {
       categories.add(database[key].category);
     }
+    if (Array.isArray(database[key].useCases)) {
+      database[key].useCases.forEach((useCase) => useCases.add(useCase));
+    }
   });
+
+  function renderUseCaseOptions() {
+    useCaseFilter.innerHTML = '';
+    Array.from(useCases).sort().forEach((useCase) => {
+      const option = document.createElement('option');
+      option.value = useCase;
+      option.textContent = useCase === 'all' ? 'All use cases' : useCase;
+      useCaseFilter.appendChild(option);
+    });
+    useCaseFilter.value = currentUseCase;
+  }
 
   // Render Category Chips
   function renderCategories() {
@@ -74,11 +91,17 @@ document.addEventListener('DOMContentLoaded', () => {
     blockKeys.forEach(key => {
       const block = database[key];
       const matchesCategory = currentCategory === 'all' || block.category === currentCategory;
-      const matchesSearch = block.name.toLowerCase().includes(searchQuery) ||
+      const blockTags = Array.isArray(block.tags) ? block.tags : [];
+      const blockUseCases = Array.isArray(block.useCases) ? block.useCases : [];
+      const matchesUseCase = currentUseCase === 'all' || blockUseCases.includes(currentUseCase);
+      const matchesSearch = key.toLowerCase().includes(searchQuery) ||
+                            block.name.toLowerCase().includes(searchQuery) ||
                             block.description.toLowerCase().includes(searchQuery) ||
-                            block.category.toLowerCase().includes(searchQuery);
+                            block.category.toLowerCase().includes(searchQuery) ||
+                            blockTags.some((tag) => tag.toLowerCase().includes(searchQuery)) ||
+                            blockUseCases.some((useCase) => useCase.toLowerCase().includes(searchQuery));
 
-      if (matchesCategory && matchesSearch) {
+      if (matchesCategory && matchesUseCase && matchesSearch) {
         count++;
         const li = document.createElement('li');
         const btn = document.createElement('button');
@@ -88,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="block-item-name">${key}</span>
           <span class="block-item-desc">${block.description}</span>
           <span class="block-item-cat">${block.category}</span>
+          <span class="block-item-cat">${blockUseCases[0] || 'general'}</span>
         `;
         
         btn.addEventListener('click', () => {
@@ -102,35 +126,26 @@ document.addEventListener('DOMContentLoaded', () => {
     blocksCountBadge.textContent = count;
   }
 
-  // Map Category to Complexity (Fallback matches generate-readmes logic)
-  function getComplexity(name) {
-    const complexities = {
-      'debounce': { time: 'O(1)', space: 'O(1)' },
-      'fetch-retry': { time: 'O(1) per request', space: 'O(1)' },
-      'fsm': { time: 'O(1) state transitions', space: 'O(V + E) memory states' },
-      'priority-queue': { time: 'O(log N) enqueue/dequeue', space: 'O(N) items capacity' },
-      'trie': { time: 'O(L) insert/lookup (L=len)', space: 'O(N * L) prefix nodes' },
-      'api-client': { time: 'O(1) request routing', space: 'O(1)' },
-      'websocket-client': { time: 'O(1) transmissions', space: 'O(M) outbox buffers' },
-      'vector2d': { time: 'O(1) arithmetic', space: 'O(1)' },
-      'matrix': { time: 'O(R * C) operations', space: 'O(R * C)' },
-      'semaphore': { time: 'O(1)', space: 'O(Q) lock task queues' },
-      'event-emitter': { time: 'O(L) triggers', space: 'O(E * L) listeners mapped' },
-      'lru-cache': { time: 'O(1) fast maps access', space: 'O(C) max capacity limit' },
-      'bloom-filter': { time: 'O(K) hash runs (K=functions)', space: 'O(M) memory bit width' },
-      'markdown-parser': { time: 'O(L * R) matching rules', space: 'O(L) output buffer' },
-      'csv-parser': { time: 'O(L) characters loop', space: 'O(L)' },
-      'color-converter': { time: 'O(1)', space: 'O(1)' },
-      'query-builder': { time: 'O(C) parameters parsing', space: 'O(C)' },
-      'router': { time: 'O(R * P) patterns matching', space: 'O(R) routes array' },
-      'cookie-helper': { time: 'O(1)', space: 'O(1)' },
-      'schema-validator': { time: 'O(P) validate schemas', space: 'O(P)' },
-      'promise-pool': { time: 'O(N) task queues mapping', space: 'O(C) concurrent execution' },
-      'sse-client': { time: 'O(1) streams listener', space: 'O(1)' },
-      'ip-validator': { time: 'O(1) checks', space: 'O(1)' },
-      'msgpack': { time: 'O(N) encoding loop', space: 'O(N) buffers output' }
-    };
-    return complexities[name] || { time: 'O(1)', space: 'O(1)' };
+  function getComplexity(block) {
+    if (block.complexity && block.complexity.time && block.complexity.space) {
+      return block.complexity;
+    }
+    return { time: 'Unknown', space: 'Unknown' };
+  }
+
+  function renderCompatibilityBadges(block) {
+    const compatibility = block.compatibility || {};
+    const envs = [
+      ['Browsers', 'Browser'],
+      ['Node.js', 'Node'],
+      ['Deno', 'Deno'],
+      ['Bun', 'Bun']
+    ];
+
+    compatibilityBadges.innerHTML = envs.map(([key, label]) => {
+      const status = compatibility[key] || 'Unknown';
+      return `<span class="badge" style="background-color: var(--success-bg); color: var(--success-color);">${label} ${status === '✅ Supported' ? '✅' : status}</span>`;
+    }).join('');
   }
 
   // Handle Block Selection
@@ -155,20 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
     blockDescription.textContent = block.description;
     
     // Complexities
-    const comp = getComplexity(block.name);
+    const comp = getComplexity(block);
     statTime.textContent = comp.time;
     statSpace.textContent = comp.space;
 
     // CLI text
     cliCommandText.textContent = `node bin/cli.js add ${key}`;
 
-    // Compatibility Badges (Universal default)
-    compatibilityBadges.innerHTML = `
-      <span class="badge" style="background-color: var(--success-bg); color: var(--success-color);">Browser ✅</span>
-      <span class="badge" style="background-color: var(--success-bg); color: var(--success-color);">Node ✅</span>
-      <span class="badge" style="background-color: var(--success-bg); color: var(--success-color);">Deno ✅</span>
-      <span class="badge" style="background-color: var(--success-bg); color: var(--success-color);">Bun ✅</span>
-    `;
+    renderCompatibilityBadges(block);
 
     // Parameters Table
     paramsTableBody.innerHTML = '';
@@ -233,6 +242,11 @@ document.addEventListener('DOMContentLoaded', () => {
     renderBlocksList();
   });
 
+  useCaseFilter.addEventListener('change', (e) => {
+    currentUseCase = e.target.value;
+    renderBlocksList();
+  });
+
   // Tab Navigation Logic
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -267,5 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial render
   renderCategories();
+  renderUseCaseOptions();
   renderBlocksList();
 });

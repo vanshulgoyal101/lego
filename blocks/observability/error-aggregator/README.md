@@ -22,6 +22,14 @@ npx lego-cli add observability/error-aggregator
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

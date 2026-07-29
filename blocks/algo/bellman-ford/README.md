@@ -26,6 +26,14 @@ npx lego-cli add algo/bellman-ford
 | `source` | `string` | ⚠️ Yes | *-* | The starting node ID. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

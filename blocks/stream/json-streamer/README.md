@@ -22,6 +22,14 @@ npx lego-cli add stream/json-streamer
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

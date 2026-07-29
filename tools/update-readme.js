@@ -10,6 +10,8 @@ const REGISTRY_FILE = path.join(ROOT_DIR, 'registry.json');
 const README_FILE = path.join(ROOT_DIR, 'README.md');
 
 const CATEGORY_NAMES = {
+  agent: 'Agent',
+  app: 'Application Helpers',
   algo: 'Algorithms',
   async: 'Asynchronous & Concurrency',
   compiler: 'Compiler & Parsing Primitives',
@@ -18,15 +20,45 @@ const CATEGORY_NAMES = {
   ds: 'Data Structures',
   encoding: 'Compression & Encodings',
   math: 'Mathematics & Calculations',
+  media: 'Media',
   ml: 'Machine Learning Primitives',
+  observability: 'Observability',
   protocol: 'Network Protocols',
+  security: 'Security',
   state: 'State Management',
+  stream: 'Stream Processing',
+  sys: 'System Utilities',
   text: 'Text Processing & Formatter',
   ui: 'UI & Layout Mechanics',
   utils: 'Utility Helper Functions',
   validation: 'Validation & Security Guards',
   web: 'Web & Networking Middleware'
 };
+
+function findSectionBounds(content, startHeading, endHeading) {
+  const startPattern = new RegExp(`^##\\s+${startHeading}\\s*$`, 'm');
+  const endPattern = new RegExp(`^##\\s+${endHeading}\\s*$`, 'm');
+  const startMatch = content.match(startPattern);
+  const endMatch = content.match(endPattern);
+
+  if (!startMatch || !endMatch || startMatch.index === undefined || endMatch.index === undefined) {
+    throw new Error(`Could not find required README headings: "## ${startHeading}" and "## ${endHeading}".`);
+  }
+
+  if (startMatch.index >= endMatch.index) {
+    throw new Error(`README heading order is invalid: "## ${startHeading}" must appear before "## ${endHeading}".`);
+  }
+
+  const startLineEnd = content.indexOf('\n', startMatch.index);
+  if (startLineEnd === -1) {
+    throw new Error(`Invalid README format near heading: "## ${startHeading}".`);
+  }
+
+  return {
+    sectionStart: startLineEnd + 1,
+    sectionEnd: endMatch.index
+  };
+}
 
 async function updateReadme() {
   try {
@@ -71,24 +103,15 @@ async function updateReadme() {
     // 2. Read existing README.md
     const readmeContent = await fs.readFile(README_FILE, 'utf8');
 
-    // Identify placeholders in README
-    const startTag = '## Categorized Block Catalog';
-    const endTag = '## Automated Verification Suite';
-
-    const startIdx = readmeContent.indexOf(startTag);
-    const endIdx = readmeContent.indexOf(endTag);
-
-    if (startIdx === -1 || endIdx === -1) {
-      throw new Error(`Could not find placeholders "${startTag}" or "${endTag}" in README.md`);
-    }
+    const { sectionStart, sectionEnd } = findSectionBounds(
+      readmeContent,
+      'Categorized Block Catalog',
+      'Automated Verification Suite'
+    );
 
     // Build new README content
-    const newReadmeContent = 
-      readmeContent.substring(0, startIdx + startTag.length) + 
-      '\n\n' + 
-      catalogMd.trim() + 
-      '\n\n---\n\n' + 
-      readmeContent.substring(endIdx);
+    const newReadmeContent =
+      `${readmeContent.substring(0, sectionStart)}\n${catalogMd.trim()}\n\n---\n\n${readmeContent.substring(sectionEnd)}`;
 
     await fs.writeFile(README_FILE, newReadmeContent, 'utf8');
     console.log('README.md updated successfully with the latest block catalog!');

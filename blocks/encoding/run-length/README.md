@@ -27,6 +27,14 @@ npx lego-cli add encoding/run-length
 | `str` | `string` | No | *-* | A plain string for text-specific encode/decode variants. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

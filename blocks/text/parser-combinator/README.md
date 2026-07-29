@@ -22,6 +22,14 @@ npx lego-cli add text/parser-combinator
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

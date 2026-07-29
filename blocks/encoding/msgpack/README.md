@@ -25,6 +25,14 @@ npx lego-cli add encoding/msgpack
 | `data` | `any` | ⚠️ Yes | *-* | The data object to encode, or binary buffer to decode. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

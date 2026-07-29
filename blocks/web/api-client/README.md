@@ -26,6 +26,14 @@ npx lego-cli add web/api-client
 | `config.headers` | `Object` | No | *-* | Default headers to send with every request. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

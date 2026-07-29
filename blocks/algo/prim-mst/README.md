@@ -26,6 +26,14 @@ npx lego-cli add algo/prim-mst
 | `startNode` | `string` | No | *-* | Optional starting node ID. If omitted, the first key of the graph object is used. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

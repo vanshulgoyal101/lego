@@ -25,6 +25,14 @@ npx lego-cli add validation/ip-validator
 | `ip` | `string` | ⚠️ Yes | *-* | The IP address string to validate. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

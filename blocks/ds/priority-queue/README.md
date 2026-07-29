@@ -25,6 +25,14 @@ npx lego-cli add ds/priority-queue
 | `comparator` | `Function` | No | *-* | A custom sort comparator function (a, b) => a - b. Negative means 'a' has higher priority. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

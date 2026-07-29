@@ -22,6 +22,14 @@ npx lego-cli add math/numerical-integration
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

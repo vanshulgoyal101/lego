@@ -22,6 +22,14 @@ npx lego-cli add media/png-metadata
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

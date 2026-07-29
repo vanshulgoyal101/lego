@@ -26,6 +26,14 @@ npx lego-cli add crypto/hmac
 | `algorithm` | `string` | No | `SHA-256` | Cryptographic digest hash algorithm (SHA-1, SHA-256, SHA-512). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

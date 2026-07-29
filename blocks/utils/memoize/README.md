@@ -26,6 +26,14 @@ npx lego-cli add utils/memoize
 | `resolver` | `Function` | No | *-* | Custom function to resolve cache keys based on arguments. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

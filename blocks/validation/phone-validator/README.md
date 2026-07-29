@@ -26,6 +26,14 @@ npx lego-cli add validation/phone-validator
 | `countryCode` | `string` | No | *-* | ISO 3166-1 alpha-2 country code (e.g. 'US', 'GB') used as a hint for local numbers. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

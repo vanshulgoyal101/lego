@@ -22,6 +22,14 @@ npx lego-cli add media/gif-metadata
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

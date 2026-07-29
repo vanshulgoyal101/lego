@@ -25,6 +25,14 @@ npx lego-cli add async/semaphore
 | `maxConcurrency` | `number` | ⚠️ Yes | *-* | Maximum number of simultaneous active async operations. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -27,6 +27,14 @@ npx lego-cli add agent/prompt-template
 | `vars` | `object` | No | *-* | Variable map for slot filling. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

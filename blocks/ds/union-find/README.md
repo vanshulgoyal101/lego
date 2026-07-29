@@ -25,6 +25,14 @@ npx lego-cli add ds/union-find
 | `n` | `number` | No | *-* | Optional initial capacity for integer-indexed elements. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

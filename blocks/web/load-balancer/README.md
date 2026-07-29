@@ -22,6 +22,14 @@ npx lego-cli add web/load-balancer
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -22,6 +22,14 @@ npx lego-cli add algo/kmp-search
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

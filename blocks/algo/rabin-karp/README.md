@@ -22,6 +22,14 @@ npx lego-cli add algo/rabin-karp
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

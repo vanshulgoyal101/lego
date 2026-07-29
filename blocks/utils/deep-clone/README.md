@@ -25,6 +25,14 @@ npx lego-cli add utils/deep-clone
 | `value` | `any` | ⚠️ Yes | *-* | The value to deeply clone. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

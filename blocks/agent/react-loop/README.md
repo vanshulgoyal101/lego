@@ -26,6 +26,14 @@ npx lego-cli add agent/react-loop
 | `onStep` | `function` | No | *-* | Optional callback invoked after each loop step with the step details. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

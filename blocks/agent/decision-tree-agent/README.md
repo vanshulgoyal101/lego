@@ -31,6 +31,14 @@ npx lego-cli add agent/decision-tree-agent
 | `onNoMatch` | `Function` | No | *-* | DecisionTreeAgent constructor callback — called with ctx when no rule matches. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

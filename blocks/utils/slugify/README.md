@@ -26,6 +26,14 @@ npx lego-cli add utils/slugify
 | `options` | `object` | No | *-* | Optional configuration: { separator: string, lowercase: boolean, strict: boolean }. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

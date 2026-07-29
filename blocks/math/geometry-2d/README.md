@@ -22,6 +22,14 @@ npx lego-cli add math/geometry-2d
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

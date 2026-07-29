@@ -25,6 +25,14 @@ npx lego-cli add ml/tf-idf
 | `lowercase` | `boolean` | No | *-* | Convert all characters to lowercase before tokenizing (default: true). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

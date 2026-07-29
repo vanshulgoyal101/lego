@@ -27,6 +27,14 @@ npx lego-cli add utils/debounce
 | `options.immediate` | `boolean` | No | `false` | Trigger the function on the leading edge. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

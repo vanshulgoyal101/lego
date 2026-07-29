@@ -22,6 +22,14 @@ npx lego-cli add utils/pubsub
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

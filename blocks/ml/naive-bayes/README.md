@@ -25,6 +25,14 @@ npx lego-cli add ml/naive-bayes
 | `alpha` | `number` | No | *-* | Additive (Laplace) smoothing parameter constant (defaults to 1.0). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

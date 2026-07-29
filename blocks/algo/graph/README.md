@@ -25,6 +25,14 @@ npx lego-cli add algo/graph
 | `directed` | `boolean` | No | `false` | If true, graph edges are unidirectional. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

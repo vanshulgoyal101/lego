@@ -22,6 +22,14 @@ npx lego-cli add validation/password-strength
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

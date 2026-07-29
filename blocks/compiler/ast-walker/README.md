@@ -25,6 +25,14 @@ npx lego-cli add compiler/ast-walker
 | `visitors` | `Object` | ⚠️ Yes | *-* | Callback mapping dictionary for discrete AST nodes: { [nodeType]: (node, walk) => void }. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

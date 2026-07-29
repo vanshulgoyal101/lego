@@ -22,6 +22,14 @@ npx lego-cli add web/cookie-helper
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -22,6 +22,14 @@ npx lego-cli add web/tcp-client-server
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -26,6 +26,14 @@ npx lego-cli add algo/binary-search
 | `target` | `any` | ⚠️ Yes | *-* | The key or element value to locate. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

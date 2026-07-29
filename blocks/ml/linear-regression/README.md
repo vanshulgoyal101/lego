@@ -26,6 +26,14 @@ npx lego-cli add ml/linear-regression
 | `epochs` | `number` | No | *-* | Number of training iterations loops (defaults to 1000). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

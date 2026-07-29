@@ -26,6 +26,14 @@ npx lego-cli add state/signal
 | `fn` | `Function` | ⚠️ Yes | *-* | A computation or effect function that reads signals and is automatically re-run when dependencies change. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

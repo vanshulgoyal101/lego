@@ -27,6 +27,14 @@ npx lego-cli add state/redux-lite
 | `middlewares` | `Array<Function>` | No | *-* | Optional array of Redux-style middleware functions. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

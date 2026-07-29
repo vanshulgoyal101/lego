@@ -26,6 +26,14 @@ npx lego-cli add agent/chain-runner
 | `onError` | `Function` | No | *-* | Callback invoked on each failed attempt with { name, error, attempt }. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -27,6 +27,14 @@ npx lego-cli add math/bit-ops
 | `bits` | `number` | No | *-* | Total bit-width for reverseBits (defaults to 32) |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

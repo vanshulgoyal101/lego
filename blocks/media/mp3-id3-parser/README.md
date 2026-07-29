@@ -22,6 +22,14 @@ npx lego-cli add media/mp3-id3-parser
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -22,6 +22,14 @@ npx lego-cli add sys/cli-builder
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

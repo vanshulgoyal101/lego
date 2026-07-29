@@ -22,6 +22,14 @@ npx lego-cli add security/secret-manager
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

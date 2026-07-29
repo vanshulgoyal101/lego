@@ -22,6 +22,14 @@ npx lego-cli add algo/boyer-moore
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

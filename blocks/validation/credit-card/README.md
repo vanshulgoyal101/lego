@@ -25,6 +25,14 @@ npx lego-cli add validation/credit-card
 | `number` | `string` | ⚠️ Yes | *-* | The credit card number to validate or format (may include spaces or dashes). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

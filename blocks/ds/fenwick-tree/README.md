@@ -25,6 +25,14 @@ npx lego-cli add ds/fenwick-tree
 | `size` | `number` | ⚠️ Yes | *-* | The size/length of the underlying array buffer. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

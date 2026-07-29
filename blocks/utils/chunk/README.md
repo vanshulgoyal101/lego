@@ -26,6 +26,14 @@ npx lego-cli add utils/chunk
 | `size` | `number` | ⚠️ Yes | *-* | The maximum number of elements per chunk. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

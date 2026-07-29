@@ -25,6 +25,14 @@ npx lego-cli add validation/isbn
 | `isbn` | `string` | ⚠️ Yes | *-* | The ISBN string code to validate. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

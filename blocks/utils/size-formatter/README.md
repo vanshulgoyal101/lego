@@ -26,6 +26,14 @@ npx lego-cli add utils/size-formatter
 | `decimals` | `number` | No | *-* | Number of decimal places in the output (default: 2). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

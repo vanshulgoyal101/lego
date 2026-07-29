@@ -26,6 +26,14 @@ npx lego-cli add utils/flatten
 | `depth` | `number` | No | *-* | How many levels deep to flatten (default: 1). Use Infinity for full depth. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

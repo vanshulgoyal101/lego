@@ -26,6 +26,14 @@ npx lego-cli add compiler/json-schema-validator
 | `data` | `any` | ⚠️ Yes | *-* | Input data value to validate. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

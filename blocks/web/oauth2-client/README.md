@@ -22,6 +22,14 @@ npx lego-cli add web/oauth2-client
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

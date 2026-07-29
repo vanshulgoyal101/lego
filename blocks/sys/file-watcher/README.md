@@ -22,6 +22,14 @@ npx lego-cli add sys/file-watcher
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -26,6 +26,14 @@ npx lego-cli add algo/lcs
 | `b` | `string|Array` | ⚠️ Yes | *-* | Second sequence (string or array) to compare. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

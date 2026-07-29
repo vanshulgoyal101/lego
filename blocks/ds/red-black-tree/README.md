@@ -22,6 +22,14 @@ npx lego-cli add ds/red-black-tree
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

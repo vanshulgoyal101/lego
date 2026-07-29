@@ -26,6 +26,14 @@ npx lego-cli add math/vector2d
 | `y` | `number` | No | `0` | Y-axis value coordinate. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

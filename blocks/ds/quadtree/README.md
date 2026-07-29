@@ -26,6 +26,14 @@ npx lego-cli add ds/quadtree
 | `capacity` | `number` | No | *-* | Maximum points allowable per node before splitting. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

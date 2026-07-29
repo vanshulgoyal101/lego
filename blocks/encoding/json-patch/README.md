@@ -28,6 +28,14 @@ npx lego-cli add encoding/json-patch
 | `modified` | `Object` | No | *-* | The modified document to compare against original (used by diff()). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

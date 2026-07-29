@@ -22,6 +22,14 @@ npx lego-cli add text/json5-parser
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

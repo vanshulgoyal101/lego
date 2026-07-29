@@ -22,6 +22,14 @@ npx lego-cli add protocol/grpc-encoder
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

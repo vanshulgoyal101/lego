@@ -216,6 +216,38 @@
         "index.js"
       ]
     },
+    "agent/routing-agent": {
+      "name": "routing-agent",
+      "category": "agent",
+      "description": "A routing agent that classifies user prompts and messages, directing them to specialized sub-agents, tools, or handlers using keyword matching, regex rules, custom scoring functions, or semantic vector comparison.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block to build prompt classifiers, intent routers, or multi-agent orchestrator dispatchers in pure JavaScript.",
+      "parameters": [
+        {
+          "name": "options.defaultRoute",
+          "type": "string",
+          "required": false,
+          "description": "Fallback route when no strategy matches."
+        },
+        {
+          "name": "options.embedder",
+          "type": "(text: string) => Promise<number[]>",
+          "required": false,
+          "description": "Async embedding function used for semantic routing."
+        },
+        {
+          "name": "options.similarityThreshold",
+          "type": "number",
+          "default": 0.7,
+          "required": false,
+          "description": "Minimum cosine similarity required for semantic route selection."
+        }
+      ],
+      "path": "blocks/agent/routing-agent",
+      "files": [
+        "index.js"
+      ]
+    },
     "agent/structured-output": {
       "name": "structured-output",
       "category": "agent",
@@ -851,6 +883,1965 @@
       "aiPromptContext": "Use this block to find the exact shortest path visiting all nodes/cities in a graph and returning to the start.",
       "parameters": [],
       "path": "blocks/algo/tsp-solver",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/batch-promises": {
+      "name": "batch-promises",
+      "category": "app",
+      "description": "Runs async work in fixed-size batches to control burst load.",
+      "dependencies": [],
+      "aiPromptContext": "Use for rate-safe migrations and large batch processing jobs.",
+      "parameters": [
+        {
+          "name": "items",
+          "type": "any[]",
+          "required": true,
+          "description": "Input items."
+        },
+        {
+          "name": "batchSize",
+          "type": "number",
+          "required": true,
+          "description": "Concurrent batch size."
+        },
+        {
+          "name": "worker",
+          "type": "(item) => Promise<any>",
+          "required": true,
+          "description": "Async worker."
+        }
+      ],
+      "tags": [
+        "async",
+        "batch"
+      ],
+      "useCases": [
+        "Bulk API jobs",
+        "Migration pipelines"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(B) where B is batch size"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/batch-promises",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/chunk-while": {
+      "name": "chunk-while",
+      "category": "app",
+      "description": "Chunks list while consecutive items satisfy relation predicate.",
+      "dependencies": [],
+      "aiPromptContext": "Use for run-length style grouping and stream post-processing.",
+      "parameters": [
+        {
+          "name": "items",
+          "type": "any[]",
+          "required": true,
+          "description": "Input list."
+        },
+        {
+          "name": "isSameGroup",
+          "type": "(prev, curr) => boolean",
+          "required": true,
+          "description": "Grouping predicate."
+        }
+      ],
+      "tags": [
+        "array",
+        "grouping"
+      ],
+      "useCases": [
+        "Sessionization",
+        "Consecutive grouping"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/chunk-while",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/compact": {
+      "name": "compact",
+      "category": "app",
+      "description": "Removes nullish values from an array.",
+      "dependencies": [],
+      "aiPromptContext": "Use after mapping operations that can emit null/undefined placeholders.",
+      "parameters": [
+        {
+          "name": "items",
+          "type": "any[]",
+          "required": true,
+          "description": "Input items."
+        }
+      ],
+      "tags": [
+        "array",
+        "cleanup"
+      ],
+      "useCases": [
+        "Data cleanup",
+        "Transform pipelines"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/compact",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/create-latch": {
+      "name": "create-latch",
+      "category": "app",
+      "description": "Creates a countdown latch that resolves when count reaches zero.",
+      "dependencies": [],
+      "aiPromptContext": "Use to coordinate multiple async completions before progressing.",
+      "parameters": [
+        {
+          "name": "count",
+          "type": "number",
+          "required": true,
+          "description": "Initial required count."
+        }
+      ],
+      "tags": [
+        "async",
+        "coordination"
+      ],
+      "useCases": [
+        "Batch coordination",
+        "Concurrent setup gates"
+      ],
+      "complexity": {
+        "time": "O(1) per decrement",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/create-latch",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/csv-escape": {
+      "name": "csv-escape",
+      "category": "app",
+      "description": "Escapes values for safe CSV column output.",
+      "dependencies": [],
+      "aiPromptContext": "Use for CSV exports to handle commas, quotes, and newlines safely.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "any",
+          "required": true,
+          "description": "Cell value."
+        }
+      ],
+      "tags": [
+        "csv",
+        "encoding"
+      ],
+      "useCases": [
+        "CSV exports",
+        "Spreadsheet interoperability"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/csv-escape",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/deep-freeze": {
+      "name": "deep-freeze",
+      "category": "app",
+      "description": "Recursively freezes objects and arrays to enforce runtime immutability.",
+      "dependencies": [],
+      "aiPromptContext": "Use when guarding immutable configs and constants from accidental mutation.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "any",
+          "required": true,
+          "description": "Object/array/value to freeze."
+        }
+      ],
+      "tags": [
+        "immutability",
+        "object"
+      ],
+      "useCases": [
+        "Immutable configs",
+        "Defensive programming"
+      ],
+      "complexity": {
+        "time": "O(N) visited object nodes",
+        "space": "O(D) recursion depth"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/deep-freeze",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/defer": {
+      "name": "defer",
+      "category": "app",
+      "description": "Creates deferred promise controls (promise, resolve, reject).",
+      "dependencies": [],
+      "aiPromptContext": "Use when integrating callback/event APIs into promise workflows.",
+      "parameters": [],
+      "tags": [
+        "async",
+        "promise"
+      ],
+      "useCases": [
+        "Bridging callbacks",
+        "Test synchronization"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/defer",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/elapsed-timer": {
+      "name": "elapsed-timer",
+      "category": "app",
+      "description": "High-resolution elapsed timer utility for performance measurements.",
+      "dependencies": [],
+      "aiPromptContext": "Use for lightweight instrumentation around critical code paths.",
+      "parameters": [],
+      "tags": [
+        "observability",
+        "performance"
+      ],
+      "useCases": [
+        "Latency measurement",
+        "Profiling checkpoints"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/elapsed-timer",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/email-basic": {
+      "name": "email-basic",
+      "category": "app",
+      "description": "Performs pragmatic email format validation for user input.",
+      "dependencies": [],
+      "aiPromptContext": "Use for signup/contact forms where strict RFC parsing is unnecessary.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true,
+          "description": "Email candidate."
+        }
+      ],
+      "tags": [
+        "validation",
+        "email"
+      ],
+      "useCases": [
+        "Form validation",
+        "Contact info checks"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/email-basic",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/ensure-array": {
+      "name": "ensure-array",
+      "category": "app",
+      "description": "Normalizes any input into an array form.",
+      "dependencies": [],
+      "aiPromptContext": "Use when APIs allow a value or list and your pipeline expects arrays.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "any",
+          "required": true,
+          "description": "Value to normalize."
+        }
+      ],
+      "tags": [
+        "normalization",
+        "array"
+      ],
+      "useCases": [
+        "Config normalization",
+        "Input adaptation"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/ensure-array",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/ensure-boolean": {
+      "name": "ensure-boolean",
+      "category": "app",
+      "description": "Parses booleans from native values and common string forms.",
+      "dependencies": [],
+      "aiPromptContext": "Use for env flags and query params that can arrive as strings.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "any",
+          "required": true,
+          "description": "Value to parse."
+        },
+        {
+          "name": "fallback",
+          "type": "boolean",
+          "default": "false",
+          "description": "Fallback for ambiguous input."
+        }
+      ],
+      "tags": [
+        "normalization",
+        "boolean"
+      ],
+      "useCases": [
+        "Feature flags",
+        "Query parsing"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/ensure-boolean",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/ensure-date": {
+      "name": "ensure-date",
+      "category": "app",
+      "description": "Normalizes date-like input into a valid Date instance or null.",
+      "dependencies": [],
+      "aiPromptContext": "Use for ingestion pipelines that parse optional timestamps from mixed formats.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "any",
+          "required": true,
+          "description": "Date-like input."
+        }
+      ],
+      "tags": [
+        "date",
+        "normalization"
+      ],
+      "useCases": [
+        "Timestamp normalization",
+        "Data ingestion"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/ensure-date",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/ensure-number": {
+      "name": "ensure-number",
+      "category": "app",
+      "description": "Converts numeric-like input into finite numbers with fallback.",
+      "dependencies": [],
+      "aiPromptContext": "Use for user/env input parsing where invalid numbers should not break flow.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "any",
+          "required": true,
+          "description": "Value to parse."
+        },
+        {
+          "name": "fallback",
+          "type": "number",
+          "default": "0",
+          "description": "Fallback for invalid input."
+        }
+      ],
+      "tags": [
+        "normalization",
+        "number"
+      ],
+      "useCases": [
+        "Env parsing",
+        "Form processing"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/ensure-number",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/ensure-object": {
+      "name": "ensure-object",
+      "category": "app",
+      "description": "Returns a plain object fallback when input is not an object.",
+      "dependencies": [],
+      "aiPromptContext": "Use when consuming weakly-typed JSON where object shape is not guaranteed.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "any",
+          "required": true,
+          "description": "Value to validate."
+        },
+        {
+          "name": "fallback",
+          "type": "object",
+          "default": "{}",
+          "description": "Fallback object."
+        }
+      ],
+      "tags": [
+        "normalization",
+        "object"
+      ],
+      "useCases": [
+        "Payload normalization",
+        "Safe config handling"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/ensure-object",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/ensure-string": {
+      "name": "ensure-string",
+      "category": "app",
+      "description": "Converts input to string with fallback for nullish values.",
+      "dependencies": [],
+      "aiPromptContext": "Use for logging and templating paths that require a guaranteed string value.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "any",
+          "required": true,
+          "description": "Value to stringify."
+        },
+        {
+          "name": "fallback",
+          "type": "string",
+          "default": "''",
+          "description": "Fallback string."
+        }
+      ],
+      "tags": [
+        "normalization",
+        "string"
+      ],
+      "useCases": [
+        "Logging",
+        "Template variables"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/ensure-string",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/finite-number": {
+      "name": "finite-number",
+      "category": "app",
+      "description": "Validates numeric finite values.",
+      "dependencies": [],
+      "aiPromptContext": "Use to reject NaN/Infinity inputs in math and pricing paths.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "any",
+          "required": true,
+          "description": "Input value."
+        }
+      ],
+      "tags": [
+        "validation",
+        "number"
+      ],
+      "useCases": [
+        "Numerical input validation",
+        "Financial calculations"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/finite-number",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/format-bytes": {
+      "name": "format-bytes",
+      "category": "app",
+      "description": "Formats byte counts into readable units.",
+      "dependencies": [],
+      "aiPromptContext": "Use for dashboards and logs that display file/memory sizes.",
+      "parameters": [
+        {
+          "name": "bytes",
+          "type": "number",
+          "required": true,
+          "description": "Raw bytes."
+        },
+        {
+          "name": "decimals",
+          "type": "number",
+          "default": 2,
+          "description": "Decimal precision."
+        }
+      ],
+      "tags": [
+        "formatting",
+        "display"
+      ],
+      "useCases": [
+        "Metrics UI",
+        "Storage reporting"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/format-bytes",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/format-duration": {
+      "name": "format-duration",
+      "category": "app",
+      "description": "Formats milliseconds into compact human-readable duration.",
+      "dependencies": [],
+      "aiPromptContext": "Use for user-facing timers and latency summaries.",
+      "parameters": [
+        {
+          "name": "ms",
+          "type": "number",
+          "required": true,
+          "description": "Milliseconds."
+        }
+      ],
+      "tags": [
+        "time",
+        "display"
+      ],
+      "useCases": [
+        "Latency reporting",
+        "Job timing display"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/format-duration",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/group-by": {
+      "name": "group-by",
+      "category": "app",
+      "description": "Groups array items by a key selector.",
+      "dependencies": [],
+      "aiPromptContext": "Use for report generation and aggregation pre-processing.",
+      "parameters": [
+        {
+          "name": "items",
+          "type": "any[]",
+          "required": true,
+          "description": "Items list."
+        },
+        {
+          "name": "selector",
+          "type": "(item) => string",
+          "required": true,
+          "description": "Group key selector."
+        }
+      ],
+      "tags": [
+        "array",
+        "aggregation"
+      ],
+      "useCases": [
+        "Analytics grouping",
+        "Batch partitioning"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/group-by",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/headers-normalize": {
+      "name": "headers-normalize",
+      "category": "app",
+      "description": "Normalizes HTTP headers into lowercase key map.",
+      "dependencies": [],
+      "aiPromptContext": "Use for case-insensitive header lookups in adapters and middleware.",
+      "parameters": [
+        {
+          "name": "headers",
+          "type": "Record<string,string>",
+          "required": true,
+          "description": "Header map."
+        }
+      ],
+      "tags": [
+        "web",
+        "http"
+      ],
+      "useCases": [
+        "HTTP middleware",
+        "Proxy adapters"
+      ],
+      "complexity": {
+        "time": "O(H)",
+        "space": "O(H)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/headers-normalize",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/http-error": {
+      "name": "http-error",
+      "category": "app",
+      "description": "Structured HTTP error type with status and machine-readable code.",
+      "dependencies": [],
+      "aiPromptContext": "Use for consistent API errors in handlers and service layers.",
+      "parameters": [],
+      "tags": [
+        "web",
+        "error-handling"
+      ],
+      "useCases": [
+        "API response errors",
+        "Service error propagation"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/http-error",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/idempotency-key": {
+      "name": "idempotency-key",
+      "category": "app",
+      "description": "Generates deterministic idempotency keys from operation data.",
+      "dependencies": [],
+      "aiPromptContext": "Use for payment/order APIs that must deduplicate repeated submissions.",
+      "parameters": [
+        {
+          "name": "parts",
+          "type": "Array<string|number|boolean>",
+          "required": true,
+          "description": "Deterministic parts."
+        }
+      ],
+      "tags": [
+        "web",
+        "idempotency"
+      ],
+      "useCases": [
+        "Payment dedupe",
+        "Request replay safety"
+      ],
+      "complexity": {
+        "time": "O(N) serialized length",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/idempotency-key",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/iso-date": {
+      "name": "iso-date",
+      "category": "app",
+      "description": "Checks whether a string is a strict ISO-8601 timestamp.",
+      "dependencies": [],
+      "aiPromptContext": "Use for validating timestamp fields before DB inserts.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true,
+          "description": "Timestamp string."
+        }
+      ],
+      "tags": [
+        "validation",
+        "date"
+      ],
+      "useCases": [
+        "Payload timestamp checks",
+        "ETL validation"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/iso-date",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/key-by": {
+      "name": "key-by",
+      "category": "app",
+      "description": "Indexes array items by unique key selector.",
+      "dependencies": [],
+      "aiPromptContext": "Use to build O(1) lookup maps from list data.",
+      "parameters": [
+        {
+          "name": "items",
+          "type": "any[]",
+          "required": true,
+          "description": "Items list."
+        },
+        {
+          "name": "selector",
+          "type": "(item) => string",
+          "required": true,
+          "description": "Index key selector."
+        }
+      ],
+      "tags": [
+        "array",
+        "indexing"
+      ],
+      "useCases": [
+        "ID lookup maps",
+        "Caching arrays by key"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/key-by",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/log-context": {
+      "name": "log-context",
+      "category": "app",
+      "description": "Builds immutable structured log context with chained key merges.",
+      "dependencies": [],
+      "aiPromptContext": "Use for request-scoped metadata enrichment across service boundaries.",
+      "parameters": [],
+      "tags": [
+        "observability",
+        "logging"
+      ],
+      "useCases": [
+        "Request tracing",
+        "Consistent structured logs"
+      ],
+      "complexity": {
+        "time": "O(K) merge keys",
+        "space": "O(K)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/log-context",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/map-keys": {
+      "name": "map-keys",
+      "category": "app",
+      "description": "Maps object keys while preserving values.",
+      "dependencies": [],
+      "aiPromptContext": "Use for converting schema key formats (snake_case to camelCase etc).",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "object",
+          "required": true,
+          "description": "Source object."
+        },
+        {
+          "name": "mapper",
+          "type": "(key, value) => string",
+          "required": true,
+          "description": "Key transform fn."
+        }
+      ],
+      "tags": [
+        "object",
+        "transform"
+      ],
+      "useCases": [
+        "Schema migration",
+        "API adaptation"
+      ],
+      "complexity": {
+        "time": "O(K) keys",
+        "space": "O(K)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/map-keys",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/map-values": {
+      "name": "map-values",
+      "category": "app",
+      "description": "Maps object values while preserving keys.",
+      "dependencies": [],
+      "aiPromptContext": "Use for object projections where key set remains unchanged.",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "object",
+          "required": true,
+          "description": "Source object."
+        },
+        {
+          "name": "mapper",
+          "type": "(value, key) => any",
+          "required": true,
+          "description": "Value transform fn."
+        }
+      ],
+      "tags": [
+        "object",
+        "transform"
+      ],
+      "useCases": [
+        "DTO transforms",
+        "Config migrations"
+      ],
+      "complexity": {
+        "time": "O(K) keys",
+        "space": "O(K)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/map-values",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/non-empty-string": {
+      "name": "non-empty-string",
+      "category": "app",
+      "description": "Validates that input is a non-empty trimmed string.",
+      "dependencies": [],
+      "aiPromptContext": "Use for request validation and command argument guards.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "any",
+          "required": true,
+          "description": "Input value."
+        }
+      ],
+      "tags": [
+        "validation",
+        "string"
+      ],
+      "useCases": [
+        "API payload validation",
+        "CLI arg checks"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/non-empty-string",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/omit-undefined": {
+      "name": "omit-undefined",
+      "category": "app",
+      "description": "Alias-like helper that strips undefined fields recursively from plain objects.",
+      "dependencies": [],
+      "aiPromptContext": "Use when serializing clean JSON payloads without undefined noise.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "any",
+          "required": true,
+          "description": "Input value."
+        }
+      ],
+      "tags": [
+        "object",
+        "cleanup"
+      ],
+      "useCases": [
+        "JSON serialization",
+        "Cache payload cleanup"
+      ],
+      "complexity": {
+        "time": "O(N) traversed fields",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/omit-undefined",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/once-async": {
+      "name": "once-async",
+      "category": "app",
+      "description": "Wraps an async function so only the first invocation executes.",
+      "dependencies": [],
+      "aiPromptContext": "Use for singleton initialization (DB connections, model warmups).",
+      "parameters": [
+        {
+          "name": "fn",
+          "type": "(...args) => Promise<any>",
+          "required": true,
+          "description": "Async function."
+        }
+      ],
+      "tags": [
+        "async",
+        "control-flow"
+      ],
+      "useCases": [
+        "Singleton init",
+        "Idempotent startup"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/once-async",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/parse-bytes": {
+      "name": "parse-bytes",
+      "category": "app",
+      "description": "Parses human byte strings like \"10MB\" into numeric bytes.",
+      "dependencies": [],
+      "aiPromptContext": "Use for config parsing of size limits and memory thresholds.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "string",
+          "required": true,
+          "description": "Byte string."
+        }
+      ],
+      "tags": [
+        "formatting",
+        "parsing"
+      ],
+      "useCases": [
+        "Config limits",
+        "Storage quotas"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/parse-bytes",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/parse-duration": {
+      "name": "parse-duration",
+      "category": "app",
+      "description": "Parses durations like \"2h 30m\" into milliseconds.",
+      "dependencies": [],
+      "aiPromptContext": "Use for retry/backoff/TTL config parsing from human-readable strings.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "string",
+          "required": true,
+          "description": "Duration string."
+        }
+      ],
+      "tags": [
+        "time",
+        "parsing"
+      ],
+      "useCases": [
+        "TTL parsing",
+        "Schedule config"
+      ],
+      "complexity": {
+        "time": "O(T) token count",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/parse-duration",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/partition": {
+      "name": "partition",
+      "category": "app",
+      "description": "Splits array into [pass, fail] based on predicate.",
+      "dependencies": [],
+      "aiPromptContext": "Use when filtering both matching and non-matching records in one pass.",
+      "parameters": [
+        {
+          "name": "items",
+          "type": "any[]",
+          "required": true,
+          "description": "Items list."
+        },
+        {
+          "name": "predicate",
+          "type": "(item) => boolean",
+          "required": true,
+          "description": "Partition predicate."
+        }
+      ],
+      "tags": [
+        "array",
+        "filtering"
+      ],
+      "useCases": [
+        "Validation routing",
+        "Quality pipelines"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/partition",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/pick-defined": {
+      "name": "pick-defined",
+      "category": "app",
+      "description": "Creates object copy containing only keys with non-undefined values.",
+      "dependencies": [],
+      "aiPromptContext": "Use for building compact payloads where undefined keys should be omitted.",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "object",
+          "required": true,
+          "description": "Source object."
+        }
+      ],
+      "tags": [
+        "object",
+        "cleanup"
+      ],
+      "useCases": [
+        "Patch payloads",
+        "Optional update fields"
+      ],
+      "complexity": {
+        "time": "O(K) keys",
+        "space": "O(K)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/pick-defined",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/query-params": {
+      "name": "query-params",
+      "category": "app",
+      "description": "Builds and parses URL query strings with repeated key support.",
+      "dependencies": [],
+      "aiPromptContext": "Use for API clients and frontends that need stable query serialization.",
+      "parameters": [],
+      "tags": [
+        "web",
+        "url"
+      ],
+      "useCases": [
+        "HTTP client query handling",
+        "Route state serialization"
+      ],
+      "complexity": {
+        "time": "O(K) key-value pairs",
+        "space": "O(K)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/query-params",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/redact-secrets": {
+      "name": "redact-secrets",
+      "category": "app",
+      "description": "Redacts sensitive token-like fields from objects and strings.",
+      "dependencies": [],
+      "aiPromptContext": "Use before logging payloads to avoid leaking credentials.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "any",
+          "required": true,
+          "description": "Input to redact."
+        },
+        {
+          "name": "keys",
+          "type": "string[]",
+          "default": "['password','token','secret','apiKey','authorization']",
+          "description": "Sensitive key names."
+        }
+      ],
+      "tags": [
+        "security",
+        "logging"
+      ],
+      "useCases": [
+        "Safe logging",
+        "Audit event sanitization"
+      ],
+      "complexity": {
+        "time": "O(N) traversed fields",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/redact-secrets",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/retry-after": {
+      "name": "retry-after",
+      "category": "app",
+      "description": "Parses Retry-After header values into milliseconds.",
+      "dependencies": [],
+      "aiPromptContext": "Use in resilient clients to honor server rate-limit backoff hints.",
+      "parameters": [
+        {
+          "name": "retryAfter",
+          "type": "string",
+          "required": true,
+          "description": "Retry-After header value."
+        }
+      ],
+      "tags": [
+        "web",
+        "rate-limit"
+      ],
+      "useCases": [
+        "Rate-limit backoff",
+        "HTTP retry scheduling"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/retry-after",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/retry-jitter": {
+      "name": "retry-jitter",
+      "category": "app",
+      "description": "Retries async operations with exponential backoff and jitter.",
+      "dependencies": [],
+      "aiPromptContext": "Use for resilient remote calls where burst retries can amplify outages.",
+      "parameters": [
+        {
+          "name": "fn",
+          "type": "() => Promise<any>",
+          "required": true,
+          "description": "Operation."
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "required": false,
+          "description": "Retry options."
+        }
+      ],
+      "tags": [
+        "async",
+        "resilience"
+      ],
+      "useCases": [
+        "HTTP retries",
+        "Queue worker resilience"
+      ],
+      "complexity": {
+        "time": "O(A) attempts",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/retry-jitter",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/safe-get": {
+      "name": "safe-get",
+      "category": "app",
+      "description": "Safely reads a nested property from an object using dot/bracket-like path segments.",
+      "dependencies": [],
+      "aiPromptContext": "Use when reading deep object fields from APIs where optional data may be missing.",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "object",
+          "required": true,
+          "description": "Target object."
+        },
+        {
+          "name": "path",
+          "type": "string | string[]",
+          "required": true,
+          "description": "Path segments."
+        },
+        {
+          "name": "fallback",
+          "type": "any",
+          "default": null,
+          "description": "Returned if path is missing."
+        }
+      ],
+      "tags": [
+        "object",
+        "safe-access"
+      ],
+      "useCases": [
+        "API response parsing",
+        "Optional nested config reads"
+      ],
+      "complexity": {
+        "time": "O(P) where P is path segment count",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/safe-get",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/safe-json-response": {
+      "name": "safe-json-response",
+      "category": "app",
+      "description": "Reads Response-like JSON with typed fallback on parse failures.",
+      "dependencies": [],
+      "aiPromptContext": "Use when integrating unreliable HTTP APIs returning invalid JSON bodies.",
+      "parameters": [
+        {
+          "name": "response",
+          "type": "{ text: () => Promise<string> }",
+          "required": true,
+          "description": "Response-like object."
+        },
+        {
+          "name": "fallback",
+          "type": "any",
+          "default": "{}",
+          "description": "Fallback value."
+        }
+      ],
+      "tags": [
+        "web",
+        "json"
+      ],
+      "useCases": [
+        "Defensive API clients",
+        "Fault-tolerant integrations"
+      ],
+      "complexity": {
+        "time": "O(N) body length",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/safe-json-response",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/safe-set": {
+      "name": "safe-set",
+      "category": "app",
+      "description": "Sets a nested property safely, creating intermediate objects when needed.",
+      "dependencies": [],
+      "aiPromptContext": "Use for mutation of nested config/state without repetitive null checks.",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "object",
+          "required": true,
+          "description": "Target object."
+        },
+        {
+          "name": "path",
+          "type": "string | string[]",
+          "required": true,
+          "description": "Path segments."
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "required": true,
+          "description": "Value to set."
+        }
+      ],
+      "tags": [
+        "object",
+        "mutation"
+      ],
+      "useCases": [
+        "Building nested payloads",
+        "State updates"
+      ],
+      "complexity": {
+        "time": "O(P) where P is path segment count",
+        "space": "O(P) intermediate objects in worst case"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/safe-set",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/sort-by": {
+      "name": "sort-by",
+      "category": "app",
+      "description": "Sorts array copy by selector value in ascending order.",
+      "dependencies": [],
+      "aiPromptContext": "Use deterministic sorting for UI lists and export routines.",
+      "parameters": [
+        {
+          "name": "items",
+          "type": "any[]",
+          "required": true,
+          "description": "Items list."
+        },
+        {
+          "name": "selector",
+          "type": "(item) => string | number",
+          "required": true,
+          "description": "Sort value selector."
+        }
+      ],
+      "tags": [
+        "array",
+        "sorting"
+      ],
+      "useCases": [
+        "UI ordering",
+        "Report exports"
+      ],
+      "complexity": {
+        "time": "O(N log N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/sort-by",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/strip-html": {
+      "name": "strip-html",
+      "category": "app",
+      "description": "Strips HTML tags from text for plain-text rendering.",
+      "dependencies": [],
+      "aiPromptContext": "Use for previews and safe text extraction from rich HTML content.",
+      "parameters": [
+        {
+          "name": "html",
+          "type": "string",
+          "required": true,
+          "description": "HTML input."
+        }
+      ],
+      "tags": [
+        "text",
+        "sanitization"
+      ],
+      "useCases": [
+        "Preview snippets",
+        "Search indexing"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/strip-html",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/to-camel-case": {
+      "name": "to-camel-case",
+      "category": "app",
+      "description": "Converts text into camelCase.",
+      "dependencies": [],
+      "aiPromptContext": "Use for schema/key conversion layers between systems.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "string",
+          "required": true,
+          "description": "Source text."
+        }
+      ],
+      "tags": [
+        "string",
+        "formatting"
+      ],
+      "useCases": [
+        "Key conversion",
+        "Code generation"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/to-camel-case",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/to-kebab-case": {
+      "name": "to-kebab-case",
+      "category": "app",
+      "description": "Converts text into kebab-case.",
+      "dependencies": [],
+      "aiPromptContext": "Use for URL slugs and API route naming.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "string",
+          "required": true,
+          "description": "Source text."
+        }
+      ],
+      "tags": [
+        "string",
+        "formatting"
+      ],
+      "useCases": [
+        "Slug generation",
+        "Route naming"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/to-kebab-case",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/to-snake-case": {
+      "name": "to-snake-case",
+      "category": "app",
+      "description": "Converts text into snake_case.",
+      "dependencies": [],
+      "aiPromptContext": "Use for SQL or legacy systems expecting snake_case keys.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "string",
+          "required": true,
+          "description": "Source text."
+        }
+      ],
+      "tags": [
+        "string",
+        "formatting"
+      ],
+      "useCases": [
+        "DB column mapping",
+        "Legacy API adaptation"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/to-snake-case",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/trim-indent": {
+      "name": "trim-indent",
+      "category": "app",
+      "description": "Trims common leading indentation from multiline strings.",
+      "dependencies": [],
+      "aiPromptContext": "Use for clean template literals and prompt generation.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Multiline text."
+        }
+      ],
+      "tags": [
+        "string",
+        "formatting"
+      ],
+      "useCases": [
+        "Prompt templates",
+        "Readable multiline literals"
+      ],
+      "complexity": {
+        "time": "O(L) lines",
+        "space": "O(L)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/trim-indent",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/truncate-middle": {
+      "name": "truncate-middle",
+      "category": "app",
+      "description": "Truncates long strings by preserving both head and tail segments.",
+      "dependencies": [],
+      "aiPromptContext": "Use for IDs/paths where suffix context is as important as prefix.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Input text."
+        },
+        {
+          "name": "maxLength",
+          "type": "number",
+          "required": true,
+          "description": "Maximum length."
+        }
+      ],
+      "tags": [
+        "string",
+        "display"
+      ],
+      "useCases": [
+        "UI path display",
+        "ID previews"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/truncate-middle",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/unique-by": {
+      "name": "unique-by",
+      "category": "app",
+      "description": "Returns unique items by a key selector, keeping first occurrence.",
+      "dependencies": [],
+      "aiPromptContext": "Use to deduplicate API or event data based on stable IDs.",
+      "parameters": [
+        {
+          "name": "items",
+          "type": "any[]",
+          "required": true,
+          "description": "Items list."
+        },
+        {
+          "name": "selector",
+          "type": "(item) => string",
+          "required": true,
+          "description": "Uniqueness key selector."
+        }
+      ],
+      "tags": [
+        "array",
+        "dedupe"
+      ],
+      "useCases": [
+        "Event dedupe",
+        "User list dedupe"
+      ],
+      "complexity": {
+        "time": "O(N)",
+        "space": "O(N)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/unique-by",
+      "files": [
+        "index.js"
+      ]
+    },
+    "app/with-timeout": {
+      "name": "with-timeout",
+      "category": "app",
+      "description": "Wraps a promise with timeout rejection.",
+      "dependencies": [],
+      "aiPromptContext": "Use to cap latency for unstable upstream calls.",
+      "parameters": [
+        {
+          "name": "promise",
+          "type": "Promise<any>",
+          "required": true,
+          "description": "Input promise."
+        },
+        {
+          "name": "ms",
+          "type": "number",
+          "required": true,
+          "description": "Timeout in milliseconds."
+        }
+      ],
+      "tags": [
+        "async",
+        "timeout"
+      ],
+      "useCases": [
+        "External API guard",
+        "Workflow SLA enforcement"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "compatibility": {
+        "browser": "✅ Supported",
+        "node": "✅ Supported",
+        "deno": "✅ Supported",
+        "bun": "✅ Supported"
+      },
+      "path": "blocks/app/with-timeout",
       "files": [
         "index.js"
       ]
@@ -4859,6 +6850,43 @@
         }
       ],
       "path": "blocks/web/rate-limiter-token-bucket",
+      "files": [
+        "index.js"
+      ]
+    },
+    "web/request-deduper": {
+      "name": "request-deduper",
+      "category": "web",
+      "description": "Deduplicates concurrent async requests by key and optionally caches results for a short TTL to reduce repeated network/API work.",
+      "dependencies": [],
+      "aiPromptContext": "Use this block when multiple code paths can trigger the same request at once (UI reloads, repeated API triggers, parallel workers). It prevents duplicate in-flight calls for a key and can cache resolved responses briefly.",
+      "parameters": [
+        {
+          "name": "options.ttlMs",
+          "type": "number",
+          "default": 0,
+          "description": "How long successful (and optionally failed) results are cached. 0 disables caching."
+        },
+        {
+          "name": "options.cacheErrors",
+          "type": "boolean",
+          "default": false,
+          "description": "When true, failed requests are cached for ttlMs and re-thrown until expiry."
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "required": true,
+          "description": "Deduplication key identifying equivalent requests."
+        },
+        {
+          "name": "producer",
+          "type": "() => Promise<T> | T",
+          "required": true,
+          "description": "Factory that executes the underlying async work."
+        }
+      ],
+      "path": "blocks/web/request-deduper",
       "files": [
         "index.js"
       ]

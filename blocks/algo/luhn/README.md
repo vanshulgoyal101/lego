@@ -25,6 +25,14 @@ npx lego-cli add algo/luhn
 | `value` | `string | number` | ⚠️ Yes | *-* | Number card validation sequence. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

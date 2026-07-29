@@ -25,6 +25,14 @@ npx lego-cli add algo/shunting-yard
 | `expression` | `string` | ⚠️ Yes | *-* | Infix mathematical expression string. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

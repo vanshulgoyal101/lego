@@ -22,6 +22,14 @@ npx lego-cli add db/sql-builder
 
 *None*
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

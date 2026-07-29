@@ -26,6 +26,14 @@ npx lego-cli add agent/memory-buffer
 | `tokenizer` | `function` | No | *-* | Function that takes a string and returns an estimated token count. Defaults to defaultTokenizer (Math.ceil(text.length / 4)). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

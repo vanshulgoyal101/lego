@@ -26,6 +26,14 @@ npx lego-cli add async/rate-limiter
 | `interval` | `number` | ⚠️ Yes | *-* | Time window in milliseconds. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

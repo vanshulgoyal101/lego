@@ -25,6 +25,14 @@ npx lego-cli add ds/circular-buffer
 | `capacity` | `number` | ⚠️ Yes | *-* | Fixed maximum size width buffer size. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

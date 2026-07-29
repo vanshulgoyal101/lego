@@ -27,6 +27,14 @@ npx lego-cli add utils/retry
 | `options.delay` | `number` | No | `1000` | Initial delay between retry attempts in milliseconds. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

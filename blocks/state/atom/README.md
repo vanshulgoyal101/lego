@@ -25,6 +25,14 @@ npx lego-cli add state/atom
 | `initialValue` | `any` | ⚠️ Yes | *-* | The initial value of the atom. |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility

@@ -26,6 +26,14 @@ npx lego-cli add utils/pick-omit
 | `keys` | `string[]` | ⚠️ Yes | *-* | Array of property keys to select (pick) or exclude (omit). |
 
 
+### Tags
+
+*None*
+
+### Use Cases
+
+*None*
+
 ---
 
 ## System Compatibility
