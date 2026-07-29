@@ -1,0 +1,28 @@
+{
+  "name": "routing-agent",
+  "category": "agent",
+  "description": "A routing agent that classifies user prompts and messages, directing them to specialized sub-agents, tools, or handlers using keyword matching, regex rules, custom scoring functions, or semantic vector comparison.",
+  "dependencies": [],
+  "aiPromptContext": "Use this block to build prompt classifiers, intent routers, or multi-agent orchestrator dispatchers in pure JavaScript.",
+  "parameters": [
+    {
+      "name": "options.defaultRoute",
+      "type": "string",
+      "required": false,
+      "description": "Fallback route when no strategy matches."
+    },
+    {
+      "name": "options.embedder",
+      "type": "(text: string) => Promise<number[]>",
+      "required": false,
+      "description": "Async embedding function used for semantic routing."
+    },
+    {
+      "name": "options.similarityThreshold",
+      "type": "number",
+      "default": 0.7,
+      "required": false,
+      "description": "Minimum cosine similarity required for semantic route selection."
+    }
+  ]
+}
